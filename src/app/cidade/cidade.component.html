@@ -1,37 +1,419 @@
-<section class="max-w-4xl mx-auto space-y-2" aria-labelledby="cidade-heading">
-  <div class="rounded-sm border-black border-2 bg-amber-50 p-2 shadow-default">
-    <div class="flex items-center gap-2">
-      <span
-        class="inline-flex items-center rounded-sm text-white font-bold px-1.5 py-1 text-xs bg-emerald-800 border-black border-2"
-      >
-        Fonte oficial
-      </span>
-      <span class="text-xs font-bold text-black"> IBGE: {{ codigoIbge() || '-------' }} </span>
+<section class="max-w-4xl mx-auto space-y-6" aria-labelledby="cidade-heading">
+  <!-- Estado de Carregamento -->
+  @if (!snapshot()) {
+    <div class="rounded-sm border-2 border-black bg-amber-50 p-6 shadow-default animate-pulse">
+      <div class="h-4 bg-slate-300 rounded w-1/4 mb-4"></div>
+      <div class="h-8 bg-slate-300 rounded w-1/2 mb-2"></div>
+      <div class="h-4 bg-slate-300 rounded w-3/4"></div>
     </div>
+  } @else {
+    <!-- SELETOR DINÂMICO & HERO DA CIDADE -->
+    <div class="rounded-sm border-2 border-black bg-amber-50 p-4 shadow-default">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            @if (snapshot()?.secoes?.cabecalho; as secaoCab) {
+              @if (secaoCab.status === 'oficial') {
+                <span class="badge-default badge-oficial">Fonte oficial</span>
+              } @else if (secaoCab.status === 'curado') {
+                <span
+                  class="inline-flex items-center rounded-sm text-black font-bold px-1.5 py-1 text-xs bg-amber-300 border-2 border-black"
+                >
+                  Curado
+                </span>
+              } @else {
+                <span
+                  class="inline-flex items-center rounded-sm text-white font-bold px-1.5 py-1 text-xs bg-rose-700 border-2 border-black"
+                >
+                  Pendente
+                </span>
+              }
+            }
+            <span class="text-xs font-bold text-black">
+              IBGE: {{ snapshot()?.municipio?.codigo_ibge }} · TSE:
+              {{ snapshot()?.municipio?.codigo_tse }}
+            </span>
+          </div>
 
-    <div class="mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-      <h1 id="cidade-heading" class="text-2xl font-bold text-black tracking-tight">
-        Campo Grande / MS
-      </h1>
-      <div class="flex items-center gap-2">
-        <label for="cidade-select" class="sr-only"> Selecionar Cidade </label>
-        <select
-          id="cidade-select"
-          class="rounded-sm border-2 border-black bg-white px-2.5 py-1 text-sm font-bold text-black shadow-default focus:outline-none focus:ring-2 focus:ring-black cursor-pointer"
-          [value]="codigoIbge() || '5002704'"
-          (change)="onCidadeChange($event)"
-        >
-          @for (cidade of cidades(); track cidade.codigo_ibge) {
-            <option [value]="cidade.codigo_ibge">{{ cidade.nome }} - {{ cidade.uf }}</option>
-          }
-        </select>
+          <h1
+            id="cidade-heading"
+            class="text-2xl sm:text-3xl font-extrabold text-black tracking-tight"
+          >
+            {{ snapshot()?.municipio?.nome }} / {{ snapshot()?.municipio?.uf }}
+          </h1>
+          <p class="text-xs text-slate-700 mt-1">
+            Snapshot oficial gerado em:
+            {{ snapshot()?.gerado_em | date: 'dd/MM/yyyy HH:mm' }} (schema
+            {{ snapshot()?.schema_version }})
+          </p>
+        </div>
+
+        <!-- Seletor de Cidades com Borda Preta Dinâmica -->
+        <div class="flex items-center gap-2 self-start sm:self-center">
+          <label for="cidade-select" class="sr-only">Selecionar Município</label>
+          <select
+            id="cidade-select"
+            class="rounded-sm border-2 border-black bg-white px-3 py-1.5 text-sm font-bold text-black shadow-default focus:outline-none focus:ring-2 focus:ring-black cursor-pointer"
+            [value]="codigoIbge() || '5002704'"
+            (change)="onCidadeChange($event)"
+          >
+            @for (cid of cidades(); track cid.codigo_ibge) {
+              <option [value]="cid.codigo_ibge">{{ cid.nome }} - {{ cid.uf }}</option>
+            }
+          </select>
+        </div>
       </div>
     </div>
 
-    <p class="text-sm text-black mt-2 leading-relaxed">
-      Página em construção com dados oficiais de representação política (TSE e Câmara dos Deputados)
-      e indicadores socioeconômicos (IBGE, INEP e SICONFI) para o município
-      {{ codigoIbge() || '5002704' }}.
-    </p>
-  </div>
+    <!-- BLOCO 1: CABEÇALHO DA CIDADE -->
+    @if (snapshot()?.secoes?.cabecalho; as secaoCab) {
+      <div class="rounded-sm border-2 border-black bg-white p-4 shadow-default space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b-2 border-black pb-2">
+          <h2 class="text-lg font-black uppercase text-black tracking-wide">
+            {{ secaoCab.titulo }}
+          </h2>
+          <!-- Selo de Proveniência Condicionado ao Status -->
+          <div class="flex items-center gap-2 text-xs">
+            @if (secaoCab.status === 'oficial') {
+              <span class="badge-default badge-oficial">oficial</span>
+              <span class="text-slate-700 font-medium">
+                @if (getFonte(secaoCab.fonte); as fonte) {
+                  <a
+                    [href]="fonte.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="underline hover:text-black font-semibold"
+                  >
+                    {{ fonte.orgao }} · {{ fonte.titulo }}
+                  </a>
+                } @else {
+                  {{ secaoCab.fonte }}
+                }
+                · {{ secaoCab.ano }}
+              </span>
+            } @else if (secaoCab.status === 'curado') {
+              <span
+                class="inline-flex items-center rounded-sm text-black font-bold px-1.5 py-0.5 text-xs bg-amber-300 border-2 border-black"
+              >
+                curado
+              </span>
+              <span class="text-slate-600 font-medium">Fonte curada — validação pendente</span>
+            } @else {
+              <span
+                class="inline-flex items-center rounded-sm text-white font-bold px-1.5 py-0.5 text-xs bg-rose-700 border-2 border-black"
+              >
+                pendente
+              </span>
+            }
+          </div>
+        </div>
+
+        @if (secaoCab.status === 'pendente') {
+          <div
+            class="rounded-sm border-2 border-black bg-rose-50 p-3 text-sm text-rose-900 font-medium"
+          >
+            <strong>Dado pendente:</strong> {{ secaoCab.motivo || 'Em fase de coleta oficial.' }}
+          </div>
+        } @else if (secaoCab.dados; as dadosCab) {
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+            <div class="p-3 bg-amber-50 rounded-sm border-2 border-black">
+              <span class="block text-xs font-bold text-slate-700 uppercase">Município</span>
+              <span class="text-lg font-black text-black">{{ dadosCab.nome }}</span>
+            </div>
+            <div class="p-3 bg-amber-50 rounded-sm border-2 border-black">
+              <span class="block text-xs font-bold text-slate-700 uppercase">Estado</span>
+              <span class="text-lg font-black text-black">{{ dadosCab.uf }}</span>
+            </div>
+            <div class="p-3 bg-amber-50 rounded-sm border-2 border-black">
+              <span class="block text-xs font-bold text-slate-700 uppercase"
+                >População Censo 2022</span
+              >
+              <span class="text-lg font-black text-black"
+                >{{ formatarNumero(dadosCab.populacao) }} hab.</span
+              >
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- BLOCO 2: RESUMO DO MUNICÍPIO (IBGE & INDICADORES) -->
+    @if (snapshot()?.secoes?.resumo_ibge_censo; as secaoIbge) {
+      <div class="rounded-sm border-2 border-black bg-white p-4 shadow-default space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b-2 border-black pb-2">
+          <h2 class="text-lg font-black uppercase text-black tracking-wide">
+            {{ secaoIbge.titulo }}
+          </h2>
+          <!-- Selo de Proveniência -->
+          <div class="flex items-center gap-2 text-xs">
+            @if (secaoIbge.status === 'oficial') {
+              <span class="badge-default badge-oficial">oficial</span>
+              <span class="text-slate-700 font-medium">
+                @if (getFonte(secaoIbge.fonte); as fonte) {
+                  <a
+                    [href]="fonte.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="underline hover:text-black font-semibold"
+                  >
+                    {{ fonte.orgao }} · {{ fonte.titulo }}
+                  </a>
+                } @else {
+                  {{ secaoIbge.fonte }}
+                }
+                · {{ secaoIbge.ano }}
+              </span>
+            } @else {
+              <span
+                class="inline-flex items-center rounded-sm text-white font-bold px-1.5 py-0.5 text-xs bg-rose-700 border-2 border-black"
+              >
+                pendente
+              </span>
+            }
+          </div>
+        </div>
+
+        @if (secaoIbge.status === 'pendente') {
+          <div
+            class="rounded-sm border-2 border-black bg-rose-50 p-3 text-sm text-rose-900 font-medium"
+          >
+            <strong>Dado pendente:</strong> {{ secaoIbge.motivo || 'Em fase de coleta oficial.' }}
+          </div>
+        } @else if (secaoIbge.dados; as dadosIbge) {
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="p-3 bg-slate-50 rounded-sm border-2 border-black">
+              <span class="block text-xs font-bold text-slate-600 uppercase">Renda Média p/c</span>
+              <span class="text-base font-black text-black">{{
+                formatarMoeda(dadosIbge.renda_media_pc)
+              }}</span>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-sm border-2 border-black">
+              <span class="block text-xs font-bold text-slate-600 uppercase"
+                >Renda Mediana p/c</span
+              >
+              <span class="text-base font-black text-black">{{
+                formatarMoeda(dadosIbge.renda_mediana_pc)
+              }}</span>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-sm border-2 border-black">
+              <span class="block text-xs font-bold text-slate-600 uppercase"
+                >Taxa de Urbanização</span
+              >
+              <span class="text-base font-black text-black">{{
+                formatarPct(dadosIbge.pct_urbana)
+              }}</span>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-sm border-2 border-black">
+              <span class="block text-xs font-bold text-slate-600 uppercase">População Total</span>
+              <span class="text-base font-black text-black">{{
+                formatarNumero(dadosIbge.populacao)
+              }}</span>
+            </div>
+          </div>
+
+          <!-- Composição Cor e Raça -->
+          @if (dadosIbge.cor_raca_pct) {
+            <div class="p-3 bg-amber-50 rounded-sm border-2 border-black">
+              <span class="block text-xs font-bold text-black uppercase mb-1"
+                >Distribuição Étnico-Racial (Censo 2022)</span
+              >
+              <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-800 font-semibold">
+                @for (item of dadosIbge.cor_raca_pct | keyvalue; track item.key) {
+                  <span
+                    >{{ item.key }}:
+                    <strong class="text-black">{{ formatarPct(item.value) }}</strong></span
+                  >
+                }
+              </div>
+            </div>
+          }
+        }
+      </div>
+    }
+
+    <!-- BLOCO 3: DEPUTADOS FEDERAIS (MS) — LISTA ÚNICA ORDENADA POR EM_EXERCÍCIO -->
+    @if (snapshot()?.secoes?.deputados_federais; as secaoDep) {
+      <div class="rounded-sm border-2 border-black bg-white p-4 shadow-default space-y-4">
+        <div class="flex flex-col gap-2 border-b-2 border-black pb-2">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-lg font-black uppercase text-black tracking-wide">
+              {{ secaoDep.titulo }}
+            </h2>
+            <div class="flex items-center gap-2 text-xs">
+              <span class="badge-default badge-oficial">oficial</span>
+              <span class="text-slate-700 font-medium">
+                @if (getFonte(secaoDep.fonte); as fonte) {
+                  <a
+                    [href]="fonte.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="underline hover:text-black font-semibold"
+                  >
+                    {{ fonte.orgao }} · {{ fonte.titulo }}
+                  </a>
+                } @else {
+                  {{ secaoDep.fonte }}
+                }
+                · {{ secaoDep.ano }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Metadados da Lista Única (Mandato + Base Percentual) -->
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+            @if (secaoDep.mandato) {
+              <span
+                class="font-bold text-blue-800 bg-blue-50 px-2 py-0.5 rounded-sm border border-blue-300"
+              >
+                Mandato: {{ secaoDep.mandato }}
+              </span>
+            }
+            @if (secaoDep.pct_base) {
+              <span class="text-slate-600 font-medium">
+                Base do %: <strong class="text-slate-900">{{ secaoDep.pct_base }}</strong>
+              </span>
+            }
+          </div>
+        </div>
+
+        @if (secaoDep.status === 'pendente') {
+          <div
+            class="rounded-sm border-2 border-black bg-rose-50 p-3 text-sm text-rose-900 font-medium"
+          >
+            <strong>Dado pendente:</strong> {{ secaoDep.motivo || 'Em fase de apuração oficial.' }}
+          </div>
+        } @else {
+          <!-- TABELA RESPONSIVA DE DEPUTADOS FEDERAIS -->
+          <div class="overflow-x-auto border-2 border-black rounded-sm">
+            <table class="w-full border-collapse text-left text-xs">
+              <thead class="bg-slate-100 text-black border-b-2 border-black">
+                <tr>
+                  <th class="p-2 font-black uppercase tracking-wider">Nome de Urna</th>
+                  <th class="p-2 font-black uppercase tracking-wider">Partido</th>
+                  <th class="p-2 font-black uppercase tracking-wider text-right">Votos 2026</th>
+                  <th class="p-2 font-black uppercase tracking-wider text-right">% Nominais</th>
+                  <th class="p-2 font-black uppercase tracking-wider text-center">Em Exercício</th>
+                  <th class="p-2 font-black uppercase tracking-wider text-center">
+                    Fim do Mandato
+                  </th>
+                  <th class="p-2 font-black uppercase tracking-wider">Status 2026</th>
+                  <th class="p-2 font-black uppercase tracking-wider">Situação</th>
+                  <th class="p-2 font-black uppercase tracking-wider text-right">
+                    Votos Mandato (Câmara)
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200">
+                @for (dep of deputadosOrdenados(); track dep.nome) {
+                  <tr
+                    class="hover:bg-amber-50/60 transition-colors"
+                    [class.bg-emerald-50/30]="dep.em_exercicio"
+                  >
+                    <!-- Nome -->
+                    <td class="p-2 font-bold text-black whitespace-nowrap">
+                      {{ dep.nome_urna }}
+                    </td>
+                    <!-- Partido -->
+                    <td class="p-2 font-extrabold text-black">
+                      <span
+                        class="px-1.5 py-0.5 rounded-sm bg-slate-200 border border-black text-[11px]"
+                      >
+                        {{ dep.partido }}
+                      </span>
+                    </td>
+                    <!-- Votos -->
+                    <td class="p-2 text-right font-black text-black tabular-nums">
+                      {{ formatarNumero(dep.votos) }}
+                    </td>
+                    <!-- % -->
+                    <td class="p-2 text-right font-bold text-slate-800 tabular-nums">
+                      {{ formatarPct(dep.pct) }}
+                    </td>
+                    <!-- Em Exercício -->
+                    <td class="p-2 text-center">
+                      @if (dep.em_exercicio) {
+                        <span
+                          class="inline-flex items-center px-1.5 py-0.5 rounded-sm text-[10px] font-black bg-emerald-700 text-white border border-black"
+                        >
+                          SIM
+                        </span>
+                      } @else {
+                        <span
+                          class="inline-flex items-center px-1.5 py-0.5 rounded-sm text-[10px] font-bold bg-slate-200 text-slate-700 border border-slate-400"
+                        >
+                          NÃO
+                        </span>
+                      }
+                    </td>
+                    <!-- Fim do Mandato (Flag Solicitada) -->
+                    <td class="p-2 text-center font-bold text-black whitespace-nowrap tabular-nums">
+                      {{ formatarDataIso(dep.mandato_fim) }}
+                    </td>
+                    <!-- Status Eleição 2026 -->
+                    <td class="p-2 whitespace-nowrap">
+                      @if (dep.status_eleicao_2026 === 'reeleito') {
+                        <span
+                          class="px-1.5 py-0.5 rounded-sm text-[10px] font-bold bg-blue-100 text-blue-900 border border-blue-300"
+                        >
+                          Reeleito
+                        </span>
+                      } @else if (dep.status_eleicao_2026 === 'eleito') {
+                        <span
+                          class="px-1.5 py-0.5 rounded-sm text-[10px] font-bold bg-emerald-100 text-emerald-900 border border-emerald-300"
+                        >
+                          Eleito novo
+                        </span>
+                      } @else if (dep.status_eleicao_2026 === 'nao_reeleito') {
+                        <span
+                          class="px-1.5 py-0.5 rounded-sm text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-300"
+                        >
+                          Não reeleito
+                        </span>
+                      } @else {
+                        <span class="text-slate-600 font-medium">{{
+                          dep.status_eleicao_2026
+                        }}</span>
+                      }
+                    </td>
+                    <!-- Situação -->
+                    <td class="p-2 text-slate-700 font-semibold text-[11px] whitespace-nowrap">
+                      {{ dep.situacao || '—' }}
+                    </td>
+                    <!-- Histórico Votos Mandato (Câmara API) -->
+                    <td class="p-2 text-right font-bold text-slate-900 tabular-nums">
+                      @if (
+                        dep.votos_nominais_mandato_atual !== null &&
+                        dep.votos_nominais_mandato_atual !== undefined
+                      ) {
+                        <span>{{ formatarNumero(dep.votos_nominais_mandato_atual) }}</span>
+                      } @else {
+                        <span
+                          class="text-slate-400 font-normal"
+                          title="{{ dep.motivo_sem_votos || 'Sem registro anterior' }}"
+                          >—</span
+                        >
+                      }
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- BLOCO "COMO CALCULAMOS" (FR-14) -->
+    <div class="rounded-sm border-2 border-black bg-slate-50 p-4 shadow-default">
+      <h3 class="text-sm font-black uppercase text-black tracking-wide mb-2">Como Calculamos</h3>
+      <p class="text-xs text-slate-700 leading-relaxed">
+        Indicadores socioeconômicos são compilados diretamente do <strong>IBGE</strong>,
+        <strong>INEP</strong> e <strong>SICONFI</strong>. Resultados eleitorais provêm dos arquivos
+        abertos oficiais do <strong>TSE</strong>. Histórico de votações de mandatos federais é
+        extraído da API oficial da <strong>Câmara dos Deputados</strong>. Percentuais proporcionais
+        utilizam como base os votos nominais totais do cargo. Não efetuamos nenhuma projeção,
+        alinhamento partidário ou pontuação opinativa.
+      </p>
+    </div>
+  }
 </section>
