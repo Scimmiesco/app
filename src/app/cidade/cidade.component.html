@@ -1,19 +1,34 @@
-<section class="max-w-3xl mx-auto space-y-4" aria-labelledby="cidade-heading">
-  <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-    <div class="flex items-center gap-2 mb-3">
+<section class="max-w-4xl mx-auto space-y-2" aria-labelledby="cidade-heading">
+  <div class="rounded-sm border-black border-2 bg-amber-50 p-2 shadow-default">
+    <div class="flex items-center gap-2">
       <span
-        class="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 border border-emerald-200"
+        class="inline-flex items-center rounded-sm text-white font-bold px-1.5 py-1 text-xs bg-emerald-800 border-black border-2"
       >
         Fonte oficial
       </span>
-      <span class="text-xs font-medium text-slate-500">
-        IBGE: {{ codigoIbge() || '5002704' }}
-      </span>
+      <span class="text-xs font-bold text-black"> IBGE: {{ codigoIbge() || '-------' }} </span>
     </div>
-    <h1 id="cidade-heading" class="text-2xl font-bold text-slate-900 tracking-tight">
-      Painel Municipal: Campo Grande / MS
-    </h1>
-    <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+
+    <div class="mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+      <h1 id="cidade-heading" class="text-2xl font-bold text-black tracking-tight">
+        Campo Grande / MS
+      </h1>
+      <div class="flex items-center gap-2">
+        <label for="cidade-select" class="sr-only"> Selecionar Cidade </label>
+        <select
+          id="cidade-select"
+          class="rounded-sm border-2 border-black bg-white px-2.5 py-1 text-sm font-bold text-black shadow-default focus:outline-none focus:ring-2 focus:ring-black cursor-pointer"
+          [value]="codigoIbge() || '5002704'"
+          (change)="onCidadeChange($event)"
+        >
+          @for (cidade of cidades(); track cidade.codigo_ibge) {
+            <option [value]="cidade.codigo_ibge">{{ cidade.nome }} - {{ cidade.uf }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <p class="text-sm text-black mt-2 leading-relaxed">
       Página em construção com dados oficiais de representação política (TSE e Câmara dos Deputados)
       e indicadores socioeconômicos (IBGE, INEP e SICONFI) para o município
       {{ codigoIbge() || '5002704' }}.
