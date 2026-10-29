@@ -2,31 +2,9 @@ import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-cidade',
-  standalone: true,
-  template: `
-    <section class="max-w-3xl mx-auto space-y-4" aria-labelledby="cidade-heading">
-      <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-        <div class="flex items-center gap-2 mb-3">
-          <span
-            class="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 border border-emerald-200"
-          >
-            Fonte oficial
-          </span>
-          <span class="text-xs font-medium text-slate-500">
-            IBGE: {{ codigoIbge() || '5002704' }}
-          </span>
-        </div>
-        <h1 id="cidade-heading" class="text-2xl font-bold text-slate-900 tracking-tight">
-          Painel Municipal: Campo Grande / MS
-        </h1>
-        <p class="text-sm text-slate-600 mt-2 leading-relaxed">
-          Página em construção com dados oficiais de representação política (TSE e Câmara dos
-          Deputados) e indicadores socioeconômicos (IBGE, INEP e SICONFI) para o município
-          {{ codigoIbge() || '5002704' }}.
-        </p>
-      </div>
-    </section>
-  `,
+  imports: [],
+  templateUrl: './cidade.component.html',
+  styleUrl: './cidade.component.css',
 })
 export class CidadeComponent {
   readonly codigoIbge = input<string>('5002704');
