@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "uf": "MS",
+    "gerado_em": "2026-10-29T16:15:56-0400",
+    "fonte": {
+      "url": "https://legis.senado.leg.br/dadosabertos/senador/lista/atual.json?uf=MS",
+      "versao_api": "29/10/2026 17:10:48",
+      "sha256": "5d37452fabc73e1a8a1854783672e64714c10c3c3e92a951d22c5fe36e8cc61d",
+      "bytes": 4862
+    },
+    "registros": 3
+  },
+  "senadores": [
+    {
+      "nome": "Nelsinho Trad",
+      "nome_completo": "Nelson Trad Filho",
+      "partido": "PSD",
+      "codigo_parlamentar": "5985",
+      "uf": "MS",
+      "em_exercicio": true,
+      "mandato_inicio": "2019-02-01",
+      "mandato_fim": "2027-01-31",
+      "url_perfil": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5985",
+      "fonte": "senado_api"
+    },
+    {
+      "nome": "Soraya Thronicke",
+      "nome_completo": "Soraya Vieira Thronicke",
+      "partido": "PSB",
+      "codigo_parlamentar": "5988",
+      "uf": "MS",
+      "em_exercicio": true,
+      "mandato_inicio": "2019-02-01",
+      "mandato_fim": "2027-01-31",
+      "url_perfil": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5988",
+      "fonte": "senado_api"
+    },
+    {
+      "nome": "Tereza Cristina",
+      "nome_completo": "Tereza Cristina Correa da Costa Dias",
+      "partido": "PP",
+      "codigo_parlamentar": "5736",
+      "uf": "MS",
+      "em_exercicio": true,
+      "mandato_inicio": "2023-02-01",
+      "mandato_fim": "2031-01-31",
+      "url_perfil": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5736",
+      "fonte": "senado_api"
+    }
+  ]
+}

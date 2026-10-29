@@ -1,0 +1,138 @@
+export type StatusDado = 'oficial' | 'curado' | 'pendente';
+
+export interface FonteMeta {
+  orgao: string;
+  titulo: string;
+  url: string;
+  consultado_em: string;
+  confianca: StatusDado;
+}
+
+export interface MunicipioMeta {
+  codigo_ibge: number;
+  codigo_tse: string;
+  nome: string;
+  uf: string;
+}
+
+export interface SecaoEnvelope<T> {
+  titulo: string;
+  status: StatusDado;
+  fonte: string;
+  ano: number;
+  coletado_em: string;
+  motivo: string | null;
+  dados: T;
+  pct_base?: string;
+  mandato?: string;
+  nota?: string;
+}
+
+export interface PendenciaItem {
+  secao: string;
+  motivo: string;
+  previsto?: string;
+}
+
+export interface CabecalhoDados {
+  nome: string;
+  uf: string;
+  populacao: number;
+}
+
+export interface ResumoIbgeDados {
+  populacao: number;
+  renda_media_pc: number;
+  renda_mediana_pc: number;
+  pct_urbana: number;
+  cor_raca_pct: Record<string, number>;
+}
+
+export interface ResumoEconomiaDados {
+  pib_total: number;
+  pib_per_capita: number;
+}
+
+export interface ResumoEducacaoDados {
+  anos_iniciais: Record<string, number>;
+  anos_finais: Record<string, number>;
+}
+
+export interface ResumoFinancasDados {
+  receita_total: number;
+  transferencias_correntes: number;
+  iptu: number;
+  iss: number;
+  pct_transferencias_sobre_correntes: number;
+}
+
+export interface EleicaoPresidencialDados {
+  eleitores_aptos: number;
+  comparecimento_pct: number;
+  validos: number;
+  lula: number;
+  flavio: number;
+  outros: number;
+  pct_lula: number;
+  pct_flavio: number;
+  locais: number;
+  secoes: number;
+}
+
+export interface ParlamentarItem {
+  nome: string;
+  nome_urna: string;
+  partido: string;
+  votos?: number | null;
+  pct?: number | null;
+  situacao?: string | null;
+  em_exercicio: boolean;
+  mandato_inicio?: string;
+  mandato_fim: string;
+  status_eleicao_2026: 'reeleito' | 'eleito' | 'nao_reeleito' | 'em_exercicio' | string;
+  votos_nominais_mandato_atual?: number | null;
+  motivo_sem_votos?: string | null;
+  fonte?: string;
+  fonte_votos_mandato?: string;
+  url_perfil?: string;
+}
+
+export interface SecoesMunicipio {
+  cabecalho?: SecaoEnvelope<CabecalhoDados>;
+  resumo_ibge_censo?: SecaoEnvelope<ResumoIbgeDados>;
+  resumo_economia?: SecaoEnvelope<ResumoEconomiaDados>;
+  resumo_educacao?: SecaoEnvelope<ResumoEducacaoDados>;
+  resumo_financas?: SecaoEnvelope<ResumoFinancasDados>;
+  eleicao_2026_1t?: SecaoEnvelope<EleicaoPresidencialDados>;
+  governador?: SecaoEnvelope<ParlamentarItem[]>;
+  senadores?: SecaoEnvelope<ParlamentarItem[]>;
+  deputados_federais?: SecaoEnvelope<ParlamentarItem[]>;
+  deputados_estaduais?: SecaoEnvelope<ParlamentarItem[]>;
+  prefeito?: SecaoEnvelope<ParlamentarItem[]>;
+  vereadores?: SecaoEnvelope<ParlamentarItem[]>;
+  [key: string]: SecaoEnvelope<unknown> | undefined;
+}
+
+export interface MunicipioSnapshot {
+  schema_version: string;
+  gerado_em: string;
+  municipio: MunicipioMeta;
+  fontes: Record<string, FonteMeta>;
+  secoes: SecoesMunicipio;
+  pendencias: PendenciaItem[];
+}
+
+export interface CidadeItemIndice {
+  codigo_ibge: number;
+  codigo_tse: string;
+  nome: string;
+  uf: string;
+  arquivo: string;
+  disponivel: boolean;
+}
+
+export interface IndiceCidades {
+  schema_version: string;
+  gerado_em: string;
+  cidades: CidadeItemIndice[];
+}

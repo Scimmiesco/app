@@ -1,0 +1,3755 @@
+{
+  "meta": {
+    "ano": 2026,
+    "uf": "MS",
+    "municipio": null,
+    "gerado_em": "2026-10-29T14:48:32-0400",
+    "fonte": {
+      "votacao": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_2026.zip",
+      "candidatos": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip"
+    },
+    "registros_candidatos": 425,
+    "total_votos_filtrados": 6679269,
+    "duracao_s": 20.1
+  },
+  "por_cargo": {
+    "DEPUTADO FEDERAL": [
+      {
+        "nome": "CAMILA BAZACHI JARA MARZOCHI",
+        "nome_urna": "CAMILA JARA",
+        "partido": "PT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 154157,
+        "pct": 11.27,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "MARCOS SBOROWSKI POLLON",
+        "nome_urna": "MARCOS POLLON",
+        "partido": "PL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 140129,
+        "pct": 10.24,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "ROSIANE MODESTO DE OLIVEIRA",
+        "nome_urna": "ROSE MODESTO",
+        "partido": "UNIÃO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 124409,
+        "pct": 9.09,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "MARA ELISA NAVACCHI CASEIRO",
+        "nome_urna": "MARA CASEIRO",
+        "partido": "PL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 120199,
+        "pct": 8.79,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "RODOLFO OLIVEIRA NOGUEIRA",
+        "nome_urna": "RODOLFO NOGUEIRA",
+        "partido": "PL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 103303,
+        "pct": 7.55,
+        "situacao": "ELEITO POR MÉDIA",
+        "eleito": true
+      },
+      {
+        "nome": "HUMBERTO REZENDE PEREIRA",
+        "nome_urna": "BETO PEREIRA",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 77485,
+        "pct": 5.66,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "ISA JANE MARCONDES NANTES",
+        "nome_urna": "ISA MARCONDES",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 76956,
+        "pct": 5.63,
+        "situacao": "ELEITO POR MÉDIA",
+        "eleito": true
+      },
+      {
+        "nome": "DAGOBERTO NOGUEIRA FILHO",
+        "nome_urna": "DAGOBERTO NOGUEIRA",
+        "partido": "PP",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 56217,
+        "pct": 4.11,
+        "situacao": "ELEITO POR MÉDIA",
+        "eleito": true
+      },
+      {
+        "nome": "JAIME ELIAS VERRUCK",
+        "nome_urna": "JAIME VERRUCK",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 49585,
+        "pct": 3.62,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "VIVIANE LUIZA DA SILVA",
+        "nome_urna": "VIVIANE LUIZA",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 45083,
+        "pct": 3.3,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "CASSIANE VIEIRA DOS SANTOS",
+        "nome_urna": "CASSY MONTEIRO",
+        "partido": "PL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 44865,
+        "pct": 3.28,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "LUIZ ALBERTO OVANDO",
+        "nome_urna": "DR. LUIZ OVANDO",
+        "partido": "PP",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 34679,
+        "pct": 2.54,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "GERALDO RESENDE PEREIRA",
+        "nome_urna": "GERALDO RESENDE",
+        "partido": "UNIÃO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 31714,
+        "pct": 2.32,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "MARCOS MARCELLO TRAD",
+        "nome_urna": "MARQUINHOS TRAD",
+        "partido": "PV",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 31382,
+        "pct": 2.29,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "APARECIDO CARLOS BERNARDO",
+        "nome_urna": "CARLOS BERNARDO",
+        "partido": "UNIÃO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 21099,
+        "pct": 1.54,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ELIAS ISHY DE MATTOS",
+        "nome_urna": "ELIAS ISHY",
+        "partido": "PT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 18045,
+        "pct": 1.32,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ROBERTO HASHIOKA SOLER",
+        "nome_urna": "ROBERTO HASHIOKA",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 17490,
+        "pct": 1.28,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JUARI LOPES PINTO",
+        "nome_urna": "PROFESSOR JUARI",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 17388,
+        "pct": 1.27,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LUANA RUIZ SILVA",
+        "nome_urna": "LUANA RUIZ",
+        "partido": "PL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 16400,
+        "pct": 1.2,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JOSÉ CLARO DOS SANTOS NETO",
+        "nome_urna": "NETO SANTOS",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 13248,
+        "pct": 0.97,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "BEATRIZ ROSALIA RIBEIRO CAVASSA DE OLIVEIRA",
+        "nome_urna": "BIA CAVASSA",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 13192,
+        "pct": 0.96,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "PAULO CARLOS VERON DA MOTTA",
+        "nome_urna": "DR. PAULO VERON",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 11316,
+        "pct": 0.83,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ELIEL BENITES",
+        "nome_urna": "ELIEL KAIOWÁ",
+        "partido": "PT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 11024,
+        "pct": 0.81,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ANDRÉ MATSUSHITA GONCALVES",
+        "nome_urna": "DELEGADO ANDRÉ MATSUSHITA",
+        "partido": "PP",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 10263,
+        "pct": 0.75,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "VICTOR ROCHA PIRES DE OLIVEIRA",
+        "nome_urna": "DR. VICTOR ROCHA",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 8597,
+        "pct": 0.63,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ANDRE DE ARRUDA CAMPOS",
+        "nome_urna": "ANDRÉ CAMPOS",
+        "partido": "PL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 8054,
+        "pct": 0.59,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "EDSON GIROTO",
+        "nome_urna": "GIROTO",
+        "partido": "PL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 7790,
+        "pct": 0.57,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "SANDRO OMAR DE OLIVEIRA SANTOS",
+        "nome_urna": "SANDRO DO VANDER",
+        "partido": "PT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 7156,
+        "pct": 0.52,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "KELIANA FERNANDES MANGUEIRAS",
+        "nome_urna": "KELIANA FERNANDES",
+        "partido": "PP",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 5460,
+        "pct": 0.4,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "GISELLE MARQUES",
+        "nome_urna": "GISELLE MARQUES",
+        "partido": "PT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 5305,
+        "pct": 0.39,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ISAIAS FERREIRA BITTENCOURT",
+        "nome_urna": "CORONEL BITTENCOURT",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 5057,
+        "pct": 0.37,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "APARECIDO ANDRADE PORTELA",
+        "nome_urna": "TENENTE PORTELA",
+        "partido": "PL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 4642,
+        "pct": 0.34,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "SIRLENE DOS SANTOS PEREIRA",
+        "nome_urna": "SIRLENE DOS SANTOS",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 3919,
+        "pct": 0.29,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "WELLISON MUCHIUTTI HERNANDES",
+        "nome_urna": "WELLISON MUCHIUTTI",
+        "partido": "MDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 3812,
+        "pct": 0.28,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ALAN AQUINO GUEDES DE MENDONCA",
+        "nome_urna": "ALAN GUEDES",
+        "partido": "PP",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 3514,
+        "pct": 0.26,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "CLEDIANE ARECO MATZENBACHER",
+        "nome_urna": "DRA. CLEDIANE",
+        "partido": "PP",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 2975,
+        "pct": 0.22,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "WESLEY ALEXANDRE DIAS",
+        "nome_urna": "WESLEY DIAS",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 2930,
+        "pct": 0.21,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "MATEUS SOARES DOS SANTOS DE QUADROS",
+        "nome_urna": "MATEUS QUADROS",
+        "partido": "MISSÃO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 2382,
+        "pct": 0.17,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "RODRIGO CORREA DO COUTO",
+        "nome_urna": "RODRIGO CORREA",
+        "partido": "MISSÃO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 2318,
+        "pct": 0.17,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LUCINETE CORDEIRO DA SILVA NASCIMENTO",
+        "nome_urna": "NANAH CORDEIRO",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 2237,
+        "pct": 0.16,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "LUIZ ORCIRIO FIALHO DE OLIVEIRA",
+        "nome_urna": "LUIZ ORCIRIO FIGUEIRÓ",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 2076,
+        "pct": 0.15,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "DOMICIO CORDEIRO CHAVANTE FILHO",
+        "nome_urna": "DOMICIO JUNIOR",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 2069,
+        "pct": 0.15,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "DHARLENG CAMPOS DE OLIVEIRA",
+        "nome_urna": "DHARLENG CAMPOS",
+        "partido": "MDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1825,
+        "pct": 0.13,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ROBERTO MATEUS DE OLIVEIRA GALVAO",
+        "nome_urna": "ROBERTO MATEUS",
+        "partido": "PCDOB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1771,
+        "pct": 0.13,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "RICARDO FAVARO JUNIOR",
+        "nome_urna": "RICARDINHO FÁVARO",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1560,
+        "pct": 0.11,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "DANIEL VALDEZ GODOY",
+        "nome_urna": "PUKA VALDEZ",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1533,
+        "pct": 0.11,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "MAURICIO PICARELLI",
+        "nome_urna": "MAURICIO PICARELLI",
+        "partido": "PRD",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1475,
+        "pct": 0.11,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "GERMANO LIMA RODRIGUES CAIRES",
+        "nome_urna": "GERMANO CAIRES",
+        "partido": "MISSÃO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1382,
+        "pct": 0.1,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ARIANE CRISTINA PEREIRA TAVARES DA SILVA",
+        "nome_urna": "ARIANE TAVARES",
+        "partido": "MDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1380,
+        "pct": 0.1,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "CARLOS SANCHES ROLEDO",
+        "nome_urna": "CAPITÃO ROLEDO",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1342,
+        "pct": 0.1,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JAYSON DE SOUZA MORAIS",
+        "nome_urna": "TATO SOUZA",
+        "partido": "PDT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1327,
+        "pct": 0.1,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ANGELO ANTONIO MARCON",
+        "nome_urna": "ANGELO MARCON",
+        "partido": "PL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1270,
+        "pct": 0.09,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "SANDRO APARECIDO AZAMBUJA DE FREITAS",
+        "nome_urna": "SANDRO AZAMBUJA",
+        "partido": "MDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1225,
+        "pct": 0.09,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JEDER FABIANO DA SILVA BRUNO",
+        "nome_urna": "SARGENTO BRUNÃO",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1196,
+        "pct": 0.09,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "DELVANI BALBUENA SOBREIRA",
+        "nome_urna": "TUTY TUTY",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1184,
+        "pct": 0.09,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ROSENILDA PIRES DA SILVA",
+        "nome_urna": "ROSE PIRES",
+        "partido": "MDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1167,
+        "pct": 0.09,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JEFFERSON CARLO DOS SANTOS MARECO",
+        "nome_urna": "JEFFERSOM MARECCO",
+        "partido": "PDT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1165,
+        "pct": 0.09,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "NATALINO JOSE GONZAGA",
+        "nome_urna": "NATAL GONZAGA",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1142,
+        "pct": 0.08,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ANNA DA SILVA SARAVY",
+        "nome_urna": "ANA SARAVY",
+        "partido": "PV",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1129,
+        "pct": 0.08,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "EDUARDO FERRUFINO GUZMAN",
+        "nome_urna": "PROF. EDUARDO FERRUFINO",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1079,
+        "pct": 0.08,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LUCAS VENDITE MACEDO",
+        "nome_urna": "LUCAS VENDITE",
+        "partido": "MISSÃO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1075,
+        "pct": 0.08,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "MARIA VITORIA FREITAS DA CUNHA",
+        "nome_urna": "MAVI CUNHA",
+        "partido": "MISSÃO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1025,
+        "pct": 0.07,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "PRISCILA FERNANDES PINTO",
+        "nome_urna": "PRISCILA BOMBEIRA",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 1016,
+        "pct": 0.07,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ADAUTO ALVES SOUTO",
+        "nome_urna": "ADAUTO SOUTO",
+        "partido": "PDT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 974,
+        "pct": 0.07,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LUÍS ALBERTO MOTA",
+        "nome_urna": "SUBTENENTE MOTA",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 945,
+        "pct": 0.07,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "FABIO OLIVEIRA RODRIGUES",
+        "nome_urna": "FÁBIO RODRIGUES",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 908,
+        "pct": 0.07,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "KELLYANNE MARTINS SILVA",
+        "nome_urna": "KELLYANNE CORREA",
+        "partido": "MISSÃO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 863,
+        "pct": 0.06,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "RUI SPINOLA BARBOSA",
+        "nome_urna": "RUI SPINOLA",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 820,
+        "pct": 0.06,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "PAULO ROBERTO DA SILVA MASSETTI",
+        "nome_urna": "PAULO MASSETTI",
+        "partido": "MDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 815,
+        "pct": 0.06,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "GLEYCIELLI DE SOUZA NONATO",
+        "nome_urna": "GLEYCIELLI NONATO GUATÓ",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 749,
+        "pct": 0.05,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "VICTORIA ANDRADE PEIXOTO",
+        "nome_urna": "VICTORIA PEIXOTO",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 732,
+        "pct": 0.05,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "CHARLES DOS SANTOS GAMA",
+        "nome_urna": "CHARLES GAMA",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 727,
+        "pct": 0.05,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "MIRIAM NORONHA MOTA GIMENEZ",
+        "nome_urna": "MIRIAM GIMENEZ",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 711,
+        "pct": 0.05,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "VITOR MOREIRA DA SILVA",
+        "nome_urna": "VITINHO",
+        "partido": "MDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 662,
+        "pct": 0.05,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "MANOEL DO CARMO VITÓRIO",
+        "nome_urna": "MANOEL VITÓRIO",
+        "partido": "MDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 641,
+        "pct": 0.05,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "GERSON ALMADA GONZAGA",
+        "nome_urna": "SUB DR ALMADA",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 581,
+        "pct": 0.04,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "IVANISE MARIA ROTTA",
+        "nome_urna": "IVANISE ROTTA",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 576,
+        "pct": 0.04,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "GABRIEL ANASTÁCIO ROSSI",
+        "nome_urna": "GABRIEL ROSSI",
+        "partido": "MDB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 553,
+        "pct": 0.04,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "FRANCISCA BEVENUTO FERREIRA",
+        "nome_urna": "FRAN DA SAÚDE",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 534,
+        "pct": 0.04,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "AILTON CARLOS DA COSTA FIGUEIREDO",
+        "nome_urna": "AILTON FIGUEIREDO",
+        "partido": "PDT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 482,
+        "pct": 0.04,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ANISIO GUILHERME DA FONSECA",
+        "nome_urna": "PROF. ANISIO GUATÓ",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 480,
+        "pct": 0.04,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ANA CAROLINA MARINHO MOURÃO",
+        "nome_urna": "CAROL MOURÃO",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 454,
+        "pct": 0.03,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JARDELINO DE SOUZA",
+        "nome_urna": "JARDELINO BAHIA",
+        "partido": "PRD",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 451,
+        "pct": 0.03,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "RUBIA MARA LOPES VIEIRA",
+        "nome_urna": "PROFESSORA RÚBIA MARA",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 432,
+        "pct": 0.03,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ELEANDRA PACHUKI SERTÃO",
+        "nome_urna": "ELEANDRA PACHUKI",
+        "partido": "PRD",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 409,
+        "pct": 0.03,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JORGE CABRAL SILVA",
+        "nome_urna": "CABRAL",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 393,
+        "pct": 0.03,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "RHAUANE FARIA DOS SANTOS",
+        "nome_urna": "RHAUANE FARIA",
+        "partido": "PDT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 388,
+        "pct": 0.03,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "CLAUDIA DE SOUZA CURSINO SILVEIRA TELES",
+        "nome_urna": "CLAUDIA TELES",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 387,
+        "pct": 0.03,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "BRUNA RIQUELME MARQUES",
+        "nome_urna": "BRUNA RIQUELME",
+        "partido": "PDT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 349,
+        "pct": 0.03,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ELIANE DA SILVA",
+        "nome_urna": "LYA SANTOS",
+        "partido": "REDE",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 335,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JOELSON SEBASTIÃO BALEJO DE ARRUDA",
+        "nome_urna": "TENENTE BALEJO DE ARRUDA",
+        "partido": "DC",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 314,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "MARIA ISABELA OLIVEIRA SALDANHA",
+        "nome_urna": "MARIA ISABELA SALDANHA",
+        "partido": "DC",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 304,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "FATIMA PEREIRA DE SOUZA",
+        "nome_urna": "FÁTIMA SOUZA",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 296,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ADRIANO RODRIGUES DE LIMA",
+        "nome_urna": "ADRIANO LIMA",
+        "partido": "PRD",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 285,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "FLÁVIO NUNES DE ALMEIDA",
+        "nome_urna": "FLÁVIO NUNES",
+        "partido": "PDT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 263,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "DEYVID ALVES PESSUTI",
+        "nome_urna": "DEYVID PESSUTI",
+        "partido": "DC",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 261,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LUIS ALBERTO BRIZOLA OTERO",
+        "nome_urna": "LUIS BRIZOLA",
+        "partido": "PDT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 259,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "PAULO CESAR ALVES",
+        "nome_urna": "CESAR ALVES",
+        "partido": "PRD",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 241,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "FRANCISCO DE SA",
+        "nome_urna": "CHICO SÁ",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 238,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LUCIANE DE MATOS NANTES COSTADELE",
+        "nome_urna": "LUCIANE COSTADELE",
+        "partido": "DC",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 238,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "CRISTIANE ORTIZ ROSA DOS SANTOS",
+        "nome_urna": "CRIS ROSA",
+        "partido": "PCDOB",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 235,
+        "pct": 0.02,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JOÃO VITOR PIMENTEL NUNES",
+        "nome_urna": "JOÃO VITOR NUNES",
+        "partido": "REDE",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 196,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JURACI PEREIRA DA COSTA",
+        "nome_urna": "JURACI DA AROEIRA",
+        "partido": "DC",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 142,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ROSANE DE FÁTIMA BACH DA SILVA",
+        "nome_urna": "ROSANE BACH",
+        "partido": "PDT",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 122,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "RAPHAEL PEREZ SCAPULATEMPO FILHO",
+        "nome_urna": "RAPHAEL CADEIRANTE",
+        "partido": "DC",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 110,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LUCIANA DE OLIVEIRA VERA MENDONÇA",
+        "nome_urna": "LUCIANA MENDONÇA",
+        "partido": "PRD",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 100,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JUVENAL FERREIRA DA SILVA",
+        "nome_urna": "JUVENAL FERREIRA",
+        "partido": "PRD",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 97,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "CLAUDINEI FARIAS LEANDRO",
+        "nome_urna": "CLAUDIO",
+        "partido": "AGIR",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 93,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LUIZ FERNANDO MATCHUA",
+        "nome_urna": "LUIZ MATCHUA",
+        "partido": "PCO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 81,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JOSE LOPEZ DOS SANTOS SOBRINHO",
+        "nome_urna": "ZÉ LOPES",
+        "partido": "DC",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 79,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "RAMÃO ALMIRÃO LOPES DA SILVA",
+        "nome_urna": "RAMÃO LOPES",
+        "partido": "PCO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 75,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "REBECA DE JESUS COSTA",
+        "nome_urna": "REBECA COSTA",
+        "partido": "PRD",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 72,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LUIZ HENRIQUE CORREIA DE PÁDUA PEREIRA",
+        "nome_urna": "LUIZ PEREIRA",
+        "partido": "DC",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 69,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "SOPHIA DE SANTANA MOREIRA",
+        "nome_urna": "SOPHIA SANTANA",
+        "partido": "DC",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 57,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ROSANGELA BENITES",
+        "nome_urna": "ROSANGELA BENITES",
+        "partido": "PCO",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 57,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JURANDIR ALVES MACHADO",
+        "nome_urna": "JURANDIR MACHADO",
+        "partido": "AGIR",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 53,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ANA CAROLINA AJALA RAMOS",
+        "nome_urna": "CAROL AJALA",
+        "partido": "AGIR",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 53,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LAHUANNY DE OLIVEIRA VENANCIO",
+        "nome_urna": "LAHUANNY OLIVEIRA",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 47,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "EDNA PAIXÃO RODRIGUES",
+        "nome_urna": "EDNA PAIXÃO",
+        "partido": "AGIR",
+        "cargo": "DEPUTADO FEDERAL",
+        "votos": 17,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      }
+    ],
+    "DEPUTADO ESTADUAL": [
+      {
+        "nome": "JOSÉ ROBERTO TEIXEIRA",
+        "nome_urna": "ZÉ TEIXEIRA",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 54080,
+        "pct": 4.04,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "PAULO JOSE ARAUJO CORREA",
+        "nome_urna": "PAULO CORRÊA",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 44541,
+        "pct": 3.32,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "PEDRO ARLEI CARAVINA",
+        "nome_urna": "CARAVINA",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 43845,
+        "pct": 3.27,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "JOSÉ ORCIRIO MIRANDA DOS SANTOS",
+        "nome_urna": "ZECA DO PT",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 42714,
+        "pct": 3.19,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "CARLOS ALBERTO DAVID DOS SANTOS",
+        "nome_urna": "CORONEL DAVID",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 41492,
+        "pct": 3.1,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "ANDRE PUCCINELLI",
+        "nome_urna": "ANDRÉ PUCCINELLI",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 40602,
+        "pct": 3.03,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "TIAGO RESENDE BOTELHO",
+        "nome_urna": "TIAGO BOTELHO",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 39387,
+        "pct": 2.94,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "ANGELO CHAVES GUERREIRO",
+        "nome_urna": "ÂNGELO GUERREIRO",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 37704,
+        "pct": 2.81,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "GIANNI DIAS AGUILLAR NOGUEIRA",
+        "nome_urna": "GIANNI NOGUEIRA",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 36108,
+        "pct": 2.69,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "ODILON FERRAZ ALVES RIBEIRO",
+        "nome_urna": "ODILON RIBEIRO",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 35905,
+        "pct": 2.68,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "GERSON CLARO DINO",
+        "nome_urna": "GERSON CLARO",
+        "partido": "PP",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 35767,
+        "pct": 2.67,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "JAMILSON LOPES NAME",
+        "nome_urna": "JAMILSON NAME",
+        "partido": "PP",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 35211,
+        "pct": 2.63,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LONDRES MACHADO",
+        "nome_urna": "LONDRES MACHADO",
+        "partido": "PP",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 33581,
+        "pct": 2.51,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "HELIO PELUFFO FILHO",
+        "nome_urna": "HELIO PELUFFO",
+        "partido": "PP",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 31435,
+        "pct": 2.35,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "DAVERSON MUNHOZ DE MATOS",
+        "nome_urna": "DAVERSON MATOS",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 30604,
+        "pct": 2.28,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "GLEICE JANE BARBOSA",
+        "nome_urna": "PROFESSORA GLEICE JANE",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 29844,
+        "pct": 2.23,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "ANDRE LUIS SANCHES SALINEIRO",
+        "nome_urna": "ANDRE SALINEIRO",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 28437,
+        "pct": 2.12,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "PEDRO CESAR KEMP GONÇALVES",
+        "nome_urna": "PEDRO KEMP",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 28397,
+        "pct": 2.12,
+        "situacao": "ELEITO POR MÉDIA",
+        "eleito": true
+      },
+      {
+        "nome": "LUIZ CARLOS CORREIA DE LIMA",
+        "nome_urna": "LUCAS DE LIMA DO AMOR SEM FIM",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 26204,
+        "pct": 1.96,
+        "situacao": "ELEITO POR MÉDIA",
+        "eleito": true
+      },
+      {
+        "nome": "LUIZA RIBEIRO GONÇALVES",
+        "nome_urna": "LUIZA RIBEIRO",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 25472,
+        "pct": 1.9,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "RINALDO MODESTO DE OLIVEIRA",
+        "nome_urna": "PROFESSOR RINALDO MODESTO",
+        "partido": "UNIÃO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 23763,
+        "pct": 1.77,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "OSWALDO MOCHI JUNIOR",
+        "nome_urna": "JUNIOR MOCHI",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 23721,
+        "pct": 1.77,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "MARCIO FERNANDES",
+        "nome_urna": "MARCIO FERNANDES",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 23122,
+        "pct": 1.73,
+        "situacao": "ELEITO POR MÉDIA",
+        "eleito": true
+      },
+      {
+        "nome": "MARCELO FERREIRA MIRANDA",
+        "nome_urna": "PROFESSOR MARCELO MIRANDA",
+        "partido": "PP",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 23112,
+        "pct": 1.72,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "RENATO PIERETTI CAMARA",
+        "nome_urna": "RENATO CÂMARA",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 20976,
+        "pct": 1.57,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "LIDIO NOGUEIRA LOPES",
+        "nome_urna": "LIDIO LOPES",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 20801,
+        "pct": 1.55,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "PAULO ROBERTO DUARTE",
+        "nome_urna": "PAULO DUARTE",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 20029,
+        "pct": 1.49,
+        "situacao": "ELEITO POR QP",
+        "eleito": true
+      },
+      {
+        "nome": "PEDRO PEDROSSIAN NETO",
+        "nome_urna": "PEDROSSIAN NETO",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 19516,
+        "pct": 1.46,
+        "situacao": "ELEITO POR MÉDIA",
+        "eleito": true
+      },
+      {
+        "nome": "ANTONIO VAZ NETO",
+        "nome_urna": "ANTONIO VAZ",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 19101,
+        "pct": 1.43,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "SILVIO EDUARDO ALVES PENA",
+        "nome_urna": "SILVIO PITU",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 18392,
+        "pct": 1.37,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JERSON DOMINGOS",
+        "nome_urna": "JERSON DOMINGOS",
+        "partido": "UNIÃO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 16884,
+        "pct": 1.26,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "MARIA IMACULADA NOGUEIRA",
+        "nome_urna": "LIA NOGUEIRA O BICHÃO DO MS",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 16748,
+        "pct": 1.25,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JOAO EDUARDO BARBOSA ROCHA",
+        "nome_urna": "EDUARDO ROCHA",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 15782,
+        "pct": 1.18,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ANA CLAUDIA PEREIRA PORTELA",
+        "nome_urna": "ANA PORTELA",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 15561,
+        "pct": 1.16,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "DIONE MARLY GANDOLFO HASHIOKA",
+        "nome_urna": "DIONE HASHIOKA",
+        "partido": "UNIÃO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 15244,
+        "pct": 1.14,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "MARCO AURÉLIO SANTULLO",
+        "nome_urna": "SANTULLO DA TEREZA",
+        "partido": "PP",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 14245,
+        "pct": 1.06,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "FLAVIO PEREIRA MOURA",
+        "nome_urna": "FLÁVIO CABO ALMI",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 13678,
+        "pct": 1.02,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "HERCULANO BORGES DANIEL",
+        "nome_urna": "HERCULANO BORGES",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 12781,
+        "pct": 0.95,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "MARCELO AGUILAR IUNES",
+        "nome_urna": "MARCELO IUNES",
+        "partido": "PP",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 10087,
+        "pct": 0.75,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ERNANY ANDRADE MACHADO",
+        "nome_urna": "DEFENSOR ERNANY",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 10067,
+        "pct": 0.75,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "WAGNER HIGA DE FREITAS",
+        "nome_urna": "WAGNER HIGA",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 9950,
+        "pct": 0.74,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "BRUNO ORTIZ BARBOSA",
+        "nome_urna": "BRUNO ORTIZ",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 9780,
+        "pct": 0.73,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ADEMAR VIEIRA JÚNIOR",
+        "nome_urna": "JUNIOR CORINGA",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 9770,
+        "pct": 0.73,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "BETANIA KELLY RODRIGUES DA SILVA",
+        "nome_urna": "SARGENTO BETÂNIA",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 9308,
+        "pct": 0.69,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "SINDOLEY LUIZ DE SOUZA MORAIS",
+        "nome_urna": "SINDOLEY MORAIS",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 9126,
+        "pct": 0.68,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "RHAIZA REJANE NEME DE MATOS",
+        "nome_urna": "RHAIZA MATOS",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 8620,
+        "pct": 0.64,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "RUBENS DE GOMES PRATES",
+        "nome_urna": "SARGENTO PRATES",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 8549,
+        "pct": 0.64,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "VIVIANE MOURA DE AZEVEDO TOBIAS",
+        "nome_urna": "VIVI TOBIAS",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 8315,
+        "pct": 0.62,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ROGÉRIO INÁCIO ROHR",
+        "nome_urna": "ROGÉRIO ROHR",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 6857,
+        "pct": 0.51,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "LUIS FRANCISCO DE ALMEIDA VIANNA",
+        "nome_urna": "CHICÃO VIANNA",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 6742,
+        "pct": 0.5,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "FABRÍCIO VENTUROLI LUNARDI",
+        "nome_urna": "FABRÍCIO VENTUROLI",
+        "partido": "PP",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 6614,
+        "pct": 0.49,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "MARCELO PEREIRA MOURAO",
+        "nome_urna": "MARCELO MOURÃO",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 6566,
+        "pct": 0.49,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "VANILDO NEVES BARBOSA",
+        "nome_urna": "VANILDO NEVES",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 6308,
+        "pct": 0.47,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ALTMIR ABDIAS JUVENCIO DE ALMEIDA",
+        "nome_urna": "CHITÃO",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 6284,
+        "pct": 0.47,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ANTONIO MARCOS BOGARIM",
+        "nome_urna": "TONY GOL",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 5273,
+        "pct": 0.39,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "WILTON CELESTE CANDELÓRIO",
+        "nome_urna": "LEINHA",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 5161,
+        "pct": 0.39,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "MARIA LUCIA NOGUEIRA FERNANDES",
+        "nome_urna": "MALU DO JULIANO VARELA",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 4944,
+        "pct": 0.37,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "TON BORGES VALENCIO",
+        "nome_urna": "TON BORGES",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 4448,
+        "pct": 0.33,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "GLAUCIA ANTONIA FONSECA DOS SANTOS IUNES",
+        "nome_urna": "GLAUCIA IUNES",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 4239,
+        "pct": 0.32,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "BÁRBARA GONÇALEZ RESENDE",
+        "nome_urna": "BARBARA RESENDE",
+        "partido": "UNIÃO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 4027,
+        "pct": 0.3,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JANETE MORAES OBAL CÓRDOBA",
+        "nome_urna": "JANETE CÓRDOBA",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 3938,
+        "pct": 0.29,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "WASHINGTON ALVES PAGANE",
+        "nome_urna": "PROFESSOR WASHINGTON",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 3757,
+        "pct": 0.28,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "RUY JOSE DA COSTA NETO",
+        "nome_urna": "DR. RUY COSTA",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 3558,
+        "pct": 0.27,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JOSE JACINTO DE LUNA NETO",
+        "nome_urna": "ZÉ DA FARMÁCIA",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 3422,
+        "pct": 0.26,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "AURELIO LUCIANO PIMENTEL BONATTO",
+        "nome_urna": "BONATTO",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 3352,
+        "pct": 0.25,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "LADIELLY DE SOUZA SILVA",
+        "nome_urna": "LADI SOUZA",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 3230,
+        "pct": 0.24,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "EUNICE APARECIDA DOS SANTOS",
+        "nome_urna": "EUNICE TIKKA",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 3017,
+        "pct": 0.23,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ALESSANDRA ROSSELLI ALENCAR BOERI",
+        "nome_urna": "ALESSANDRA ALENCAR",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 2866,
+        "pct": 0.21,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "EDUARDO JUVENTINO ALVES BORGES",
+        "nome_urna": "EDUARDO BORGES",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 2594,
+        "pct": 0.19,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JULIANA APARECIDA FLEURY ARANDA",
+        "nome_urna": "JULIANA ARANDA DA RU UNIFORMES",
+        "partido": "UNIÃO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 2482,
+        "pct": 0.19,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "SIRLEI FAUSTINO RATIER",
+        "nome_urna": "DRA SIRLEI RATIER",
+        "partido": "PP",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 2468,
+        "pct": 0.18,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ANDRÉA FERNANDES FIM MORAIS",
+        "nome_urna": "ANDRÉA FIM",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 2256,
+        "pct": 0.17,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "TANIA ILIANIR NOGUEIRA DE SOUZA MARTINS",
+        "nome_urna": "TÂNIA NOGUEIRA",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 2221,
+        "pct": 0.17,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "EDER MOREIRA BRAMBILLA",
+        "nome_urna": "EDER BRAMBILLA",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 2136,
+        "pct": 0.16,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "CLEBERSON SILVEIRA FERREIRA",
+        "nome_urna": "RONALDINHO",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 2069,
+        "pct": 0.15,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "WAGNER DE SOUZA PEREIRA",
+        "nome_urna": "WAGNER PEREIRA",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 2017,
+        "pct": 0.15,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JOSENILDO DO NASCIMENTO",
+        "nome_urna": "JOSENILDO CEARÁ",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1998,
+        "pct": 0.15,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "DANIEL CASTRO LIMA DELBONI",
+        "nome_urna": "ENFERMEIRO DANIEL",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1942,
+        "pct": 0.14,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JOSE WILSON DA SILVA",
+        "nome_urna": "ZÉ WILSON",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1881,
+        "pct": 0.14,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "EDSON RODRIGUES NOGUEIRA",
+        "nome_urna": "EDSON NOGUEIRA",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1880,
+        "pct": 0.14,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ADRIANE DA SILVA SOARES",
+        "nome_urna": "ADRIANE QUILOMBOLA",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1812,
+        "pct": 0.14,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ADONIS MARCOS DE SOUZA",
+        "nome_urna": "ADONIS",
+        "partido": "CIDADANIA",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1777,
+        "pct": 0.13,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "FERNANDO DA SILVA SOUZA",
+        "nome_urna": "FERNANDO SOUZA",
+        "partido": "PP",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1707,
+        "pct": 0.13,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "SANDRA MARIA COSTA SOARES",
+        "nome_urna": "SANDRA MARIA",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1640,
+        "pct": 0.12,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "BARTOLINA RAMALHO CATANANTE",
+        "nome_urna": "PROFESSORA BARTÔ",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1528,
+        "pct": 0.11,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "FLAVIO DIAS",
+        "nome_urna": "FLÁVIO DIAS",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1480,
+        "pct": 0.11,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ADMILSO CESARIO SANTOS",
+        "nome_urna": "FIÃO",
+        "partido": "PRD",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1461,
+        "pct": 0.11,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "MARIA CAROLINA MARQUEZ ZAMBONI",
+        "nome_urna": "CAROL MARQUEZ",
+        "partido": "PP",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1456,
+        "pct": 0.11,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "VANDERSON CARDOSO DOS REIS",
+        "nome_urna": "VANDERSON CARDOSO",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1427,
+        "pct": 0.11,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ALISON AUGUSTO COSTA SIMÕES",
+        "nome_urna": "ALISON AUGUSTO",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1401,
+        "pct": 0.1,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ANDRE LUIS SOARES DA FONSECA",
+        "nome_urna": "PROF. ANDRÉ LUIS",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1320,
+        "pct": 0.1,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ADILSON GONCALVES DE OLIVEIRA",
+        "nome_urna": "OLIVEIRA",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1289,
+        "pct": 0.1,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ROMILTON WLADEMY GONCALVES DE SA",
+        "nome_urna": "MILTINHO MADEIRAS",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1248,
+        "pct": 0.09,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "MARCUS GARCIA GOMES",
+        "nome_urna": "MARQUINHOS GARCIA",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1175,
+        "pct": 0.09,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "BRUNA LOPES ALVES",
+        "nome_urna": "BRUNA LOPES",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1144,
+        "pct": 0.09,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "CLARINEU JOSÉ NOGUEIRA",
+        "nome_urna": "CLARINEU NOGUEIRA",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1144,
+        "pct": 0.09,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "SAYURI AHAGON BAEZ",
+        "nome_urna": "SAYURI BAEZ",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1119,
+        "pct": 0.08,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JULIANA GAIOSO PONTES",
+        "nome_urna": "JULIANA GAIOSO",
+        "partido": "PP",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1100,
+        "pct": 0.08,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "LAURA CRISTINA GARCIA BRITO",
+        "nome_urna": "LAURA DA FIEL AMIGO",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1066,
+        "pct": 0.08,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "AARON SALLES FERNANDES SILVA TORRES",
+        "nome_urna": "AARON SALLES TORRES",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1041,
+        "pct": 0.08,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "HELINTON JUSTINO",
+        "nome_urna": "PROFESSOR PUFF",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 1015,
+        "pct": 0.08,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ANTONIO MARQUES DE OLIVEIRA",
+        "nome_urna": "BIRO BIRO",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 996,
+        "pct": 0.07,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "RICHARD GONÇALVES DOMINGOS DA SILVA",
+        "nome_urna": "RICHARD SILVA",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 954,
+        "pct": 0.07,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "MARIA APARECIDA DE OLIVEIRA DO AMARAL",
+        "nome_urna": "ENFERMEIRA CIDA AMARAL",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 942,
+        "pct": 0.07,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "OSWALDO MEZA BAPTISTA",
+        "nome_urna": "MEZA",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 939,
+        "pct": 0.07,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "RICARDO ESTEFANO ENDERLE BANNAK",
+        "nome_urna": "RICARDO BANNAK",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 907,
+        "pct": 0.07,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "LUCIA HELENA COELHO VIANNA",
+        "nome_urna": "LUCIA HELENA",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 900,
+        "pct": 0.07,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ABEL IVAR GONZALEZ DERENE",
+        "nome_urna": "ABEL FILHO",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 877,
+        "pct": 0.07,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "LUCIANA DE REZENDE",
+        "nome_urna": "LUCIANA DO FRETE",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 867,
+        "pct": 0.06,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "WEBERGTON SUDARIO DA SILVA",
+        "nome_urna": "WEBERGTON SUDÁRIO CORUMBÁ",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 852,
+        "pct": 0.06,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "VAGNER LOPES MARTINIANO DE AQUINO",
+        "nome_urna": "VAGNER PANELA",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 796,
+        "pct": 0.06,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JOÃO PEDRO BLOS TRINDADE",
+        "nome_urna": "JOÃO TRINDADE",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 793,
+        "pct": 0.06,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ANA CRISTINA ABDO FERREIRA",
+        "nome_urna": "ANA ABDO",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 789,
+        "pct": 0.06,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ISMAEL DA SILVA GOMES",
+        "nome_urna": "CRIA DO AERO RANCHO",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 780,
+        "pct": 0.06,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "NELSON JOSE DOS SANTOS",
+        "nome_urna": "NELSON LORDS",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 779,
+        "pct": 0.06,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "MARINES DE OLIVEIRA COSTA",
+        "nome_urna": "MARINES OLIVEIRA",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 779,
+        "pct": 0.06,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "IDEVALDO CLAUDINO DA SILVA",
+        "nome_urna": "IDEVALDO CLAUDINO",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 751,
+        "pct": 0.06,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "GIANE MARTINS TALGATTI",
+        "nome_urna": "PROFESSORA GIANE TALGATTI",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 706,
+        "pct": 0.05,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "FERNANDO ROBERTO BATISTA DE SOUZA",
+        "nome_urna": "FERNANDO ROBERTO",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 705,
+        "pct": 0.05,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "DHEINE FERREIRA MARTINS ARRUDA",
+        "nome_urna": "DHEINE MARTINS",
+        "partido": "CIDADANIA",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 697,
+        "pct": 0.05,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "LUCAS GABRIEL DE SOUSA QUEIROZ BATISTA",
+        "nome_urna": "LUSO DE QUEIROZ",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 688,
+        "pct": 0.05,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "NILVA DA SILVA RAMOS OLIVEIRA",
+        "nome_urna": "NILVA RAMOS",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 642,
+        "pct": 0.05,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ROSEMILSON JOSE DA ROCHA FERREIRA",
+        "nome_urna": "PROFESSOR TIM",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 639,
+        "pct": 0.05,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ANDRE PAULINO DE ARAUJO",
+        "nome_urna": "ANDRÉ PAULINO",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 600,
+        "pct": 0.04,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ANA PAULA CORREIA DA SILVA BACELAR",
+        "nome_urna": "SARGENTO ANA PAULA",
+        "partido": "PP",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 594,
+        "pct": 0.04,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "POLIANA FERRO",
+        "nome_urna": "COLETIVO DE SERVIDORES",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 581,
+        "pct": 0.04,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "VALCIRA BORGES DA SILVA",
+        "nome_urna": "VALCIRA BORGES",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 574,
+        "pct": 0.04,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JORGE RICARDO LAURICIO",
+        "nome_urna": "DR. JORGE LAURICIO",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 537,
+        "pct": 0.04,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "KALANIT TIECHER CORNELIUS DE ARRUDA",
+        "nome_urna": "DRA. KALANIT",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 529,
+        "pct": 0.04,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "RENAN DA SILVA",
+        "nome_urna": "RENAN SILVA",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 527,
+        "pct": 0.04,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LUANA PAULA DE SENA",
+        "nome_urna": "LUANA RIQUEZA",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 525,
+        "pct": 0.04,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "GIOVANI DAL MOLIN",
+        "nome_urna": "GIOVANI DA CDL",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 522,
+        "pct": 0.04,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "MILTON ALVES DE CARVALHO",
+        "nome_urna": "MILTÃO",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 493,
+        "pct": 0.04,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ALBI DE URRUTIA ABDALLA",
+        "nome_urna": "ALBI DE URRUTIA",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 492,
+        "pct": 0.04,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ANA LUCIA DOMINGUES",
+        "nome_urna": "ANA DOMINGUES",
+        "partido": "PV",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 492,
+        "pct": 0.04,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "CHARLENE SANTANA BORTOLETO",
+        "nome_urna": "CHARLENE BORTOLETO",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 487,
+        "pct": 0.04,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "MARCOS ALVES GUIMARÃES",
+        "nome_urna": "MARCOS GUIMARÃES",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 481,
+        "pct": 0.04,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "FRANK DE SOUZA VALDEZ",
+        "nome_urna": "FRANK VALDEZ",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 477,
+        "pct": 0.04,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LILIAN CRISTINA VILELLA",
+        "nome_urna": "LILIAN VILELLA",
+        "partido": "UNIÃO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 465,
+        "pct": 0.03,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "FATIMA MARIA BARBOSA PRIETO",
+        "nome_urna": "FÁTIMA BARBOSA",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 456,
+        "pct": 0.03,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ADAO DE ARRUDA SALES",
+        "nome_urna": "ADÃO SALEMAQ",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 445,
+        "pct": 0.03,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ROTTERDAM PEREIRA GUIMARAES",
+        "nome_urna": "DR. ROTTERDAM",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 442,
+        "pct": 0.03,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "CYNTHIA RIBEIRO PEREIRA",
+        "nome_urna": "SARGENTO CYNTHIA",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 422,
+        "pct": 0.03,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "FABIANO DUARTE DA SILVA",
+        "nome_urna": "FABIANO DUARTE",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 417,
+        "pct": 0.03,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "RONNIE APARECIDO GONZAGA",
+        "nome_urna": "INSPETOR RONNIE GONZAGA",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 388,
+        "pct": 0.03,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "RAYANA BENEDITA DA CRUZ FURQUIM",
+        "nome_urna": "RAYANA BENEDITA",
+        "partido": "UNIÃO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 380,
+        "pct": 0.03,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "BOLIVAR MEDEIROS FERNANDES",
+        "nome_urna": "BOLIVINHA BORRACHA",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 365,
+        "pct": 0.03,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "MARIA MARJU AZAMBUJA VENTURINI",
+        "nome_urna": "MARJU AZAMBUJA",
+        "partido": "UNIÃO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 363,
+        "pct": 0.03,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JULIA MONTEIRO CAMPOS",
+        "nome_urna": "JÚLIA NEWS",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 347,
+        "pct": 0.03,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "GISLAINE BRITO CAVANHA",
+        "nome_urna": "GISLAINE BRITO",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 346,
+        "pct": 0.03,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LEONARDO PESCINELLI MARTINS",
+        "nome_urna": "PROF. LÉO",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 327,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "THIAGO LOUREIRO DE ARAÚJO",
+        "nome_urna": "THIAGO LOUREIRO",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 320,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "TALITA CASSIA TRINDADE",
+        "nome_urna": "TALITA TRINDADE",
+        "partido": "UNIÃO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 311,
+        "pct": 0.02,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "GILBERTO JOSE SILVA",
+        "nome_urna": "CHINA",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 309,
+        "pct": 0.02,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "SILVANA DIAS DE SOUZA DE ALBUQUERQUE",
+        "nome_urna": "SILVANA TERENA",
+        "partido": "PL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 299,
+        "pct": 0.02,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "MARGILA LEAL DE SOUZA TOCCHIO",
+        "nome_urna": "MARGILA LEAL",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 297,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "SANDRA CABANHA",
+        "nome_urna": "SANDRA CABANHA",
+        "partido": "PRD",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 290,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "CARINA SALOMÃO FRANCO",
+        "nome_urna": "CARINA SALOMÃO",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 283,
+        "pct": 0.02,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "GUERINO FERREIRA RIBOLIS",
+        "nome_urna": "ZÉ TROVÃO",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 276,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JOSIEL MACHADO",
+        "nome_urna": "JOSIEL MACHADO",
+        "partido": "PCO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 263,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "WALKIRIA NEVES DA SILVA",
+        "nome_urna": "WALKIRIA SILVA",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 250,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "NEZANETE MADALENA LEITE NANTES",
+        "nome_urna": "NEZA LEITE",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 243,
+        "pct": 0.02,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "DIEGO FERNANDES CARVALHO",
+        "nome_urna": "DIEGO CARVALHO",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 241,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "BARBARA CRISTINA FERNANDES RODRIGUES DE MESQUITA",
+        "nome_urna": "PASTORA BARBARA MESQUITA",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 238,
+        "pct": 0.02,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "PAULO CESAR RIBEIRO",
+        "nome_urna": "PAULO SWAT",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 235,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "PERCIO FABIANO PREGUICA",
+        "nome_urna": "PREGUIÇA",
+        "partido": "PRD",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 228,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "DAVI RIBEIRO CHAVES",
+        "nome_urna": "DAVI RIBEIRO",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 227,
+        "pct": 0.02,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "IZAIAS DIAS DA ROCHA",
+        "nome_urna": "IZAÍAS ROCHA",
+        "partido": "PSDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 214,
+        "pct": 0.02,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "PAMELLA KARINA EIFLER FERREIRA",
+        "nome_urna": "PAM MAKE",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 209,
+        "pct": 0.02,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "DAISE RIBEIRO DA SILVA",
+        "nome_urna": "DEISE RIBEIRO",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 200,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "VALDECI GONÇALVES DA CRUZ",
+        "nome_urna": "CAFÉ",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 199,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JENIR NEVES SILVA",
+        "nome_urna": "JENIR NEVES",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 195,
+        "pct": 0.01,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "LEANDRO DA SILVA RODRIGUES",
+        "nome_urna": "LEANDRO CAFE",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 195,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LUCIMARA AQUINO PALACIO BENTO",
+        "nome_urna": "LUCIMARA PALACIO",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 195,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JYENIFFER CAROLLINE MULLER RODRIGUES",
+        "nome_urna": "JYENIFFER MULLER",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 191,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ELIEZER MOLAS RODRIGUES",
+        "nome_urna": "ELIEZER RODRIGUES",
+        "partido": "UNIÃO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 186,
+        "pct": 0.01,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "CHRISTIANO MENDES CARVALHO",
+        "nome_urna": "CHRISTIANO MENDES",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 185,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "CIDLEA BORGES RODRIGUES",
+        "nome_urna": "LÉIA BORGES",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 183,
+        "pct": 0.01,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "ROSALINA DE SOUZA SANTOS",
+        "nome_urna": "DRA. ROSALINA",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 183,
+        "pct": 0.01,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "SÍLVIO EDUARDO LOPES CUNHA JÚNIOR",
+        "nome_urna": "JUNIOR LOPES",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 183,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "NATÁLIA SILVA FERREIRA",
+        "nome_urna": "NATÁLIA FERREIRA",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 181,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "RODRIGO JUNIOR DE MORAIS RODRIGUES",
+        "nome_urna": "JUNIOR RODRIGUES",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 177,
+        "pct": 0.01,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "FERNANDA SOUZA ARAUJO",
+        "nome_urna": "PROFESSORA FERNANDA ARAUJO",
+        "partido": "PRD",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 169,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "GERALDO LUIZ ALEXANDRE DA SILVA",
+        "nome_urna": "ALEXANDRE MOURA",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 164,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "DAVID NICOLINE DE ASSIS",
+        "nome_urna": "DEIVID NICOLINE",
+        "partido": "PRD",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 160,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ADRIANO PAULINO DA SILVA",
+        "nome_urna": "ADRIANO PAULINO",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 160,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JOSE CASSIANO LEITE NETO",
+        "nome_urna": "CASSIANO DO GÁS",
+        "partido": "PV",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 151,
+        "pct": 0.01,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "KLEYTON RIBEIRO DE SOUZA",
+        "nome_urna": "KLEYTON RIBEIRO",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 151,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JEAN CARLOS ALVES RESENDE",
+        "nome_urna": "JEAN CARLOS",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 149,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "RONALDO OZÓRIO DOS SANTOS",
+        "nome_urna": "RONALDO TERENA",
+        "partido": "PT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 145,
+        "pct": 0.01,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JOHNNATHAN DE ARRUDA JARA",
+        "nome_urna": "JARA",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 144,
+        "pct": 0.01,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JÉSSICA DA SILVA RODRIGUES",
+        "nome_urna": "JÉSSICA MÃE ATÍPICA",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 136,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ODINEY LOUBET ORTIZ",
+        "nome_urna": "ODINEY LOUBET",
+        "partido": "PRD",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 134,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JESSON DA SILVA SANTOS",
+        "nome_urna": "SUBOFICIAL JESSON SANTOS",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 133,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JOICY CRUZ LOUREIRO",
+        "nome_urna": "JOICY LOUREIRO",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 132,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "GLEOMAR HAGAMENON MACHADO DE ALMEIDA",
+        "nome_urna": "MAZINHO DO CHAVEIRO",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 130,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "SAYMON APARECIDO MEDEIROS PEREIRA",
+        "nome_urna": "SAYMON PEREIRA",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 130,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JOSIEL QUIRINO VIEIRA",
+        "nome_urna": "JOSIEL QUIRINO VIEIRA",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 118,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "SABRINO CARPES DA SILVA",
+        "nome_urna": "SABRINO CARPES",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 115,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "KATIUSCI CAMPOS VALEJO",
+        "nome_urna": "KATIUSCI VALEJO",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 114,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "CAMILA ARAUJO VIEIRA",
+        "nome_urna": "CAMILA ARAUJO",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 111,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "SIDCLEY BRASIL DA SILVA",
+        "nome_urna": "SIDCLEY BRASIL",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 105,
+        "pct": 0.01,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "UBIRACY DOS SANTOS",
+        "nome_urna": "BIRA MECÂNICO",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 101,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "SIDNEY APARECIDO OLIVEIRA DE PAULA",
+        "nome_urna": "SIDNEY DE PAULA",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 101,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "FÁTIMA APARECIDA SANTOS",
+        "nome_urna": "FATIMA FIA",
+        "partido": "PRD",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 92,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JOSE FERNANDES DA SILVA NETO",
+        "nome_urna": "ZÉ FERNANDES",
+        "partido": "REPUBLICANOS",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 91,
+        "pct": 0.01,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JORGE BATISTA DA SILVA",
+        "nome_urna": "JORGE BATISTA",
+        "partido": "PCO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 88,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ADILSON ALVES DE OLIVEIRA",
+        "nome_urna": "PASTOR ADILSON OLIVEIRA",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 80,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "KELLIVIANE DOS SANTOS SOUZA",
+        "nome_urna": "KELLI DA SEGURANÇA",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 78,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "CLAUDIO DE SOUZA DOMINGOS",
+        "nome_urna": "PASTOR CLÁUDIO DOMINGOS",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 77,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "MARIA FERNANDA RIBEIRO DE JESUS",
+        "nome_urna": "MARIA FERNANDA RIBEIRO",
+        "partido": "PRD",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 77,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "RICARDO MALAQUIAS DA SILVA",
+        "nome_urna": "MALAQUIAS",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 75,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ANDRE KOVALSKI",
+        "nome_urna": "ANDRE KOVALSKI",
+        "partido": "PRD",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 73,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JOSE ANDRADE DE MORAIS",
+        "nome_urna": "ANDRADE",
+        "partido": "SOLIDARIEDADE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 71,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "DOUGLAS SILVA DE SOUZA",
+        "nome_urna": "PROFESSOR DOUGLAS",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 68,
+        "pct": 0.01,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JOÃO FABIANO DAVANSSO",
+        "nome_urna": "PROFESSOR JF",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 62,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JACKELINE APARECIDA GOMES MORENO",
+        "nome_urna": "JACKELINE MORENO",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 57,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JANICE APARECIDA GALHARDO",
+        "nome_urna": "MISSIONARIA JANE",
+        "partido": "PDT",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 56,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ELIZENE LUCIANA SANTOS GOMES MARTINS",
+        "nome_urna": "LU MARTINS",
+        "partido": "AVANTE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 55,
+        "pct": 0.0,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "VALDIR ELIAS MARIANO",
+        "nome_urna": "MARIANO",
+        "partido": "MDB",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 52,
+        "pct": 0.0,
+        "situacao": "SUPLENTE",
+        "eleito": false
+      },
+      {
+        "nome": "JOSE RINALDO DOS SANTOS",
+        "nome_urna": "RINALDO PRASSA",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 49,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ROSANA SANTANA DE SOUZA",
+        "nome_urna": "ROSANA SANTANA",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 48,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "FABIO JUNIOR ALVES DA COSTA",
+        "nome_urna": "FABIO COSTA",
+        "partido": "PRD",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 48,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "FLAVIA ARGEMIRO DE ALMEIDA E SILVA",
+        "nome_urna": "FLAVIA ARGEMIRO",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 43,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "SÔNIA VENTURA PEIXOTO",
+        "nome_urna": "SÔNIA PEIXOTO",
+        "partido": "NOVO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 40,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "GILVAN PEREIRA FERNANDES",
+        "nome_urna": "GILVAN FERNANDES",
+        "partido": "PSOL",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 38,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ALMIR MACHADO GUIMARÃES",
+        "nome_urna": "ALMIR MACHADO",
+        "partido": "PRD",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 37,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "FERNANDO AUGUSTO ABDO VILLALBA",
+        "nome_urna": "FERNANDO VILLALBA",
+        "partido": "PRD",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 36,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "GÉSSICA MACHADO",
+        "nome_urna": "GÉSSICA MACHADO",
+        "partido": "PCO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 35,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "VALDIR DA SILVA ALVES",
+        "nome_urna": "PASTOR VALDIR",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 32,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "FERNANDO TEIXEIRA CARDOSO",
+        "nome_urna": "CARDOSO DO IMBIRUSSU",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 29,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "RAFAEL DA SILVA JORGE",
+        "nome_urna": "RAFAEL SILVA",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 19,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "FERNANDA COLTRE BREVE",
+        "nome_urna": "FERNANDA BREVE",
+        "partido": "SOLIDARIEDADE",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 18,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "SIRLENE DOS SANTOS MACHADO",
+        "nome_urna": "SIRLENE SANTOS",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 16,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "DARCI ROBERTO LAUREANO",
+        "nome_urna": "ROBERTO TROVÃO",
+        "partido": "DC",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 13,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "DILSON RODRIGUES DE ARRUDA CARVALHO",
+        "nome_urna": "DILSON ARRUDA",
+        "partido": "PRD",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 10,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "SILVANA CASTELÃO",
+        "nome_urna": "SILVANA CASTELÃO",
+        "partido": "PCO",
+        "cargo": "DEPUTADO ESTADUAL",
+        "votos": 9,
+        "pct": 0.0,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      }
+    ],
+    "GOVERNADOR": [
+      {
+        "nome": "EDUARDO CORREA RIEDEL",
+        "nome_urna": "EDUARDO RIEDEL",
+        "partido": "PP",
+        "cargo": "GOVERNADOR",
+        "votos": 914323,
+        "pct": 67.07,
+        "situacao": "ELEITO",
+        "eleito": true
+      },
+      {
+        "nome": "FABIO RICARDO TRAD",
+        "nome_urna": "FÁBIO TRAD",
+        "partido": "PT",
+        "cargo": "GOVERNADOR",
+        "votos": 322807,
+        "pct": 23.68,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JOÃO HENRIQUE MIRANDA SOARES CATAN",
+        "nome_urna": "JOÃO HENRIQUE CATAN",
+        "partido": "NOVO",
+        "cargo": "GOVERNADOR",
+        "votos": 98677,
+        "pct": 7.24,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "DELCIDIO DO AMARAL GOMEZ",
+        "nome_urna": "DELCIDIO AMARAL",
+        "partido": "PRD",
+        "cargo": "GOVERNADOR",
+        "votos": 14431,
+        "pct": 1.06,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "RENATO WANDERLEY GOMES",
+        "nome_urna": "ECONOMISTA RENATO GOMES",
+        "partido": "DC",
+        "cargo": "GOVERNADOR",
+        "votos": 5589,
+        "pct": 0.41,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LUCIEN ROBERTO GARCIA DE REZENDE",
+        "nome_urna": "LUCIEN REZENDE",
+        "partido": "PSOL",
+        "cargo": "GOVERNADOR",
+        "votos": 4444,
+        "pct": 0.33,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "DANIEL LEMES VASQUES",
+        "nome_urna": "DANIEL LEMES",
+        "partido": "PCO",
+        "cargo": "GOVERNADOR",
+        "votos": 2115,
+        "pct": 0.16,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JEFERSON JOSE BEZERRA",
+        "nome_urna": "JEFERSON BEZERRA",
+        "partido": "AGIR",
+        "cargo": "GOVERNADOR",
+        "votos": 912,
+        "pct": 0.07,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      }
+    ],
+    "SENADOR": [
+      {
+        "nome": "REINALDO AZAMBUJA SILVA",
+        "nome_urna": "REINALDO AZAMBUJA",
+        "partido": "PL",
+        "cargo": "SENADOR",
+        "votos": 903554,
+        "pct": 34.64,
+        "situacao": "ELEITO",
+        "eleito": true
+      },
+      {
+        "nome": "RENAN BARBOSA CONTAR",
+        "nome_urna": "CAPITÃO CONTAR",
+        "partido": "PL",
+        "cargo": "SENADOR",
+        "votos": 856045,
+        "pct": 32.82,
+        "situacao": "ELEITO",
+        "eleito": true
+      },
+      {
+        "nome": "VANDER LUIZ DOS SANTOS LOUBET",
+        "nome_urna": "VANDER LOUBET",
+        "partido": "PT",
+        "cargo": "SENADOR",
+        "votos": 361920,
+        "pct": 13.88,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "SORAYA VIEIRA THRONICKE",
+        "nome_urna": "SORAYA",
+        "partido": "PSB",
+        "cargo": "SENADOR",
+        "votos": 340788,
+        "pct": 13.07,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "ROBERTO TARASHIGUE OSHIRO JUNIOR",
+        "nome_urna": "ROBERTO OSHIRO",
+        "partido": "NOVO",
+        "cargo": "SENADOR",
+        "votos": 103184,
+        "pct": 3.96,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "JONAS CARLOS DA CONCEICAO",
+        "nome_urna": "BETO DO MOVIMENTO",
+        "partido": "PSOL",
+        "cargo": "SENADOR",
+        "votos": 18028,
+        "pct": 0.69,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "VALTER JUVENAL DE OLIVEIRA",
+        "nome_urna": "VALTER DA COMAGRAN",
+        "partido": "PRD",
+        "cargo": "SENADOR",
+        "votos": 16396,
+        "pct": 0.63,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "LUIZ ANTONIO LEMES DE OLIVEIRA",
+        "nome_urna": "LUIZ LEMES",
+        "partido": "DC",
+        "cargo": "SENADOR",
+        "votos": 4947,
+        "pct": 0.19,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      },
+      {
+        "nome": "VALDERI GARCIA",
+        "nome_urna": "VALDERI GARCIA",
+        "partido": "PCO",
+        "cargo": "SENADOR",
+        "votos": 3197,
+        "pct": 0.12,
+        "situacao": "NÃO ELEITO",
+        "eleito": false
+      }
+    ]
+  }
+}

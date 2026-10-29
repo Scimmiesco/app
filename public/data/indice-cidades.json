@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.3.0",
+  "gerado_em": "2026-10-29T16:17:22-0400",
+  "cidades": [
+    {
+      "codigo_ibge": 5002704,
+      "codigo_tse": "90514",
+      "nome": "Campo Grande",
+      "uf": "MS",
+      "arquivo": "municipios/5002704.json",
+      "disponivel": true
+    }
+  ]
+}
