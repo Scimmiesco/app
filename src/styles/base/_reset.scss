@@ -11,8 +11,9 @@
 }
 
 html {
-  @apply scroll-smooth text-slate-900;
+  @apply scroll-smooth;
   background-color: tokens.$color-bg-page;
+  color: tokens.$color-black;
 }
 
 body {
@@ -21,6 +22,6 @@ body {
 }
 
 ::selection {
-  background-color: tokens.$color-curado;
+  background-color: tokens.$color-amarelo;
   color: tokens.$color-black;
 }

@@ -32,7 +32,8 @@
   }
 
   .modal-body {
-    @apply text-sm text-slate-800 leading-relaxed space-y-3;
+    @apply text-sm leading-relaxed space-y-3;
+    color: tokens.$color-black;
   }
 
   .modal-footer {

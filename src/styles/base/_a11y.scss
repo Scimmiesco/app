@@ -10,10 +10,13 @@
   @apply sr-only;
 
   &:focus {
-    @apply not-sr-only absolute z-50 p-3 bg-white text-blue-700 font-bold shadow-md;
-    border: tokens.$border-solid-black;
+    @apply not-sr-only absolute z-50 p-3 font-bold;
     top: 0.5rem;
     left: 0.5rem;
+    background-color: tokens.$color-amarelo;
+    color: tokens.$color-black;
+    border: tokens.$border-solid-black;
+    box-shadow: tokens.$shadow-hard;
     outline: none;
   }
 }

@@ -24,6 +24,7 @@
   }
 
   .drawer-content {
-    @apply overflow-y-auto space-y-4 text-sm text-slate-800;
+    @apply overflow-y-auto space-y-4 text-sm;
+    color: tokens.$color-black;
   }
 }

@@ -1,39 +1,20 @@
-<div class="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans antialiased">
+<div class="app-shell">
   <!-- Skip link para acessibilidade (FR-13) -->
-  <a
-    href="#main-content"
-    class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-3 focus:bg-white focus:text-blue-700 focus:font-medium focus:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600"
-  >
-    Pular para o conteúdo principal
-  </a>
+  <a href="#main-content" class="skip-link"> Pular para o conteúdo principal </a>
 
   <!-- Topbar simples mobile-first -->
-  <header
-    role="banner"
-    class="sticky top-0 z-30 w-full bg-white/95 backdrop-blur border-b-2 border-black"
-  >
+  <header role="banner" class="app-header">
     <div class="max-w-4xl mx-auto px-4 h-14 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <a
-          routerLink="/"
-          class="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-black rounded-sm py-1 px-1.5"
-          aria-label="Página inicial do Eleitor v2"
-        >
-          <span
-            class="text-base font-black tracking-tight text-black group-hover:text-blue-700 transition-colors"
-          >
-            Eleitor
-          </span>
+        <a routerLink="/" class="app-brand" aria-label="Página inicial do Eleitor v2">
+          <span class="app-brand-title"> Eleitor </span>
           <span class="badge badge-xs badge-verde"> v2 </span>
         </a>
       </div>
 
       <nav aria-label="Navegação da cidade" class="text-xs">
         <span class="badge badge-sm badge-white">
-          <span
-            class="inline-block w-2 h-2 rounded-full bg-emerald-600 mr-1"
-            aria-hidden="true"
-          ></span>
+          <span class="status-dot" aria-hidden="true"></span>
           Campo Grande / MS
         </span>
       </nav>
@@ -46,10 +27,10 @@
   </main>
 
   <!-- Rodapé com aviso de fontes oficiais -->
-  <footer role="contentinfo" class="w-full bg-white border-t-2 border-black py-6 px-4 mt-auto">
-    <div class="max-w-4xl mx-auto space-y-3 text-xs text-slate-700">
+  <footer role="contentinfo" class="app-footer">
+    <div class="max-w-4xl mx-auto space-y-3 text-xs text-meta">
       <div class="flex flex-wrap items-center gap-2">
-        <span class="font-black text-black">Fontes Oficiais:</span>
+        <span class="text-contrast">Fontes Oficiais:</span>
         <span class="inline-flex items-center font-bold">TSE</span>
         <span aria-hidden="true">•</span>
         <span class="inline-flex items-center font-bold">IBGE</span>
@@ -60,13 +41,11 @@
         <span aria-hidden="true">•</span>
         <span class="inline-flex items-center font-bold">Câmara dos Deputados</span>
       </div>
-      <p class="leading-relaxed text-slate-600">
+      <p class="leading-relaxed text-meta-subtle">
         Informações eleitorais e municipais consolidadas a partir de dados públicos oficiais
         abertos. Sem cálculo de alinhamento, scores ou opiniões subjetivas.
       </p>
-      <div
-        class="pt-2 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500"
-      >
+      <div class="footer-divider">
         <span>Eleitor v2 — Transparência Eleitoral</span>
         <span>Acessibilidade e integridade de dados (NFR-11)</span>
       </div>

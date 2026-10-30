@@ -2,9 +2,9 @@
   <!-- Estado de Carregamento -->
   @if (!snapshot()) {
     <div class="container-default p-6 animate-pulse">
-      <div class="h-4 bg-amber-300 rounded w-1/4 mb-4"></div>
-      <div class="h-8 bg-amber-300 rounded w-1/2 mb-2"></div>
-      <div class="h-4 bg-amber-300 rounded w-3/4"></div>
+      <div class="skeleton-bar h-4 w-1/4 mb-4"></div>
+      <div class="skeleton-bar h-8 w-1/2 mb-2"></div>
+      <div class="skeleton-bar h-4 w-3/4"></div>
     </div>
   } @else {
     <!-- SELETOR DINÂMICO & HERO DA CIDADE -->
@@ -21,19 +21,16 @@
                 <span class="badge badge-pendente">Pendente</span>
               }
             }
-            <span class="text-xs font-bold text-black">
+            <span class="text-xs font-bold">
               IBGE: {{ snapshot()?.municipio?.codigo_ibge }} · TSE:
               {{ snapshot()?.municipio?.codigo_tse }}
             </span>
           </div>
 
-          <h1
-            id="cidade-heading"
-            class="text-2xl sm:text-3xl font-extrabold text-black tracking-tight"
-          >
+          <h1 id="cidade-heading" class="heading-1 text-2xl sm:text-3xl">
             {{ snapshot()?.municipio?.nome }} / {{ snapshot()?.municipio?.uf }}
           </h1>
-          <p class="text-xs text-slate-700 mt-1">
+          <p class="text-meta mt-1">
             Snapshot oficial gerado em:
             {{ snapshot()?.gerado_em | date: 'dd/MM/yyyy HH:mm' }} (schema
             {{ snapshot()?.schema_version }})
@@ -60,21 +57,21 @@
     <!-- BLOCO 1: CABEÇALHO DA CIDADE -->
     @if (snapshot()?.secoes?.cabecalho; as secaoCab) {
       <div class="card-brutalista space-y-3">
-        <div class="flex flex-wrap items-center justify-between gap-2 border-b-2 border-black pb-2">
-          <h2 class="text-lg font-black uppercase text-black tracking-wide">
+        <div class="card-header">
+          <h2 class="heading-2 text-lg">
             {{ secaoCab.titulo }}
           </h2>
           <!-- Selo de Proveniência Condicionado ao Status -->
           <div class="flex items-center gap-2 text-xs">
             @if (secaoCab.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
-              <span class="text-slate-700 font-medium">
+              <span class="text-meta">
                 @if (getFonte(secaoCab.fonte); as fonte) {
                   <a
                     [href]="fonte.url"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="underline hover:text-black font-semibold"
+                    class="link-fonte"
                   >
                     {{ fonte.orgao }} · {{ fonte.titulo }}
                   </a>
@@ -85,7 +82,7 @@
               </span>
             } @else if (secaoCab.status === 'curado') {
               <span class="badge badge-sm badge-curado">curado</span>
-              <span class="text-slate-600 font-medium">Fonte curada — validação pendente</span>
+              <span class="text-meta">Fonte curada — validação pendente</span>
             } @else {
               <span class="badge badge-sm badge-pendente">pendente</span>
             }
@@ -98,21 +95,17 @@
           </div>
         } @else if (secaoCab.dados; as dadosCab) {
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-            <div class="p-3 bg-amber-50 rounded-sm border-2 border-black">
-              <span class="block text-xs font-bold text-slate-700 uppercase">Município</span>
-              <span class="text-lg font-black text-black">{{ dadosCab.nome }}</span>
+            <div class="metric-card">
+              <span class="metric-label">Município</span>
+              <span class="metric-value-lg">{{ dadosCab.nome }}</span>
             </div>
-            <div class="p-3 bg-amber-50 rounded-sm border-2 border-black">
-              <span class="block text-xs font-bold text-slate-700 uppercase">Estado</span>
-              <span class="text-lg font-black text-black">{{ dadosCab.uf }}</span>
+            <div class="metric-card">
+              <span class="metric-label">Estado</span>
+              <span class="metric-value-lg">{{ dadosCab.uf }}</span>
             </div>
-            <div class="p-3 bg-amber-50 rounded-sm border-2 border-black">
-              <span class="block text-xs font-bold text-slate-700 uppercase"
-                >População Censo 2022</span
-              >
-              <span class="text-lg font-black text-black"
-                >{{ formatarNumero(dadosCab.populacao) }} hab.</span
-              >
+            <div class="metric-card">
+              <span class="metric-label">População Censo 2022</span>
+              <span class="metric-value-lg">{{ formatarNumero(dadosCab.populacao) }} hab.</span>
             </div>
           </div>
         }
@@ -122,21 +115,21 @@
     <!-- BLOCO 2: RESUMO DO MUNICÍPIO (IBGE & INDICADORES) -->
     @if (snapshot()?.secoes?.resumo_ibge_censo; as secaoIbge) {
       <div class="card-brutalista space-y-4">
-        <div class="flex flex-wrap items-center justify-between gap-2 border-b-2 border-black pb-2">
-          <h2 class="text-lg font-black uppercase text-black tracking-wide">
+        <div class="card-header">
+          <h2 class="heading-2 text-lg">
             {{ secaoIbge.titulo }}
           </h2>
           <!-- Selo de Proveniência -->
           <div class="flex items-center gap-2 text-xs">
             @if (secaoIbge.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
-              <span class="text-slate-700 font-medium">
+              <span class="text-meta">
                 @if (getFonte(secaoIbge.fonte); as fonte) {
                   <a
                     [href]="fonte.url"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="underline hover:text-black font-semibold"
+                    class="link-fonte"
                   >
                     {{ fonte.orgao }} · {{ fonte.titulo }}
                   </a>
@@ -159,48 +152,34 @@
           </div>
         } @else if (secaoIbge.dados; as dadosIbge) {
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="p-3 bg-slate-50 rounded-sm border-2 border-black">
-              <span class="block text-xs font-bold text-slate-600 uppercase">Renda Média p/c</span>
-              <span class="text-base font-black text-black">{{
-                formatarMoeda(dadosIbge.renda_media_pc)
-              }}</span>
+            <div class="metric-card">
+              <span class="metric-label">Renda Média p/c</span>
+              <span class="metric-value">{{ formatarMoeda(dadosIbge.renda_media_pc) }}</span>
             </div>
-            <div class="p-3 bg-slate-50 rounded-sm border-2 border-black">
-              <span class="block text-xs font-bold text-slate-600 uppercase"
-                >Renda Mediana p/c</span
-              >
-              <span class="text-base font-black text-black">{{
-                formatarMoeda(dadosIbge.renda_mediana_pc)
-              }}</span>
+            <div class="metric-card">
+              <span class="metric-label">Renda Mediana p/c</span>
+              <span class="metric-value">{{ formatarMoeda(dadosIbge.renda_mediana_pc) }}</span>
             </div>
-            <div class="p-3 bg-slate-50 rounded-sm border-2 border-black">
-              <span class="block text-xs font-bold text-slate-600 uppercase"
-                >Taxa de Urbanização</span
-              >
-              <span class="text-base font-black text-black">{{
-                formatarPct(dadosIbge.pct_urbana)
-              }}</span>
+            <div class="metric-card">
+              <span class="metric-label">Taxa de Urbanização</span>
+              <span class="metric-value">{{ formatarPct(dadosIbge.pct_urbana) }}</span>
             </div>
-            <div class="p-3 bg-slate-50 rounded-sm border-2 border-black">
-              <span class="block text-xs font-bold text-slate-600 uppercase">População Total</span>
-              <span class="text-base font-black text-black">{{
-                formatarNumero(dadosIbge.populacao)
-              }}</span>
+            <div class="metric-card">
+              <span class="metric-label">População Total</span>
+              <span class="metric-value">{{ formatarNumero(dadosIbge.populacao) }}</span>
             </div>
           </div>
 
           <!-- Composição Cor e Raça -->
           @if (dadosIbge.cor_raca_pct) {
-            <div class="p-3 bg-amber-50 rounded-sm border-2 border-black">
-              <span class="block text-xs font-bold text-black uppercase mb-1"
-                >Distribuição Étnico-Racial (Censo 2022)</span
-              >
-              <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-800 font-semibold">
+            <div class="metric-card">
+              <span class="metric-label mb-1">Distribuição Étnico-Racial (Censo 2022)</span>
+              <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs font-semibold text-meta">
                 @for (item of dadosIbge.cor_raca_pct | keyvalue; track item.key) {
-                  <span
-                    >{{ item.key }}:
-                    <strong class="text-black">{{ formatarPct(item.value) }}</strong></span
-                  >
+                  <span>
+                    {{ item.key }}:
+                    <strong class="text-contrast">{{ formatarPct(item.value) }}</strong>
+                  </span>
                 }
               </div>
             </div>
@@ -212,20 +191,20 @@
     <!-- BLOCO 3: DEPUTADOS FEDERAIS (MS) — LISTA ÚNICA ORDENADA POR EM_EXERCÍCIO -->
     @if (snapshot()?.secoes?.deputados_federais; as secaoDep) {
       <div class="card-brutalista space-y-4">
-        <div class="flex flex-col gap-2 border-b-2 border-black pb-2">
+        <div class="card-header-grouped">
           <div class="flex flex-wrap items-center justify-between gap-2">
-            <h2 class="text-lg font-black uppercase text-black tracking-wide">
+            <h2 class="heading-2 text-lg">
               {{ secaoDep.titulo }}
             </h2>
             <div class="flex items-center gap-2 text-xs">
               <span class="badge badge-sm badge-oficial">oficial</span>
-              <span class="text-slate-700 font-medium">
+              <span class="text-meta">
                 @if (getFonte(secaoDep.fonte); as fonte) {
                   <a
                     [href]="fonte.url"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="underline hover:text-black font-semibold"
+                    class="link-fonte"
                   >
                     {{ fonte.orgao }} · {{ fonte.titulo }}
                   </a>
@@ -243,8 +222,8 @@
               <span class="badge badge-sm badge-mandato"> Mandato: {{ secaoDep.mandato }} </span>
             }
             @if (secaoDep.pct_base) {
-              <span class="text-slate-600 font-medium">
-                Base do %: <strong class="text-slate-900">{{ secaoDep.pct_base }}</strong>
+              <span class="text-meta">
+                Base do %: <strong class="text-contrast">{{ secaoDep.pct_base }}</strong>
               </span>
             }
           </div>
@@ -260,44 +239,40 @@
             <table class="tabela-brutalista">
               <thead>
                 <tr>
-                  <th class="p-2 font-black uppercase tracking-wider">Nome de Urna</th>
-                  <th class="p-2 font-black uppercase tracking-wider text-center">Partido</th>
-                  <th class="p-2 font-black uppercase tracking-wider text-right">Votos 2026</th>
-                  <th class="p-2 font-black uppercase tracking-wider text-right">% Nominais</th>
-                  <th class="p-2 font-black uppercase tracking-wider text-center">Em Exercício</th>
-                  <th class="p-2 font-black uppercase tracking-wider text-center">
-                    Fim do Mandato
-                  </th>
-                  <th class="p-2 font-black uppercase tracking-wider text-center">Status 2026</th>
-                  <th class="p-2 font-black uppercase tracking-wider">Situação</th>
-                  <th class="p-2 font-black uppercase tracking-wider text-right">
-                    Votos Mandato (Câmara)
-                  </th>
+                  <th>Nome de Urna</th>
+                  <th class="col-center">Partido</th>
+                  <th class="col-right">Votos 2026</th>
+                  <th class="col-right">% Nominais</th>
+                  <th class="col-center">Em Exercício</th>
+                  <th class="col-center">Fim do Mandato</th>
+                  <th class="col-center">Status 2026</th>
+                  <th>Situação</th>
+                  <th class="col-right">Votos Mandato (Câmara)</th>
                 </tr>
               </thead>
               <tbody>
                 @for (dep of deputadosOrdenados(); track dep.nome) {
                   <tr [class.em-exercicio]="dep.em_exercicio">
                     <!-- Nome -->
-                    <td class="p-2 font-bold text-black whitespace-nowrap">
+                    <td class="cell-nome">
                       {{ dep.nome_urna }}
                     </td>
                     <!-- Partido -->
-                    <td class="p-2 text-center whitespace-nowrap">
+                    <td class="cell-center">
                       <span class="badge badge-xs badge-partido">
                         {{ dep.partido }}
                       </span>
                     </td>
                     <!-- Votos -->
-                    <td class="p-2 text-right font-black text-black tabular-nums">
+                    <td class="cell-votos">
                       {{ formatarNumero(dep.votos) }}
                     </td>
                     <!-- % -->
-                    <td class="p-2 text-right font-bold text-slate-800 tabular-nums">
+                    <td class="cell-pct">
                       {{ formatarPct(dep.pct) }}
                     </td>
                     <!-- Em Exercício -->
-                    <td class="p-2 text-center whitespace-nowrap">
+                    <td class="cell-center">
                       @if (dep.em_exercicio) {
                         <span class="badge badge-xs badge-exercicio-sim"> SIM </span>
                       } @else {
@@ -305,11 +280,11 @@
                       }
                     </td>
                     <!-- Fim do Mandato (Flag Solicitada) -->
-                    <td class="p-2 text-center font-bold text-black whitespace-nowrap tabular-nums">
+                    <td class="cell-mandato-fim">
                       {{ formatarDataIso(dep.mandato_fim) }}
                     </td>
                     <!-- Status Eleição 2026 -->
-                    <td class="p-2 text-center whitespace-nowrap">
+                    <td class="cell-center">
                       @if (dep.status_eleicao_2026 === 'reeleito') {
                         <span class="badge badge-xs badge-reeleito"> Reeleito </span>
                       } @else if (dep.status_eleicao_2026 === 'eleito') {
@@ -323,11 +298,11 @@
                       }
                     </td>
                     <!-- Situação -->
-                    <td class="p-2 text-slate-700 font-semibold text-[11px] whitespace-nowrap">
+                    <td class="cell-situacao">
                       {{ dep.situacao || '—' }}
                     </td>
                     <!-- Histórico Votos Mandato (Câmara API) -->
-                    <td class="p-2 text-right font-bold text-slate-900 tabular-nums">
+                    <td class="cell-votos-mandato">
                       @if (
                         dep.votos_nominais_mandato_atual !== null &&
                         dep.votos_nominais_mandato_atual !== undefined
@@ -335,7 +310,7 @@
                         <span>{{ formatarNumero(dep.votos_nominais_mandato_atual) }}</span>
                       } @else {
                         <span
-                          class="text-slate-400 font-normal"
+                          class="text-empty"
                           title="{{ dep.motivo_sem_votos || 'Sem registro anterior' }}"
                           >—</span
                         >
@@ -351,9 +326,9 @@
     }
 
     <!-- BLOCO "COMO CALCULAMOS" (FR-14) -->
-    <div class="card-brutalista bg-slate-50">
-      <h3 class="text-sm font-black uppercase text-black tracking-wide mb-2">Como Calculamos</h3>
-      <p class="text-xs text-slate-700 leading-relaxed">
+    <div class="card-brutalista card-info">
+      <h3 class="heading-3 text-sm uppercase tracking-wide mb-2">Como Calculamos</h3>
+      <p class="text-meta text-xs leading-relaxed">
         Indicadores socioeconômicos são compilados diretamente do <strong>IBGE</strong>,
         <strong>INEP</strong> e <strong>SICONFI</strong>. Resultados eleitorais provêm dos arquivos
         abertos oficiais do <strong>TSE</strong>. Histórico de votações de mandatos federais é

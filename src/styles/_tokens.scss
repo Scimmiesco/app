@@ -6,7 +6,7 @@
 
 // 1. As 4 Cores Duras Principais
 $color-verde: #065f46; // Verde duro (Oficial, Eleito, Reeleito, Sim, Sucesso)
-$color-amarelo: #facc15; // Amarelo duro (Curado, Atenção, Destaque)
+$color-amarelo: #facc15; // Amarelo duro (Curado, Atenção, Destaque, Foco)
 $color-laranja: #ea580c; // Laranja duro (Não reeleito, Alerta, Mandato)
 $color-vermelho: #dc2626; // Vermelho duro (Pendente, Não em exercício, Erro)
 
@@ -25,20 +25,10 @@ $color-exercicio-nao: $color-vermelho;
 // 3. Neutros e Estrutura
 $color-black: #000000;
 $color-white: #ffffff;
-$color-bg-page: #f8fafc;
+$color-bg-page: rgb(248, 243, 242);
 $color-bg-amber: rgb(248, 243, 242);
 $color-bg-card: $color-bg-amber;
 $color-border-dark: #000000;
-
-// Fundos suaves derivados das 4 cores (para caixas/avisos)
-$color-vermelho-bg: #fee2e2;
-$color-vermelho-text: #991b1b;
-$color-amarelo-bg: #fef9c3;
-$color-amarelo-text: #854d0e;
-$color-laranja-bg: #ffedd5;
-$color-laranja-text: #9a3412;
-$color-verde-bg: #dcfce7;
-$color-verde-text: #166534;
 
 // 4. Sombras Duras Neo-Brutalistas
 $shadow-hard: 3px 3px 0 #000000;

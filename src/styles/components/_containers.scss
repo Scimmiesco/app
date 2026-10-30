@@ -1,11 +1,12 @@
 // ==========================================================================
-// COMPONENTES: CONTAINERS, CARDS E INPUTS BRUTALISTAS (ADR-010)
+// COMPONENTES: CONTAINERS, CARDS E ESTRUTURA VISUAL (ADR-010)
+// Estilos componentizados para dispensar classes de cor diretas no HTML
 // ==========================================================================
 
 @use '../mixins' as mixins;
 @use '../tokens' as tokens;
 
-// Sombra dura padrão reutilizável
+// Sombras duras padrão reutilizáveis
 .shadow-default,
 .shadown-default {
   box-shadow: tokens.$shadow-hard;
@@ -19,17 +20,100 @@
   box-shadow: tokens.$shadow-hard-lg;
 }
 
-// Container padrão estilo neo-brutalista (fundo âmbar)
+// 1. Shell e Layout Global (app.html)
+.app-shell {
+  @apply min-h-screen flex flex-col font-sans antialiased;
+  background-color: tokens.$color-bg-page;
+  color: tokens.$color-black;
+}
+
+.app-header {
+  @apply sticky top-0 z-30 w-full backdrop-blur border-b-2 border-black;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.app-brand {
+  @apply flex items-center gap-2 rounded-sm py-1 px-1.5 transition-colors;
+
+  @include mixins.focus-ring;
+
+  &:hover {
+    .app-brand-title {
+      text-decoration: underline;
+    }
+  }
+
+  .app-brand-title {
+    @apply text-base font-black tracking-tight text-black;
+  }
+}
+
+.status-dot {
+  @apply inline-block w-2 h-2 rounded-full mr-1;
+  background-color: tokens.$color-verde;
+}
+
+.app-footer {
+  @apply w-full border-t-2 border-black py-6 px-4 mt-auto;
+  background-color: tokens.$color-white;
+  color: tokens.$color-black;
+
+  .footer-divider {
+    @apply pt-2 border-t border-black/15 flex flex-wrap items-center justify-between gap-2 text-[11px];
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+// 2. Containers e Cards Neo-Brutalistas
 .container-default {
   @include mixins.brutalist-card(tokens.$color-bg-amber, 0.5rem);
 }
 
-// Card brutalista fundo branco
 .card-brutalista {
   @include mixins.brutalist-card(tokens.$color-bg-card, 1rem);
 }
 
-// Inputs e Selects estilizados com borda preta e foco acessível
+.card-header {
+  @apply flex flex-wrap items-center justify-between gap-2 border-b-2 border-black pb-2;
+}
+
+.card-header-grouped {
+  @apply flex flex-col gap-2 border-b-2 border-black pb-2;
+}
+
+.card-info {
+  background-color: tokens.$color-white;
+}
+
+// 3. Caixas de Métricas e Indicadores
+.metric-card {
+  @include mixins.metric-box(tokens.$color-white);
+}
+
+.metric-card-amber {
+  @include mixins.metric-box(tokens.$color-bg-amber);
+}
+
+.metric-label {
+  @apply block text-xs font-bold uppercase tracking-wider;
+  color: rgba(0, 0, 0, 0.72);
+}
+
+.metric-value {
+  @apply text-base font-black text-black;
+}
+
+.metric-value-lg {
+  @apply text-lg font-black text-black;
+}
+
+// 4. Skeleton Loader
+.skeleton-bar {
+  @apply rounded;
+  background-color: tokens.$color-amarelo;
+}
+
+// 5. Inputs e Selects estilizados
 .input-default,
 .select-default {
   @apply rounded-sm border-2 border-black bg-white font-bold text-black cursor-pointer transition-all;

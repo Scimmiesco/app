@@ -14,6 +14,13 @@
   padding: $padding;
 }
 
+// Caixa de métrica / estatística com borda preta
+@mixin metric-box($bg: tokens.$color-white) {
+  @apply rounded-sm border-2 border-black p-3;
+  background-color: $bg;
+  box-shadow: tokens.$shadow-hard-sm;
+}
+
 // Foco acessível com deslocamento e anel de foco brutalista
 @mixin focus-ring($ring-color: #000000, $shadow-offset: 4px) {
   &:focus-visible {

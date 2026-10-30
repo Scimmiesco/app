@@ -85,5 +85,5 @@
 }
 
 .badge-neutral {
-  @include mixins.badge-variant(#f1f5f9, #000000);
+  @include mixins.badge-variant(tokens.$color-white, #000000);
 }

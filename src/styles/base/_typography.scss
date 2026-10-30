@@ -1,6 +1,9 @@
 // ==========================================================================
-// BASE: TIPOGRAFIA E HIERARQUIA VISUAL
+// BASE: TIPOGRAFIA E HIERARQUIA VISUAL (ADR-010)
+// Classes semânticas para uso limpo no HTML sem utilitários diretos de cor
 // ==========================================================================
+
+@use '../tokens' as tokens;
 
 h1,
 .heading-1 {
@@ -17,6 +20,36 @@ h2,
 h3,
 .heading-3 {
   @apply font-bold text-black;
+}
+
+// Textos auxiliares e metadados com opacidade do preto padrão
+.text-meta {
+  @apply text-xs font-medium;
+  color: rgba(0, 0, 0, 0.72);
+}
+
+.text-meta-subtle {
+  @apply text-xs;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.text-contrast {
+  @apply font-black text-black;
+}
+
+// Links para fontes oficiais
+.link-fonte {
+  @apply underline font-semibold text-black transition-opacity;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+// Indicador de valor ausente (—)
+.text-empty {
+  @apply font-normal;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .text-tabular {

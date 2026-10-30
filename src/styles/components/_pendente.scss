@@ -1,24 +1,29 @@
 // ==========================================================================
-// COMPONENTES: ESTADOS VAZIOS E PENDÊNCIAS (FR-11, DR-03, ADR-010)
-// Usa as cores do sistema reduzido: vermelho para pendências e amarelo para curado
+// COMPONENTES: BLOCOS PENDENTES E AVISOS CURADOS (ADR-010)
+// Estilo neo-brutalista usando a paleta reduzida (Vermelho, Amarelo)
 // ==========================================================================
 
 @use '../tokens' as tokens;
 
 .bloco-pendente {
-  @apply rounded-sm border-2 border-black p-3 text-sm font-medium;
-  background-color: tokens.$color-vermelho-bg;
-  color: tokens.$color-vermelho-text;
+  @apply rounded-sm border-2 border-black p-3 text-sm font-bold;
+  background-color: tokens.$color-white;
+  color: tokens.$color-vermelho;
+  border-left-width: 6px;
+  border-left-color: tokens.$color-vermelho;
   box-shadow: tokens.$shadow-hard-sm;
 
   strong {
-    @apply font-bold;
+    @apply uppercase;
+    color: tokens.$color-vermelho;
   }
 }
 
 .aviso-curado {
-  @apply rounded-sm border-2 border-black p-3 text-sm font-medium;
-  background-color: tokens.$color-amarelo-bg;
-  color: tokens.$color-amarelo-text;
+  @apply rounded-sm border-2 border-black p-3 text-sm font-bold;
+  background-color: tokens.$color-white;
+  color: tokens.$color-black;
+  border-left-width: 6px;
+  border-left-color: tokens.$color-amarelo;
   box-shadow: tokens.$shadow-hard-sm;
 }
