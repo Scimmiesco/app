@@ -1,13 +1,14 @@
 // ==========================================================================
 // COMPONENTES: ESTADOS VAZIOS E PENDÊNCIAS (FR-11, DR-03, ADR-010)
+// Usa as cores do sistema reduzido: vermelho para pendências e amarelo para curado
 // ==========================================================================
 
 @use '../tokens' as tokens;
 
 .bloco-pendente {
   @apply rounded-sm border-2 border-black p-3 text-sm font-medium;
-  background-color: tokens.$color-rose-50;
-  color: tokens.$color-rose-900;
+  background-color: tokens.$color-vermelho-bg;
+  color: tokens.$color-vermelho-text;
   box-shadow: tokens.$shadow-hard-sm;
 
   strong {
@@ -17,6 +18,7 @@
 
 .aviso-curado {
   @apply rounded-sm border-2 border-black p-3 text-sm font-medium;
-  background-color: #fefce8;
-  color: #713f12;
+  background-color: tokens.$color-amarelo-bg;
+  color: tokens.$color-amarelo-text;
+  box-shadow: tokens.$shadow-hard-sm;
 }

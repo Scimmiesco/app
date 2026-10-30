@@ -1,60 +1,73 @@
 // ==========================================================================
-// TOKENS DE DESIGN (FONTE ÚNICA - ADR-008, ADR-010)
-// Cores sólidas de alto contraste, espaçamentos, sombras e tipografia
+// TOKENS DE DESIGN — PALETA REDUZIDA (ADR-008, ADR-010)
+// Fonte única: 4 cores principais (Verde, Amarelo, Laranja, Vermelho)
+// repetidas consistentemente em todos os componentes.
 // ==========================================================================
 
-// Cores de Status e Proveniência Oficial (TSE, IBGE, INEP, SICONFI, Câmara)
-$color-oficial: #065f46; // Verde esmeralda duro
-$color-curado: #facc15; // Amarelo duro
-$color-pendente: #dc2626; // Vermelho duro
+// 1. As 4 Cores Duras Principais
+$color-verde: #065f46; // Verde duro (Oficial, Eleito, Reeleito, Sim, Sucesso)
+$color-amarelo: #facc15; // Amarelo duro (Curado, Atenção, Destaque)
+$color-laranja: #ea580c; // Laranja duro (Não reeleito, Alerta, Mandato)
+$color-vermelho: #dc2626; // Vermelho duro (Pendente, Não em exercício, Erro)
 
-// Cores de Domínio Político / Eleitoral
-$color-reeleito: #1d4ed8; // Azul royal vivo
-$color-eleito: #047857; // Verde esmeralda vivo
-$color-nao-reeleito: #f59e0b; // Âmbar vivo
-$color-exercicio-sim: #065f46;
-$color-exercicio-nao: #94a3b8;
-$color-partido-bg: #f8fafc;
-$color-mandato-bg: #eff6ff;
-$color-mandato-text: #1e3a8a;
+// 2. Mapeamentos Semânticos (apontam estritamente para as 4 cores)
+$color-oficial: $color-verde;
+$color-curado: $color-amarelo;
+$color-pendente: $color-vermelho;
 
-// Cores Neutras e Brutalistas
+$color-eleito: $color-verde;
+$color-reeleito: $color-verde;
+$color-nao-reeleito: $color-laranja;
+
+$color-exercicio-sim: $color-verde;
+$color-exercicio-nao: $color-vermelho;
+
+// 3. Neutros e Estrutura
 $color-black: #000000;
 $color-white: #ffffff;
 $color-bg-page: #f8fafc;
-$color-bg-card: #ffffff;
-$color-bg-amber: #fffbeb;
+$color-bg-amber: rgb(248, 243, 242);
+$color-bg-card: $color-bg-amber;
 $color-border-dark: #000000;
-$color-rose-50: #fff1f2;
-$color-rose-900: #881337;
 
-// Sombras Duras Neo-Brutalistas
+// Fundos suaves derivados das 4 cores (para caixas/avisos)
+$color-vermelho-bg: #fee2e2;
+$color-vermelho-text: #991b1b;
+$color-amarelo-bg: #fef9c3;
+$color-amarelo-text: #854d0e;
+$color-laranja-bg: #ffedd5;
+$color-laranja-text: #9a3412;
+$color-verde-bg: #dcfce7;
+$color-verde-text: #166534;
+
+// 4. Sombras Duras Neo-Brutalistas
 $shadow-hard: 3px 3px 0 #000000;
 $shadow-hard-sm: 2px 2px 0 #000000;
 $shadow-hard-lg: 5px 5px 0 #000000;
 
-// Bordas e Raios
+// 5. Bordas e Raios
 $border-width-default: 2px;
 $border-solid-black: 2px solid #000000;
 $radius-sm: 0.125rem; // 2px (rounded-sm)
 $radius-md: 0.25rem; // 4px (rounded)
 
-// Breakpoints
+// 6. Breakpoints
 $bp-mobile: 393px;
 $bp-sm: 640px;
 $bp-md: 768px;
 $bp-lg: 1024px;
 
-// Variáveis CSS Custom Properties injetadas para Tailwind e seletores dinâmicos
+// Variáveis CSS Custom Properties para componentes e Tailwind
 :root {
+  --color-verde: #{$color-verde};
+  --color-amarelo: #{$color-amarelo};
+  --color-laranja: #{$color-laranja};
+  --color-vermelho: #{$color-vermelho};
+
   --color-oficial: #{$color-oficial};
   --color-curado: #{$color-curado};
   --color-pendente: #{$color-pendente};
-  --color-reeleito: #{$color-reeleito};
-  --color-eleito: #{$color-eleito};
-  --color-nao-reeleito: #{$color-nao-reeleito};
-  --color-exercicio-sim: #{$color-exercicio-sim};
-  --color-exercicio-nao: #{$color-exercicio-nao};
+
   --shadow-hard: #{$shadow-hard};
   --shadow-hard-sm: #{$shadow-hard-sm};
   --shadow-hard-lg: #{$shadow-hard-lg};

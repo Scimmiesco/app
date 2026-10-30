@@ -1,13 +1,13 @@
 // ==========================================================================
 // COMPONENTES: BADGES E SELOS DE STATUS (ADR-010)
-// Lógica estilo botões (.badge .badge-[categoria] [.badge-sm])
-// Cores duras, alto contraste e bordas pretas sólidas 2px
+// Paleta reduzida: Verde, Amarelo, Laranja, Vermelho (cores duras e borda preta)
+// Lógica estilo botões: .badge .badge-[categoria] [.badge-sm]
 // ==========================================================================
 
 @use '../mixins' as mixins;
 @use '../tokens' as tokens;
 
-// Classe base
+// 1. Classe Base
 .badge,
 .badge-default {
   @include mixins.badge-base;
@@ -39,79 +39,51 @@
   }
 }
 
-// Categorias de Status do Contrato (Proveniência Oficial)
-.badge-oficial {
-  @include mixins.badge-variant(tokens.$color-oficial, #ffffff);
+// 2. As 4 Cores Duras Principais (Repetidas em todos os badges)
+
+// VERDE: Oficial, Eleito, Reeleito, Em Exercício (SIM), Sucesso
+.badge-verde,
+.badge-oficial,
+.badge-eleito,
+.badge-reeleito,
+.badge-exercicio-sim,
+.badge-success {
+  @include mixins.badge-variant(tokens.$color-verde, #ffffff);
 }
 
-.badge-curado {
-  @include mixins.badge-variant(tokens.$color-curado, #000000);
+// AMARELO: Curado, Destaque, Atenção
+.badge-amarelo,
+.badge-curado,
+.badge-warning {
+  @include mixins.badge-variant(tokens.$color-amarelo, #000000);
 }
 
-.badge-pendente {
-  @include mixins.badge-variant(tokens.$color-pendente, #ffffff);
+// LARANJA: Não reeleito, Mandato, Alerta
+.badge-laranja,
+.badge-nao-reeleito,
+.badge-mandato {
+  @include mixins.badge-variant(tokens.$color-laranja, #ffffff);
 }
 
-// Categorias de Domínio Político / Eleitoral
-.badge-reeleito {
-  @include mixins.badge-variant(tokens.$color-reeleito, #ffffff);
+// VERMELHO: Pendente, Em Exercício (NÃO), Erro
+.badge-vermelho,
+.badge-pendente,
+.badge-exercicio-nao,
+.badge-danger {
+  @include mixins.badge-variant(tokens.$color-vermelho, #ffffff);
 }
 
-.badge-eleito {
-  @include mixins.badge-variant(tokens.$color-eleito, #ffffff);
-}
-
-.badge-nao-reeleito {
-  @include mixins.badge-variant(tokens.$color-nao-reeleito, #000000);
-}
-
-.badge-exercicio-sim {
-  @include mixins.badge-variant(tokens.$color-exercicio-sim, #ffffff);
-}
-
-.badge-exercicio-nao {
-  @include mixins.badge-variant(tokens.$color-exercicio-nao, #000000);
-}
-
+// 3. Neutros Estruturais
+.badge-white,
 .badge-partido {
-  @include mixins.badge-variant(tokens.$color-partido-bg, #000000);
+  @include mixins.badge-variant(tokens.$color-white, #000000);
   @apply font-black;
 }
 
-.badge-mandato {
-  @include mixins.badge-variant(tokens.$color-mandato-bg, tokens.$color-mandato-text);
-  @apply font-bold;
-}
-
-// Categorias Semânticas Universais
-.badge-success {
-  @include mixins.badge-variant(#15803d, #ffffff);
-}
-
-.badge-warning {
-  @include mixins.badge-variant(#eab308, #000000);
-}
-
-.badge-danger {
-  @include mixins.badge-variant(#b91c1c, #ffffff);
-}
-
-.badge-info {
-  @include mixins.badge-variant(#1d4ed8, #ffffff);
-}
-
-.badge-primary {
-  @include mixins.badge-variant(#2563eb, #ffffff);
+.badge-dark {
+  @include mixins.badge-variant(tokens.$color-black, #ffffff);
 }
 
 .badge-neutral {
-  @include mixins.badge-variant(#e2e8f0, #000000);
-}
-
-.badge-dark {
-  @include mixins.badge-variant(#000000, #ffffff);
-}
-
-.badge-white {
-  @include mixins.badge-variant(#ffffff, #000000);
+  @include mixins.badge-variant(#f1f5f9, #000000);
 }
