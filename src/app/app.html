@@ -10,33 +10,30 @@
   <!-- Topbar simples mobile-first -->
   <header
     role="banner"
-    class="sticky top-0 z-30 w-full bg-white/95 backdrop-blur border-b border-slate-200"
+    class="sticky top-0 z-30 w-full bg-white/95 backdrop-blur border-b-2 border-black"
   >
     <div class="max-w-4xl mx-auto px-4 h-14 flex items-center justify-between">
       <div class="flex items-center gap-2">
         <a
           routerLink="/"
-          class="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-md py-1 px-1.5"
+          class="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-black rounded-sm py-1 px-1.5"
           aria-label="Página inicial do Eleitor v2"
         >
           <span
-            class="text-base font-bold tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors"
+            class="text-base font-black tracking-tight text-black group-hover:text-blue-700 transition-colors"
           >
             Eleitor
           </span>
-          <span
-            class="text-xs font-semibold px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200"
-          >
-            v2
-          </span>
+          <span class="badge badge-xs badge-info"> v2 </span>
         </a>
       </div>
 
-      <nav aria-label="Navegação da cidade" class="text-xs text-slate-600">
-        <span
-          class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-100 font-medium text-slate-800"
-        >
-          <span class="inline-block w-2 h-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
+      <nav aria-label="Navegação da cidade" class="text-xs">
+        <span class="badge badge-sm badge-white">
+          <span
+            class="inline-block w-2 h-2 rounded-full bg-emerald-600 mr-1"
+            aria-hidden="true"
+          ></span>
           Campo Grande / MS
         </span>
       </nav>
@@ -49,26 +46,26 @@
   </main>
 
   <!-- Rodapé com aviso de fontes oficiais -->
-  <footer role="contentinfo" class="w-full bg-white border-t border-slate-200 py-6 px-4 mt-auto">
-    <div class="max-w-4xl mx-auto space-y-3 text-xs text-slate-600">
+  <footer role="contentinfo" class="w-full bg-white border-t-2 border-black py-6 px-4 mt-auto">
+    <div class="max-w-4xl mx-auto space-y-3 text-xs text-slate-700">
       <div class="flex flex-wrap items-center gap-2">
-        <span class="font-semibold text-slate-800">Fontes Oficiais:</span>
-        <span class="inline-flex items-center">TSE</span>
+        <span class="font-black text-black">Fontes Oficiais:</span>
+        <span class="inline-flex items-center font-bold">TSE</span>
         <span aria-hidden="true">•</span>
-        <span class="inline-flex items-center">IBGE</span>
+        <span class="inline-flex items-center font-bold">IBGE</span>
         <span aria-hidden="true">•</span>
-        <span class="inline-flex items-center">INEP</span>
+        <span class="inline-flex items-center font-bold">INEP</span>
         <span aria-hidden="true">•</span>
-        <span class="inline-flex items-center">SICONFI</span>
+        <span class="inline-flex items-center font-bold">SICONFI</span>
         <span aria-hidden="true">•</span>
-        <span class="inline-flex items-center">Câmara dos Deputados</span>
+        <span class="inline-flex items-center font-bold">Câmara dos Deputados</span>
       </div>
-      <p class="leading-relaxed text-slate-500">
+      <p class="leading-relaxed text-slate-600">
         Informações eleitorais e municipais consolidadas a partir de dados públicos oficiais
         abertos. Sem cálculo de alinhamento, scores ou opiniões subjetivas.
       </p>
       <div
-        class="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400"
+        class="pt-2 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500"
       >
         <span>Eleitor v2 — Transparência Eleitoral</span>
         <span>Acessibilidade e integridade de dados (NFR-11)</span>

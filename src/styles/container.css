@@ -15,23 +15,6 @@
   box-shadow: 3px 3px 0 #000000;
 }
 
-/* Padrão base de badge com borda preta */
-.badge-default {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 0.125rem;
-  color: #ffffff;
-  font-weight: 700;
-  padding: 0.25rem 0.375rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  border: 2px solid #000000;
-}
-
-.badge-oficial {
-  background-color: #065f46;
-}
-
 /* Input/select estilizado com borda preta dinâmica e sombra dura */
 .input-default,
 .select-default {
