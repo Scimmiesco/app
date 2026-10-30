@@ -1,0 +1,20 @@
+// ==========================================================================
+// ESTILOS PRINCIPAIS — ELEITOR V2 (ADR-008, ADR-010, US-05)
+// Integração entre módulos SCSS e utilitários Tailwind
+// ==========================================================================
+
+// Import do Tailwind v4
+@use 'tailwindcss';
+
+// Módulos de design SCSS
+@use 'styles/tokens';
+@use 'styles/mixins';
+@use 'styles/base/reset';
+@use 'styles/base/typography';
+@use 'styles/base/a11y';
+@use 'styles/components/containers';
+@use 'styles/components/badges';
+@use 'styles/components/tabela';
+@use 'styles/components/pendente';
+@use 'styles/components/modal';
+@use 'styles/components/drawer';

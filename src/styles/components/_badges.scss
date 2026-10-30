@@ -1,0 +1,117 @@
+// ==========================================================================
+// COMPONENTES: BADGES E SELOS DE STATUS (ADR-010)
+// Lógica estilo botões (.badge .badge-[categoria] [.badge-sm])
+// Cores duras, alto contraste e bordas pretas sólidas 2px
+// ==========================================================================
+
+@use '../mixins' as mixins;
+@use '../tokens' as tokens;
+
+// Classe base
+.badge,
+.badge-default {
+  @include mixins.badge-base;
+  @apply text-xs;
+  padding: 0.25rem 0.5rem;
+
+  // Modificadores de Tamanho
+  &.badge-xs {
+    @apply text-[10px];
+    padding: 0.125rem 0.25rem;
+    border-width: 1.5px;
+  }
+
+  &.badge-sm {
+    @apply text-[11px];
+    padding: 0.125rem 0.375rem;
+    border-width: 2px;
+  }
+
+  &.badge-lg {
+    @apply text-sm;
+    padding: 0.375rem 0.75rem;
+    border-width: 2px;
+  }
+
+  // Modificador de Sombra
+  &.badge-shadow {
+    box-shadow: tokens.$shadow-hard-sm;
+  }
+}
+
+// Categorias de Status do Contrato (Proveniência Oficial)
+.badge-oficial {
+  @include mixins.badge-variant(tokens.$color-oficial, #ffffff);
+}
+
+.badge-curado {
+  @include mixins.badge-variant(tokens.$color-curado, #000000);
+}
+
+.badge-pendente {
+  @include mixins.badge-variant(tokens.$color-pendente, #ffffff);
+}
+
+// Categorias de Domínio Político / Eleitoral
+.badge-reeleito {
+  @include mixins.badge-variant(tokens.$color-reeleito, #ffffff);
+}
+
+.badge-eleito {
+  @include mixins.badge-variant(tokens.$color-eleito, #ffffff);
+}
+
+.badge-nao-reeleito {
+  @include mixins.badge-variant(tokens.$color-nao-reeleito, #000000);
+}
+
+.badge-exercicio-sim {
+  @include mixins.badge-variant(tokens.$color-exercicio-sim, #ffffff);
+}
+
+.badge-exercicio-nao {
+  @include mixins.badge-variant(tokens.$color-exercicio-nao, #000000);
+}
+
+.badge-partido {
+  @include mixins.badge-variant(tokens.$color-partido-bg, #000000);
+  @apply font-black;
+}
+
+.badge-mandato {
+  @include mixins.badge-variant(tokens.$color-mandato-bg, tokens.$color-mandato-text);
+  @apply font-bold;
+}
+
+// Categorias Semânticas Universais
+.badge-success {
+  @include mixins.badge-variant(#15803d, #ffffff);
+}
+
+.badge-warning {
+  @include mixins.badge-variant(#eab308, #000000);
+}
+
+.badge-danger {
+  @include mixins.badge-variant(#b91c1c, #ffffff);
+}
+
+.badge-info {
+  @include mixins.badge-variant(#1d4ed8, #ffffff);
+}
+
+.badge-primary {
+  @include mixins.badge-variant(#2563eb, #ffffff);
+}
+
+.badge-neutral {
+  @include mixins.badge-variant(#e2e8f0, #000000);
+}
+
+.badge-dark {
+  @include mixins.badge-variant(#000000, #ffffff);
+}
+
+.badge-white {
+  @include mixins.badge-variant(#ffffff, #000000);
+}

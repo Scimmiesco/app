@@ -1,0 +1,63 @@
+// ==========================================================================
+// MIXINS REUTILIZÁVEIS (SCSS + TAILWIND @APPLY - ADR-008, ADR-010)
+// Mistura das melhores práticas: utilitários Tailwind via @apply
+// combinados com parâmetros, variáveis e lógica de estilos SCSS.
+// ==========================================================================
+
+@use 'tokens' as tokens;
+
+// Container/Card no estilo neo-brutalista (borda preta + sombra dura)
+@mixin brutalist-card($bg: tokens.$color-bg-card, $padding: 1rem, $shadow: tokens.$shadow-hard) {
+  @apply rounded-sm border-2 border-black;
+  background-color: $bg;
+  box-shadow: $shadow;
+  padding: $padding;
+}
+
+// Foco acessível com deslocamento e anel de foco brutalista
+@mixin focus-ring($ring-color: #000000, $shadow-offset: 4px) {
+  &:focus-visible {
+    @apply outline-none ring-2 ring-black;
+    box-shadow: $shadow-offset $shadow-offset 0 $ring-color;
+    transform: translate(-1px, -1px);
+  }
+}
+
+// Estrutura base de badge combinando utilitários Tailwind (@apply) e tokens
+@mixin badge-base {
+  @apply inline-flex items-center justify-center gap-1 font-bold whitespace-nowrap;
+  border: tokens.$border-solid-black;
+  border-radius: tokens.$radius-sm;
+  line-height: 1rem;
+  box-sizing: border-box;
+}
+
+// Variação de cor e contraste para badges
+@mixin badge-variant($bg-color, $text-color: #ffffff) {
+  background-color: $bg-color;
+  color: $text-color;
+}
+
+// Truncamento seguro de texto com elipse
+@mixin truncate-text {
+  @apply overflow-hidden text-ellipsis whitespace-nowrap;
+}
+
+// Mixins responsivos orientados a breakpoints
+@mixin mobile-only {
+  @media (max-width: #{tokens.$bp-sm - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: #{tokens.$bp-sm}) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: #{tokens.$bp-lg}) {
+    @content;
+  }
+}

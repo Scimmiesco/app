@@ -1,0 +1,24 @@
+// ==========================================================================
+// BASE: TIPOGRAFIA E HIERARQUIA VISUAL
+// ==========================================================================
+
+h1,
+.heading-1 {
+  @apply font-extrabold tracking-tight text-black;
+  line-height: 1.15;
+}
+
+h2,
+.heading-2 {
+  @apply font-black uppercase tracking-wide text-black;
+  letter-spacing: 0.04em;
+}
+
+h3,
+.heading-3 {
+  @apply font-bold text-black;
+}
+
+.text-tabular {
+  font-variant-numeric: tabular-nums;
+}

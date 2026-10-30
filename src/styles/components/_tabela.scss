@@ -1,0 +1,42 @@
+// ==========================================================================
+// COMPONENTES: TABELAS BRUTALISTAS (ADR-010)
+// ==========================================================================
+
+@use '../tokens' as tokens;
+
+.tabela-wrapper {
+  @apply overflow-x-auto rounded-sm border-2 border-black;
+  box-shadow: tokens.$shadow-hard;
+}
+
+.tabela-brutalista {
+  @apply w-full border-collapse text-left text-xs;
+
+  thead {
+    @apply bg-slate-100 text-black border-b-2 border-black;
+
+    th {
+      @apply p-2 font-black uppercase tracking-wider;
+    }
+  }
+
+  tbody {
+    @apply divide-y divide-slate-200;
+
+    tr {
+      @apply transition-colors;
+
+      &:hover {
+        @apply bg-amber-50/60;
+      }
+
+      &.em-exercicio {
+        @apply bg-emerald-50/30;
+      }
+
+      td {
+        @apply p-2;
+      }
+    }
+  }
+}

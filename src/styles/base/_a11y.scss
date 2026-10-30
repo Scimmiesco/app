@@ -1,0 +1,24 @@
+// ==========================================================================
+// BASE: ACESSIBILIDADE (A11Y - FR-13, NFR-02)
+// Skip-link, leitores de tela e estados de foco nítidos
+// ==========================================================================
+
+@use '../mixins' as mixins;
+@use '../tokens' as tokens;
+
+.skip-link {
+  @apply sr-only;
+
+  &:focus {
+    @apply not-sr-only absolute z-50 p-3 bg-white text-blue-700 font-bold shadow-md;
+    border: tokens.$border-solid-black;
+    top: 0.5rem;
+    left: 0.5rem;
+    outline: none;
+  }
+}
+
+// Estilo de foco universal acessível
+:focus-visible {
+  @apply outline-none ring-2 ring-black;
+}

@@ -1,0 +1,41 @@
+// ==========================================================================
+// COMPONENTES: MODAL (ADR-010)
+// Diálogos modais com borda preta e sombra dura neo-brutalista
+// ==========================================================================
+
+@use '../tokens' as tokens;
+@use '../mixins' as mixins;
+
+.modal-backdrop {
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(2px);
+}
+
+.modal-container {
+  @apply relative w-full max-w-lg rounded-sm border-2 border-black bg-white p-6;
+  box-shadow: tokens.$shadow-hard-lg;
+
+  .modal-header {
+    @apply flex items-center justify-between border-b-2 border-black pb-3 mb-4;
+
+    h3 {
+      @apply text-lg font-black uppercase text-black tracking-wide;
+    }
+
+    .modal-close {
+      @apply rounded-sm border-2 border-black p-1 font-bold transition-all;
+      box-shadow: tokens.$shadow-hard-sm;
+
+      @include mixins.focus-ring;
+    }
+  }
+
+  .modal-body {
+    @apply text-sm text-slate-800 leading-relaxed space-y-3;
+  }
+
+  .modal-footer {
+    @apply mt-6 flex justify-end gap-2 border-t-2 border-black pt-3;
+  }
+}

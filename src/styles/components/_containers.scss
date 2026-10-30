@@ -1,0 +1,40 @@
+// ==========================================================================
+// COMPONENTES: CONTAINERS, CARDS E INPUTS BRUTALISTAS (ADR-010)
+// ==========================================================================
+
+@use '../mixins' as mixins;
+@use '../tokens' as tokens;
+
+// Sombra dura padrão reutilizável
+.shadow-default,
+.shadown-default {
+  box-shadow: tokens.$shadow-hard;
+}
+
+.shadow-default-sm {
+  box-shadow: tokens.$shadow-hard-sm;
+}
+
+.shadow-default-lg {
+  box-shadow: tokens.$shadow-hard-lg;
+}
+
+// Container padrão estilo neo-brutalista (fundo âmbar)
+.container-default {
+  @include mixins.brutalist-card(tokens.$color-bg-amber, 0.5rem);
+}
+
+// Card brutalista fundo branco
+.card-brutalista {
+  @include mixins.brutalist-card(tokens.$color-bg-card, 1rem);
+}
+
+// Inputs e Selects estilizados com borda preta e foco acessível
+.input-default,
+.select-default {
+  @apply rounded-sm border-2 border-black bg-white font-bold text-black cursor-pointer transition-all;
+  box-shadow: tokens.$shadow-hard;
+  padding: 0.375rem 0.75rem;
+
+  @include mixins.focus-ring;
+}
