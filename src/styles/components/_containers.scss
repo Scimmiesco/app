@@ -67,6 +67,25 @@
 // 2. Containers e Cards Neo-Brutalistas
 .container-default {
   @include mixins.brutalist-card(tokens.$color-bg-amber, 0.5rem);
+
+  &[role='tablist'] {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem;
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    button,
+    [role='tab'] {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+  }
 }
 
 .card-brutalista {
@@ -121,4 +140,38 @@
   padding: 0.375rem 0.75rem;
 
   @include mixins.focus-ring;
+}
+
+// 6. Bloco e Frame de Mapa Interativo
+.mapa-frame {
+  @apply w-full h-72 sm:h-80 md:h-96 rounded-sm border-2 border-black overflow-hidden relative;
+  box-shadow: tokens.$shadow-hard-sm;
+  background-color: tokens.$color-white;
+}
+
+// 7. Container Expansível Suave Padrão (CSS Grid 0fr -> 1fr)
+.collapsible-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: tokens.$transition-collapse;
+  overflow: hidden;
+
+  &.open {
+    grid-template-rows: 1fr;
+  }
+
+  > .collapsible-inner {
+    min-height: 0;
+    overflow: hidden;
+    transition:
+      opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  &.open > .collapsible-inner {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

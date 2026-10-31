@@ -1,19 +1,42 @@
-<div class="app-shell">
+<div class="app-shell" data-testid="app-shell" data-test-id="app-shell">
   <!-- Skip link para acessibilidade (FR-13) -->
-  <a href="#main-content" class="skip-link"> Pular para o conteúdo principal </a>
+  <a
+    href="#main-content"
+    class="skip-link"
+    data-testid="skip-link-conteudo-principal"
+    data-test-id="skip-link-conteudo-principal"
+  >
+    Pular para o conteúdo principal
+  </a>
 
   <!-- Topbar simples mobile-first -->
-  <header role="banner" class="app-header">
+  <header
+    role="banner"
+    class="app-header"
+    data-testid="header-principal"
+    data-test-id="header-principal"
+  >
     <div class="max-w-4xl mx-auto px-4 h-14 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <a routerLink="/" class="app-brand" aria-label="Página inicial do Eleitor v2">
-          <span class="app-brand-title"> Eleitor </span>
-          <span class="badge badge-xs badge-verde"> v2 </span>
+        <a
+          routerLink="/"
+          class="app-brand"
+          aria-label="Página inicial do Eleitor v2"
+          data-testid="link-home-eleitor"
+          data-test-id="link-home-eleitor"
+        >
+          <span class="app-brand-title" data-testid="texto-brand-titulo"> Eleitor </span>
+          <span class="badge badge-xs badge-verde" data-testid="badge-versao-app"> v2 </span>
         </a>
       </div>
 
-      <nav aria-label="Navegação da cidade" class="text-xs">
-        <span class="badge badge-sm badge-white">
+      <nav
+        aria-label="Navegação da cidade"
+        class="text-xs"
+        data-testid="nav-cidade-ativa"
+        data-test-id="nav-cidade-ativa"
+      >
+        <span class="badge badge-sm badge-white" data-testid="badge-cidade-selecionada">
           <span class="status-dot" aria-hidden="true"></span>
           Campo Grande / MS
         </span>
@@ -22,32 +45,65 @@
   </header>
 
   <!-- Área principal -->
-  <main id="main-content" role="main" class="flex-1 w-full max-w-4xl mx-auto px-4 py-6">
+  <main
+    id="main-content"
+    role="main"
+    class="flex-1 w-full max-w-4xl mx-auto px-4 py-6"
+    data-testid="conteudo-principal"
+    data-test-id="conteudo-principal"
+  >
     <router-outlet />
   </main>
 
   <!-- Rodapé com aviso de fontes oficiais -->
-  <footer role="contentinfo" class="app-footer">
+  <footer
+    role="contentinfo"
+    class="app-footer"
+    data-testid="rodape-principal"
+    data-test-id="rodape-principal"
+  >
     <div class="max-w-4xl mx-auto space-y-3 text-xs text-meta">
-      <div class="flex flex-wrap items-center gap-2">
-        <span class="text-contrast">Fontes Oficiais:</span>
-        <span class="inline-flex items-center font-bold">TSE</span>
+      <div
+        class="flex flex-wrap items-center gap-2"
+        data-testid="container-fontes-oficiais"
+        data-test-id="container-fontes-oficiais"
+      >
+        <span class="text-contrast" data-testid="rotulo-fontes-oficiais">Fontes Oficiais:</span>
+        <span class="inline-flex items-center font-bold" data-testid="fonte-oficial-tse">TSE</span>
         <span aria-hidden="true">•</span>
-        <span class="inline-flex items-center font-bold">IBGE</span>
+        <span class="inline-flex items-center font-bold" data-testid="fonte-oficial-ibge"
+          >IBGE</span
+        >
         <span aria-hidden="true">•</span>
-        <span class="inline-flex items-center font-bold">INEP</span>
+        <span class="inline-flex items-center font-bold" data-testid="fonte-oficial-inep"
+          >INEP</span
+        >
         <span aria-hidden="true">•</span>
-        <span class="inline-flex items-center font-bold">SICONFI</span>
+        <span class="inline-flex items-center font-bold" data-testid="fonte-oficial-siconfi"
+          >SICONFI</span
+        >
         <span aria-hidden="true">•</span>
-        <span class="inline-flex items-center font-bold">Câmara dos Deputados</span>
+        <span class="inline-flex items-center font-bold" data-testid="fonte-oficial-camara"
+          >Câmara dos Deputados</span
+        >
       </div>
-      <p class="leading-relaxed text-meta-subtle">
+      <p
+        class="leading-relaxed text-meta-subtle"
+        data-testid="texto-aviso-fontes-oficiais"
+        data-test-id="texto-aviso-fontes-oficiais"
+      >
         Informações eleitorais e municipais consolidadas a partir de dados públicos oficiais
         abertos. Sem cálculo de alinhamento, scores ou opiniões subjetivas.
       </p>
-      <div class="footer-divider">
-        <span>Eleitor v2 — Transparência Eleitoral</span>
-        <span>Acessibilidade e integridade de dados (NFR-11)</span>
+      <div
+        class="footer-divider"
+        data-testid="rodape-divisor-metadados"
+        data-test-id="rodape-divisor-metadados"
+      >
+        <span data-testid="rodape-marca">Eleitor v2 — Transparência Eleitoral</span>
+        <span data-testid="rodape-acessibilidade"
+          >Acessibilidade e integridade de dados (NFR-11)</span
+        >
       </div>
     </div>
   </footer>

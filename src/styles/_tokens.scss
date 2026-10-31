@@ -47,6 +47,11 @@ $bp-sm: 640px;
 $bp-md: 768px;
 $bp-lg: 1024px;
 
+// 7. Transições Padrão
+$transition-default: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-fast: all 0.15s ease;
+$transition-collapse: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
 // Variáveis CSS Custom Properties para componentes e Tailwind
 :root {
   --color-verde: #{$color-verde};
@@ -62,4 +67,16 @@ $bp-lg: 1024px;
   --shadow-hard-sm: #{$shadow-hard-sm};
   --shadow-hard-lg: #{$shadow-hard-lg};
   --border-black: #{$border-solid-black};
+
+  --transition-default: #{$transition-default};
+  --transition-fast: #{$transition-fast};
+  --transition-collapse: #{$transition-collapse};
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-default: none !important;
+    --transition-fast: none !important;
+    --transition-collapse: none !important;
+  }
 }
