@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, shareReplay } from 'rxjs';
+import { catchError, Observable, shareReplay, throwError } from 'rxjs';
 import { IndiceCidades, MunicipioSnapshot } from '../models/contrato.model';
 
 @Injectable({
@@ -18,9 +18,13 @@ export class DataService {
       return cached$;
     }
 
-    const request$ = this.http
-      .get<MunicipioSnapshot>(`/data/municipios/${key}.json`)
-      .pipe(shareReplay(1));
+    const request$ = this.http.get<MunicipioSnapshot>(`/data/municipios/${key}.json`).pipe(
+      catchError((err) => {
+        this.cidadeCache.delete(key);
+        return throwError(() => err);
+      }),
+      shareReplay(1),
+    );
 
     this.cidadeCache.set(key, request$);
     return request$;
@@ -28,10 +32,18 @@ export class DataService {
 
   getIndiceCidades(): Observable<IndiceCidades> {
     if (!this.indiceCache$) {
-      this.indiceCache$ = this.http
-        .get<IndiceCidades>('/data/indice-cidades.json')
-        .pipe(shareReplay(1));
+      this.indiceCache$ = this.http.get<IndiceCidades>('/data/indice-cidades.json').pipe(
+        catchError((err) => {
+          this.indiceCache$ = undefined;
+          return throwError(() => err);
+        }),
+        shareReplay(1),
+      );
     }
     return this.indiceCache$;
+  }
+
+  limparCacheCidade(codigoIbge: string | number): void {
+    this.cidadeCache.delete(String(codigoIbge));
   }
 }

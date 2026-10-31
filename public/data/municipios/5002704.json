@@ -1,6 +1,6 @@
 {
-  "schema_version": "0.3.0",
-  "gerado_em": "2026-10-29T16:17:22-0400",
+  "schema_version": "0.5.0",
+  "gerado_em": "2026-10-31T19:00:25-0400",
   "municipio": {
     "codigo_ibge": 5002704,
     "codigo_tse": "90514",
@@ -46,14 +46,14 @@
     "tse_2024_abertos": {
       "orgao": "TSE",
       "titulo": "Arquivos abertos 2024 (votacao_candidato_munzona + consulta_cand)",
-      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_2024.zip",
+      "url": "https://dadosabertos.tse.jus.br/dataset/resultados-2024",
       "consultado_em": "2026-10-29",
       "confianca": "oficial"
     },
     "tse_2026_abertos": {
       "orgao": "TSE",
       "titulo": "Arquivos abertos 2026 (votacao_candidato_munzona + consulta_cand)",
-      "url": "https://cdn.tse.jus.br/estatistica/sead/odsele/votacao_candidato_munzona/votacao_candidato_munzona_2026.zip",
+      "url": "https://dadosabertos.tse.jus.br/dataset/resultados-2026",
       "consultado_em": "2026-10-29",
       "confianca": "oficial"
     },
@@ -70,6 +70,13 @@
       "url": "https://legis.senado.leg.br/dadosabertos/senador/lista/atual.json",
       "consultado_em": "2026-10-29",
       "confianca": "oficial"
+    },
+    "tse_2026_2t_bu": {
+      "orgao": "TSE",
+      "titulo": "Boletim de Urna (BU) - 2o turno 2026 (agregado municipal)",
+      "url": "https://resultados.tse.jus.br/",
+      "consultado_em": "2026-10-31",
+      "confianca": "oficial"
     }
   },
   "secoes": {
@@ -78,7 +85,7 @@
       "status": "oficial",
       "fonte": "ibge_censo_2022",
       "ano": 2022,
-      "coletado_em": "2026-10-29T16:17:22-0400",
+      "coletado_em": "2026-10-31T19:00:25-0400",
       "motivo": null,
       "dados": {
         "nome": "Campo Grande",
@@ -91,7 +98,7 @@
       "status": "oficial",
       "fonte": "ibge_censo_2022",
       "ano": 2022,
-      "coletado_em": "2026-10-29T16:17:22-0400",
+      "coletado_em": "2026-10-31T19:00:25-0400",
       "motivo": null,
       "dados": {
         "populacao": 898100,
@@ -112,7 +119,7 @@
       "status": "oficial",
       "fonte": "ibge_pib_2023",
       "ano": 2023,
-      "coletado_em": "2026-10-29T16:17:22-0400",
+      "coletado_em": "2026-10-31T19:00:25-0400",
       "motivo": null,
       "dados": {
         "pib_total": 42269768000.0,
@@ -124,7 +131,7 @@
       "status": "oficial",
       "fonte": "inep_ideb_2023",
       "ano": 2023,
-      "coletado_em": "2026-10-29T16:17:22-0400",
+      "coletado_em": "2026-10-31T19:00:25-0400",
       "motivo": null,
       "dados": {
         "anos_iniciais": {
@@ -144,7 +151,7 @@
       "status": "oficial",
       "fonte": "siconfi_dca_2023",
       "ano": 2023,
-      "coletado_em": "2026-10-29T16:17:22-0400",
+      "coletado_em": "2026-10-31T19:00:25-0400",
       "motivo": null,
       "dados": {
         "receita_total": 5484604047.75,
@@ -159,11 +166,12 @@
       "status": "oficial",
       "fonte": "tse_2026_1t",
       "ano": 2026,
-      "coletado_em": "2026-10-29T16:17:22-0400",
+      "coletado_em": "2026-10-31T19:00:25-0400",
       "motivo": null,
       "dados": {
         "eleitores_aptos": 640427,
-        "comparecimento_pct": 80.0,
+        "comparecimento_abs": 512243,
+        "comparecimento_pct": 79.98,
         "validos": 493722,
         "lula": 159856,
         "flavio": 289672,
@@ -174,12 +182,37 @@
         "secoes": 2189
       }
     },
+    "eleicao_2026_2t": {
+      "titulo": "Eleição presidencial 2026 — 2º turno (TSE)",
+      "status": "oficial",
+      "fonte": "tse_2026_2t_bu",
+      "ano": 2026,
+      "coletado_em": "2026-10-31T19:00:25-0400",
+      "motivo": null,
+      "dados": {
+        "eleitores_aptos": 640427,
+        "comparecimento_abs": 527124,
+        "comparecimento_pct": 82.31,
+        "validos": 511988,
+        "lula": 199121,
+        "flavio": 312867,
+        "outros": 0,
+        "pct_lula": 38.89,
+        "pct_flavio": 61.11,
+        "locais": 237,
+        "secoes": 2189,
+        "secoes_apuradas": 2189,
+        "total_secoes": 2189
+      },
+      "pct_base": "votos_nominais_do_cargo",
+      "nota": "Agregado municipal dos Boletins de Urna oficiais do 2º turno (2.189/2.189 seções apuradas). Comparecimento = votos comparecidos / eleitores aptos; não usar votos válidos como denominador."
+    },
     "governador": {
-      "titulo": "Governador eleito (2026)",
+      "titulo": "Governador (2026)",
       "status": "oficial",
       "fonte": "tse_2026_abertos",
       "ano": 2026,
-      "coletado_em": "2026-10-29T16:17:22-0400",
+      "coletado_em": "2026-10-31T19:00:25-0400",
       "motivo": null,
       "dados": [
         {
@@ -189,23 +222,24 @@
           "votos": 914323,
           "pct": 67.07,
           "situacao": "ELEITO",
-          "em_exercicio": false,
+          "em_exercicio": true,
           "mandato_inicio": "2027-01-01",
           "mandato_fim": "2030-12-31",
-          "status_eleicao_2026": "eleito",
+          "status_eleicao_2026": "reeleito",
           "votos_nominais_mandato_atual": null,
           "motivo_sem_votos": null
         }
       ],
       "pct_base": "votos_nominais_do_cargo",
-      "mandato": "2027-2030"
+      "mandato": "2027-2030",
+      "nota": "Reeleito em 2026. Exercício do mandato atual 2023-2026 (TSE 2022); novo mandato 2027-2030 (TSE 2026)."
     },
     "senadores": {
       "titulo": "Senadores — atuais e eleitos (MS)",
       "status": "oficial",
       "fonte": "senado_api",
       "ano": 2026,
-      "coletado_em": "2026-10-29T16:17:22-0400",
+      "coletado_em": "2026-10-31T19:00:25-0400",
       "motivo": null,
       "dados": [
         {
@@ -294,7 +328,7 @@
       "status": "oficial",
       "fonte": "tse_2026_abertos",
       "ano": 2026,
-      "coletado_em": "2026-10-29T16:17:22-0400",
+      "coletado_em": "2026-10-31T19:00:25-0400",
       "motivo": null,
       "dados": [
         {
@@ -471,7 +505,7 @@
       "status": "oficial",
       "fonte": "tse_2026_abertos",
       "ano": 2026,
-      "coletado_em": "2026-10-29T16:17:22-0400",
+      "coletado_em": "2026-10-31T19:00:25-0400",
       "motivo": null,
       "dados": [
         {
@@ -820,7 +854,7 @@
       "status": "oficial",
       "fonte": "tse_2024_abertos",
       "ano": 2024,
-      "coletado_em": "2026-10-29T16:17:22-0400",
+      "coletado_em": "2026-10-31T19:00:25-0400",
       "motivo": null,
       "dados": [
         {
@@ -846,7 +880,7 @@
       "status": "oficial",
       "fonte": "tse_2024_abertos",
       "ano": 2024,
-      "coletado_em": "2026-10-29T16:17:22-0400",
+      "coletado_em": "2026-10-31T19:00:25-0400",
       "motivo": null,
       "dados": [
         {
@@ -1260,5 +1294,18 @@
       "mandato": "2025-2028"
     }
   },
-  "pendencias": []
+  "pendencias": [],
+  "mapa": {
+    "svg": "geo/5002704.svg",
+    "viewBox": "-54.96842 20.12198 1.41173 1.50723",
+    "largura": 420,
+    "altura": 448,
+    "fonte": {
+      "orgao": "IBGE",
+      "tipo": "malha municipal (SVG oficial)",
+      "url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/5002704?formato=image/svg+xml",
+      "sha256": "fbd9583aec0d2a9a6749bd6e8b1965081238663962b973a0c553fb964ef375b3",
+      "consultado_em": "2026-10-30"
+    }
+  }
 }

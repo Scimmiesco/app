@@ -8,11 +8,26 @@ export interface FonteMeta {
   confianca: StatusDado;
 }
 
+export interface CoordenadasBbox {
+  minLon: number;
+  minLat: number;
+  maxLon: number;
+  maxLat: number;
+}
+
+export interface CoordenadasMunicipio {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+  bbox: CoordenadasBbox;
+}
+
 export interface MunicipioMeta {
   codigo_ibge: number;
   codigo_tse: string;
   nome: string;
   uf: string;
+  geo?: CoordenadasMunicipio;
 }
 
 export interface SecaoEnvelope<T> {
@@ -68,6 +83,7 @@ export interface ResumoFinancasDados {
 
 export interface EleicaoPresidencialDados {
   eleitores_aptos: number;
+  comparecimento_abs?: number;
   comparecimento_pct: number;
   validos: number;
   lula: number;
@@ -77,6 +93,8 @@ export interface EleicaoPresidencialDados {
   pct_flavio: number;
   locais: number;
   secoes: number;
+  secoes_apuradas?: number;
+  total_secoes?: number;
 }
 
 export interface ParlamentarItem {
@@ -104,6 +122,7 @@ export interface SecoesMunicipio {
   resumo_educacao?: SecaoEnvelope<ResumoEducacaoDados>;
   resumo_financas?: SecaoEnvelope<ResumoFinancasDados>;
   eleicao_2026_1t?: SecaoEnvelope<EleicaoPresidencialDados>;
+  eleicao_2026_2t?: SecaoEnvelope<EleicaoPresidencialDados>;
   governador?: SecaoEnvelope<ParlamentarItem[]>;
   senadores?: SecaoEnvelope<ParlamentarItem[]>;
   deputados_federais?: SecaoEnvelope<ParlamentarItem[]>;
@@ -113,11 +132,28 @@ export interface SecoesMunicipio {
   [key: string]: SecaoEnvelope<unknown> | undefined;
 }
 
+export interface MapaFonteMeta {
+  orgao: string;
+  tipo: string;
+  url: string;
+  sha256: string;
+  consultado_em: string;
+}
+
+export interface MapaMeta {
+  svg: string;
+  viewBox: string;
+  largura: number;
+  altura: number;
+  fonte: MapaFonteMeta;
+}
+
 export interface MunicipioSnapshot {
   schema_version: string;
   gerado_em: string;
   municipio: MunicipioMeta;
   fontes: Record<string, FonteMeta>;
+  mapa?: MapaMeta;
   secoes: SecoesMunicipio;
   pendencias: PendenciaItem[];
 }

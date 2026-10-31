@@ -27,8 +27,8 @@ describe('DataService', () => {
 
   it('should fetch cidade snapshot with caching (shareReplay)', () => {
     const mockSnapshot = {
-      schema_version: '0.3.0',
-      gerado_em: '2026-10-29T16:17:22-0400',
+      schema_version: '0.5.0',
+      gerado_em: '2026-10-31T20:45:00-0400',
       municipio: {
         codigo_ibge: 5002704,
         codigo_tse: '90514',
@@ -55,10 +55,35 @@ describe('DataService', () => {
     httpTesting.expectNone('/data/municipios/5002704.json');
   });
 
+  it('should not cache errors and allow subsequent retry requests', () => {
+    let errorReceived = false;
+    service.getCidade(5002704).subscribe({
+      next: () => undefined,
+      error: () => (errorReceived = true),
+    });
+
+    const req1 = httpTesting.expectOne('/data/municipios/5002704.json');
+    req1.flush('Erro 500', { status: 500, statusText: 'Server Error' });
+    expect(errorReceived).toBe(true);
+
+    // Próxima chamada deve disparar nova requisição HTTP (cache limpo)
+    let retrySuccess = false;
+    service.getCidade(5002704).subscribe({
+      next: () => (retrySuccess = true),
+    });
+
+    const req2 = httpTesting.expectOne('/data/municipios/5002704.json');
+    req2.flush({
+      schema_version: '0.4.0',
+      municipio: { codigo_ibge: 5002704 },
+    });
+    expect(retrySuccess).toBe(true);
+  });
+
   it('should fetch indice cidades with caching (shareReplay)', () => {
     const mockIndice: IndiceCidades = {
-      schema_version: '0.3.0',
-      gerado_em: '2026-10-29T16:17:22-0400',
+      schema_version: '0.5.0',
+      gerado_em: '2026-10-31T20:45:00-0400',
       cidades: [
         {
           codigo_ibge: 5002704,
