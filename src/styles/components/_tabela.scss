@@ -24,7 +24,11 @@
       @apply p-2 font-black uppercase tracking-wider text-black;
 
       &:first-child {
-        border-left: 4px solid transparent;
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        background-color: tokens.$color-bg-page;
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
       }
 
       &.col-center {
@@ -43,16 +47,23 @@
 
       &:hover {
         background-color: rgba(250, 204, 21, 0.15); // Amarelo suave no hover
+
+        > td:first-child {
+          background-color: rgb(254, 247, 220); // Amarelo suave na coluna fixa no hover
+        }
       }
 
       > td:first-child {
-        border-left: 4px solid transparent;
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        background-color: tokens.$color-white;
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
       }
 
       &.em-exercicio,
       &.eleito {
         > td:first-child {
-          border-left-color: tokens.$color-verde;
           box-shadow: inset 4px 0 0 tokens.$color-verde;
         }
       }
