@@ -23,6 +23,10 @@
     th {
       @apply p-2 font-black uppercase tracking-wider text-black;
 
+      &:first-child {
+        border-left: 4px solid transparent;
+      }
+
       &.col-center {
         @apply text-center;
       }
@@ -41,8 +45,16 @@
         background-color: rgba(250, 204, 21, 0.15); // Amarelo suave no hover
       }
 
-      &.em-exercicio {
-        background-color: rgba(6, 95, 70, 0.08); // Verde suave para em exercício
+      > td:first-child {
+        border-left: 4px solid transparent;
+      }
+
+      &.em-exercicio,
+      &.eleito {
+        > td:first-child {
+          border-left-color: tokens.$color-verde;
+          box-shadow: inset 4px 0 0 tokens.$color-verde;
+        }
       }
 
       td {

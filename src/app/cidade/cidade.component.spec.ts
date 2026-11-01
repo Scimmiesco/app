@@ -625,6 +625,18 @@ describe('CidadeComponent', () => {
     expect(compiled.textContent).toContain('958');
   });
 
+  it('should apply em-exercicio class to deputados with em_exercicio=true and not to false', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const linhaCamila = compiled.querySelector('[data-testid="linha-deputado-camila jara"]');
+    const linhaRose = compiled.querySelector('[data-testid="linha-deputado-rose modesto"]');
+
+    expect(linhaCamila).toBeTruthy();
+    expect(linhaCamila?.classList.contains('em-exercicio')).toBe(true);
+
+    expect(linhaRose).toBeTruthy();
+    expect(linhaRose?.classList.contains('em-exercicio')).toBe(false);
+  });
+
   it('should display error alert when snapshot fails to load', () => {
     component.erroCarregamento.set('Erro ao carregar dados oficiais');
     fixture.detectChanges();
