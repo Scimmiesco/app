@@ -46,10 +46,10 @@
       @apply border-b border-black/10 transition-colors;
 
       &:hover {
-        background-color: rgba(250, 204, 21, 0.15); // Amarelo suave no hover
+        background-color: tokens.$color-amber-hover; // Âmbar natural no hover
 
         > td:first-child {
-          background-color: rgb(254, 247, 220); // Amarelo suave na coluna fixa no hover
+          background-color: tokens.$color-amber-hover; // Âmbar natural na coluna fixa no hover
         }
       }
 
