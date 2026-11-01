@@ -426,6 +426,7 @@ describe('CidadeComponent', () => {
     expect(cardGov).toBeTruthy();
     expect(cardGov?.textContent).toContain('EDUARDO RIEDEL');
     expect(cardGov?.textContent).toContain('PP');
+    expect(cardGov?.querySelector('app-partido-badge [data-partido="PP"]')).toBeTruthy();
     expect(cardGov?.textContent).toContain('914.323');
     expect(cardGov?.textContent).toContain('67,07%');
     expect(cardGov?.textContent).toContain('31/12/2030');

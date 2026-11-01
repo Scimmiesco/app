@@ -5,10 +5,11 @@ import { catchError, combineLatest, of, switchMap, tap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../core/services/data.service';
 import { FonteMeta, ParlamentarItem } from '../core/models/contrato.model';
+import { PartidoBadgeComponent } from '../shared/components/partido-badge/partido-badge.component';
 
 @Component({
   selector: 'app-cidade',
-  imports: [CommonModule],
+  imports: [CommonModule, PartidoBadgeComponent],
   templateUrl: './cidade.component.html',
   styleUrl: './cidade.component.css',
 })

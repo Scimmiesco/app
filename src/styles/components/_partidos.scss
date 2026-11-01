@@ -1,0 +1,162 @@
+// ==========================================================================
+// BADGES DE PARTIDOS — ALTO CONTRASTE NEO-BRUTALISTA (ADR-015, US-11)
+// Cores sólidas de identidade partidária com texto de alto contraste (>= 7:1)
+// Diferenciação de partidos de cores iguais com faixa de 2px na esquerda
+// ==========================================================================
+
+@use 'sass:map';
+@use '../tokens' as tokens;
+
+$partidos: (
+  // 1. Vermelhos
+  'PT': (
+      bg: #a0001c,
+      fg: #ffffff,
+      stripe: #ffffff,
+    ),
+  'PDT': (
+    bg: #9e0b13,
+    fg: #ffffff,
+    stripe: #003da5,
+  ),
+  'PCdoB': (
+    bg: #8b0000,
+    fg: #ffffff,
+    stripe: #ffcc00,
+  ),
+  'PSOL': (
+    bg: #a50021,
+    fg: #ffffff,
+    stripe: #ffcc00,
+  ),
+  'CIDADANIA': (
+    bg: #b00010,
+    fg: #ffffff,
+    stripe: #f97316,
+  ),
+
+  // 2. Azuis
+  'PL': (
+      bg: #003da5,
+      fg: #ffffff,
+      stripe: #ffcc00,
+    ),
+  'UNIÃO': (
+    bg: #003b7a,
+    fg: #ffffff,
+    stripe: #00a859,
+  ),
+  'UNIAO': (
+    bg: #003b7a,
+    fg: #ffffff,
+    stripe: #00a859,
+  ),
+  'PP': (
+    bg: #00508f,
+    fg: #ffffff,
+    stripe: #38bdf8,
+  ),
+  'PSDB': (
+    bg: #004a85,
+    fg: #ffffff,
+    stripe: #ffcc00,
+  ),
+  'PSD': (
+    bg: #004e8c,
+    fg: #ffffff,
+    stripe: #f97316,
+  ),
+  'REPUBLICANOS': (
+    bg: #0a2e6e,
+    fg: #ffffff,
+    stripe: #dc2626,
+  ),
+  'PODE': (
+    bg: #005580,
+    fg: #ffffff,
+    stripe: #10b981,
+  ),
+  'DC': (
+    bg: #004b87,
+    fg: #ffffff,
+    stripe: #ffffff,
+  ),
+
+  // 3. Verdes (MDB e PV possuem mesma cor base #005A34; diferenciados pela faixa de 2px)
+  'MDB': (
+      bg: #005a34,
+      fg: #ffffff,
+      stripe: #dc2626,
+    ),
+  'PV': (
+    bg: #005a34,
+    fg: #ffffff,
+    stripe: #ffcc00,
+  ),
+  'REDE': (
+    bg: #00574b,
+    fg: #ffffff,
+    stripe: #ea580c,
+  ),
+
+  // 4. Laranjas (AVANTE e PROS possuem mesma cor base #F97316; diferenciados pela faixa de 2px)
+  'AVANTE': (
+      bg: #f97316,
+      fg: #000000,
+      stripe: #003da5,
+    ),
+  'PROS': (
+    bg: #f97316,
+    fg: #000000,
+    stripe: #ffffff,
+  ),
+  'NOVO': (
+    bg: #f58220,
+    fg: #000000,
+    stripe: #0a2e6e,
+  ),
+  'SOLIDARIEDADE': (
+    bg: #f57c00,
+    fg: #000000,
+    stripe: #0284c7,
+  ),
+
+  // 5. Amarelo
+  'PSB': (
+      bg: #ffcc00,
+      fg: #000000,
+      stripe: #dc2626,
+    )
+);
+
+.badge-partido {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid tokens.$color-black;
+  box-shadow: tokens.$shadow-hard-sm;
+  border-radius: 2px;
+  font-size: 10px;
+  line-height: 1.4;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 1px 6px 1px 8px;
+  box-sizing: border-box;
+
+  // Fallback seguro para partidos desconhecidos (fundo preto, texto branco)
+  background-color: tokens.$color-black;
+  color: #ffffff;
+
+  // Aplicação das cores partidárias e faixa de 2px na esquerda
+  @each $sigla, $prop in $partidos {
+    &[data-partido='#{$sigla}'] {
+      background-color: map.get($prop, bg);
+      color: map.get($prop, fg);
+      box-shadow:
+        inset 2px 0 0 map.get($prop, stripe),
+        tokens.$shadow-hard-sm;
+    }
+  }
+}

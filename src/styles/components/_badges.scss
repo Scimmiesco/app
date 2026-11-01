@@ -74,8 +74,7 @@
 }
 
 // 3. Neutros Estruturais
-.badge-white,
-.badge-partido {
+.badge-white {
   @include mixins.badge-variant(tokens.$color-white, #000000);
   @apply font-black;
 }

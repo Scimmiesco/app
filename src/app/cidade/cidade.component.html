@@ -1054,7 +1054,7 @@
                   <tr [class.em-exercicio]="gov.em_exercicio">
                     <td class="cell-nome">{{ gov.nome_urna }}</td>
                     <td class="cell-center">
-                      <span class="badge badge-xs badge-partido">{{ gov.partido }}</span>
+                      <app-partido-badge [sigla]="gov.partido" />
                     </td>
                     <td class="cell-center">
                       @if (gov.em_exercicio) {
@@ -1129,7 +1129,7 @@
                 <tr [class.em-exercicio]="sen.em_exercicio">
                   <td class="cell-nome">{{ sen.nome_urna }}</td>
                   <td class="cell-center">
-                    <span class="badge badge-xs badge-partido">{{ sen.partido }}</span>
+                    <app-partido-badge [sigla]="sen.partido" />
                   </td>
                   <td class="cell-center">
                     @if (sen.em_exercicio) {
@@ -1230,7 +1230,7 @@
                   >
                     <td class="cell-nome">{{ dep.nome_urna }}</td>
                     <td class="cell-center">
-                      <span class="badge badge-xs badge-partido">{{ dep.partido }}</span>
+                      <app-partido-badge [sigla]="dep.partido" />
                     </td>
                     <td class="cell-votos">{{ formatarNumero(dep.votos) }}</td>
                     <td class="cell-pct">{{ formatarPct(dep.pct) }}</td>
@@ -1315,7 +1315,7 @@
                 <tr>
                   <td class="cell-nome">{{ est.nome_urna }}</td>
                   <td class="cell-center">
-                    <span class="badge badge-xs badge-partido">{{ est.partido }}</span>
+                    <app-partido-badge [sigla]="est.partido" />
                   </td>
                   <td class="cell-votos">{{ formatarNumero(est.votos) }}</td>
                   <td class="cell-pct">{{ formatarPct(est.pct) }}</td>
@@ -1360,7 +1360,8 @@
                   <span class="metric-label">Prefeito Municipal</span>
                   <span class="metric-value-lg">{{ pref.nome_urna }}</span>
                   <span class="text-meta block mt-0.5"
-                    >Partido: <strong>{{ pref.partido }}</strong> · {{ pref.situacao }}</span
+                    >Partido: <app-partido-badge [sigla]="pref.partido" /> ·
+                    {{ pref.situacao }}</span
                   >
                 </div>
                 <div class="text-right">
@@ -1411,7 +1412,7 @@
                 <tr>
                   <td class="cell-nome">{{ ver.nome_urna }}</td>
                   <td class="cell-center">
-                    <span class="badge badge-xs badge-partido">{{ ver.partido }}</span>
+                    <app-partido-badge [sigla]="ver.partido" />
                   </td>
                   <td class="cell-votos">{{ formatarNumero(ver.votos) }}</td>
                   <td class="cell-pct">{{ formatarPct(ver.pct) }}</td>
