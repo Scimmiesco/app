@@ -11,9 +11,11 @@
       aria-live="assertive"
       data-testid="alerta-erro-carregamento"
     >
-      <div class="flex items-center gap-2">
-        <span class="badge badge-sm badge-pendente">Erro Oficial</span>
-        <h2 class="heading-2 text-lg">Falha no Carregamento</h2>
+      <div>
+        <p class="section-kicker" data-testid="kicker-erro">ERRO</p>
+        <h2 class="heading-2 text-lg" data-testid="titulo-erro">
+          Não foi possível carregar os dados
+        </h2>
       </div>
       <p class="text-sm font-semibold text-black" data-testid="mensagem-erro">
         {{ erroCarregamento() }}
@@ -75,10 +77,8 @@
           >
             {{ snapshot()?.municipio?.nome }} / {{ snapshot()?.municipio?.uf }}
           </h1>
-          <p class="text-meta mt-1" data-testid="texto-meta-snapshot">
-            Snapshot oficial gerado em:
-            {{ snapshot()?.gerado_em | date: 'dd/MM/yyyy HH:mm' }} (schema
-            {{ snapshot()?.schema_version }})
+          <p class="text-meta mt-1 font-medium" data-testid="subtitulo-cidade">
+            Panorama da cidade e de quem foi eleito
           </p>
         </div>
 
@@ -109,10 +109,15 @@
       <!-- BLOCO CABEÇALHO DA CIDADE INTEGRADO -->
       @if (snapshot()?.secoes?.cabecalho; as secaoCab) {
         <div class="space-y-3" data-testid="card-cabecalho-cidade">
-          <div class="flex items-center justify-between text-xs" data-testid="cabecalho-header">
-            <h2 class="heading-2 text-base" data-testid="cabecalho-titulo">
-              {{ secaoCab.titulo }}
-            </h2>
+          <div class="flex items-start justify-between text-xs" data-testid="cabecalho-header">
+            <div>
+              <p class="section-kicker" data-testid="cabecalho-kicker">
+                {{ secaoCab.categoria || 'A CIDADE' }}
+              </p>
+              <h2 class="heading-2 text-base" data-testid="cabecalho-titulo">
+                {{ secaoCab.titulo }}
+              </h2>
+            </div>
             <div class="flex items-center gap-2">
               @if (secaoCab.status === 'oficial') {
                 <span class="badge badge-sm badge-oficial" data-testid="cabecalho-badge-status"
@@ -186,10 +191,13 @@
     @if (snapshot()?.secoes?.resumo_ibge_censo; as secaoIbge) {
       <div class="card-brutalista space-y-4" data-testid="card-resumo-ibge">
         <div
-          class="card-header flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+          class="card-header flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3"
           data-testid="resumo-ibge-header"
         >
           <div>
+            <p class="section-kicker" data-testid="resumo-ibge-kicker">
+              {{ secaoIbge.categoria || 'A CIDADE' }}
+            </p>
             <h2 class="heading-2 text-lg" data-testid="resumo-ibge-titulo">
               {{ secaoIbge.titulo }}
             </h2>
@@ -251,6 +259,10 @@
               data-testid="card-mapa-oficial"
             >
               <div class="painel-conteudo-interno">
+                <div class="mb-3">
+                  <p class="section-kicker" data-testid="mapa-kicker">TERRITÓRIO</p>
+                  <h2 class="heading-2 text-base" data-testid="mapa-titulo">Mapa do município</h2>
+                </div>
                 <div
                   class="flex flex-col md:flex-row items-center justify-between gap-6 p-4 mb-2 bg-white border-2 border-black rounded-sm shadow-default-sm"
                 >
@@ -301,7 +313,7 @@
             </div>
           }
           <div
-            class="grid grid-cols-2 sm:grid-cols-4 gap-3"
+            class="grid grid-cols-1 min-[360px]:grid-cols-2 sm:grid-cols-4 gap-3"
             data-testid="resumo-ibge-grid-metricas"
           >
             <div class="metric-card" data-testid="card-metrica-renda-media">
@@ -344,7 +356,14 @@
     @if (snapshot()?.secoes?.resumo_economia; as secaoEco) {
       <div class="card-brutalista space-y-4" data-testid="card-resumo-economia">
         <div class="card-header">
-          <h2 class="heading-2 text-lg">{{ secaoEco.titulo }}</h2>
+          <div>
+            <p class="section-kicker" data-testid="resumo-economia-kicker">
+              {{ secaoEco.categoria || 'A CIDADE' }}
+            </p>
+            <h2 class="heading-2 text-lg" data-testid="resumo-economia-titulo">
+              {{ secaoEco.titulo }}
+            </h2>
+          </div>
           <div class="flex items-center gap-2 text-xs">
             @if (secaoEco.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
@@ -395,7 +414,14 @@
     @if (snapshot()?.secoes?.resumo_educacao; as secaoEdu) {
       <div class="card-brutalista space-y-4" data-testid="card-resumo-educacao">
         <div class="card-header">
-          <h2 class="heading-2 text-lg">{{ secaoEdu.titulo }}</h2>
+          <div>
+            <p class="section-kicker" data-testid="resumo-educacao-kicker">
+              {{ secaoEdu.categoria || 'A CIDADE' }}
+            </p>
+            <h2 class="heading-2 text-lg" data-testid="resumo-educacao-titulo">
+              {{ secaoEdu.titulo }}
+            </h2>
+          </div>
           <div class="flex items-center gap-2 text-xs">
             @if (secaoEdu.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
@@ -460,7 +486,14 @@
     @if (snapshot()?.secoes?.resumo_financas; as secaoFin) {
       <div class="card-brutalista space-y-4" data-testid="card-resumo-financas">
         <div class="card-header">
-          <h2 class="heading-2 text-lg">{{ secaoFin.titulo }}</h2>
+          <div>
+            <p class="section-kicker" data-testid="resumo-financas-kicker">
+              {{ secaoFin.categoria || 'A CIDADE' }}
+            </p>
+            <h2 class="heading-2 text-lg" data-testid="resumo-financas-titulo">
+              {{ secaoFin.titulo }}
+            </h2>
+          </div>
           <div class="flex items-center gap-2 text-xs">
             @if (secaoFin.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
@@ -493,7 +526,7 @@
             <strong>Dado pendente:</strong> {{ secaoFin.motivo || 'Em fase de apuração oficial.' }}
           </div>
         } @else if (secaoFin.dados; as dadosFin) {
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="grid grid-cols-1 min-[360px]:grid-cols-2 sm:grid-cols-4 gap-3">
             <div class="metric-card">
               <span class="metric-label">Receita Total</span>
               <span class="metric-value">{{ formatarMoeda(dadosFin.receita_total) }}</span>
@@ -525,10 +558,11 @@
           class="border-b-2 border-black/10 pb-4 space-y-3"
           data-testid="header-eleicao-presidencial"
         >
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
             <div>
+              <p class="section-kicker" data-testid="eleicao-presidencial-kicker">ELEIÇÃO 2026</p>
               <h2 class="heading-2 text-lg" data-testid="titulo-eleicao-presidencial">
-                Eleição Presidencial 2026 (TSE)
+                Presidencial — 1º e 2º turnos
               </h2>
               <div class="flex items-center gap-2 text-xs mt-0.5">
                 <span class="badge badge-sm badge-oficial">oficial</span>
@@ -970,10 +1004,15 @@
     @if (snapshot()?.secoes?.governador; as secaoGov) {
       <div class="card-brutalista space-y-4" data-testid="card-governador">
         <div class="card-header-grouped" data-testid="governador-header">
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <h2 class="heading-2 text-lg" data-testid="governador-titulo">
-              {{ secaoGov.titulo }}
-            </h2>
+          <div class="flex flex-wrap items-start justify-between gap-2">
+            <div>
+              <p class="section-kicker" data-testid="governador-kicker">
+                {{ secaoGov.categoria || 'ELEIÇÃO 2026' }}
+              </p>
+              <h2 class="heading-2 text-lg" data-testid="governador-titulo">
+                {{ secaoGov.titulo }}
+              </h2>
+            </div>
             <div class="flex items-center gap-2 text-xs">
               @if (secaoGov.status === 'oficial') {
                 <span class="badge badge-sm badge-oficial" data-testid="governador-badge-status"
@@ -1100,7 +1139,14 @@
     @if (snapshot()?.secoes?.senadores; as secaoSen) {
       <div class="card-brutalista space-y-4" data-testid="card-senadores">
         <div class="card-header">
-          <h2 class="heading-2 text-lg">{{ secaoSen.titulo }}</h2>
+          <div>
+            <p class="section-kicker" data-testid="senadores-kicker">
+              {{ secaoSen.categoria || 'ELEIÇÃO 2026' }}
+            </p>
+            <h2 class="heading-2 text-lg" data-testid="senadores-titulo">
+              {{ secaoSen.titulo }}
+            </h2>
+          </div>
           <div class="flex items-center gap-2 text-xs">
             @if (secaoSen.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
@@ -1158,10 +1204,15 @@
     @if (snapshot()?.secoes?.deputados_federais; as secaoDep) {
       <div class="card-brutalista space-y-4" data-testid="card-deputados-federais">
         <div class="card-header-grouped" data-testid="deputados-header">
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <h2 class="heading-2 text-lg" data-testid="deputados-titulo">
-              {{ secaoDep.titulo }}
-            </h2>
+          <div class="flex flex-wrap items-start justify-between gap-2">
+            <div>
+              <p class="section-kicker" data-testid="deputados-federais-kicker">
+                {{ secaoDep.categoria || 'ELEIÇÃO 2026' }}
+              </p>
+              <h2 class="heading-2 text-lg" data-testid="deputados-titulo">
+                {{ secaoDep.titulo }}
+              </h2>
+            </div>
             <div class="flex items-center gap-2 text-xs">
               @if (secaoDep.status === 'oficial') {
                 <span class="badge badge-sm badge-oficial" data-testid="deputados-badge-status"
@@ -1283,7 +1334,14 @@
     @if (snapshot()?.secoes?.deputados_estaduais; as secaoDepEst) {
       <div class="card-brutalista space-y-4" data-testid="card-deputados-estaduais">
         <div class="card-header">
-          <h2 class="heading-2 text-lg">{{ secaoDepEst.titulo }}</h2>
+          <div>
+            <p class="section-kicker" data-testid="deputados-estaduais-kicker">
+              {{ secaoDepEst.categoria || 'ELEIÇÃO 2026' }}
+            </p>
+            <h2 class="heading-2 text-lg" data-testid="deputados-estaduais-titulo">
+              {{ secaoDepEst.titulo }}
+            </h2>
+          </div>
           <div class="flex items-center gap-2 text-xs">
             @if (secaoDepEst.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
@@ -1335,7 +1393,14 @@
     @if (snapshot()?.secoes?.prefeito; as secaoPref) {
       <div class="card-brutalista space-y-4" data-testid="card-prefeito">
         <div class="card-header">
-          <h2 class="heading-2 text-lg">{{ secaoPref.titulo }}</h2>
+          <div>
+            <p class="section-kicker" data-testid="prefeito-kicker">
+              {{ secaoPref.categoria || 'MANDATO LOCAL' }}
+            </p>
+            <h2 class="heading-2 text-lg" data-testid="prefeito-titulo">
+              {{ secaoPref.titulo }}
+            </h2>
+          </div>
           <div class="flex items-center gap-2 text-xs">
             @if (secaoPref.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
@@ -1380,7 +1445,14 @@
     @if (snapshot()?.secoes?.vereadores; as secaoVer) {
       <div class="card-brutalista space-y-4" data-testid="card-vereadores">
         <div class="card-header">
-          <h2 class="heading-2 text-lg">{{ secaoVer.titulo }}</h2>
+          <div>
+            <p class="section-kicker" data-testid="vereadores-kicker">
+              {{ secaoVer.categoria || 'MANDATO LOCAL' }}
+            </p>
+            <h2 class="heading-2 text-lg" data-testid="vereadores-titulo">
+              {{ secaoVer.titulo }}
+            </h2>
+          </div>
           <div class="flex items-center gap-2 text-xs">
             @if (secaoVer.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
@@ -1430,12 +1502,10 @@
 
     <!-- BLOCO "COMO CALCULAMOS" (FR-14) -->
     <div class="card-brutalista card-info" data-testid="card-como-calculamos">
-      <h3
-        class="heading-3 text-sm uppercase tracking-wide mb-2"
-        data-testid="titulo-como-calculamos"
-      >
-        Como Calculamos
-      </h3>
+      <div class="mb-2">
+        <p class="section-kicker" data-testid="como-calculamos-kicker">METODOLOGIA</p>
+        <h2 class="heading-2 text-base" data-testid="titulo-como-calculamos">Como calculamos</h2>
+      </div>
       <p class="text-meta text-xs leading-relaxed" data-testid="texto-como-calculamos">
         Indicadores socioeconômicos são compilados diretamente do <strong>IBGE</strong>,
         <strong>INEP</strong> e <strong>SICONFI</strong>. Resultados eleitorais provêm dos arquivos
@@ -1445,5 +1515,12 @@
         alinhamento partidário ou pontuação opinativa.
       </p>
     </div>
+
+    <!-- METADADOS TÉCNICOS DO SNAPSHOT (MOVIDOS PARA O RODAPÉ DO COMPONENTE) -->
+    <p class="text-meta-subtle text-center text-xs mt-4" data-testid="texto-meta-snapshot">
+      Snapshot oficial gerado em:
+      {{ snapshot()?.gerado_em | date: 'dd/MM/yyyy HH:mm' }} (schema
+      {{ snapshot()?.schema_version }})
+    </p>
   }
 </section>

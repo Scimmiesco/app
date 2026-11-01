@@ -60,9 +60,15 @@
 
 // LARANJA: Não reeleito, Mandato, Alerta
 .badge-laranja,
-.badge-nao-reeleito,
+.badge-nao-reeleito {
+  @include mixins.badge-variant(tokens.$color-laranja, #ffffff);
+}
+
 .badge-mandato {
   @include mixins.badge-variant(tokens.$color-laranja, #ffffff);
+  white-space: normal;
+  max-width: 100%;
+  line-height: 1.25;
 }
 
 // VERMELHO: Pendente, Em Exercício (NÃO), Erro

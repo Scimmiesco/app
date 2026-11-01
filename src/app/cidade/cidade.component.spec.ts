@@ -10,7 +10,7 @@ describe('CidadeComponent', () => {
   let fixture: ComponentFixture<CidadeComponent>;
 
   const mockSnapshot: MunicipioSnapshot = {
-    schema_version: '0.5.0',
+    schema_version: '0.6.0',
     gerado_em: '2026-10-31T20:45:00-0400',
     municipio: {
       codigo_ibge: 5002704,
@@ -33,10 +33,31 @@ describe('CidadeComponent', () => {
         consultado_em: '2026-10-29',
         confianca: 'oficial',
       },
+      tse_2024_abertos: {
+        orgao: 'TSE',
+        titulo: 'Arquivos abertos 2024',
+        url: 'https://dadosabertos.tse.jus.br/dataset/resultados-2024',
+        consultado_em: '2026-10-29',
+        confianca: 'oficial',
+      },
       ibge_pib_2023: {
         orgao: 'IBGE',
         titulo: 'PIB municipal 2023',
         url: 'https://sidra.ibge.gov.br/tabela/5938',
+        consultado_em: '2026-10-26',
+        confianca: 'oficial',
+      },
+      inep_ideb_2023: {
+        orgao: 'INEP',
+        titulo: 'IDEB 2023',
+        url: 'https://www.gov.br/inep/',
+        consultado_em: '2026-10-26',
+        confianca: 'oficial',
+      },
+      siconfi_dca_2023: {
+        orgao: 'SICONFI',
+        titulo: 'DCA 2023',
+        url: 'https://siconfi.tesouro.gov.br/',
         consultado_em: '2026-10-26',
         confianca: 'oficial',
       },
@@ -52,6 +73,13 @@ describe('CidadeComponent', () => {
         titulo: 'Votação por seção 2026 - 2º turno (Presidente)',
         url: 'https://resultados.tse.jus.br/',
         consultado_em: '2026-10-27',
+        confianca: 'oficial',
+      },
+      senado_api: {
+        orgao: 'Senado Federal',
+        titulo: 'Dados Abertos Senado',
+        url: 'https://legis.senado.leg.br/',
+        consultado_em: '2026-10-29',
         confianca: 'oficial',
       },
     },
@@ -70,7 +98,8 @@ describe('CidadeComponent', () => {
     },
     secoes: {
       cabecalho: {
-        titulo: 'Cidade',
+        titulo: 'Panorama geral',
+        categoria: 'A CIDADE',
         status: 'oficial',
         fonte: 'ibge_censo_2022',
         ano: 2022,
@@ -83,7 +112,8 @@ describe('CidadeComponent', () => {
         },
       },
       resumo_ibge_censo: {
-        titulo: 'Resumo do município (IBGE)',
+        titulo: 'Demografia e renda',
+        categoria: 'A CIDADE',
         status: 'oficial',
         fonte: 'ibge_censo_2022',
         ano: 2022,
@@ -98,7 +128,8 @@ describe('CidadeComponent', () => {
         },
       },
       resumo_economia: {
-        titulo: 'Economia (IBGE)',
+        titulo: 'Economia',
+        categoria: 'A CIDADE',
         status: 'oficial',
         fonte: 'ibge_pib_2023',
         ano: 2023,
@@ -109,8 +140,38 @@ describe('CidadeComponent', () => {
           pib_per_capita: 38671.84,
         },
       },
+      resumo_educacao: {
+        titulo: 'Educação',
+        categoria: 'A CIDADE',
+        status: 'oficial',
+        fonte: 'inep_ideb_2023',
+        ano: 2023,
+        coletado_em: '2026-10-26',
+        motivo: null,
+        dados: {
+          anos_iniciais: { '2023': 5.8 },
+          anos_finais: { '2023': 5.1 },
+        },
+      },
+      resumo_financas: {
+        titulo: 'Finanças municipais',
+        categoria: 'A CIDADE',
+        status: 'oficial',
+        fonte: 'siconfi_dca_2023',
+        ano: 2023,
+        coletado_em: '2026-10-26',
+        motivo: null,
+        dados: {
+          receita_total: 4200000000,
+          transferencias_correntes: 1500000000,
+          iptu: 680000000,
+          iss: 720000000,
+          pct_transferencias_sobre_correntes: 35.7,
+        },
+      },
       eleicao_2026_1t: {
-        titulo: 'Eleição presidencial 2026 — 1º turno (TSE)',
+        titulo: 'Presidencial — 1º turno',
+        categoria: 'ELEIÇÃO 2026',
         status: 'oficial',
         fonte: 'tse_2026_1t',
         ano: 2026,
@@ -133,7 +194,8 @@ describe('CidadeComponent', () => {
         },
       },
       eleicao_2026_2t: {
-        titulo: 'Eleição presidencial 2026 — 2º turno (TSE)',
+        titulo: 'Presidencial — 2º turno',
+        categoria: 'ELEIÇÃO 2026',
         status: 'oficial',
         fonte: 'tse_2026_2t',
         ano: 2026,
@@ -156,7 +218,8 @@ describe('CidadeComponent', () => {
         },
       },
       deputados_federais: {
-        titulo: 'Deputados federais (MS) — mandato e eleição 2026',
+        titulo: 'Deputados federais de MS',
+        categoria: 'ELEIÇÃO 2026',
         status: 'oficial',
         fonte: 'tse_2026_abertos',
         ano: 2026,
@@ -192,7 +255,8 @@ describe('CidadeComponent', () => {
         ],
       },
       governador: {
-        titulo: 'Governador (2026)',
+        titulo: 'Governador de MS',
+        categoria: 'ELEIÇÃO 2026',
         status: 'oficial',
         fonte: 'tse_2026_abertos',
         ano: 2026,
@@ -215,6 +279,96 @@ describe('CidadeComponent', () => {
             status_eleicao_2026: 'reeleito',
             votos_nominais_mandato_atual: null,
             motivo_sem_votos: null,
+          },
+        ],
+      },
+      senadores: {
+        titulo: 'Senadores de MS',
+        categoria: 'ELEIÇÃO 2026',
+        status: 'oficial',
+        fonte: 'senado_api',
+        ano: 2026,
+        coletado_em: '2026-10-29',
+        motivo: null,
+        pct_base: 'votos_nominais_do_cargo',
+        dados: [
+          {
+            nome: 'TEREZA CRISTINA',
+            nome_urna: 'TEREZA CRISTINA',
+            partido: 'PP',
+            votos: null,
+            pct: null,
+            situacao: 'EM EXERCÍCIO',
+            em_exercicio: true,
+            mandato_inicio: '2023-02-01',
+            mandato_fim: '2031-01-31',
+            status_eleicao_2026: 'em_exercicio',
+          },
+        ],
+      },
+      deputados_estaduais: {
+        titulo: 'Deputados estaduais de MS',
+        categoria: 'ELEIÇÃO 2026',
+        status: 'oficial',
+        fonte: 'tse_2026_abertos',
+        ano: 2026,
+        coletado_em: '2026-10-29',
+        motivo: null,
+        dados: [
+          {
+            nome: 'CORONEL DAVID',
+            nome_urna: 'CORONEL DAVID',
+            partido: 'PL',
+            votos: 31480,
+            pct: 2.18,
+            situacao: 'ELEITO',
+            em_exercicio: false,
+            mandato_fim: '2031-01-31',
+            status_eleicao_2026: 'eleito',
+          },
+        ],
+      },
+      prefeito: {
+        titulo: 'Prefeito de Campo Grande',
+        categoria: 'MANDATO LOCAL',
+        status: 'oficial',
+        fonte: 'tse_2024_abertos',
+        ano: 2024,
+        coletado_em: '2026-10-29',
+        motivo: null,
+        dados: [
+          {
+            nome: 'ADRIANE LOPES',
+            nome_urna: 'ADRIANE LOPES',
+            partido: 'PP',
+            votos: 222407,
+            pct: 51.45,
+            situacao: 'ELEITO',
+            em_exercicio: true,
+            mandato_fim: '2028-12-31',
+            status_eleicao_2026: 'em_exercicio',
+          },
+        ],
+      },
+      vereadores: {
+        titulo: 'Vereadores de Campo Grande',
+        categoria: 'MANDATO LOCAL',
+        status: 'oficial',
+        fonte: 'tse_2024_abertos',
+        ano: 2024,
+        coletado_em: '2026-10-29',
+        motivo: null,
+        dados: [
+          {
+            nome: 'MARQUINHOS TRAD',
+            nome_urna: 'MARQUINHOS TRAD',
+            partido: 'PDT',
+            votos: 8567,
+            pct: 1.95,
+            situacao: 'ELEITO',
+            em_exercicio: true,
+            mandato_fim: '2028-12-31',
+            status_eleicao_2026: 'em_exercicio',
           },
         ],
       },
@@ -478,6 +632,117 @@ describe('CidadeComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('[data-testid="alerta-erro-carregamento"]')).toBeTruthy();
     expect(compiled.querySelector('[data-testid="botao-tentar-novamente"]')).toBeTruthy();
+  });
+
+  it('should implement title and kicker system with single H1 according to US-12 and ADR-016', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    // Um único H1 na página
+    const h1s = compiled.querySelectorAll('h1');
+    expect(h1s.length).toBe(1);
+    expect(h1s[0].textContent).toContain('Campo Grande / MS');
+
+    // Subtítulo descritivo no hero (sem linha técnica de snapshot)
+    const subtitulo = compiled.querySelector('[data-testid="subtitulo-cidade"]');
+    expect(subtitulo?.textContent?.trim()).toBe('Panorama da cidade e de quem foi eleito');
+
+    // Linha técnica de snapshot movida para o rodapé
+    const metaSnapshot = compiled.querySelector('[data-testid="texto-meta-snapshot"]');
+    expect(metaSnapshot).toBeTruthy();
+    expect(metaSnapshot?.textContent).toContain('schema 0.6.0');
+
+    // Kickers e Títulos H2 em todas as 13 seções + metodologia
+    const checarBloco = (
+      kickerTestId: string,
+      tituloTestId: string,
+      kickerEsperado: string,
+      tituloEsperado: string,
+    ) => {
+      const kicker = compiled.querySelector(`[data-testid="${kickerTestId}"]`);
+      const titulo = compiled.querySelector(`[data-testid="${tituloTestId}"]`);
+      expect(kicker, `Kicker ${kickerTestId} deve existir`).toBeTruthy();
+      expect(kicker?.textContent?.trim()).toBe(kickerEsperado);
+      expect(titulo, `Título ${tituloTestId} deve existir`).toBeTruthy();
+      expect(titulo?.textContent?.trim()).toBe(tituloEsperado);
+      expect(titulo?.tagName.toLowerCase()).toBe('h2');
+    };
+
+    // A CIDADE
+    checarBloco('cabecalho-kicker', 'cabecalho-titulo', 'A CIDADE', 'Panorama geral');
+    checarBloco('resumo-ibge-kicker', 'resumo-ibge-titulo', 'A CIDADE', 'Demografia e renda');
+    checarBloco('resumo-economia-kicker', 'resumo-economia-titulo', 'A CIDADE', 'Economia');
+    checarBloco('resumo-educacao-kicker', 'resumo-educacao-titulo', 'A CIDADE', 'Educação');
+    checarBloco(
+      'resumo-financas-kicker',
+      'resumo-financas-titulo',
+      'A CIDADE',
+      'Finanças municipais',
+    );
+
+    // TERRITÓRIO
+    checarBloco('mapa-kicker', 'mapa-titulo', 'TERRITÓRIO', 'Mapa do município');
+
+    // ELEIÇÃO 2026
+    checarBloco(
+      'eleicao-presidencial-kicker',
+      'titulo-eleicao-presidencial',
+      'ELEIÇÃO 2026',
+      'Presidencial — 1º e 2º turnos',
+    );
+    checarBloco('governador-kicker', 'governador-titulo', 'ELEIÇÃO 2026', 'Governador de MS');
+    checarBloco('senadores-kicker', 'senadores-titulo', 'ELEIÇÃO 2026', 'Senadores de MS');
+    checarBloco(
+      'deputados-federais-kicker',
+      'deputados-titulo',
+      'ELEIÇÃO 2026',
+      'Deputados federais de MS',
+    );
+    checarBloco(
+      'deputados-estaduais-kicker',
+      'deputados-estaduais-titulo',
+      'ELEIÇÃO 2026',
+      'Deputados estaduais de MS',
+    );
+
+    // MANDATO LOCAL
+    checarBloco('prefeito-kicker', 'prefeito-titulo', 'MANDATO LOCAL', 'Prefeito de Campo Grande');
+    checarBloco(
+      'vereadores-kicker',
+      'vereadores-titulo',
+      'MANDATO LOCAL',
+      'Vereadores de Campo Grande',
+    );
+
+    // METODOLOGIA
+    checarBloco(
+      'como-calculamos-kicker',
+      'titulo-como-calculamos',
+      'METODOLOGIA',
+      'Como calculamos',
+    );
+
+    // Nenhum H2 carrega fonte ou ano embutido no título
+    const todosH2 = Array.from(compiled.querySelectorAll('h2')).map((h) => h.textContent || '');
+    for (const h2Text of todosH2) {
+      expect(h2Text).not.toContain('(TSE)');
+      expect(h2Text).not.toContain('(IBGE)');
+      expect(h2Text).not.toContain('(INEP)');
+      expect(h2Text).not.toContain('(SICONFI)');
+      expect(h2Text).not.toMatch(/\(20\d\d\)/);
+    }
+  });
+
+  it('should render standardized error kicker and title when snapshot loading fails (US-12)', () => {
+    component.erroCarregamento.set('Serviço indisponível');
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const kickerErro = compiled.querySelector('[data-testid="kicker-erro"]');
+    const tituloErro = compiled.querySelector('[data-testid="titulo-erro"]');
+
+    expect(kickerErro?.textContent?.trim()).toBe('ERRO');
+    expect(tituloErro?.textContent?.trim()).toBe('Não foi possível carregar os dados');
+    expect(tituloErro?.tagName.toLowerCase()).toBe('h2');
   });
 
   it('should contain clear and human-comprehensible data-testid attributes', () => {

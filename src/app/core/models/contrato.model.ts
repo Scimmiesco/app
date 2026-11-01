@@ -32,6 +32,7 @@ export interface MunicipioMeta {
 
 export interface SecaoEnvelope<T> {
   titulo: string;
+  categoria?: string;
   status: StatusDado;
   fonte: string;
   ano: number;

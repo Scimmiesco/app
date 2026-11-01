@@ -1,6 +1,6 @@
 {
-  "schema_version": "0.5.0",
-  "gerado_em": "2026-10-31T19:00:25-0400",
+  "schema_version": "0.6.0",
+  "gerado_em": "2026-11-01T10:24:30-0400",
   "municipio": {
     "codigo_ibge": 5002704,
     "codigo_tse": "90514",
@@ -81,24 +81,25 @@
   },
   "secoes": {
     "cabecalho": {
-      "titulo": "Cidade",
+      "titulo": "Panorama geral",
       "status": "oficial",
       "fonte": "ibge_censo_2022",
       "ano": 2022,
-      "coletado_em": "2026-10-31T19:00:25-0400",
+      "coletado_em": "2026-11-01T10:24:30-0400",
       "motivo": null,
       "dados": {
         "nome": "Campo Grande",
         "uf": "MS",
         "populacao": 898100
-      }
+      },
+      "categoria": "A CIDADE"
     },
     "resumo_ibge_censo": {
-      "titulo": "Resumo do município (IBGE)",
+      "titulo": "Demografia e renda",
       "status": "oficial",
       "fonte": "ibge_censo_2022",
       "ano": 2022,
-      "coletado_em": "2026-10-31T19:00:25-0400",
+      "coletado_em": "2026-11-01T10:24:30-0400",
       "motivo": null,
       "dados": {
         "populacao": 898100,
@@ -112,26 +113,28 @@
           "Parda": 45.4,
           "Indígena": 1.1
         }
-      }
+      },
+      "categoria": "A CIDADE"
     },
     "resumo_economia": {
-      "titulo": "Economia (IBGE)",
+      "titulo": "Economia",
       "status": "oficial",
       "fonte": "ibge_pib_2023",
       "ano": 2023,
-      "coletado_em": "2026-10-31T19:00:25-0400",
+      "coletado_em": "2026-11-01T10:24:30-0400",
       "motivo": null,
       "dados": {
         "pib_total": 42269768000.0,
         "pib_per_capita": 47066
-      }
+      },
+      "categoria": "A CIDADE"
     },
     "resumo_educacao": {
-      "titulo": "Educação (INEP)",
+      "titulo": "Educação",
       "status": "oficial",
       "fonte": "inep_ideb_2023",
       "ano": 2023,
-      "coletado_em": "2026-10-31T19:00:25-0400",
+      "coletado_em": "2026-11-01T10:24:30-0400",
       "motivo": null,
       "dados": {
         "anos_iniciais": {
@@ -144,14 +147,15 @@
           "Municipal": 4.8,
           "Pública": 4.8
         }
-      }
+      },
+      "categoria": "A CIDADE"
     },
     "resumo_financas": {
-      "titulo": "Finanças municipais (SICONFI)",
+      "titulo": "Finanças municipais",
       "status": "oficial",
       "fonte": "siconfi_dca_2023",
       "ano": 2023,
-      "coletado_em": "2026-10-31T19:00:25-0400",
+      "coletado_em": "2026-11-01T10:24:30-0400",
       "motivo": null,
       "dados": {
         "receita_total": 5484604047.75,
@@ -159,14 +163,15 @@
         "iptu": 612772772.64,
         "iss": 591489386.15,
         "pct_transferencias_sobre_correntes": 56.4
-      }
+      },
+      "categoria": "A CIDADE"
     },
     "eleicao_2026_1t": {
-      "titulo": "Eleição presidencial 2026 — 1º turno (TSE)",
+      "titulo": "Presidencial — 1º turno",
       "status": "oficial",
       "fonte": "tse_2026_1t",
       "ano": 2026,
-      "coletado_em": "2026-10-31T19:00:25-0400",
+      "coletado_em": "2026-11-01T10:24:30-0400",
       "motivo": null,
       "dados": {
         "eleitores_aptos": 640427,
@@ -180,14 +185,15 @@
         "pct_flavio": 58.67,
         "locais": 237,
         "secoes": 2189
-      }
+      },
+      "categoria": "ELEIÇÃO 2026"
     },
     "eleicao_2026_2t": {
-      "titulo": "Eleição presidencial 2026 — 2º turno (TSE)",
+      "titulo": "Presidencial — 2º turno",
       "status": "oficial",
       "fonte": "tse_2026_2t_bu",
       "ano": 2026,
-      "coletado_em": "2026-10-31T19:00:25-0400",
+      "coletado_em": "2026-11-01T10:24:30-0400",
       "motivo": null,
       "dados": {
         "eleitores_aptos": 640427,
@@ -205,14 +211,15 @@
         "total_secoes": 2189
       },
       "pct_base": "votos_nominais_do_cargo",
-      "nota": "Agregado municipal dos Boletins de Urna oficiais do 2º turno (2.189/2.189 seções apuradas). Comparecimento = votos comparecidos / eleitores aptos; não usar votos válidos como denominador."
+      "nota": "Agregado municipal dos Boletins de Urna oficiais do 2º turno (2.189/2.189 seções apuradas). Comparecimento = votos comparecidos / eleitores aptos; não usar votos válidos como denominador.",
+      "categoria": "ELEIÇÃO 2026"
     },
     "governador": {
-      "titulo": "Governador (2026)",
+      "titulo": "Governador de MS",
       "status": "oficial",
       "fonte": "tse_2026_abertos",
       "ano": 2026,
-      "coletado_em": "2026-10-31T19:00:25-0400",
+      "coletado_em": "2026-11-01T10:24:30-0400",
       "motivo": null,
       "dados": [
         {
@@ -231,15 +238,16 @@
         }
       ],
       "pct_base": "votos_nominais_do_cargo",
-      "mandato": "2027-2030",
-      "nota": "Reeleito em 2026. Exercício do mandato atual 2023-2026 (TSE 2022); novo mandato 2027-2030 (TSE 2026)."
+      "mandato": "2027-2030 (reeleito; em exercício desde 2023)",
+      "nota": "Reeleito em 2026. Está no exercício do mandato 2023-2026 e assume o novo mandato em 2027.",
+      "categoria": "ELEIÇÃO 2026"
     },
     "senadores": {
-      "titulo": "Senadores — atuais e eleitos (MS)",
+      "titulo": "Senadores de MS",
       "status": "oficial",
       "fonte": "senado_api",
       "ano": 2026,
-      "coletado_em": "2026-10-31T19:00:25-0400",
+      "coletado_em": "2026-11-01T10:24:30-0400",
       "motivo": null,
       "dados": [
         {
@@ -321,14 +329,15 @@
       ],
       "pct_base": "votos_nominais_do_cargo",
       "mandato": "Lista única: mandato até 2027/2031 (atuais) e 2027-2035 (eleitos)",
-      "nota": "Em 2026 foram renovadas 2 das 3 cadeiras de MS. Os senadores em exercício têm mandato até 31/01/2027 (2) e até 31/01/2031 (1); os eleitos assumem em 2027 com mandato até 2035."
+      "nota": "Em 2026 foram renovadas 2 das 3 cadeiras de MS. Os senadores em exercício têm mandato até 31/01/2027 (2) e até 31/01/2031 (1); os eleitos assumem em 2027 com mandato até 2035.",
+      "categoria": "ELEIÇÃO 2026"
     },
     "deputados_federais": {
-      "titulo": "Deputados federais (MS) — mandato e eleição 2026",
+      "titulo": "Deputados federais de MS",
       "status": "oficial",
       "fonte": "tse_2026_abertos",
       "ano": 2026,
-      "coletado_em": "2026-10-31T19:00:25-0400",
+      "coletado_em": "2026-11-01T10:24:30-0400",
       "motivo": null,
       "dados": [
         {
@@ -498,14 +507,15 @@
         }
       ],
       "pct_base": "votos_nominais_do_cargo",
-      "mandato": "Lista única: mandato atual até 2027 (não reeleitos), próximo 2027-2031 (eleitos)"
+      "mandato": "Lista única: mandato atual até 2027 (não reeleitos), próximo 2027-2031 (eleitos)",
+      "categoria": "ELEIÇÃO 2026"
     },
     "deputados_estaduais": {
-      "titulo": "Deputados estaduais eleitos (2026)",
+      "titulo": "Deputados estaduais de MS",
       "status": "oficial",
       "fonte": "tse_2026_abertos",
       "ano": 2026,
-      "coletado_em": "2026-10-31T19:00:25-0400",
+      "coletado_em": "2026-11-01T10:24:30-0400",
       "motivo": null,
       "dados": [
         {
@@ -847,14 +857,15 @@
       ],
       "pct_base": "votos_nominais_do_cargo",
       "mandato": "2027-2030",
-      "nota": "Lista dos eleitos em 2026. Os deputados estaduais em exercício (2023-2026) entram em coleta futura (fonte ALEMS) para completar a visão geral, sem separar listas."
+      "nota": "Lista dos eleitos em 2026. Os deputados estaduais em exercício (2023-2026) entram em coleta futura (fonte ALEMS) para completar a visão geral, sem separar listas.",
+      "categoria": "ELEIÇÃO 2026"
     },
     "prefeito": {
-      "titulo": "Prefeito (mandato 2025-2028, vigente em 2026)",
+      "titulo": "Prefeito de Campo Grande",
       "status": "oficial",
       "fonte": "tse_2024_abertos",
       "ano": 2024,
-      "coletado_em": "2026-10-31T19:00:25-0400",
+      "coletado_em": "2026-11-01T10:24:30-0400",
       "motivo": null,
       "dados": [
         {
@@ -873,14 +884,15 @@
         }
       ],
       "pct_base": "votos_nominais_do_cargo",
-      "mandato": "2025-2028"
+      "mandato": "2025-2028",
+      "categoria": "MANDATO LOCAL"
     },
     "vereadores": {
-      "titulo": "Vereadores (mandato 2025-2028, vigente em 2026)",
+      "titulo": "Vereadores de Campo Grande",
       "status": "oficial",
       "fonte": "tse_2024_abertos",
       "ano": 2024,
-      "coletado_em": "2026-10-31T19:00:25-0400",
+      "coletado_em": "2026-11-01T10:24:30-0400",
       "motivo": null,
       "dados": [
         {
@@ -1291,7 +1303,8 @@
         }
       ],
       "pct_base": "votos_nominais_do_cargo",
-      "mandato": "2025-2028"
+      "mandato": "2025-2028",
+      "categoria": "MANDATO LOCAL"
     }
   },
   "pendencias": [],
