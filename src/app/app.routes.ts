@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { CidadeComponent } from './cidade/cidade.component';
 
 export const routes: Routes = [
   {
@@ -9,7 +8,7 @@ export const routes: Routes = [
   },
   {
     path: 'cidade/:codigoIbge',
-    component: CidadeComponent,
+    loadComponent: () => import('./cidade/cidade.component').then((m) => m.CidadeComponent),
   },
   {
     path: '**',
