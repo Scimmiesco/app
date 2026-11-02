@@ -4,7 +4,7 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { catchError, combineLatest, of, switchMap, tap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../core/services/data.service';
-import { FonteMeta, ParlamentarItem } from '../core/models/contrato.model';
+import { FonteMeta, NumeroHistorico, ParlamentarItem } from '../core/models/contrato.model';
 import { PartidoBadgeComponent } from '../shared/components/partido-badge/partido-badge.component';
 
 export const CORES_PARTIDOS: Record<string, string> = {
@@ -255,6 +255,11 @@ export class CidadeComponent {
     if (!cand || cand.numero === undefined || cand.numero === null) return null;
     const num = String(cand.numero).trim();
     return num ? num : null;
+  }
+
+  getNumeroHistorico(cand?: ParlamentarItem | null): NumeroHistorico | null {
+    if (!cand || !cand.numero_historico || !cand.numero_historico.numero) return null;
+    return cand.numero_historico;
   }
 
   formatarStatus(status?: string | null): string {

@@ -1,6 +1,6 @@
 {
- "schema_version": "0.7.0",
- "gerado_em": "2026-11-01T21:42:49-0400",
+ "schema_version": "0.8.0",
+ "gerado_em": "2026-11-01T22:41:18-0400",
  "municipio": {
   "codigo_ibge": 5002704,
   "codigo_tse": "90514",
@@ -85,7 +85,7 @@
    "status": "oficial",
    "fonte": "ibge_censo_2022",
    "ano": 2022,
-   "coletado_em": "2026-11-01T21:42:49-0400",
+   "coletado_em": "2026-11-01T22:41:18-0400",
    "motivo": null,
    "dados": {
     "nome": "Campo Grande",
@@ -99,7 +99,7 @@
    "status": "oficial",
    "fonte": "ibge_censo_2022",
    "ano": 2022,
-   "coletado_em": "2026-11-01T21:42:49-0400",
+   "coletado_em": "2026-11-01T22:41:18-0400",
    "motivo": null,
    "dados": {
     "populacao": 898100,
@@ -121,7 +121,7 @@
    "status": "oficial",
    "fonte": "ibge_pib_2023",
    "ano": 2023,
-   "coletado_em": "2026-11-01T21:42:49-0400",
+   "coletado_em": "2026-11-01T22:41:18-0400",
    "motivo": null,
    "dados": {
     "pib_total": 42269768000.0,
@@ -134,7 +134,7 @@
    "status": "oficial",
    "fonte": "inep_ideb_2023",
    "ano": 2023,
-   "coletado_em": "2026-11-01T21:42:49-0400",
+   "coletado_em": "2026-11-01T22:41:18-0400",
    "motivo": null,
    "dados": {
     "anos_iniciais": {
@@ -155,7 +155,7 @@
    "status": "oficial",
    "fonte": "siconfi_dca_2023",
    "ano": 2023,
-   "coletado_em": "2026-11-01T21:42:49-0400",
+   "coletado_em": "2026-11-01T22:41:18-0400",
    "motivo": null,
    "dados": {
     "receita_total": 5484604047.75,
@@ -171,7 +171,7 @@
    "status": "oficial",
    "fonte": "tse_2026_1t",
    "ano": 2026,
-   "coletado_em": "2026-11-01T21:42:49-0400",
+   "coletado_em": "2026-11-01T22:41:18-0400",
    "motivo": null,
    "dados": {
     "eleitores_aptos": 640427,
@@ -193,7 +193,7 @@
    "status": "oficial",
    "fonte": "tse_2026_2t_bu",
    "ano": 2026,
-   "coletado_em": "2026-11-01T21:42:49-0400",
+   "coletado_em": "2026-11-01T22:41:18-0400",
    "motivo": null,
    "dados": {
     "eleitores_aptos": 640427,
@@ -219,7 +219,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-01T21:42:49-0400",
+   "coletado_em": "2026-11-01T22:41:18-0400",
    "motivo": null,
    "dados": [
     {
@@ -236,7 +236,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "11",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     }
    ],
    "pct_base": "votos_nominais_do_cargo",
@@ -249,7 +250,7 @@
    "status": "oficial",
    "fonte": "senado_api",
    "ano": 2026,
-   "coletado_em": "2026-11-01T21:42:49-0400",
+   "coletado_em": "2026-11-01T22:41:18-0400",
    "motivo": null,
    "dados": [
     {
@@ -268,7 +269,13 @@
      "fonte": "senado_api",
      "url_perfil": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5985",
      "numero": null,
-     "numero_fonte": null
+     "numero_fonte": null,
+     "numero_historico": {
+      "numero": "144",
+      "ano": 2018,
+      "cargo": "SENADOR",
+      "fonte": "tse_candidatos_2018"
+     }
     },
     {
      "nome": "Soraya Thronicke",
@@ -286,7 +293,13 @@
      "fonte": "senado_api",
      "url_perfil": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5988",
      "numero": null,
-     "numero_fonte": null
+     "numero_fonte": null,
+     "numero_historico": {
+      "numero": "177",
+      "ano": 2018,
+      "cargo": "SENADOR",
+      "fonte": "tse_candidatos_2018"
+     }
     },
     {
      "nome": "Tereza Cristina",
@@ -304,7 +317,13 @@
      "fonte": "senado_api",
      "url_perfil": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5736",
      "numero": null,
-     "numero_fonte": null
+     "numero_fonte": null,
+     "numero_historico": {
+      "numero": "111",
+      "ano": 2022,
+      "cargo": "SENADOR",
+      "fonte": "tse_candidatos_2022"
+     }
     },
     {
      "nome": "REINALDO AZAMBUJA SILVA",
@@ -320,7 +339,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "222",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "RENAN BARBOSA CONTAR",
@@ -336,7 +356,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "221",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     }
    ],
    "pct_base": "votos_nominais_do_cargo",
@@ -349,7 +370,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-01T21:42:49-0400",
+   "coletado_em": "2026-11-01T22:41:18-0400",
    "motivo": null,
    "dados": [
     {
@@ -367,7 +388,8 @@
      "motivo_sem_votos": null,
      "fonte_votos_mandato": "camara_api",
      "numero": "1367",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "MARCOS SBOROWSKI POLLON",
@@ -384,7 +406,8 @@
      "motivo_sem_votos": null,
      "fonte_votos_mandato": "camara_api",
      "numero": "2222",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "RODOLFO OLIVEIRA NOGUEIRA",
@@ -401,7 +424,8 @@
      "motivo_sem_votos": null,
      "fonte_votos_mandato": "camara_api",
      "numero": "2211",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "HUMBERTO REZENDE PEREIRA",
@@ -418,7 +442,8 @@
      "motivo_sem_votos": null,
      "fonte_votos_mandato": "camara_api",
      "numero": "1010",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "DAGOBERTO NOGUEIRA FILHO",
@@ -435,7 +460,8 @@
      "motivo_sem_votos": null,
      "fonte_votos_mandato": "camara_api",
      "numero": "1111",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "Dr. Luiz Ovando",
@@ -452,7 +478,8 @@
      "motivo_sem_votos": null,
      "fonte": "camara_api",
      "numero": "1122",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "Geraldo Resende",
@@ -469,7 +496,8 @@
      "motivo_sem_votos": null,
      "fonte": "camara_api",
      "numero": "4411",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "Vander Loubet",
@@ -486,7 +514,13 @@
      "motivo_sem_votos": null,
      "fonte": "camara_api",
      "numero": null,
-     "numero_fonte": null
+     "numero_fonte": null,
+     "numero_historico": {
+      "numero": "1331",
+      "ano": 2022,
+      "cargo": "DEPUTADO FEDERAL",
+      "fonte": "tse_candidatos_2022"
+     }
     },
     {
      "nome": "ROSIANE MODESTO DE OLIVEIRA",
@@ -503,7 +537,8 @@
      "motivo_sem_votos": "novo mandato: assume em 2027, sem historico de votacao na Camara",
      "fonte_votos_mandato": null,
      "numero": "4444",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "MARA ELISA NAVACCHI CASEIRO",
@@ -520,7 +555,8 @@
      "motivo_sem_votos": "novo mandato: assume em 2027, sem historico de votacao na Camara",
      "fonte_votos_mandato": null,
      "numero": "2200",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "ISA JANE MARCONDES NANTES",
@@ -537,7 +573,8 @@
      "motivo_sem_votos": "novo mandato: assume em 2027, sem historico de votacao na Camara",
      "fonte_votos_mandato": null,
      "numero": "1022",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     }
    ],
    "pct_base": "votos_nominais_do_cargo",
@@ -549,7 +586,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-01T21:42:49-0400",
+   "coletado_em": "2026-11-01T22:41:18-0400",
    "motivo": null,
    "dados": [
     {
@@ -566,7 +603,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "22121",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "PAULO JOSE ARAUJO CORREA",
@@ -582,7 +620,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "22222",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "PEDRO ARLEI CARAVINA",
@@ -598,7 +637,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "45045",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "JOSÉ ORCIRIO MIRANDA DOS SANTOS",
@@ -614,7 +654,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "13111",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "CARLOS ALBERTO DAVID DOS SANTOS",
@@ -630,7 +671,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "22800",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "ANDRE PUCCINELLI",
@@ -646,7 +688,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "15123",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "TIAGO RESENDE BOTELHO",
@@ -662,7 +705,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "13123",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "ANGELO CHAVES GUERREIRO",
@@ -678,7 +722,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "45055",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "GIANNI DIAS AGUILLAR NOGUEIRA",
@@ -694,7 +739,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "22000",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "ODILON FERRAZ ALVES RIBEIRO",
@@ -710,7 +756,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "22345",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "GERSON CLARO DINO",
@@ -726,7 +773,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "11111",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "LONDRES MACHADO",
@@ -742,7 +790,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "11123",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "HELIO PELUFFO FILHO",
@@ -758,7 +807,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "11234",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "DAVERSON MUNHOZ DE MATOS",
@@ -774,7 +824,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "22333",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "GLEICE JANE BARBOSA",
@@ -790,7 +841,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "13777",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "ANDRE LUIS SANCHES SALINEIRO",
@@ -806,7 +858,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "22067",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "PEDRO CESAR KEMP GONÇALVES",
@@ -822,7 +875,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "13613",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "LUIZ CARLOS CORREIA DE LIMA",
@@ -838,7 +892,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "22022",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "RINALDO MODESTO DE OLIVEIRA",
@@ -854,7 +909,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "44044",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "MARCIO FERNANDES",
@@ -870,7 +926,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "22123",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "RENATO PIERETTI CAMARA",
@@ -886,7 +943,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "10150",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "LIDIO NOGUEIRA LOPES",
@@ -902,7 +960,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "70777",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "PAULO ROBERTO DUARTE",
@@ -918,7 +977,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "45300",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "PEDRO PEDROSSIAN NETO",
@@ -934,7 +994,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "10000",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     }
    ],
    "pct_base": "votos_nominais_do_cargo",
@@ -947,7 +1008,7 @@
    "status": "oficial",
    "fonte": "tse_2024_abertos",
    "ano": 2024,
-   "coletado_em": "2026-11-01T21:42:49-0400",
+   "coletado_em": "2026-11-01T22:41:18-0400",
    "motivo": null,
    "dados": [
     {
@@ -964,7 +1025,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "11",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     }
    ],
    "pct_base": "votos_nominais_do_cargo",
@@ -976,7 +1038,7 @@
    "status": "oficial",
    "fonte": "tse_2024_abertos",
    "ano": 2024,
-   "coletado_em": "2026-11-01T21:42:49-0400",
+   "coletado_em": "2026-11-01T22:41:18-0400",
    "motivo": null,
    "dados": [
     {
@@ -993,7 +1055,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "12345",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "RAFAEL BRANDÃO SCAQUETTI TAVARES",
@@ -1009,7 +1072,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "22022",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "CARLOS AUGUSTO BORGES",
@@ -1025,7 +1089,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "40122",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "SILVIO EDUARDO ALVES PENA",
@@ -1041,7 +1106,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "45800",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "FRANCISCO GONÇALVES DE CARVALHO",
@@ -1057,7 +1123,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "44777",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "FÁBIO DA ROCHA E SILVA FERREIRA",
@@ -1073,7 +1140,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "44000",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "RIVERTON FRANCISCO DE SOUZA",
@@ -1089,7 +1157,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "11111",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "ADEMAR VIEIRA JUNIOR",
@@ -1105,7 +1174,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "15123",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "VICTOR ROCHA PIRES DE OLIVEIRA",
@@ -1121,7 +1191,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "45033",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "JUARI LOPES PINTO",
@@ -1137,7 +1208,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "45999",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "FLAVIO PEREIRA MOURA",
@@ -1153,7 +1225,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "45699",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "LUIZA RIBEIRO GONÇALVES",
@@ -1169,7 +1242,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "13700",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "ANDRÉ LUIS SANCHES SALINEIRO",
@@ -1185,7 +1259,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "22067",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "EPAMINONDAS VICENTE SILVA NETO",
@@ -1201,7 +1276,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "45678",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "ANA CLAUDIA PEREIRA PORTELA",
@@ -1217,7 +1293,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "22222",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "JOSE CLARO DOS SANTOS NETO",
@@ -1233,7 +1310,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "10123",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "MAICON CLEYTHON RODRIGUES NOGUEIRA",
@@ -1249,7 +1327,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "11511",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "VANDERLEI PINHEIRO DE LIMA",
@@ -1265,7 +1344,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "11655",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "WILSON MANOEL DIAS LANDS",
@@ -1281,7 +1361,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "70700",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "HERCULANO BORGES DANIEL",
@@ -1297,7 +1378,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "10088",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "ROBERTO DE AVELAR",
@@ -1313,7 +1395,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "11222",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "JAMAL MOHAMED SALEM",
@@ -1329,7 +1412,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "15678",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "LANDMARK FERREIRA RIOS",
@@ -1345,7 +1429,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "13123",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "CLODOILSON DOS SANTOS PIRES",
@@ -1361,7 +1446,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "20020",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "JEAN FELIPE MORAIS FERREIRA BARBOSA",
@@ -1377,7 +1463,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "13000",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "LIVIO VIANA DE OLIVEIRA LEITE",
@@ -1393,7 +1480,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "44123",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "RONILÇO CRUZ DE OLIVEIRA",
@@ -1409,7 +1497,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "20067",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "WILTON CELESTE CANDELORIO",
@@ -1425,7 +1514,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "70555",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     },
     {
      "nome": "OTÁVIO AUGUSTO TRAD MARTINS",
@@ -1441,7 +1531,8 @@
      "votos_nominais_mandato_atual": null,
      "motivo_sem_votos": null,
      "numero": "55123",
-     "numero_fonte": "tse_candidatos"
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null
     }
    ],
    "pct_base": "votos_nominais_do_cargo",

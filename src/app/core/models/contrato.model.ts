@@ -98,11 +98,20 @@ export interface EleicaoPresidencialDados {
   total_secoes?: number;
 }
 
+export interface NumeroHistorico {
+  numero: string | number;
+  ano: number;
+  cargo: string;
+  fonte: string;
+}
+
 export interface ParlamentarItem {
   nome: string;
   nome_urna: string;
   partido: string;
   numero?: string | number | null;
+  numero_fonte?: string | null;
+  numero_historico?: NumeroHistorico | null;
   votos?: number | null;
   pct?: number | null;
   situacao?: string | null;

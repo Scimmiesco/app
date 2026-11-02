@@ -1103,6 +1103,21 @@
                           }}</span
                           ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
                         </span>
+                      } @else if (getNumeroHistorico(gov); as hist) {
+                        <span
+                          class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                          [attr.data-partido]="gov.partido"
+                          data-testid="numero-candidato"
+                        >
+                          <span class="text-xs font-normal text-meta mr-1">Último: </span>
+                          <span class="digito-partido" [style.color]="getCorPartido(gov.partido)">{{
+                            getNumeroPrefixo(hist.numero)
+                          }}</span
+                          ><span class="digito-resto text-black">{{
+                            getNumeroResto(hist.numero)
+                          }}</span>
+                          <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
+                        </span>
                       }
                     </td>
                     <td class="cell-center">
@@ -1201,6 +1216,21 @@
                           getNumeroPrefixo(num)
                         }}</span
                         ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
+                      </span>
+                    } @else if (getNumeroHistorico(sen); as hist) {
+                      <span
+                        class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                        [attr.data-partido]="sen.partido"
+                        data-testid="numero-candidato"
+                      >
+                        <span class="text-xs font-normal text-meta mr-1">Último: </span>
+                        <span class="digito-partido" [style.color]="getCorPartido(sen.partido)">{{
+                          getNumeroPrefixo(hist.numero)
+                        }}</span
+                        ><span class="digito-resto text-black">{{
+                          getNumeroResto(hist.numero)
+                        }}</span>
+                        <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
                       </span>
                     }
                   </td>
@@ -1324,6 +1354,21 @@
                           }}</span
                           ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
                         </span>
+                      } @else if (getNumeroHistorico(dep); as hist) {
+                        <span
+                          class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                          [attr.data-partido]="dep.partido"
+                          data-testid="numero-candidato"
+                        >
+                          <span class="text-xs font-normal text-meta mr-1">Último: </span>
+                          <span class="digito-partido" [style.color]="getCorPartido(dep.partido)">{{
+                            getNumeroPrefixo(hist.numero)
+                          }}</span
+                          ><span class="digito-resto text-black">{{
+                            getNumeroResto(hist.numero)
+                          }}</span>
+                          <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
+                        </span>
                       }
                     </td>
                     <td class="cell-center">
@@ -1430,6 +1475,21 @@
                         }}</span
                         ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
                       </span>
+                    } @else if (getNumeroHistorico(est); as hist) {
+                      <span
+                        class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                        [attr.data-partido]="est.partido"
+                        data-testid="numero-candidato"
+                      >
+                        <span class="text-xs font-normal text-meta mr-1">Último: </span>
+                        <span class="digito-partido" [style.color]="getCorPartido(est.partido)">{{
+                          getNumeroPrefixo(hist.numero)
+                        }}</span
+                        ><span class="digito-resto text-black">{{
+                          getNumeroResto(hist.numero)
+                        }}</span>
+                        <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
+                      </span>
                     }
                   </td>
                   <td class="cell-center">
@@ -1496,6 +1556,21 @@
                         getNumeroPrefixo(num)
                       }}</span
                       ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
+                    </span>
+                  } @else if (getNumeroHistorico(pref); as hist) {
+                    <span
+                      class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                      [attr.data-partido]="pref.partido"
+                      data-testid="numero-candidato"
+                    >
+                      <span class="text-xs font-normal text-meta mr-1">Último: </span>
+                      <span class="digito-partido" [style.color]="getCorPartido(pref.partido)">{{
+                        getNumeroPrefixo(hist.numero)
+                      }}</span
+                      ><span class="digito-resto text-black">{{
+                        getNumeroResto(hist.numero)
+                      }}</span>
+                      <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
                     </span>
                   }
                   <span class="text-meta block mt-0.5"
@@ -1568,6 +1643,21 @@
                           getNumeroPrefixo(num)
                         }}</span
                         ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
+                      </span>
+                    } @else if (getNumeroHistorico(ver); as hist) {
+                      <span
+                        class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                        [attr.data-partido]="ver.partido"
+                        data-testid="numero-candidato"
+                      >
+                        <span class="text-xs font-normal text-meta mr-1">Último: </span>
+                        <span class="digito-partido" [style.color]="getCorPartido(ver.partido)">{{
+                          getNumeroPrefixo(hist.numero)
+                        }}</span
+                        ><span class="digito-resto text-black">{{
+                          getNumeroResto(hist.numero)
+                        }}</span>
+                        <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
                       </span>
                     }
                   </td>

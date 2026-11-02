@@ -10,8 +10,8 @@ describe('CidadeComponent', () => {
   let fixture: ComponentFixture<CidadeComponent>;
 
   const mockSnapshot: MunicipioSnapshot = {
-    schema_version: '0.7.0',
-    gerado_em: '2026-11-01T21:42:49-0400',
+    schema_version: '0.8.0',
+    gerado_em: '2026-11-01T22:41:18-0400',
     municipio: {
       codigo_ibge: 5002704,
       codigo_tse: '90514',
@@ -254,6 +254,26 @@ describe('CidadeComponent', () => {
             status_eleicao_2026: 'reeleito',
             votos_nominais_mandato_atual: 958,
           },
+          {
+            nome: 'Vander Loubet',
+            nome_urna: 'Vander Loubet',
+            partido: 'PT',
+            numero: null,
+            numero_historico: {
+              numero: '1331',
+              ano: 2022,
+              cargo: 'DEPUTADO FEDERAL',
+              fonte: 'tse_candidatos_2022',
+            },
+            votos: null,
+            pct: null,
+            situacao: null,
+            em_exercicio: true,
+            mandato_inicio: '2023-02-01',
+            mandato_fim: '2027-01-31',
+            status_eleicao_2026: 'nao_reeleito',
+            votos_nominais_mandato_atual: 930,
+          },
         ],
       },
       governador: {
@@ -300,6 +320,12 @@ describe('CidadeComponent', () => {
             nome_urna: 'TEREZA CRISTINA',
             partido: 'PP',
             numero: null,
+            numero_historico: {
+              numero: '111',
+              ano: 2022,
+              cargo: 'SENADOR',
+              fonte: 'tse_candidatos_2022',
+            },
             votos: null,
             pct: null,
             situacao: 'EM EXERCÍCIO',
@@ -616,11 +642,11 @@ describe('CidadeComponent', () => {
 
   it('should order deputados with em_exercicio=true first', () => {
     const ordenados = component.deputadosFederais();
-    expect(ordenados.length).toBe(2);
-    expect(ordenados[0].nome_urna).toBe('CAMILA JARA');
+    expect(ordenados.length).toBe(3);
     expect(ordenados[0].em_exercicio).toBe(true);
-    expect(ordenados[1].nome_urna).toBe('ROSE MODESTO');
-    expect(ordenados[1].em_exercicio).toBe(false);
+    expect(ordenados[1].em_exercicio).toBe(true);
+    expect(ordenados[2].nome_urna).toBe('ROSE MODESTO');
+    expect(ordenados[2].em_exercicio).toBe(false);
   });
 
   it('should render federal deputies table with mandate end and votes', () => {
@@ -661,13 +687,123 @@ describe('CidadeComponent', () => {
     expect(digitoResto?.classList.contains('text-black')).toBe(true);
   });
 
-  it('should not render candidate number block for senators in exercise without 2026 candidacy (US-13)', () => {
+  it('should render historical candidate number with year for senators without 2026 candidacy (US-14)', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const linhaTereza = compiled.querySelector('[data-testid="linha-senador-tereza cristina"]');
     expect(linhaTereza).toBeTruthy();
 
     const numEl = linhaTereza?.querySelector('[data-testid="numero-candidato"]');
-    expect(numEl).toBeNull();
+    expect(numEl).toBeTruthy();
+    expect(numEl?.textContent).toContain('Último:');
+    expect(numEl?.textContent).toContain('111');
+    expect(numEl?.textContent).toContain('2022');
+
+    const digitoPartido = numEl?.querySelector('.digito-partido');
+    const digitoResto = numEl?.querySelector('.digito-resto');
+
+    expect(digitoPartido?.textContent?.trim()).toBe('11');
+    // PP color is #00508f (rgb(0, 80, 143))
+    expect((digitoPartido as HTMLElement)?.style.color).toBe('rgb(0, 80, 143)');
+    expect(digitoResto?.textContent?.trim()).toBe('1');
+    expect(digitoResto?.classList.contains('text-black')).toBe(true);
+
+    // Vander Loubet (deputado federal sem eleição 2026)
+    const linhaVander = compiled.querySelector('[data-testid="linha-deputado-vander loubet"]');
+    expect(linhaVander).toBeTruthy();
+
+    const numElVander = linhaVander?.querySelector('[data-testid="numero-candidato"]');
+    expect(numElVander).toBeTruthy();
+    expect(numElVander?.textContent).toContain('Último:');
+    expect(numElVander?.textContent).toContain('1331');
+    expect(numElVander?.textContent).toContain('2022');
+
+    const prefixoVander = numElVander?.querySelector('.digito-partido');
+    const restoVander = numElVander?.querySelector('.digito-resto');
+
+    expect(prefixoVander?.textContent?.trim()).toBe('13');
+    // PT color is #a0001c (rgb(160, 0, 28))
+    expect((prefixoVander as HTMLElement)?.style.color).toBe('rgb(160, 0, 28)');
+    expect(restoVander?.textContent?.trim()).toBe('31');
+    expect(restoVander?.classList.contains('text-black')).toBe(true);
+  });
+
+  it('should return historical candidate number info via getNumeroHistorico (US-14)', () => {
+    // 4 official cases from DSH / TSE (consulta_cand)
+    const nelsinho = component.getNumeroHistorico({
+      nome: 'Nelsinho Trad',
+      numero: null,
+      numero_historico: {
+        numero: '144',
+        ano: 2018,
+        cargo: 'SENADOR',
+        fonte: 'tse_candidatos_2018',
+      },
+    } as unknown as ParlamentarItem);
+    expect(nelsinho).toEqual({
+      numero: '144',
+      ano: 2018,
+      cargo: 'SENADOR',
+      fonte: 'tse_candidatos_2018',
+    });
+
+    const soraya = component.getNumeroHistorico({
+      nome: 'Soraya Thronicke',
+      numero: null,
+      numero_historico: {
+        numero: '177',
+        ano: 2018,
+        cargo: 'SENADOR',
+        fonte: 'tse_candidatos_2018',
+      },
+    } as unknown as ParlamentarItem);
+    expect(soraya).toEqual({
+      numero: '177',
+      ano: 2018,
+      cargo: 'SENADOR',
+      fonte: 'tse_candidatos_2018',
+    });
+
+    const tereza = component.getNumeroHistorico({
+      nome: 'Tereza Cristina',
+      numero: null,
+      numero_historico: {
+        numero: '111',
+        ano: 2022,
+        cargo: 'SENADOR',
+        fonte: 'tse_candidatos_2022',
+      },
+    } as unknown as ParlamentarItem);
+    expect(tereza).toEqual({
+      numero: '111',
+      ano: 2022,
+      cargo: 'SENADOR',
+      fonte: 'tse_candidatos_2022',
+    });
+
+    const vander = component.getNumeroHistorico({
+      nome: 'Vander Loubet',
+      numero: null,
+      numero_historico: {
+        numero: '1331',
+        ano: 2022,
+        cargo: 'DEPUTADO FEDERAL',
+        fonte: 'tse_candidatos_2022',
+      },
+    } as unknown as ParlamentarItem);
+    expect(vander).toEqual({
+      numero: '1331',
+      ano: 2022,
+      cargo: 'DEPUTADO FEDERAL',
+      fonte: 'tse_candidatos_2022',
+    });
+
+    // Candidate without historical number
+    const semHistorico = component.getNumeroHistorico({
+      nome: 'FULANO',
+      numero: null,
+      numero_historico: null,
+    } as unknown as ParlamentarItem);
+    expect(semHistorico).toBeNull();
   });
 
   it('should strictly return cand.numero without fallback dictionary (US-13)', () => {
@@ -782,7 +918,7 @@ describe('CidadeComponent', () => {
     // Linha técnica de snapshot movida para o rodapé
     const metaSnapshot = compiled.querySelector('[data-testid="texto-meta-snapshot"]');
     expect(metaSnapshot).toBeTruthy();
-    expect(metaSnapshot?.textContent).toContain('schema 0.7.0');
+    expect(metaSnapshot?.textContent).toContain('schema 0.8.0');
 
     // Kickers e Títulos H2 em todas as 13 seções + metodologia
     const checarBloco = (
