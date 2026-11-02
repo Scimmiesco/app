@@ -3,15 +3,15 @@ import { provideRouter } from '@angular/router';
 import { of } from 'rxjs';
 import { CidadeComponent } from './cidade.component';
 import { DataService } from '../core/services/data.service';
-import { IndiceCidades, MunicipioSnapshot } from '../core/models/contrato.model';
+import { IndiceCidades, MunicipioSnapshot, ParlamentarItem } from '../core/models/contrato.model';
 
 describe('CidadeComponent', () => {
   let component: CidadeComponent;
   let fixture: ComponentFixture<CidadeComponent>;
 
   const mockSnapshot: MunicipioSnapshot = {
-    schema_version: '0.6.0',
-    gerado_em: '2026-10-31T20:45:00-0400',
+    schema_version: '0.7.0',
+    gerado_em: '2026-11-01T21:42:49-0400',
     municipio: {
       codigo_ibge: 5002704,
       codigo_tse: '90514',
@@ -245,7 +245,7 @@ describe('CidadeComponent', () => {
             nome: 'CAMILA BAZACHI JARA MARZOCHI',
             nome_urna: 'CAMILA JARA',
             partido: 'PT',
-            numero: '1313',
+            numero: '1367',
             votos: 154157,
             pct: 11.27,
             situacao: 'ELEITO POR QP',
@@ -272,6 +272,7 @@ describe('CidadeComponent', () => {
             nome: 'EDUARDO CORREA RIEDEL',
             nome_urna: 'EDUARDO RIEDEL',
             partido: 'PP',
+            numero: '11',
             votos: 914323,
             pct: 67.07,
             situacao: 'ELEITO',
@@ -298,6 +299,7 @@ describe('CidadeComponent', () => {
             nome: 'TEREZA CRISTINA',
             nome_urna: 'TEREZA CRISTINA',
             partido: 'PP',
+            numero: null,
             votos: null,
             pct: null,
             situacao: 'EM EXERCÍCIO',
@@ -343,6 +345,7 @@ describe('CidadeComponent', () => {
             nome: 'ADRIANE LOPES',
             nome_urna: 'ADRIANE LOPES',
             partido: 'PP',
+            numero: '11',
             votos: 222407,
             pct: 51.45,
             situacao: 'ELEITO',
@@ -654,8 +657,105 @@ describe('CidadeComponent', () => {
     // PT color is #a0001c (rgb(160, 0, 28))
     expect((digitoPartido as HTMLElement)?.style.color).toBe('rgb(160, 0, 28)');
 
-    expect(digitoResto?.textContent?.trim()).toBe('13');
+    expect(digitoResto?.textContent?.trim()).toBe('67');
     expect(digitoResto?.classList.contains('text-black')).toBe(true);
+  });
+
+  it('should not render candidate number block for senators in exercise without 2026 candidacy (US-13)', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const linhaTereza = compiled.querySelector('[data-testid="linha-senador-tereza cristina"]');
+    expect(linhaTereza).toBeTruthy();
+
+    const numEl = linhaTereza?.querySelector('[data-testid="numero-candidato"]');
+    expect(numEl).toBeNull();
+  });
+
+  it('should strictly return cand.numero without fallback dictionary (US-13)', () => {
+    // Oficial numbers from TSE / DSH 0.7.0
+    expect(
+      component.getNumero({
+        nome: 'LIDIO LOPES',
+        nome_urna: 'LIDIO LOPES',
+        partido: 'AVANTE',
+        numero: '70777',
+      } as unknown as ParlamentarItem),
+    ).toBe('70777');
+    expect(
+      component.getNumero({
+        nome: 'CAMILA JARA',
+        nome_urna: 'CAMILA JARA',
+        partido: 'PT',
+        numero: '1367',
+      } as unknown as ParlamentarItem),
+    ).toBe('1367');
+    expect(
+      component.getNumero({
+        nome: 'CAPITÃO CONTAR',
+        nome_urna: 'CAPITÃO CONTAR',
+        partido: 'PRTB',
+        numero: '221',
+      } as unknown as ParlamentarItem),
+    ).toBe('221');
+    expect(
+      component.getNumero({
+        nome: 'MARA CASEIRO',
+        nome_urna: 'MARA CASEIRO',
+        partido: 'PSDB',
+        numero: '2200',
+      } as unknown as ParlamentarItem),
+    ).toBe('2200');
+    expect(
+      component.getNumero({
+        nome: 'ADRIANE LOPES',
+        nome_urna: 'ADRIANE LOPES',
+        partido: 'PP',
+        numero: '11',
+      } as unknown as ParlamentarItem),
+    ).toBe('11');
+
+    // Senadores sem candidatura 2026 (numero null)
+    expect(
+      component.getNumero({
+        nome: 'TEREZA CRISTINA',
+        nome_urna: 'TEREZA CRISTINA',
+        partido: 'PP',
+        numero: null,
+      } as unknown as ParlamentarItem),
+    ).toBeNull();
+    expect(
+      component.getNumero({
+        nome: 'NELSINHO TRAD',
+        nome_urna: 'NELSINHO TRAD',
+        partido: 'PSD',
+        numero: null,
+      } as unknown as ParlamentarItem),
+    ).toBeNull();
+    expect(
+      component.getNumero({
+        nome: 'SORAYA THRONICKE',
+        nome_urna: 'SORAYA THRONICKE',
+        partido: 'PODE',
+        numero: null,
+      } as unknown as ParlamentarItem),
+    ).toBeNull();
+
+    // No fallback to party prefix if numero is missing/null
+    expect(
+      component.getNumero({
+        nome: 'FULANO SEM NUMERO',
+        nome_urna: 'FULANO',
+        partido: 'PT',
+        numero: null,
+      } as unknown as ParlamentarItem),
+    ).toBeNull();
+  });
+
+  it('should format status values removing raw underscores (P2-06)', () => {
+    expect(component.formatarStatus('em_exercicio')).toBe('em exercício');
+    expect(component.formatarStatus('nao_reeleito')).toBe('não reeleito');
+    expect(component.formatarStatus('reeleito')).toBe('reeleito');
+    expect(component.formatarStatus('eleito')).toBe('eleito');
+    expect(component.formatarStatus(null)).toBe('—');
   });
 
   it('should display error alert when snapshot fails to load', () => {
@@ -682,7 +782,7 @@ describe('CidadeComponent', () => {
     // Linha técnica de snapshot movida para o rodapé
     const metaSnapshot = compiled.querySelector('[data-testid="texto-meta-snapshot"]');
     expect(metaSnapshot).toBeTruthy();
-    expect(metaSnapshot?.textContent).toContain('schema 0.6.0');
+    expect(metaSnapshot?.textContent).toContain('schema 0.7.0');
 
     // Kickers e Títulos H2 em todas as 13 seções + metodologia
     const checarBloco = (

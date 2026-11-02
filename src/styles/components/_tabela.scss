@@ -9,6 +9,8 @@
   @apply overflow-x-auto rounded-sm border-2 border-black;
   box-shadow: tokens.$shadow-hard;
   background-color: tokens.$color-white;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tabela-brutalista {

@@ -109,7 +109,10 @@
       <!-- BLOCO CABEÇALHO DA CIDADE INTEGRADO -->
       @if (snapshot()?.secoes?.cabecalho; as secaoCab) {
         <div class="space-y-3" data-testid="card-cabecalho-cidade">
-          <div class="flex items-start justify-between text-xs" data-testid="cabecalho-header">
+          <div
+            class="flex flex-wrap items-start justify-between gap-2 text-xs"
+            data-testid="cabecalho-header"
+          >
             <div>
               <p class="section-kicker" data-testid="cabecalho-kicker">
                 {{ secaoCab.categoria || 'A CIDADE' }}
@@ -118,7 +121,7 @@
                 {{ secaoCab.titulo }}
               </h2>
             </div>
-            <div class="flex items-center gap-2">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
               @if (secaoCab.status === 'oficial') {
                 <span class="badge badge-sm badge-oficial" data-testid="cabecalho-badge-status"
                   >oficial</span
@@ -201,7 +204,7 @@
             <h2 class="heading-2 text-lg" data-testid="resumo-ibge-titulo">
               {{ secaoIbge.titulo }}
             </h2>
-            <div class="flex items-center gap-2 text-xs mt-0.5">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mt-0.5">
               @if (secaoIbge.status === 'oficial') {
                 <span class="badge badge-sm badge-oficial" data-testid="resumo-ibge-badge-status"
                   >oficial</span
@@ -313,7 +316,7 @@
             </div>
           }
           <div
-            class="grid grid-cols-1 min-[360px]:grid-cols-2 sm:grid-cols-4 gap-3"
+            class="grid grid-cols-1 min-[360px]:grid-cols-3 gap-3"
             data-testid="resumo-ibge-grid-metricas"
           >
             <div class="metric-card" data-testid="card-metrica-renda-media">
@@ -327,10 +330,6 @@
             <div class="metric-card" data-testid="card-metrica-taxa-urbanizacao">
               <span class="metric-label">Taxa de Urbanização</span>
               <span class="metric-value">{{ formatarPct(dadosIbge.pct_urbana) }}</span>
-            </div>
-            <div class="metric-card" data-testid="card-metrica-populacao-total">
-              <span class="metric-label">População Total</span>
-              <span class="metric-value">{{ formatarNumero(dadosIbge.populacao) }}</span>
             </div>
           </div>
 
@@ -364,7 +363,7 @@
               {{ secaoEco.titulo }}
             </h2>
           </div>
-          <div class="flex items-center gap-2 text-xs">
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
             @if (secaoEco.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
               <span class="text-meta">
@@ -422,7 +421,7 @@
               {{ secaoEdu.titulo }}
             </h2>
           </div>
-          <div class="flex items-center gap-2 text-xs">
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
             @if (secaoEdu.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
               <span class="text-meta">
@@ -494,7 +493,7 @@
               {{ secaoFin.titulo }}
             </h2>
           </div>
-          <div class="flex items-center gap-2 text-xs">
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
             @if (secaoFin.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
               <span class="text-meta">
@@ -564,7 +563,7 @@
               <h2 class="heading-2 text-lg" data-testid="titulo-eleicao-presidencial">
                 Presidencial — 1º e 2º turnos
               </h2>
-              <div class="flex items-center gap-2 text-xs mt-0.5">
+              <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mt-0.5">
                 <span class="badge badge-sm badge-oficial">oficial</span>
                 <span class="text-meta">
                   @if (abaPresidencial() === '1t' && snapshot()?.secoes?.eleicao_2026_1t; as s1) {
@@ -1013,7 +1012,7 @@
                 {{ secaoGov.titulo }}
               </h2>
             </div>
-            <div class="flex items-center gap-2 text-xs">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
               @if (secaoGov.status === 'oficial') {
                 <span class="badge badge-sm badge-oficial" data-testid="governador-badge-status"
                   >oficial</span
@@ -1128,7 +1127,7 @@
                       <span
                         class="badge badge-xs badge-neutral"
                         data-testid="governador-status-eleicao"
-                        >{{ gov.status_eleicao_2026 || '—' }}</span
+                        >{{ formatarStatus(gov.status_eleicao_2026) }}</span
                       >
                     </td>
                     <td class="cell-votos">{{ formatarNumero(gov.votos) }}</td>
@@ -1161,7 +1160,7 @@
               {{ secaoSen.titulo }}
             </h2>
           </div>
-          <div class="flex items-center gap-2 text-xs">
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
             @if (secaoSen.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
             } @else if (secaoSen.status === 'curado') {
@@ -1186,7 +1185,10 @@
             </thead>
             <tbody>
               @for (sen of senadores(); track sen.nome) {
-                <tr [class.em-exercicio]="sen.em_exercicio">
+                <tr
+                  [class.em-exercicio]="sen.em_exercicio"
+                  [attr.data-testid]="'linha-senador-' + sen.nome_urna.toLowerCase()"
+                >
                   <td class="cell-nome">
                     <span class="nome-candidato block">{{ sen.nome_urna }}</span>
                     @if (getNumero(sen); as num) {
@@ -1217,7 +1219,9 @@
                     }}{{ formatarDataIso(sen.mandato_fim) }}
                   </td>
                   <td class="cell-center">
-                    <span class="badge badge-xs badge-neutral">{{ sen.status_eleicao_2026 }}</span>
+                    <span class="badge badge-xs badge-neutral">{{
+                      formatarStatus(sen.status_eleicao_2026)
+                    }}</span>
                   </td>
                   <td class="cell-situacao">{{ sen.situacao || '—' }}</td>
                 </tr>
@@ -1241,7 +1245,7 @@
                 {{ secaoDep.titulo }}
               </h2>
             </div>
-            <div class="flex items-center gap-2 text-xs">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
               @if (secaoDep.status === 'oficial') {
                 <span class="badge badge-sm badge-oficial" data-testid="deputados-badge-status"
                   >oficial</span
@@ -1344,7 +1348,7 @@
                         <span class="badge badge-xs badge-nao-reeleito">Não reeleito</span>
                       } @else {
                         <span class="badge badge-xs badge-neutral">{{
-                          dep.status_eleicao_2026
+                          formatarStatus(dep.status_eleicao_2026)
                         }}</span>
                       }
                     </td>
@@ -1384,7 +1388,7 @@
               {{ secaoDepEst.titulo }}
             </h2>
           </div>
-          <div class="flex items-center gap-2 text-xs">
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
             @if (secaoDepEst.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
             } @else if (secaoDepEst.status === 'curado') {
@@ -1434,7 +1438,9 @@
                   <td class="cell-votos">{{ formatarNumero(est.votos) }}</td>
                   <td class="cell-pct">{{ formatarPct(est.pct) }}</td>
                   <td class="cell-center">
-                    <span class="badge badge-xs badge-eleito">{{ est.status_eleicao_2026 }}</span>
+                    <span class="badge badge-xs badge-eleito">{{
+                      formatarStatus(est.status_eleicao_2026)
+                    }}</span>
                   </td>
                   <td class="cell-situacao">{{ est.situacao || 'ELEITO' }}</td>
                 </tr>
@@ -1457,7 +1463,7 @@
               {{ secaoPref.titulo }}
             </h2>
           </div>
-          <div class="flex items-center gap-2 text-xs">
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
             @if (secaoPref.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
             } @else if (secaoPref.status === 'curado') {
@@ -1480,6 +1486,18 @@
                 <div>
                   <span class="metric-label">Prefeito Municipal</span>
                   <span class="metric-value-lg">{{ pref.nome_urna }}</span>
+                  @if (getNumero(pref); as num) {
+                    <span
+                      class="numero-candidato block text-sm font-bold tabular-nums"
+                      [attr.data-partido]="pref.partido"
+                      data-testid="numero-candidato"
+                    >
+                      <span class="digito-partido" [style.color]="getCorPartido(pref.partido)">{{
+                        getNumeroPrefixo(num)
+                      }}</span
+                      ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
+                    </span>
+                  }
                   <span class="text-meta block mt-0.5"
                     >Partido: <app-partido-badge [sigla]="pref.partido" /> ·
                     {{ pref.situacao }}</span
@@ -1509,7 +1527,7 @@
               {{ secaoVer.titulo }}
             </h2>
           </div>
-          <div class="flex items-center gap-2 text-xs">
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
             @if (secaoVer.status === 'oficial') {
               <span class="badge badge-sm badge-oficial">oficial</span>
             } @else if (secaoVer.status === 'curado') {

@@ -25,93 +25,11 @@ export const CORES_PARTIDOS: Record<string, string> = {
   MDB: '#005a34',
   PV: '#005a34',
   REDE: '#00574b',
-  NOVO: '#e05a00',
-  AVANTE: '#1e3a8a',
+  NOVO: '#b84a00',
+  AVANTE: '#c2410c',
   SOLIDARIEDADE: '#b94700',
   PSB: '#b45309',
   PROS: '#c2410c',
-};
-
-export const NUMEROS_CANDIDATOS_FALLBACK: Record<string, string> = {
-  // Governador
-  'EDUARDO RIEDEL': '11',
-  'CAPITÃO CONTAR': '220',
-
-  // Senadores
-  'NELSINHO TRAD': '555',
-  'SORAYA THRONICKE': '400',
-  'TEREZA CRISTINA': '111',
-  'REINALDO AZAMBUJA': '222',
-
-  // Deputados Federais
-  'CAMILA JARA': '1313',
-  'MARCOS POLLON': '2222',
-  'RODOLFO NOGUEIRA': '2200',
-  'BETO PEREIRA': '1010',
-  'DAGOBERTO NOGUEIRA': '1111',
-  'DR. LUIZ OVANDO': '1122',
-  'GERALDO RESENDE': '4455',
-  'VANDER LOUBET': '1310',
-  'ROSE MODESTO': '4444',
-  'MARA CASEIRO': '2233',
-  'ISA MARCONDES': '1022',
-
-  // Deputados Estaduais
-  'ZÉ TEIXEIRA': '22123',
-  'PAULO CORRÊA': '22222',
-  CARAVINA: '45123',
-  'ZECA DO PT': '13613',
-  'CORONEL DAVID': '22000',
-  'ANDRÉ PUCCINELLI': '15151',
-  'TIAGO BOTELHO': '13123',
-  'ÂNGELO GUERREIRO': '45000',
-  'GIANNI NOGUEIRA': '22111',
-  'ODILON RIBEIRO': '22333',
-  'GERSON CLARO': '11234',
-  'LONDRES MACHADO': '11111',
-  'HELIO PELUFFO': '45678',
-  'DAVERSON MATOS': '44123',
-  'PEDRO CARAVINA': '45145',
-  'LUCAS DE LIMA': '12333',
-  'JUNIOR MOCHI': '15000',
-  'LIA NADER': '44000',
-  'ROBERTO HASHIOKA': '44789',
-  'PROFESSOR RINALDO': '20123',
-  'MARCIO FERNANDES': '15555',
-  'NENO RAZUK': '22777',
-  'JOÃO HENRIQUE CATAN': '22456',
-  'PEDRO KEMP': '13333',
-
-  // Vereadores
-  'MARQUINHOS TRAD': '12345',
-  'RAFAEL TAVARES': '22000',
-  'CARLÃO COMUNITÁRIO MESMO': '40123',
-  'SILVIO PITU': '45123',
-  'VETERINÁRIO FRANCISCO': '44123',
-  'FABIO ROCHA': '44000',
-  'PROFESSOR RIVERTON': '11123',
-  'JUNIOR CORINGA': '15123',
-  'DR VICTOR ROCHA': '45000',
-  'PROFESSOR JUARI': '45555',
-  'FLAVIO CABO ALMI': '45678',
-  'LUIZA RIBEIRO': '13000',
-  'ANDRÉ SALINEIRO AGENTE FEDERAL': '22123',
-  PAPY: '45789',
-  'ANA PORTELA': '22345',
-  'NETO SANTOS': '10123',
-  'MAICON NOGUEIRA': '11456',
-  'DELEI PINHEIRO': '11789',
-  'WILSON LANDS': '70123',
-  'HERCULANO BORGES': '10000',
-  'BETO AVELAR': '11000',
-  'DR JAMAL': '15789',
-  LANDMARK: '13123',
-  'CLODOILSON PIRES': '20123',
-  'JEAN FERREIRA': '13456',
-  'DR LÍVIO': '44222',
-  'RONILÇO GUERREIRO': '20000',
-  LEINHA: '70000',
-  'OTÁVIO TRAD': '55123',
 };
 
 @Component({
@@ -334,12 +252,26 @@ export class CidadeComponent {
   }
 
   getNumero(cand?: ParlamentarItem | null): string | null {
-    if (!cand) return null;
-    if (cand.numero !== undefined && cand.numero !== null && String(cand.numero).trim() !== '') {
-      return String(cand.numero).trim();
+    if (!cand || cand.numero === undefined || cand.numero === null) return null;
+    const num = String(cand.numero).trim();
+    return num ? num : null;
+  }
+
+  formatarStatus(status?: string | null): string {
+    if (!status) return '—';
+    const s = status.trim().toLowerCase();
+    switch (s) {
+      case 'em_exercicio':
+        return 'em exercício';
+      case 'nao_reeleito':
+        return 'não reeleito';
+      case 'reeleito':
+        return 'reeleito';
+      case 'eleito':
+        return 'eleito';
+      default:
+        return status.replace(/_/g, ' ');
     }
-    const nomeNorm = (cand.nome_urna || cand.nome || '').toUpperCase().trim();
-    return NUMEROS_CANDIDATOS_FALLBACK[nomeNorm] || null;
   }
 
   getNumeroPrefixo(numero?: string | number | null): string {

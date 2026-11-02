@@ -1,0 +1,23 @@
+{
+ "ibge": "5002704",
+ "svg": "geo/5002704.svg",
+ "viewBox": "-54.96842 20.12198 1.41173 1.50723",
+ "largura": 420,
+ "altura": 448,
+ "bytes": 16837,
+ "sede": [
+  -20.4486,
+  -54.6295
+ ],
+ "suavizacao": {
+  "metodo": "stroke-linejoin/cap=round + feGaussianBlur",
+  "raio_px": 1.1
+ },
+ "fonte": {
+  "orgao": "IBGE",
+  "tipo": "malha municipal (SVG oficial)",
+  "url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/5002704?formato=image/svg+xml",
+  "sha256": "fbd9583aec0d2a9a6749bd6e8b1965081238663962b973a0c553fb964ef375b3",
+  "consultado_em": "2026-10-30"
+ }
+}

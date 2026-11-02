@@ -38,11 +38,15 @@ h3,
 .text-meta {
   @apply text-xs font-medium;
   color: rgba(0, 0, 0, 0.72);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .text-meta-subtle {
   @apply text-xs;
   color: rgba(0, 0, 0, 0.6);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .text-contrast {
@@ -52,6 +56,8 @@ h3,
 // Links para fontes oficiais
 .link-fonte {
   @apply underline font-semibold text-black transition-opacity;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 
   &:hover {
     opacity: 0.75;

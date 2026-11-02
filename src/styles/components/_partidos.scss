@@ -99,32 +99,32 @@ $partidos: (
     stripe: #ea580c,
   ),
 
-  // 4. Laranjas (AVANTE e PROS possuem mesma cor base #F97316; diferenciados pela faixa de 2px)
+  // 4. Laranjas (AVANTE e PROS possuem mesma cor base #c2410c; diferenciados pela faixa de 2px)
   'AVANTE': (
-      bg: #f97316,
-      fg: #000000,
+      bg: #c2410c,
+      fg: #ffffff,
       stripe: #003da5,
     ),
   'PROS': (
-    bg: #f97316,
-    fg: #000000,
+    bg: #c2410c,
+    fg: #ffffff,
     stripe: #ffffff,
   ),
   'NOVO': (
-    bg: #f58220,
-    fg: #000000,
+    bg: #b84a00,
+    fg: #ffffff,
     stripe: #0a2e6e,
   ),
   'SOLIDARIEDADE': (
-    bg: #f57c00,
-    fg: #000000,
+    bg: #b94700,
+    fg: #ffffff,
     stripe: #0284c7,
   ),
 
-  // 5. Amarelo
+  // 5. Amarelo / Âmbar
   'PSB': (
-      bg: #ffcc00,
-      fg: #000000,
+      bg: #b45309,
+      fg: #ffffff,
       stripe: #dc2626,
     )
 );

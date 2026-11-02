@@ -14,11 +14,15 @@ html {
   @apply scroll-smooth;
   background-color: tokens.$color-bg-page;
   color: tokens.$color-black;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   @apply min-h-screen antialiased;
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 ::selection {
