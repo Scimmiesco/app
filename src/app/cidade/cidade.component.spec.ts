@@ -232,6 +232,7 @@ describe('CidadeComponent', () => {
             nome: 'ROSE MODESTO',
             nome_urna: 'ROSE MODESTO',
             partido: 'UNIÃO',
+            numero: '4444',
             votos: 124409,
             pct: 9.09,
             situacao: 'ELEITO POR QP',
@@ -244,6 +245,7 @@ describe('CidadeComponent', () => {
             nome: 'CAMILA BAZACHI JARA MARZOCHI',
             nome_urna: 'CAMILA JARA',
             partido: 'PT',
+            numero: '1313',
             votos: 154157,
             pct: 11.27,
             situacao: 'ELEITO POR QP',
@@ -635,6 +637,25 @@ describe('CidadeComponent', () => {
 
     expect(linhaRose).toBeTruthy();
     expect(linhaRose?.classList.contains('em-exercicio')).toBe(false);
+  });
+
+  it('should render candidate number below name with first 2 digits in party color and rest in black', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const linhaCamila = compiled.querySelector('[data-testid="linha-deputado-camila jara"]');
+    const numEl = linhaCamila?.querySelector('[data-testid="numero-candidato"]');
+
+    expect(numEl).toBeTruthy();
+    expect(numEl?.classList.contains('text-sm')).toBe(true);
+
+    const digitoPartido = numEl?.querySelector('.digito-partido');
+    const digitoResto = numEl?.querySelector('.digito-resto');
+
+    expect(digitoPartido?.textContent?.trim()).toBe('13');
+    // PT color is #a0001c (rgb(160, 0, 28))
+    expect((digitoPartido as HTMLElement)?.style.color).toBe('rgb(160, 0, 28)');
+
+    expect(digitoResto?.textContent?.trim()).toBe('13');
+    expect(digitoResto?.classList.contains('text-black')).toBe(true);
   });
 
   it('should display error alert when snapshot fails to load', () => {

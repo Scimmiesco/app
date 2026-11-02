@@ -160,3 +160,25 @@ $partidos: (
     }
   }
 }
+
+// Estilos do número de candidato abaixo do nome (ADR-010 / Neo-Brutalismo)
+.numero-candidato {
+  @apply text-sm font-bold tabular-nums block;
+  line-height: 1.15;
+  margin-top: 0.125rem;
+
+  .digito-partido {
+    font-weight: 800;
+  }
+
+  .digito-resto {
+    color: tokens.$color-black;
+    font-weight: 700;
+  }
+}
+
+@each $sigla, $prop in $partidos {
+  .numero-candidato[data-partido='#{$sigla}'] .digito-partido {
+    color: map.get($prop, bg);
+  }
+}

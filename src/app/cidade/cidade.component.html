@@ -1091,7 +1091,21 @@
               <tbody>
                 @for (gov of governador(); track gov.nome) {
                   <tr [class.em-exercicio]="gov.em_exercicio">
-                    <td class="cell-nome">{{ gov.nome_urna }}</td>
+                    <td class="cell-nome">
+                      <span class="nome-candidato block">{{ gov.nome_urna }}</span>
+                      @if (getNumero(gov); as num) {
+                        <span
+                          class="numero-candidato block text-sm font-bold tabular-nums"
+                          [attr.data-partido]="gov.partido"
+                          data-testid="numero-candidato"
+                        >
+                          <span class="digito-partido" [style.color]="getCorPartido(gov.partido)">{{
+                            getNumeroPrefixo(num)
+                          }}</span
+                          ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
+                        </span>
+                      }
+                    </td>
                     <td class="cell-center">
                       <app-partido-badge [sigla]="gov.partido" />
                     </td>
@@ -1173,7 +1187,21 @@
             <tbody>
               @for (sen of senadores(); track sen.nome) {
                 <tr [class.em-exercicio]="sen.em_exercicio">
-                  <td class="cell-nome">{{ sen.nome_urna }}</td>
+                  <td class="cell-nome">
+                    <span class="nome-candidato block">{{ sen.nome_urna }}</span>
+                    @if (getNumero(sen); as num) {
+                      <span
+                        class="numero-candidato block text-sm font-bold tabular-nums"
+                        [attr.data-partido]="sen.partido"
+                        data-testid="numero-candidato"
+                      >
+                        <span class="digito-partido" [style.color]="getCorPartido(sen.partido)">{{
+                          getNumeroPrefixo(num)
+                        }}</span
+                        ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
+                      </span>
+                    }
+                  </td>
                   <td class="cell-center">
                     <app-partido-badge [sigla]="sen.partido" />
                   </td>
@@ -1279,7 +1307,21 @@
                     [class.em-exercicio]="dep.em_exercicio"
                     [attr.data-testid]="'linha-deputado-' + (dep.nome_urna | lowercase)"
                   >
-                    <td class="cell-nome">{{ dep.nome_urna }}</td>
+                    <td class="cell-nome">
+                      <span class="nome-candidato block">{{ dep.nome_urna }}</span>
+                      @if (getNumero(dep); as num) {
+                        <span
+                          class="numero-candidato block text-sm font-bold tabular-nums"
+                          [attr.data-partido]="dep.partido"
+                          data-testid="numero-candidato"
+                        >
+                          <span class="digito-partido" [style.color]="getCorPartido(dep.partido)">{{
+                            getNumeroPrefixo(num)
+                          }}</span
+                          ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
+                        </span>
+                      }
+                    </td>
                     <td class="cell-center">
                       <app-partido-badge [sigla]="dep.partido" />
                     </td>
@@ -1371,7 +1413,21 @@
             <tbody>
               @for (est of deputadosEstaduais(); track est.nome) {
                 <tr>
-                  <td class="cell-nome">{{ est.nome_urna }}</td>
+                  <td class="cell-nome">
+                    <span class="nome-candidato block">{{ est.nome_urna }}</span>
+                    @if (getNumero(est); as num) {
+                      <span
+                        class="numero-candidato block text-sm font-bold tabular-nums"
+                        [attr.data-partido]="est.partido"
+                        data-testid="numero-candidato"
+                      >
+                        <span class="digito-partido" [style.color]="getCorPartido(est.partido)">{{
+                          getNumeroPrefixo(num)
+                        }}</span
+                        ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
+                      </span>
+                    }
+                  </td>
                   <td class="cell-center">
                     <app-partido-badge [sigla]="est.partido" />
                   </td>
@@ -1482,7 +1538,21 @@
             <tbody>
               @for (ver of vereadores(); track ver.nome) {
                 <tr>
-                  <td class="cell-nome">{{ ver.nome_urna }}</td>
+                  <td class="cell-nome">
+                    <span class="nome-candidato block">{{ ver.nome_urna }}</span>
+                    @if (getNumero(ver); as num) {
+                      <span
+                        class="numero-candidato block text-sm font-bold tabular-nums"
+                        [attr.data-partido]="ver.partido"
+                        data-testid="numero-candidato"
+                      >
+                        <span class="digito-partido" [style.color]="getCorPartido(ver.partido)">{{
+                          getNumeroPrefixo(num)
+                        }}</span
+                        ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
+                      </span>
+                    }
+                  </td>
                   <td class="cell-center">
                     <app-partido-badge [sigla]="ver.partido" />
                   </td>

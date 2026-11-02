@@ -102,6 +102,7 @@ export interface ParlamentarItem {
   nome: string;
   nome_urna: string;
   partido: string;
+  numero?: string | number | null;
   votos?: number | null;
   pct?: number | null;
   situacao?: string | null;

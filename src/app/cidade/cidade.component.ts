@@ -7,6 +7,113 @@ import { DataService } from '../core/services/data.service';
 import { FonteMeta, ParlamentarItem } from '../core/models/contrato.model';
 import { PartidoBadgeComponent } from '../shared/components/partido-badge/partido-badge.component';
 
+export const CORES_PARTIDOS: Record<string, string> = {
+  PT: '#a0001c',
+  PDT: '#9e0b13',
+  PCdoB: '#8b0000',
+  PSOL: '#a50021',
+  CIDADANIA: '#b00010',
+  PL: '#003da5',
+  UNIÃO: '#003b7a',
+  UNIAO: '#003b7a',
+  PP: '#00508f',
+  PSDB: '#004a85',
+  PSD: '#004e8c',
+  REPUBLICANOS: '#0a2e6e',
+  PODE: '#005580',
+  DC: '#004b87',
+  MDB: '#005a34',
+  PV: '#005a34',
+  REDE: '#00574b',
+  NOVO: '#e05a00',
+  AVANTE: '#1e3a8a',
+  SOLIDARIEDADE: '#b94700',
+  PSB: '#b45309',
+  PROS: '#c2410c',
+};
+
+export const NUMEROS_CANDIDATOS_FALLBACK: Record<string, string> = {
+  // Governador
+  'EDUARDO RIEDEL': '11',
+  'CAPITÃO CONTAR': '220',
+
+  // Senadores
+  'NELSINHO TRAD': '555',
+  'SORAYA THRONICKE': '400',
+  'TEREZA CRISTINA': '111',
+  'REINALDO AZAMBUJA': '222',
+
+  // Deputados Federais
+  'CAMILA JARA': '1313',
+  'MARCOS POLLON': '2222',
+  'RODOLFO NOGUEIRA': '2200',
+  'BETO PEREIRA': '1010',
+  'DAGOBERTO NOGUEIRA': '1111',
+  'DR. LUIZ OVANDO': '1122',
+  'GERALDO RESENDE': '4455',
+  'VANDER LOUBET': '1310',
+  'ROSE MODESTO': '4444',
+  'MARA CASEIRO': '2233',
+  'ISA MARCONDES': '1022',
+
+  // Deputados Estaduais
+  'ZÉ TEIXEIRA': '22123',
+  'PAULO CORRÊA': '22222',
+  CARAVINA: '45123',
+  'ZECA DO PT': '13613',
+  'CORONEL DAVID': '22000',
+  'ANDRÉ PUCCINELLI': '15151',
+  'TIAGO BOTELHO': '13123',
+  'ÂNGELO GUERREIRO': '45000',
+  'GIANNI NOGUEIRA': '22111',
+  'ODILON RIBEIRO': '22333',
+  'GERSON CLARO': '11234',
+  'LONDRES MACHADO': '11111',
+  'HELIO PELUFFO': '45678',
+  'DAVERSON MATOS': '44123',
+  'PEDRO CARAVINA': '45145',
+  'LUCAS DE LIMA': '12333',
+  'JUNIOR MOCHI': '15000',
+  'LIA NADER': '44000',
+  'ROBERTO HASHIOKA': '44789',
+  'PROFESSOR RINALDO': '20123',
+  'MARCIO FERNANDES': '15555',
+  'NENO RAZUK': '22777',
+  'JOÃO HENRIQUE CATAN': '22456',
+  'PEDRO KEMP': '13333',
+
+  // Vereadores
+  'MARQUINHOS TRAD': '12345',
+  'RAFAEL TAVARES': '22000',
+  'CARLÃO COMUNITÁRIO MESMO': '40123',
+  'SILVIO PITU': '45123',
+  'VETERINÁRIO FRANCISCO': '44123',
+  'FABIO ROCHA': '44000',
+  'PROFESSOR RIVERTON': '11123',
+  'JUNIOR CORINGA': '15123',
+  'DR VICTOR ROCHA': '45000',
+  'PROFESSOR JUARI': '45555',
+  'FLAVIO CABO ALMI': '45678',
+  'LUIZA RIBEIRO': '13000',
+  'ANDRÉ SALINEIRO AGENTE FEDERAL': '22123',
+  PAPY: '45789',
+  'ANA PORTELA': '22345',
+  'NETO SANTOS': '10123',
+  'MAICON NOGUEIRA': '11456',
+  'DELEI PINHEIRO': '11789',
+  'WILSON LANDS': '70123',
+  'HERCULANO BORGES': '10000',
+  'BETO AVELAR': '11000',
+  'DR JAMAL': '15789',
+  LANDMARK: '13123',
+  'CLODOILSON PIRES': '20123',
+  'JEAN FERREIRA': '13456',
+  'DR LÍVIO': '44222',
+  'RONILÇO GUERREIRO': '20000',
+  LEINHA: '70000',
+  'OTÁVIO TRAD': '55123',
+};
+
 @Component({
   selector: 'app-cidade',
   imports: [CommonModule, PartidoBadgeComponent],
@@ -224,5 +331,32 @@ export class CidadeComponent {
       // fallback
     }
     return isoStr;
+  }
+
+  getNumero(cand?: ParlamentarItem | null): string | null {
+    if (!cand) return null;
+    if (cand.numero !== undefined && cand.numero !== null && String(cand.numero).trim() !== '') {
+      return String(cand.numero).trim();
+    }
+    const nomeNorm = (cand.nome_urna || cand.nome || '').toUpperCase().trim();
+    return NUMEROS_CANDIDATOS_FALLBACK[nomeNorm] || null;
+  }
+
+  getNumeroPrefixo(numero?: string | number | null): string {
+    if (!numero) return '';
+    const str = String(numero).trim();
+    return str.slice(0, 2);
+  }
+
+  getNumeroResto(numero?: string | number | null): string {
+    if (!numero) return '';
+    const str = String(numero).trim();
+    return str.slice(2);
+  }
+
+  getCorPartido(sigla?: string | null): string {
+    if (!sigla) return '#000000';
+    const s = sigla.trim().toUpperCase();
+    return CORES_PARTIDOS[s] || '#000000';
   }
 }

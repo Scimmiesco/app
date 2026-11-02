@@ -234,7 +234,8 @@
           "mandato_fim": "2030-12-31",
           "status_eleicao_2026": "reeleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "11"
         }
       ],
       "pct_base": "votos_nominais_do_cargo",
@@ -264,7 +265,8 @@
           "votos_nominais_mandato_atual": null,
           "motivo_sem_votos": null,
           "fonte": "senado_api",
-          "url_perfil": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5985"
+          "url_perfil": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5985",
+          "numero": "555"
         },
         {
           "nome": "Soraya Thronicke",
@@ -280,7 +282,8 @@
           "votos_nominais_mandato_atual": null,
           "motivo_sem_votos": null,
           "fonte": "senado_api",
-          "url_perfil": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5988"
+          "url_perfil": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5988",
+          "numero": "400"
         },
         {
           "nome": "Tereza Cristina",
@@ -296,7 +299,8 @@
           "votos_nominais_mandato_atual": null,
           "motivo_sem_votos": null,
           "fonte": "senado_api",
-          "url_perfil": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5736"
+          "url_perfil": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5736",
+          "numero": "111"
         },
         {
           "nome": "REINALDO AZAMBUJA SILVA",
@@ -310,7 +314,8 @@
           "mandato_fim": "2035-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "222"
         },
         {
           "nome": "RENAN BARBOSA CONTAR",
@@ -324,7 +329,8 @@
           "mandato_fim": "2035-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "220"
         }
       ],
       "pct_base": "votos_nominais_do_cargo",
@@ -353,7 +359,8 @@
           "status_eleicao_2026": "reeleito",
           "votos_nominais_mandato_atual": 958,
           "motivo_sem_votos": null,
-          "fonte_votos_mandato": "camara_api"
+          "fonte_votos_mandato": "camara_api",
+          "numero": "1313"
         },
         {
           "nome": "MARCOS SBOROWSKI POLLON",
@@ -368,7 +375,8 @@
           "status_eleicao_2026": "reeleito",
           "votos_nominais_mandato_atual": 1020,
           "motivo_sem_votos": null,
-          "fonte_votos_mandato": "camara_api"
+          "fonte_votos_mandato": "camara_api",
+          "numero": "2222"
         },
         {
           "nome": "RODOLFO OLIVEIRA NOGUEIRA",
@@ -383,7 +391,8 @@
           "status_eleicao_2026": "reeleito",
           "votos_nominais_mandato_atual": 1085,
           "motivo_sem_votos": null,
-          "fonte_votos_mandato": "camara_api"
+          "fonte_votos_mandato": "camara_api",
+          "numero": "2200"
         },
         {
           "nome": "HUMBERTO REZENDE PEREIRA",
@@ -398,7 +407,8 @@
           "status_eleicao_2026": "reeleito",
           "votos_nominais_mandato_atual": 826,
           "motivo_sem_votos": null,
-          "fonte_votos_mandato": "camara_api"
+          "fonte_votos_mandato": "camara_api",
+          "numero": "1010"
         },
         {
           "nome": "DAGOBERTO NOGUEIRA FILHO",
@@ -413,7 +423,8 @@
           "status_eleicao_2026": "reeleito",
           "votos_nominais_mandato_atual": 1001,
           "motivo_sem_votos": null,
-          "fonte_votos_mandato": "camara_api"
+          "fonte_votos_mandato": "camara_api",
+          "numero": "1111"
         },
         {
           "nome": "Dr. Luiz Ovando",
@@ -428,7 +439,8 @@
           "status_eleicao_2026": "nao_reeleito",
           "votos_nominais_mandato_atual": 1001,
           "motivo_sem_votos": null,
-          "fonte": "camara_api"
+          "fonte": "camara_api",
+          "numero": "1122"
         },
         {
           "nome": "Geraldo Resende",
@@ -443,7 +455,8 @@
           "status_eleicao_2026": "nao_reeleito",
           "votos_nominais_mandato_atual": 993,
           "motivo_sem_votos": null,
-          "fonte": "camara_api"
+          "fonte": "camara_api",
+          "numero": "4455"
         },
         {
           "nome": "Vander Loubet",
@@ -458,7 +471,8 @@
           "status_eleicao_2026": "nao_reeleito",
           "votos_nominais_mandato_atual": 930,
           "motivo_sem_votos": null,
-          "fonte": "camara_api"
+          "fonte": "camara_api",
+          "numero": "1310"
         },
         {
           "nome": "ROSIANE MODESTO DE OLIVEIRA",
@@ -473,7 +487,8 @@
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
           "motivo_sem_votos": "novo mandato: assume em 2027, sem historico de votacao na Camara",
-          "fonte_votos_mandato": null
+          "fonte_votos_mandato": null,
+          "numero": "4444"
         },
         {
           "nome": "MARA ELISA NAVACCHI CASEIRO",
@@ -488,7 +503,8 @@
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
           "motivo_sem_votos": "novo mandato: assume em 2027, sem historico de votacao na Camara",
-          "fonte_votos_mandato": null
+          "fonte_votos_mandato": null,
+          "numero": "2233"
         },
         {
           "nome": "ISA JANE MARCONDES NANTES",
@@ -503,7 +519,8 @@
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
           "motivo_sem_votos": "novo mandato: assume em 2027, sem historico de votacao na Camara",
-          "fonte_votos_mandato": null
+          "fonte_votos_mandato": null,
+          "numero": "1022"
         }
       ],
       "pct_base": "votos_nominais_do_cargo",
@@ -530,7 +547,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "22123"
         },
         {
           "nome": "PAULO JOSE ARAUJO CORREA",
@@ -544,7 +562,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "22222"
         },
         {
           "nome": "PEDRO ARLEI CARAVINA",
@@ -558,7 +577,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "45123"
         },
         {
           "nome": "JOSÉ ORCIRIO MIRANDA DOS SANTOS",
@@ -572,7 +592,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "13613"
         },
         {
           "nome": "CARLOS ALBERTO DAVID DOS SANTOS",
@@ -586,7 +607,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "22000"
         },
         {
           "nome": "ANDRE PUCCINELLI",
@@ -600,7 +622,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "15151"
         },
         {
           "nome": "TIAGO RESENDE BOTELHO",
@@ -614,7 +637,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "13123"
         },
         {
           "nome": "ANGELO CHAVES GUERREIRO",
@@ -628,7 +652,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "45000"
         },
         {
           "nome": "GIANNI DIAS AGUILLAR NOGUEIRA",
@@ -642,7 +667,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "22111"
         },
         {
           "nome": "ODILON FERRAZ ALVES RIBEIRO",
@@ -656,7 +682,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "22333"
         },
         {
           "nome": "GERSON CLARO DINO",
@@ -670,7 +697,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "11234"
         },
         {
           "nome": "LONDRES MACHADO",
@@ -684,7 +712,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "11111"
         },
         {
           "nome": "HELIO PELUFFO FILHO",
@@ -698,7 +727,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "45678"
         },
         {
           "nome": "DAVERSON MUNHOZ DE MATOS",
@@ -712,7 +742,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "44123"
         },
         {
           "nome": "GLEICE JANE BARBOSA",
@@ -754,7 +785,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "13333"
         },
         {
           "nome": "LUIZ CARLOS CORREIA DE LIMA",
@@ -796,7 +828,8 @@
           "mandato_fim": "2031-01-31",
           "status_eleicao_2026": "eleito",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "15555"
         },
         {
           "nome": "RENATO PIERETTI CAMARA",
@@ -907,7 +940,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "12345"
         },
         {
           "nome": "RAFAEL BRANDÃO SCAQUETTI TAVARES",
@@ -921,7 +955,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "22000"
         },
         {
           "nome": "CARLOS AUGUSTO BORGES",
@@ -935,7 +970,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "40123"
         },
         {
           "nome": "SILVIO EDUARDO ALVES PENA",
@@ -949,7 +985,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "45123"
         },
         {
           "nome": "FRANCISCO GONÇALVES DE CARVALHO",
@@ -963,7 +1000,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "44123"
         },
         {
           "nome": "FÁBIO DA ROCHA E SILVA FERREIRA",
@@ -977,7 +1015,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "44000"
         },
         {
           "nome": "RIVERTON FRANCISCO DE SOUZA",
@@ -991,7 +1030,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "11123"
         },
         {
           "nome": "ADEMAR VIEIRA JUNIOR",
@@ -1005,7 +1045,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "15123"
         },
         {
           "nome": "VICTOR ROCHA PIRES DE OLIVEIRA",
@@ -1019,7 +1060,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "45000"
         },
         {
           "nome": "JUARI LOPES PINTO",
@@ -1033,7 +1075,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "45555"
         },
         {
           "nome": "FLAVIO PEREIRA MOURA",
@@ -1047,7 +1090,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "45678"
         },
         {
           "nome": "LUIZA RIBEIRO GONÇALVES",
@@ -1061,7 +1105,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "13000"
         },
         {
           "nome": "ANDRÉ LUIS SANCHES SALINEIRO",
@@ -1075,7 +1120,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "22123"
         },
         {
           "nome": "EPAMINONDAS VICENTE SILVA NETO",
@@ -1089,7 +1135,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "45789"
         },
         {
           "nome": "ANA CLAUDIA PEREIRA PORTELA",
@@ -1103,7 +1150,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "22345"
         },
         {
           "nome": "JOSE CLARO DOS SANTOS NETO",
@@ -1117,7 +1165,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "10123"
         },
         {
           "nome": "MAICON CLEYTHON RODRIGUES NOGUEIRA",
@@ -1131,7 +1180,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "11456"
         },
         {
           "nome": "VANDERLEI PINHEIRO DE LIMA",
@@ -1145,7 +1195,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "11789"
         },
         {
           "nome": "WILSON MANOEL DIAS LANDS",
@@ -1159,7 +1210,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "70123"
         },
         {
           "nome": "HERCULANO BORGES DANIEL",
@@ -1173,7 +1225,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "10000"
         },
         {
           "nome": "ROBERTO DE AVELAR",
@@ -1187,7 +1240,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "11000"
         },
         {
           "nome": "JAMAL MOHAMED SALEM",
@@ -1201,7 +1255,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "15789"
         },
         {
           "nome": "LANDMARK FERREIRA RIOS",
@@ -1215,7 +1270,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "13123"
         },
         {
           "nome": "CLODOILSON DOS SANTOS PIRES",
@@ -1229,7 +1285,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "20123"
         },
         {
           "nome": "JEAN FELIPE MORAIS FERREIRA BARBOSA",
@@ -1243,7 +1300,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "13456"
         },
         {
           "nome": "LIVIO VIANA DE OLIVEIRA LEITE",
@@ -1257,7 +1315,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "44222"
         },
         {
           "nome": "RONILÇO CRUZ DE OLIVEIRA",
@@ -1271,7 +1330,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "20000"
         },
         {
           "nome": "WILTON CELESTE CANDELORIO",
@@ -1285,7 +1345,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "70000"
         },
         {
           "nome": "OTÁVIO AUGUSTO TRAD MARTINS",
@@ -1299,7 +1360,8 @@
           "mandato_fim": "2028-12-31",
           "status_eleicao_2026": "em_exercicio",
           "votos_nominais_mandato_atual": null,
-          "motivo_sem_votos": null
+          "motivo_sem_votos": null,
+          "numero": "55123"
         }
       ],
       "pct_base": "votos_nominais_do_cargo",
