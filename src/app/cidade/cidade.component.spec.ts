@@ -1226,13 +1226,17 @@ describe('CidadeComponent', () => {
     expect(thsGov && thsGov.length).toBeGreaterThanOrEqual(2);
   });
 
-  it('should handle non-reelected and did-not-run-for-office candidates with votes and notes (US-16)', () => {
+  it('should handle non-reelected and did-not-run-for-office candidates with votes and dash for situation (US-16)', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    // Vander Loubet: status "Não concorreu ao cargo" e nota do Senado em situacao
+    // Vander Loubet: status "Não concorreu ao cargo" e traço na situação TSE
     const linhaVander = compiled.querySelector('[data-testid="linha-deputado-vander loubet"]');
     expect(linhaVander).toBeTruthy();
     expect(linhaVander?.textContent).toContain('Não concorreu ao cargo');
-    expect(linhaVander?.textContent).toContain('Senado: 361.920 (13,88%) — não eleito');
+
+    // A coluna de situação deve conter apenas o traço '—'
+    const situacaoEl = linhaVander?.querySelector('.cell-situacao');
+    expect(situacaoEl?.textContent?.trim()).toBe('—');
+    expect(linhaVander?.textContent).not.toContain('Senado: 361.920');
 
     // Legenda explicativa presente no bloco
     const legenda = compiled.querySelector('[data-testid="legenda-status-deputados"]');

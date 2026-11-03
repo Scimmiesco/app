@@ -1920,17 +1920,7 @@
                     <td class="cell-mandato-fim hidden sm:table-cell">
                       {{ formatarDataIso(dep.mandato_fim) }}
                     </td>
-                    <td class="cell-situacao">
-                      {{ dep.situacao || '—' }}
-                      @if (dep.cargo_2026 && dep.cargo_2026 !== 'Deputado Federal') {
-                        <span class="block text-[11px] text-meta mt-0.5">
-                          {{ dep.cargo_2026 === 'Senador' ? 'Senado' : dep.cargo_2026 }}:
-                          {{ formatarNumero(dep.votos_2026_outro) }} ({{
-                            formatarPct(dep.pct_2026_outro)
-                          }}) — {{ dep.situacao_2026_outro || 'não eleito' | lowercase }}
-                        </span>
-                      }
-                    </td>
+                    <td class="cell-situacao">{{ dep.situacao || '—' }}</td>
                     <td class="cell-votos-mandato hidden md:table-cell">
                       @if (
                         dep.votos_nominais_mandato_atual !== null &&
