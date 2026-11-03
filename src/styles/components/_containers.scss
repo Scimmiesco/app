@@ -86,7 +86,18 @@
     [role='tab'] {
       flex-shrink: 0;
       white-space: nowrap;
+
+      &:hover:not([aria-selected='true']) {
+        background-color: tokens.$color-bg-amber;
+      }
     }
+  }
+}
+
+// Utilitário de hover com a cor amber natural do design system
+.hover-bg-amber {
+  &:hover {
+    background-color: tokens.$color-bg-amber !important;
   }
 }
 

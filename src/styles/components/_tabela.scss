@@ -48,10 +48,10 @@
       @apply border-b border-black/10 transition-colors;
 
       &:hover {
-        background-color: tokens.$color-amber-hover; // Âmbar natural no hover
+        background-color: tokens.$color-bg-amber; // Âmbar natural no hover
 
         > td:first-child {
-          background-color: tokens.$color-amber-hover; // Âmbar natural na coluna fixa no hover
+          background-color: tokens.$color-bg-amber; // Âmbar natural na coluna fixa no hover
         }
       }
 
