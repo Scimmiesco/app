@@ -980,6 +980,24 @@ describe('CidadeComponent', () => {
     expect(component.formatarStatus(null)).toBe('—');
   });
 
+  it('should format currency using non-breaking space and prevent wrapping in monetary metrics', () => {
+    expect(component.formatarMoeda(null)).toBe('—');
+    expect(component.formatarMoeda(undefined)).toBe('—');
+
+    const moeda = component.formatarMoeda(2450.5);
+    expect(moeda).toContain('R$');
+    expect(moeda).toContain('2.450,50');
+    // Não pode conter espaço comum entre R$ e o valor numérico
+    expect(moeda.includes(' ')).toBe(false);
+    expect(moeda.includes('\u00A0')).toBe(true);
+
+    const moedaGrande = component.formatarMoeda(5484604047.75);
+    expect(moedaGrande).toContain('R$');
+    expect(moedaGrande).toContain('5.484.604.047,75');
+    expect(moedaGrande.includes(' ')).toBe(false);
+    expect(moedaGrande.includes('\u00A0')).toBe(true);
+  });
+
   it('should display error alert when snapshot fails to load', () => {
     component.erroCarregamento.set('Erro ao carregar dados oficiais');
     fixture.detectChanges();

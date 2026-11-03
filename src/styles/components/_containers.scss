@@ -139,11 +139,11 @@
 }
 
 .metric-value {
-  @apply text-base font-black text-black;
+  @apply text-base font-black text-black whitespace-nowrap tabular-nums;
 }
 
 .metric-value-lg {
-  @apply text-lg font-black text-black;
+  @apply text-lg font-black text-black whitespace-nowrap tabular-nums;
 }
 
 // 4. Skeleton Loader

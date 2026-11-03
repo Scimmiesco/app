@@ -167,7 +167,9 @@ export class CidadeComponent {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
-    }).format(val);
+    })
+      .format(val)
+      .replace(/\s/g, '\u00A0');
   }
 
   formatarPct(val?: number | null): string {
