@@ -31,10 +31,12 @@
         z-index: 2;
         background-color: tokens.$color-bg-page;
         border-right: 1px solid rgba(0, 0, 0, 0.1);
-        max-width: 175px;
+        max-width: 195px;
+        min-width: 175px;
 
         @media (min-width: tokens.$bp-sm) {
           max-width: none;
+          min-width: 0;
         }
       }
 
@@ -66,10 +68,12 @@
         z-index: 1;
         background-color: tokens.$color-white;
         border-right: 1px solid rgba(0, 0, 0, 0.1);
-        max-width: 175px;
+        max-width: 195px;
+        min-width: 175px;
 
         @media (min-width: tokens.$bp-sm) {
           max-width: none;
+          min-width: 0;
         }
       }
 
@@ -85,14 +89,65 @@
 
         &.cell-nome {
           @apply font-bold;
-          max-width: 175px;
+          padding: 0.5rem 0.375rem;
+          max-width: 195px;
+          min-width: 175px;
 
           @media (min-width: tokens.$bp-sm) {
             max-width: none;
+            min-width: 0;
+            padding: 0.625rem 0.5rem;
+          }
+
+          .candidato-foto-tag {
+            @apply flex flex-col items-center shrink-0 border-2 border-black rounded-xs select-none overflow-hidden;
+            box-shadow: 2px 2px 0 tokens.$color-black;
+            background-color: tokens.$color-white;
+            width: 44px;
+
+            app-candidato-avatar {
+              display: flex;
+              justify-content: center;
+              width: 100%;
+              background-color: #f1f5f9;
+
+              .candidato-avatar-img,
+              .candidato-avatar-fallback {
+                border: 0 !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                width: 100% !important;
+                height: 38px !important;
+              }
+            }
+
+            .tag-eleicao {
+              @apply w-full text-center font-black uppercase text-[7.5px] leading-tight tracking-tight border-t-2 border-black px-0.5 py-0.5;
+              word-break: break-word;
+              display: block;
+
+              &.tag-reeleito,
+              &.tag-eleito {
+                background-color: tokens.$color-verde;
+                color: #ffffff;
+              }
+
+              &.tag-nao-reeleito {
+                background-color: tokens.$color-laranja;
+                color: #ffffff;
+              }
+
+              &.tag-nao-concorreu,
+              &.tag-em-exercicio,
+              &.tag-neutral {
+                background-color: tokens.$color-white;
+                color: tokens.$color-black;
+              }
+            }
           }
 
           .nome-candidato {
-            @apply block truncate max-w-[120px];
+            @apply block truncate max-w-[110px];
 
             @media (min-width: tokens.$bp-sm) {
               max-width: none;

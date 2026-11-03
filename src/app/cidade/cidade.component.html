@@ -316,7 +316,7 @@
             </div>
           }
           <div
-            class="grid grid-cols-1 sm:grid-cols-3 gap-3"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
             data-testid="resumo-ibge-grid-metricas"
           >
             <div class="metric-card" data-testid="card-metrica-renda-media">
@@ -331,6 +331,22 @@
               <span class="metric-label">Taxa de Urbanização</span>
               <span class="metric-value">{{ formatarPct(dadosIbge.pct_urbana) }}</span>
             </div>
+            @if (dadosIbge.area_territorial_km2) {
+              <div class="metric-card" data-testid="card-metrica-area-territorial">
+                <span class="metric-label">Área Territorial (2022)</span>
+                <span class="metric-value"
+                  >{{ formatarNumero(dadosIbge.area_territorial_km2) }} km²</span
+                >
+              </div>
+            }
+            @if (dadosIbge.densidade_hab_km2) {
+              <div class="metric-card" data-testid="card-metrica-densidade-demografica">
+                <span class="metric-label">Densidade Demográfica</span>
+                <span class="metric-value"
+                  >{{ formatarNumero(dadosIbge.densidade_hab_km2) }} hab/km²</span
+                >
+              </div>
+            }
           </div>
 
           <!-- Composição Cor e Raça -->
@@ -403,6 +419,104 @@
             <div class="metric-card" data-testid="card-metrica-pib-per-capita">
               <span class="metric-label">PIB Per Capita</span>
               <span class="metric-value-lg">{{ formatarMoeda(dadosEco.pib_per_capita) }}</span>
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- BLOCO 3.1: POPULAÇÃO ESTIMADA (IBGE) -->
+    @if (snapshot()?.secoes?.resumo_populacao_estimada; as secaoPopEst) {
+      <div class="card-brutalista space-y-4" data-testid="card-resumo-populacao-estimada">
+        <div class="card-header">
+          <div>
+            <p class="section-kicker" data-testid="resumo-populacao-estimada-kicker">
+              {{ secaoPopEst.categoria || 'A CIDADE' }}
+            </p>
+            <h2 class="heading-2 text-lg" data-testid="resumo-populacao-estimada-titulo">
+              {{ secaoPopEst.titulo }}
+            </h2>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+            @if (secaoPopEst.status === 'oficial') {
+              <span class="badge badge-sm badge-oficial">oficial</span>
+              <span class="text-meta">
+                @if (getFonte(secaoPopEst.fonte); as fonte) {
+                  <a
+                    [href]="fonte.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-fonte"
+                  >
+                    {{ fonte.orgao }} · {{ fonte.titulo }}
+                  </a>
+                } @else {
+                  <span>{{ secaoPopEst.fonte }}</span>
+                }
+                · {{ secaoPopEst.ano }}
+              </span>
+            } @else {
+              <span class="badge badge-sm badge-pendente">pendente</span>
+            }
+          </div>
+        </div>
+
+        @if (secaoPopEst.dados; as dadosPopEst) {
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="metric-card" data-testid="card-metrica-populacao-estimada">
+              <span class="metric-label">População Estimada (IBGE {{ secaoPopEst.ano }})</span>
+              <span class="metric-value-lg"
+                >{{ formatarNumero(dadosPopEst.populacao_estimada) }} hab</span
+              >
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- BLOCO 3.2: ESCOLARIZAÇÃO (IBGE) -->
+    @if (snapshot()?.secoes?.resumo_escolarizacao; as secaoEsc) {
+      <div class="card-brutalista space-y-4" data-testid="card-resumo-escolarizacao">
+        <div class="card-header">
+          <div>
+            <p class="section-kicker" data-testid="resumo-escolarizacao-kicker">
+              {{ secaoEsc.categoria || 'A CIDADE' }}
+            </p>
+            <h2 class="heading-2 text-lg" data-testid="resumo-escolarizacao-titulo">
+              {{ secaoEsc.titulo }}
+            </h2>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+            @if (secaoEsc.status === 'oficial') {
+              <span class="badge badge-sm badge-oficial">oficial</span>
+              <span class="text-meta">
+                @if (getFonte(secaoEsc.fonte); as fonte) {
+                  <a
+                    [href]="fonte.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-fonte"
+                  >
+                    {{ fonte.orgao }} · {{ fonte.titulo }}
+                  </a>
+                } @else {
+                  <span>{{ secaoEsc.fonte }}</span>
+                }
+                · {{ secaoEsc.ano }}
+              </span>
+            } @else {
+              <span class="badge badge-sm badge-pendente">pendente</span>
+            }
+          </div>
+        </div>
+
+        @if (secaoEsc.dados; as dadosEsc) {
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="metric-card" data-testid="card-metrica-escolarizacao">
+              <span class="metric-label"
+                >Taxa de Escolarização 6 a 14 anos (Censo {{ secaoEsc.ano }})</span
+              >
+              <span class="metric-value-lg">{{ formatarPct(dadosEsc.faixa_6_14_pct) }}</span>
             </div>
           </div>
         }
@@ -525,26 +639,39 @@
             <strong>Dado pendente:</strong> {{ secaoFin.motivo || 'Em fase de apuração oficial.' }}
           </div>
         } @else if (secaoFin.dados; as dadosFin) {
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            <div class="metric-card">
-              <span class="metric-label">Receita Total</span>
-              <span class="metric-value">{{ formatarMoeda(dadosFin.receita_total) }}</span>
+          @if (dadosFin.receita_bruta !== undefined || dadosFin.despesa_bruta !== undefined) {
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="metric-card" data-testid="card-metrica-receita-bruta">
+                <span class="metric-label">Receitas Brutas (DCA {{ secaoFin.ano }})</span>
+                <span class="metric-value-lg">{{ formatarMoeda(dadosFin.receita_bruta) }}</span>
+              </div>
+              <div class="metric-card" data-testid="card-metrica-despesa-bruta">
+                <span class="metric-label">Despesas Empenhadas (DCA {{ secaoFin.ano }})</span>
+                <span class="metric-value-lg">{{ formatarMoeda(dadosFin.despesa_bruta) }}</span>
+              </div>
             </div>
-            <div class="metric-card">
-              <span class="metric-label">Transferências</span>
-              <span class="metric-value">{{
-                formatarMoeda(dadosFin.transferencias_correntes)
-              }}</span>
+          } @else {
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div class="metric-card">
+                <span class="metric-label">Receita Total</span>
+                <span class="metric-value">{{ formatarMoeda(dadosFin.receita_total) }}</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Transferências</span>
+                <span class="metric-value">{{
+                  formatarMoeda(dadosFin.transferencias_correntes)
+                }}</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">IPTU Arrecadado</span>
+                <span class="metric-value">{{ formatarMoeda(dadosFin.iptu) }}</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">ISS Arrecadado</span>
+                <span class="metric-value">{{ formatarMoeda(dadosFin.iss) }}</span>
+              </div>
             </div>
-            <div class="metric-card">
-              <span class="metric-label">IPTU Arrecadado</span>
-              <span class="metric-value">{{ formatarMoeda(dadosFin.iptu) }}</span>
-            </div>
-            <div class="metric-card">
-              <span class="metric-label">ISS Arrecadado</span>
-              <span class="metric-value">{{ formatarMoeda(dadosFin.iss) }}</span>
-            </div>
-          </div>
+          }
         }
       </div>
     }
@@ -1372,10 +1499,8 @@
             <table class="tabela-brutalista" data-testid="tabela-governador">
               <thead>
                 <tr>
-                  <th scope="col">Nome de Urna</th>
-                  <th scope="col" class="col-center">Partido</th>
+                  <th scope="col">Candidato</th>
                   <th scope="col" class="col-center hidden sm:table-cell">Em Exercício</th>
-                  <th scope="col" class="col-center">Status 2026</th>
                   <th scope="col" class="col-right">Votos 2026</th>
                   <th scope="col" class="col-right">
                     @if (secaoGov.pct_base === 'votos_nominais_do_cargo') {
@@ -1394,20 +1519,51 @@
                 @for (gov of governador(); track gov.nome) {
                   <tr [class.em-exercicio]="gov.em_exercicio">
                     <td class="cell-nome">
-                      <div class="flex items-center gap-2">
-                        <app-candidato-avatar
-                          [foto]="gov.foto"
-                          [nome]="gov.nome_urna"
-                          [partido]="gov.partido"
-                          [tamanho]="32"
-                        />
-                        <div class="min-w-0">
-                          <span class="nome-candidato block" [title]="gov.nome_urna">{{
-                            gov.nome_urna
-                          }}</span>
+                      <div class="flex items-center gap-2.5">
+                        <div class="candidato-foto-tag">
+                          <app-candidato-avatar
+                            [foto]="gov.foto"
+                            [nome]="gov.nome_urna"
+                            [partido]="gov.partido"
+                            [tamanho]="36"
+                            [comBorda]="false"
+                          />
+                          @if (gov.status_eleicao_2026 === 'reeleito') {
+                            <span
+                              class="tag-eleicao tag-reeleito"
+                              data-testid="governador-status-eleicao"
+                              >reeleito</span
+                            >
+                          } @else if (
+                            gov.status_eleicao_2026 === 'eleito' ||
+                            (gov.situacao && gov.situacao.startsWith('ELEITO'))
+                          ) {
+                            <span
+                              class="tag-eleicao tag-eleito"
+                              data-testid="governador-status-eleicao"
+                              >eleito</span
+                            >
+                          } @else if (gov.status_eleicao_2026) {
+                            <span
+                              class="tag-eleicao tag-neutral"
+                              data-testid="governador-status-eleicao"
+                              >{{ formatarStatus(gov.status_eleicao_2026) }}</span
+                            >
+                          }
+                        </div>
+                        <div class="min-w-0 flex-1 flex flex-col justify-center">
+                          <div class="mb-0.5">
+                            <app-partido-badge [sigla]="gov.partido" />
+                          </div>
+                          <span
+                            class="nome-candidato font-bold block truncate max-w-[125px] sm:max-w-none text-xs sm:text-sm"
+                            [title]="gov.nome_urna"
+                          >
+                            {{ gov.nome_urna }}
+                          </span>
                           @if (getNumero(gov); as num) {
                             <span
-                              class="numero-candidato block text-sm font-bold tabular-nums"
+                              class="numero-candidato block text-sm font-bold tabular-nums mt-0.5"
                               [attr.data-partido]="gov.partido"
                               data-testid="numero-candidato"
                             >
@@ -1421,7 +1577,7 @@
                             </span>
                           } @else if (getNumeroHistorico(gov); as hist) {
                             <span
-                              class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                              class="numero-candidato numero-historico block text-sm font-bold tabular-nums mt-0.5"
                               [attr.data-partido]="gov.partido"
                               data-testid="numero-candidato"
                             >
@@ -1441,9 +1597,6 @@
                         </div>
                       </div>
                     </td>
-                    <td class="cell-center">
-                      <app-partido-badge [sigla]="gov.partido" />
-                    </td>
                     <td class="cell-center hidden sm:table-cell">
                       @if (gov.em_exercicio) {
                         <span
@@ -1458,13 +1611,6 @@
                           >NÃO</span
                         >
                       }
-                    </td>
-                    <td class="cell-center">
-                      <span
-                        class="badge badge-xs badge-neutral"
-                        data-testid="governador-status-eleicao"
-                        >{{ formatarStatus(gov.status_eleicao_2026) }}</span
-                      >
                     </td>
                     <td class="cell-votos">{{ formatarNumero(gov.votos) }}</td>
                     <td class="cell-pct">{{ formatarPct(gov.pct) }}</td>
@@ -1513,11 +1659,9 @@
           <table class="tabela-brutalista">
             <thead>
               <tr>
-                <th scope="col">Nome de Urna</th>
-                <th scope="col" class="col-center">Partido</th>
+                <th scope="col">Candidato</th>
                 <th scope="col" class="col-center hidden sm:table-cell">Em Exercício</th>
                 <th scope="col" class="col-center hidden sm:table-cell">Mandato</th>
-                <th scope="col" class="col-center">Status 2026</th>
                 <th scope="col">Situação</th>
               </tr>
             </thead>
@@ -1528,20 +1672,40 @@
                   [attr.data-testid]="'linha-senador-' + sen.nome_urna.toLowerCase()"
                 >
                   <td class="cell-nome">
-                    <div class="flex items-center gap-2">
-                      <app-candidato-avatar
-                        [foto]="sen.foto"
-                        [nome]="sen.nome_urna"
-                        [partido]="sen.partido"
-                        [tamanho]="32"
-                      />
-                      <div class="min-w-0">
-                        <span class="nome-candidato block" [title]="sen.nome_urna">{{
-                          sen.nome_urna
-                        }}</span>
+                    <div class="flex items-center gap-2.5">
+                      <div class="candidato-foto-tag">
+                        <app-candidato-avatar
+                          [foto]="sen.foto"
+                          [nome]="sen.nome_urna"
+                          [partido]="sen.partido"
+                          [tamanho]="36"
+                          [comBorda]="false"
+                        />
+                        @if (sen.status_eleicao_2026 === 'reeleito') {
+                          <span class="tag-eleicao tag-reeleito">reeleito</span>
+                        } @else if (sen.status_eleicao_2026 === 'eleito') {
+                          <span class="tag-eleicao tag-eleito">eleito</span>
+                        } @else if (sen.status_eleicao_2026 === 'em_exercicio') {
+                          <span class="tag-eleicao tag-em-exercicio">em exercício</span>
+                        } @else if (sen.status_eleicao_2026) {
+                          <span class="tag-eleicao tag-neutral">{{
+                            formatarStatus(sen.status_eleicao_2026)
+                          }}</span>
+                        }
+                      </div>
+                      <div class="min-w-0 flex-1 flex flex-col justify-center">
+                        <div class="mb-0.5">
+                          <app-partido-badge [sigla]="sen.partido" />
+                        </div>
+                        <span
+                          class="nome-candidato font-bold block truncate max-w-[125px] sm:max-w-none text-xs sm:text-sm"
+                          [title]="sen.nome_urna"
+                        >
+                          {{ sen.nome_urna }}
+                        </span>
                         @if (getNumero(sen); as num) {
                           <span
-                            class="numero-candidato block text-sm font-bold tabular-nums"
+                            class="numero-candidato block text-sm font-bold tabular-nums mt-0.5"
                             [attr.data-partido]="sen.partido"
                             data-testid="numero-candidato"
                           >
@@ -1553,7 +1717,7 @@
                           </span>
                         } @else if (getNumeroHistorico(sen); as hist) {
                           <span
-                            class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                            class="numero-candidato numero-historico block text-sm font-bold tabular-nums mt-0.5"
                             [attr.data-partido]="sen.partido"
                             data-testid="numero-candidato"
                           >
@@ -1573,9 +1737,6 @@
                       </div>
                     </div>
                   </td>
-                  <td class="cell-center">
-                    <app-partido-badge [sigla]="sen.partido" />
-                  </td>
                   <td class="cell-center hidden sm:table-cell">
                     @if (sen.em_exercicio) {
                       <span class="badge badge-xs badge-exercicio-sim">SIM</span>
@@ -1586,11 +1747,6 @@
                   <td class="cell-mandato-fim hidden sm:table-cell">
                     {{ sen.mandato_inicio ? formatarDataIso(sen.mandato_inicio) + ' a ' : ''
                     }}{{ formatarDataIso(sen.mandato_fim) }}
-                  </td>
-                  <td class="cell-center">
-                    <span class="badge badge-xs badge-neutral">{{
-                      formatarStatus(sen.status_eleicao_2026)
-                    }}</span>
                   </td>
                   <td class="cell-situacao">{{ sen.situacao || '—' }}</td>
                 </tr>
@@ -1663,13 +1819,11 @@
             <table class="tabela-brutalista" data-testid="tabela-deputados">
               <thead>
                 <tr>
-                  <th scope="col">Nome de Urna</th>
-                  <th scope="col" class="col-center">Partido</th>
+                  <th scope="col">Candidato</th>
                   <th scope="col" class="col-right">Votos 2026</th>
                   <th scope="col" class="col-right">% Nominais</th>
                   <th scope="col" class="col-center hidden sm:table-cell">Em Exercício</th>
                   <th scope="col" class="col-center hidden sm:table-cell">Fim do Mandato</th>
-                  <th scope="col" class="col-center">Status 2026</th>
                   <th scope="col">Situação</th>
                   <th scope="col" class="col-right hidden md:table-cell">Votos Mandato (Câmara)</th>
                 </tr>
@@ -1681,20 +1835,46 @@
                     [attr.data-testid]="'linha-deputado-' + (dep.nome_urna | lowercase)"
                   >
                     <td class="cell-nome">
-                      <div class="flex items-center gap-2">
-                        <app-candidato-avatar
-                          [foto]="dep.foto"
-                          [nome]="dep.nome_urna"
-                          [partido]="dep.partido"
-                          [tamanho]="32"
-                        />
-                        <div class="min-w-0">
-                          <span class="nome-candidato block" [title]="dep.nome_urna">{{
-                            dep.nome_urna
-                          }}</span>
+                      <div class="flex items-center gap-2.5">
+                        <div class="candidato-foto-tag">
+                          <app-candidato-avatar
+                            [foto]="dep.foto"
+                            [nome]="dep.nome_urna"
+                            [partido]="dep.partido"
+                            [tamanho]="52"
+                            [comBorda]="false"
+                          />
+                          @if (dep.status_eleicao_2026 === 'reeleito') {
+                            <span class="tag-eleicao tag-reeleito">reeleito</span>
+                          } @else if (dep.status_eleicao_2026 === 'eleito') {
+                            <span class="tag-eleicao tag-eleito">eleito</span>
+                          } @else if (dep.status_eleicao_2026 === 'nao_reeleito') {
+                            <span class="tag-eleicao tag-nao-reeleito">não reeleito</span>
+                          } @else if (dep.status_eleicao_2026 === 'nao_concorreu_ao_cargo') {
+                            <span
+                              class="tag-eleicao tag-nao-concorreu"
+                              data-testid="badge-nao-concorreu"
+                              >Não concorreu ao cargo</span
+                            >
+                          } @else if (dep.status_eleicao_2026) {
+                            <span class="tag-eleicao tag-neutral">{{
+                              formatarStatus(dep.status_eleicao_2026)
+                            }}</span>
+                          }
+                        </div>
+                        <div class="min-w-0 flex-1 flex flex-col justify-center">
+                          <div class="mb-0.5">
+                            <app-partido-badge [sigla]="dep.partido" />
+                          </div>
+                          <span
+                            class="nome-candidato font-bold block truncate max-w-[125px] sm:max-w-none text-xs sm:text-sm"
+                            [title]="dep.nome_urna"
+                          >
+                            {{ dep.nome_urna }}
+                          </span>
                           @if (getNumero(dep); as num) {
                             <span
-                              class="numero-candidato block text-sm font-bold tabular-nums"
+                              class="numero-candidato block text-sm font-bold tabular-nums mt-0.5"
                               [attr.data-partido]="dep.partido"
                               data-testid="numero-candidato"
                             >
@@ -1708,7 +1888,7 @@
                             </span>
                           } @else if (getNumeroHistorico(dep); as hist) {
                             <span
-                              class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                              class="numero-candidato numero-historico block text-sm font-bold tabular-nums mt-0.5"
                               [attr.data-partido]="dep.partido"
                               data-testid="numero-candidato"
                             >
@@ -1728,9 +1908,6 @@
                         </div>
                       </div>
                     </td>
-                    <td class="cell-center">
-                      <app-partido-badge [sigla]="dep.partido" />
-                    </td>
                     <td class="cell-votos">{{ formatarNumero(dep.votos) }}</td>
                     <td class="cell-pct">{{ formatarPct(dep.pct) }}</td>
                     <td class="cell-center hidden sm:table-cell">
@@ -1742,23 +1919,6 @@
                     </td>
                     <td class="cell-mandato-fim hidden sm:table-cell">
                       {{ formatarDataIso(dep.mandato_fim) }}
-                    </td>
-                    <td class="cell-center">
-                      @if (dep.status_eleicao_2026 === 'reeleito') {
-                        <span class="badge badge-xs badge-reeleito">Reeleito</span>
-                      } @else if (dep.status_eleicao_2026 === 'eleito') {
-                        <span class="badge badge-xs badge-eleito">Eleito novo</span>
-                      } @else if (dep.status_eleicao_2026 === 'nao_reeleito') {
-                        <span class="badge badge-xs badge-nao-reeleito">Não reeleito</span>
-                      } @else if (dep.status_eleicao_2026 === 'nao_concorreu_ao_cargo') {
-                        <span class="badge badge-xs badge-nao-concorreu"
-                          >Não concorreu ao cargo</span
-                        >
-                      } @else {
-                        <span class="badge badge-xs badge-neutral">{{
-                          formatarStatus(dep.status_eleicao_2026)
-                        }}</span>
-                      }
                     </td>
                     <td class="cell-situacao">
                       {{ dep.situacao || '—' }}
@@ -1828,11 +1988,9 @@
           <table class="tabela-brutalista">
             <thead>
               <tr>
-                <th scope="col">Nome de Urna</th>
-                <th scope="col" class="col-center">Partido</th>
+                <th scope="col">Candidato</th>
                 <th scope="col" class="col-right">Votos 2026</th>
                 <th scope="col" class="col-right">% Válidos</th>
-                <th scope="col" class="col-center hidden sm:table-cell">Status</th>
                 <th scope="col">Situação</th>
               </tr>
             </thead>
@@ -1840,20 +1998,42 @@
               @for (est of deputadosEstaduais(); track est.nome) {
                 <tr>
                   <td class="cell-nome">
-                    <div class="flex items-center gap-2">
-                      <app-candidato-avatar
-                        [foto]="est.foto"
-                        [nome]="est.nome_urna"
-                        [partido]="est.partido"
-                        [tamanho]="32"
-                      />
-                      <div class="min-w-0">
-                        <span class="nome-candidato block" [title]="est.nome_urna">{{
-                          est.nome_urna
-                        }}</span>
+                    <div class="flex items-center gap-2.5">
+                      <div class="candidato-foto-tag">
+                        <app-candidato-avatar
+                          [foto]="est.foto"
+                          [nome]="est.nome_urna"
+                          [partido]="est.partido"
+                          [tamanho]="36"
+                          [comBorda]="false"
+                        />
+                        @if (est.status_eleicao_2026 === 'reeleito') {
+                          <span class="tag-eleicao tag-reeleito">reeleito</span>
+                        } @else if (
+                          est.status_eleicao_2026 === 'eleito' ||
+                          est.situacao === 'ELEITO' ||
+                          (est.situacao && est.situacao.startsWith('ELEITO'))
+                        ) {
+                          <span class="tag-eleicao tag-eleito">eleito</span>
+                        } @else if (est.status_eleicao_2026) {
+                          <span class="tag-eleicao tag-neutral">{{
+                            formatarStatus(est.status_eleicao_2026)
+                          }}</span>
+                        }
+                      </div>
+                      <div class="min-w-0 flex-1 flex flex-col justify-center">
+                        <div class="mb-0.5">
+                          <app-partido-badge [sigla]="est.partido" />
+                        </div>
+                        <span
+                          class="nome-candidato font-bold block truncate max-w-[125px] sm:max-w-none text-xs sm:text-sm"
+                          [title]="est.nome_urna"
+                        >
+                          {{ est.nome_urna }}
+                        </span>
                         @if (getNumero(est); as num) {
                           <span
-                            class="numero-candidato block text-sm font-bold tabular-nums"
+                            class="numero-candidato block text-sm font-bold tabular-nums mt-0.5"
                             [attr.data-partido]="est.partido"
                             data-testid="numero-candidato"
                           >
@@ -1865,7 +2045,7 @@
                           </span>
                         } @else if (getNumeroHistorico(est); as hist) {
                           <span
-                            class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                            class="numero-candidato numero-historico block text-sm font-bold tabular-nums mt-0.5"
                             [attr.data-partido]="est.partido"
                             data-testid="numero-candidato"
                           >
@@ -1885,16 +2065,8 @@
                       </div>
                     </div>
                   </td>
-                  <td class="cell-center">
-                    <app-partido-badge [sigla]="est.partido" />
-                  </td>
                   <td class="cell-votos">{{ formatarNumero(est.votos) }}</td>
                   <td class="cell-pct">{{ formatarPct(est.pct) }}</td>
-                  <td class="cell-center hidden sm:table-cell">
-                    <span class="badge badge-xs badge-eleito">{{
-                      formatarStatus(est.status_eleicao_2026)
-                    }}</span>
-                  </td>
                   <td class="cell-situacao">{{ est.situacao || 'ELEITO' }}</td>
                 </tr>
               }
@@ -2021,8 +2193,7 @@
           <table class="tabela-brutalista">
             <thead>
               <tr>
-                <th scope="col">Nome de Urna</th>
-                <th scope="col" class="col-center">Partido</th>
+                <th scope="col">Candidato</th>
                 <th scope="col" class="col-right">Votos</th>
                 <th scope="col" class="col-right">% Votos</th>
                 <th scope="col" class="col-center hidden sm:table-cell">Exercício</th>
@@ -2033,20 +2204,41 @@
               @for (ver of vereadores(); track ver.nome) {
                 <tr>
                   <td class="cell-nome">
-                    <div class="flex items-center gap-2">
-                      <app-candidato-avatar
-                        [foto]="ver.foto"
-                        [nome]="ver.nome_urna"
-                        [partido]="ver.partido"
-                        [tamanho]="32"
-                      />
-                      <div class="min-w-0">
-                        <span class="nome-candidato block" [title]="ver.nome_urna">{{
-                          ver.nome_urna
-                        }}</span>
+                    <div class="flex items-center gap-2.5">
+                      <div class="candidato-foto-tag">
+                        <app-candidato-avatar
+                          [foto]="ver.foto"
+                          [nome]="ver.nome_urna"
+                          [partido]="ver.partido"
+                          [tamanho]="36"
+                          [comBorda]="false"
+                        />
+                        @if (ver.status_eleicao_2026 === 'reeleito') {
+                          <span class="tag-eleicao tag-reeleito">reeleito</span>
+                        } @else if (
+                          ver.status_eleicao_2026 === 'eleito' ||
+                          (ver.situacao && ver.situacao.startsWith('ELEITO'))
+                        ) {
+                          <span class="tag-eleicao tag-eleito">eleito</span>
+                        } @else if (ver.status_eleicao_2026) {
+                          <span class="tag-eleicao tag-neutral">{{
+                            formatarStatus(ver.status_eleicao_2026)
+                          }}</span>
+                        }
+                      </div>
+                      <div class="min-w-0 flex-1 flex flex-col justify-center">
+                        <div class="mb-0.5">
+                          <app-partido-badge [sigla]="ver.partido" />
+                        </div>
+                        <span
+                          class="nome-candidato font-bold block truncate max-w-[125px] sm:max-w-none text-xs sm:text-sm"
+                          [title]="ver.nome_urna"
+                        >
+                          {{ ver.nome_urna }}
+                        </span>
                         @if (getNumero(ver); as num) {
                           <span
-                            class="numero-candidato block text-sm font-bold tabular-nums"
+                            class="numero-candidato block text-sm font-bold tabular-nums mt-0.5"
                             [attr.data-partido]="ver.partido"
                             data-testid="numero-candidato"
                           >
@@ -2058,7 +2250,7 @@
                           </span>
                         } @else if (getNumeroHistorico(ver); as hist) {
                           <span
-                            class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                            class="numero-candidato numero-historico block text-sm font-bold tabular-nums mt-0.5"
                             [attr.data-partido]="ver.partido"
                             data-testid="numero-candidato"
                           >
@@ -2077,9 +2269,6 @@
                         }
                       </div>
                     </div>
-                  </td>
-                  <td class="cell-center">
-                    <app-partido-badge [sigla]="ver.partido" />
                   </td>
                   <td class="cell-votos">{{ formatarNumero(ver.votos) }}</td>
                   <td class="cell-pct">{{ formatarPct(ver.pct) }}</td>

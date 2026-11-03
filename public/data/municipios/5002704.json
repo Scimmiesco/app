@@ -1,6 +1,6 @@
 {
- "schema_version": "0.10.0",
- "gerado_em": "2026-11-03T13:26:55-0400",
+ "schema_version": "0.12.0",
+ "gerado_em": "2026-11-03T14:18:07-0400",
  "municipio": {
   "codigo_ibge": 5002704,
   "codigo_tse": "90514",
@@ -10,7 +10,7 @@
  "fontes": {
   "ibge_censo_2022": {
    "orgao": "IBGE",
-   "titulo": "Censo 2022 (SIDRA 4709/10295/9923/9606)",
+   "titulo": "Censo 2022 (SIDRA 4709/10295/9923/9606/4714)",
    "url": "https://sidra.ibge.gov.br/",
    "consultado_em": "2026-10-26",
    "confianca": "oficial"
@@ -77,6 +77,34 @@
    "url": "https://resultados.tse.jus.br/",
    "consultado_em": "2026-10-31",
    "confianca": "oficial"
+  },
+  "ibge_sidra_4714": {
+   "orgao": "IBGE",
+   "titulo": "Censo 2022 - populacao, area territorial e densidade (SIDRA 4714)",
+   "url": "https://sidra.ibge.gov.br/tabela/4714",
+   "consultado_em": "2026-11-03",
+   "confianca": "oficial"
+  },
+  "ibge_estimativas": {
+   "orgao": "IBGE",
+   "titulo": "Estimativas de populacao residente (2026)",
+   "url": "https://servicodados.ibge.gov.br/api/v1/pesquisas/indicadores/29171/resultados/5002704",
+   "consultado_em": "2026-11-03",
+   "confianca": "oficial"
+  },
+  "ibge_indicadores_60045": {
+   "orgao": "IBGE",
+   "titulo": "Taxa de escolarizacao 6 a 14 anos (Censo 2022)",
+   "url": "https://servicodados.ibge.gov.br/api/v1/pesquisas/indicadores/60045/resultados/5002704",
+   "consultado_em": "2026-11-03",
+   "confianca": "oficial"
+  },
+  "siconfi_dca_2025": {
+   "orgao": "Tesouro Nacional / SICONFI",
+   "titulo": "DCA 2025 - receitas brutas e despesas empenhadas",
+   "url": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2025&id_ente=5002704",
+   "consultado_em": "2026-11-03",
+   "confianca": "oficial"
   }
  },
  "secoes": {
@@ -85,7 +113,7 @@
    "status": "oficial",
    "fonte": "ibge_censo_2022",
    "ano": 2022,
-   "coletado_em": "2026-11-03T13:26:55-0400",
+   "coletado_em": "2026-11-03T14:18:07-0400",
    "motivo": null,
    "dados": {
     "nome": "Campo Grande",
@@ -99,10 +127,9 @@
    "status": "oficial",
    "fonte": "ibge_censo_2022",
    "ano": 2022,
-   "coletado_em": "2026-11-03T13:26:55-0400",
+   "coletado_em": "2026-11-03T14:18:07-0400",
    "motivo": null,
    "dados": {
-    "populacao": 898100,
     "renda_media_pc": 2088.31,
     "renda_mediana_pc": 1237.33,
     "pct_urbana": 98.7,
@@ -112,7 +139,9 @@
      "Amarela": 1.1,
      "Parda": 45.4,
      "Indígena": 1.1
-    }
+    },
+    "area_territorial_km2": 8082.978,
+    "densidade_hab_km2": 111.11
    },
    "categoria": "A CIDADE"
   },
@@ -121,11 +150,35 @@
    "status": "oficial",
    "fonte": "ibge_pib_2023",
    "ano": 2023,
-   "coletado_em": "2026-11-03T13:26:55-0400",
+   "coletado_em": "2026-11-03T14:18:07-0400",
    "motivo": null,
    "dados": {
     "pib_total": 42269768000.0,
-    "pib_per_capita": 47066
+    "pib_per_capita": 47065.77
+   },
+   "categoria": "A CIDADE"
+  },
+  "resumo_populacao_estimada": {
+   "titulo": "População estimada",
+   "status": "oficial",
+   "fonte": "ibge_estimativas",
+   "ano": 2026,
+   "coletado_em": "2026-11-03T14:18:07-0400",
+   "motivo": null,
+   "dados": {
+    "populacao_estimada": 970843
+   },
+   "categoria": "A CIDADE"
+  },
+  "resumo_escolarizacao": {
+   "titulo": "Escolarização (6 a 14 anos)",
+   "status": "oficial",
+   "fonte": "ibge_indicadores_60045",
+   "ano": 2022,
+   "coletado_em": "2026-11-03T14:18:07-0400",
+   "motivo": null,
+   "dados": {
+    "faixa_6_14_pct": 98.07
    },
    "categoria": "A CIDADE"
   },
@@ -134,7 +187,7 @@
    "status": "oficial",
    "fonte": "inep_ideb_2023",
    "ano": 2023,
-   "coletado_em": "2026-11-03T13:26:55-0400",
+   "coletado_em": "2026-11-03T14:18:07-0400",
    "motivo": null,
    "dados": {
     "anos_iniciais": {
@@ -153,16 +206,13 @@
   "resumo_financas": {
    "titulo": "Finanças municipais",
    "status": "oficial",
-   "fonte": "siconfi_dca_2023",
-   "ano": 2023,
-   "coletado_em": "2026-11-03T13:26:55-0400",
+   "fonte": "siconfi_dca_2025",
+   "ano": 2025,
+   "coletado_em": "2026-11-03T14:18:07-0400",
    "motivo": null,
    "dados": {
-    "receita_total": 5484604047.75,
-    "transferencias_correntes": 2975295871.11,
-    "iptu": 612772772.64,
-    "iss": 591489386.15,
-    "pct_transferencias_sobre_correntes": 56.4
+    "receita_bruta": 6060081890.75,
+    "despesa_bruta": 6393130012.43
    },
    "categoria": "A CIDADE"
   },
@@ -171,7 +221,7 @@
    "status": "oficial",
    "fonte": "tse_2026_1t",
    "ano": 2026,
-   "coletado_em": "2026-11-03T13:26:55-0400",
+   "coletado_em": "2026-11-03T14:18:07-0400",
    "motivo": null,
    "dados": {
     "eleitores_aptos": 640427,
@@ -193,7 +243,7 @@
    "status": "oficial",
    "fonte": "tse_2026_2t_bu",
    "ano": 2026,
-   "coletado_em": "2026-11-03T13:26:55-0400",
+   "coletado_em": "2026-11-03T14:18:07-0400",
    "motivo": null,
    "dados": {
     "eleitores_aptos": 640427,
@@ -219,7 +269,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-03T13:26:55-0400",
+   "coletado_em": "2026-11-03T14:18:07-0400",
    "motivo": null,
    "dados": [
     {
@@ -261,7 +311,7 @@
    "status": "oficial",
    "fonte": "senado_api",
    "ano": 2026,
-   "coletado_em": "2026-11-03T13:26:55-0400",
+   "coletado_em": "2026-11-03T14:18:07-0400",
    "motivo": null,
    "dados": [
     {
@@ -434,7 +484,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-03T13:26:55-0400",
+   "coletado_em": "2026-11-03T14:18:07-0400",
    "motivo": null,
    "dados": [
     {
@@ -796,7 +846,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-03T13:26:55-0400",
+   "coletado_em": "2026-11-03T14:18:07-0400",
    "motivo": null,
    "dados": [
     {
@@ -1482,7 +1532,7 @@
    "status": "oficial",
    "fonte": "tse_2024_abertos",
    "ano": 2024,
-   "coletado_em": "2026-11-03T13:26:55-0400",
+   "coletado_em": "2026-11-03T14:18:07-0400",
    "motivo": null,
    "dados": [
     {
@@ -1523,7 +1573,7 @@
    "status": "oficial",
    "fonte": "tse_2024_abertos",
    "ano": 2024,
-   "coletado_em": "2026-11-03T13:26:55-0400",
+   "coletado_em": "2026-11-03T14:18:07-0400",
    "motivo": null,
    "dados": [
     {

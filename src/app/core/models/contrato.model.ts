@@ -57,16 +57,26 @@ export interface CabecalhoDados {
 }
 
 export interface ResumoIbgeDados {
-  populacao: number;
+  populacao?: number;
   renda_media_pc: number;
   renda_mediana_pc: number;
   pct_urbana: number;
   cor_raca_pct: Record<string, number>;
+  area_territorial_km2?: number;
+  densidade_hab_km2?: number;
 }
 
 export interface ResumoEconomiaDados {
   pib_total: number;
   pib_per_capita: number;
+}
+
+export interface ResumoPopulacaoEstimadaDados {
+  populacao_estimada: number;
+}
+
+export interface ResumoEscolarizacaoDados {
+  faixa_6_14_pct: number;
 }
 
 export interface ResumoEducacaoDados {
@@ -75,11 +85,13 @@ export interface ResumoEducacaoDados {
 }
 
 export interface ResumoFinancasDados {
-  receita_total: number;
-  transferencias_correntes: number;
-  iptu: number;
-  iss: number;
-  pct_transferencias_sobre_correntes: number;
+  receita_total?: number;
+  transferencias_correntes?: number;
+  iptu?: number;
+  iss?: number;
+  pct_transferencias_sobre_correntes?: number;
+  receita_bruta?: number;
+  despesa_bruta?: number;
 }
 
 export interface EleicaoPresidencialDados {
@@ -149,6 +161,8 @@ export interface SecoesMunicipio {
   cabecalho?: SecaoEnvelope<CabecalhoDados>;
   resumo_ibge_censo?: SecaoEnvelope<ResumoIbgeDados>;
   resumo_economia?: SecaoEnvelope<ResumoEconomiaDados>;
+  resumo_populacao_estimada?: SecaoEnvelope<ResumoPopulacaoEstimadaDados>;
+  resumo_escolarizacao?: SecaoEnvelope<ResumoEscolarizacaoDados>;
   resumo_educacao?: SecaoEnvelope<ResumoEducacaoDados>;
   resumo_financas?: SecaoEnvelope<ResumoFinancasDados>;
   eleicao_2026_1t?: SecaoEnvelope<EleicaoPresidencialDados>;

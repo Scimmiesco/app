@@ -89,16 +89,22 @@ describe('CandidatoAvatarComponent', () => {
     expect(fallback?.textContent?.trim()).toBe('VL');
   });
 
-  it('should support different sizes (32, 48, 64)', () => {
+  it('should support different sizes (32, 36, 48, 64)', () => {
     fixture.componentRef.setInput('foto', null);
     fixture.componentRef.setInput('nome', 'Nelsinho Trad');
-    fixture.componentRef.setInput('tamanho', 48);
+    fixture.componentRef.setInput('tamanho', 36);
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
     const fallback = compiled.querySelector(
       '[data-testid="candidato-avatar-fallback"]',
     ) as HTMLElement;
+    expect(fallback.style.width).toBe('36px');
+    expect(fallback.style.height).toBe('36px');
+    expect(fallback.style.fontSize).toBe('12px');
+
+    fixture.componentRef.setInput('tamanho', 48);
+    fixture.detectChanges();
     expect(fallback.style.width).toBe('48px');
     expect(fallback.style.height).toBe('48px');
   });

@@ -61,6 +61,27 @@ describe('CidadeComponent', () => {
         consultado_em: '2026-10-26',
         confianca: 'oficial',
       },
+      siconfi_dca_2025: {
+        orgao: 'Tesouro Nacional / SICONFI',
+        titulo: 'DCA 2025 - receitas brutas e despesas empenhadas',
+        url: 'https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2025&id_ente=5002704',
+        consultado_em: '2026-11-03',
+        confianca: 'oficial',
+      },
+      ibge_estimativas: {
+        orgao: 'IBGE',
+        titulo: 'Estimativas de populacao residente (2026)',
+        url: 'https://servicodados.ibge.gov.br/api/v1/pesquisas/indicadores/29171/resultados/5002704',
+        consultado_em: '2026-11-03',
+        confianca: 'oficial',
+      },
+      ibge_indicadores_60045: {
+        orgao: 'IBGE',
+        titulo: 'Taxa de escolarizacao 6 a 14 anos (Censo 2022)',
+        url: 'https://servicodados.ibge.gov.br/api/v1/pesquisas/indicadores/60045/resultados/5002704',
+        consultado_em: '2026-11-03',
+        confianca: 'oficial',
+      },
       tse_2026_1t: {
         orgao: 'TSE',
         titulo: 'Votação por seção 2026 - 1º turno (Presidente)',
@@ -125,6 +146,8 @@ describe('CidadeComponent', () => {
           renda_mediana_pc: 1237.33,
           pct_urbana: 98.7,
           cor_raca_pct: { Branca: 45.1, Parda: 45.4 },
+          area_territorial_km2: 8082.978,
+          densidade_hab_km2: 111.11,
         },
       },
       resumo_economia: {
@@ -138,6 +161,30 @@ describe('CidadeComponent', () => {
         dados: {
           pib_total: 34731175000,
           pib_per_capita: 38671.84,
+        },
+      },
+      resumo_populacao_estimada: {
+        titulo: 'População estimada',
+        categoria: 'A CIDADE',
+        status: 'oficial',
+        fonte: 'ibge_estimativas',
+        ano: 2026,
+        coletado_em: '2026-11-03T14:18:07-0400',
+        motivo: null,
+        dados: {
+          populacao_estimada: 970843,
+        },
+      },
+      resumo_escolarizacao: {
+        titulo: 'Escolarização (6 a 14 anos)',
+        categoria: 'A CIDADE',
+        status: 'oficial',
+        fonte: 'ibge_indicadores_60045',
+        ano: 2022,
+        coletado_em: '2026-11-03T14:18:07-0400',
+        motivo: null,
+        dados: {
+          faixa_6_14_pct: 98.07,
         },
       },
       resumo_educacao: {
@@ -157,9 +204,9 @@ describe('CidadeComponent', () => {
         titulo: 'Finanças municipais',
         categoria: 'A CIDADE',
         status: 'oficial',
-        fonte: 'siconfi_dca_2023',
-        ano: 2023,
-        coletado_em: '2026-10-26',
+        fonte: 'siconfi_dca_2025',
+        ano: 2025,
+        coletado_em: '2026-11-03T14:18:07-0400',
         motivo: null,
         dados: {
           receita_total: 4200000000,
@@ -167,6 +214,8 @@ describe('CidadeComponent', () => {
           iptu: 680000000,
           iss: 720000000,
           pct_transferencias_sobre_correntes: 35.7,
+          receita_bruta: 6060081890.75,
+          despesa_bruta: 6393130012.43,
         },
       },
       eleicao_2026_1t: {
@@ -1191,5 +1240,78 @@ describe('CidadeComponent', () => {
     expect(legenda?.textContent).toContain(
       'Não reeleito = disputou o cargo; Não concorreu = não disputou este cargo',
     );
+  });
+
+  it('should integrate candidate photo and election tag in unified container with shared shadow, and order party, name and number vertically', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const linhaCamila = compiled.querySelector('[data-testid="linha-deputado-camila jara"]');
+    expect(linhaCamila).toBeTruthy();
+
+    // Container unificado que agrupa foto e tag de eleição
+    const fotoTag = linhaCamila?.querySelector('.candidato-foto-tag');
+    expect(fotoTag).toBeTruthy();
+    expect(fotoTag?.querySelector('app-candidato-avatar')).toBeTruthy();
+    const tag = fotoTag?.querySelector('.tag-eleicao');
+    expect(tag).toBeTruthy();
+    expect(tag?.textContent?.trim()).toBe('reeleito');
+
+    // Lado direito da célula: partido, nome e número um abaixo do outro
+    const celulaNome = linhaCamila?.querySelector('.cell-nome');
+    const partidoBadge = celulaNome?.querySelector('app-partido-badge');
+    const nomeEl = celulaNome?.querySelector('.nome-candidato');
+    const numeroEl = celulaNome?.querySelector('[data-testid="numero-candidato"]');
+
+    expect(partidoBadge).toBeTruthy();
+    expect(nomeEl).toBeTruthy();
+    expect(numeroEl).toBeTruthy();
+
+    // Verificação de ordem no DOM: partido precede nome, que precede número
+    const posPartido = partidoBadge
+      ? (celulaNome?.innerHTML.indexOf('app-partido-badge') ?? -1)
+      : -1;
+    const posNome = nomeEl ? (celulaNome?.innerHTML.indexOf('nome-candidato') ?? -1) : -1;
+    const posNumero = numeroEl
+      ? (celulaNome?.innerHTML.indexOf('data-testid="numero-candidato"') ?? -1)
+      : -1;
+
+    expect(posPartido).toBeLessThan(posNome);
+    expect(posNome).toBeLessThan(posNumero);
+  });
+
+  it('should render official IBGE indicators: territorial area, demographic density, estimated population and schooling (DSH 0.12.0)', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    // Área territorial e densidade demográfica em resumo_ibge_censo
+    const areaEl = compiled.querySelector('[data-testid="card-metrica-area-territorial"]');
+    expect(areaEl).toBeTruthy();
+    expect(areaEl?.textContent).toContain('8.082,978 km²');
+
+    const densEl = compiled.querySelector('[data-testid="card-metrica-densidade-demografica"]');
+    expect(densEl).toBeTruthy();
+    expect(densEl?.textContent).toContain('111,11 hab/km²');
+
+    // Novo bloco: População estimada (IBGE 2026)
+    const cardPopEst = compiled.querySelector('[data-testid="card-resumo-populacao-estimada"]');
+    expect(cardPopEst).toBeTruthy();
+    expect(cardPopEst?.textContent).toContain('970.843 hab');
+
+    // Novo bloco: Escolarização 6-14 anos (Censo 2022)
+    const cardEsc = compiled.querySelector('[data-testid="card-resumo-escolarizacao"]');
+    expect(cardEsc).toBeTruthy();
+    expect(cardEsc?.textContent).toContain('98,07%');
+  });
+
+  it('should render municipal finances with DCA 2025 gross revenues and committed expenditures', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const cardFin = compiled.querySelector('[data-testid="card-resumo-financas"]');
+    expect(cardFin).toBeTruthy();
+
+    const recBruta = compiled.querySelector('[data-testid="card-metrica-receita-bruta"]');
+    expect(recBruta).toBeTruthy();
+    expect(recBruta?.textContent).toContain('6.060.081.890,75');
+
+    const despBruta = compiled.querySelector('[data-testid="card-metrica-despesa-bruta"]');
+    expect(despBruta).toBeTruthy();
+    expect(despBruta?.textContent).toContain('6.393.130.012,43');
   });
 });

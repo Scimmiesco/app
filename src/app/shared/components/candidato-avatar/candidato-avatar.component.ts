@@ -36,7 +36,11 @@ const TITULOS_IGNORADOS = new Set([
         [width]="tamanho()"
         [height]="tamanho()"
         alt=""
-        class="candidato-avatar-img shrink-0 border-2 border-black rounded-xs object-cover shadow-default-sm select-none"
+        class="candidato-avatar-img shrink-0 object-cover select-none"
+        [class.border-2]="comBorda()"
+        [class.border-black]="comBorda()"
+        [class.rounded-xs]="comBorda()"
+        [class.shadow-default-sm]="comBorda()"
         [style.width.px]="tamanho()"
         [style.height.px]="tamanho()"
         (error)="aoOcorrerErro()"
@@ -44,7 +48,11 @@ const TITULOS_IGNORADOS = new Set([
       />
     } @else {
       <div
-        class="candidato-avatar-fallback shrink-0 border-2 border-black rounded-xs font-black text-black flex items-center justify-center select-none shadow-default-sm"
+        class="candidato-avatar-fallback shrink-0 font-black text-black flex items-center justify-center select-none"
+        [class.border-2]="comBorda()"
+        [class.border-black]="comBorda()"
+        [class.rounded-xs]="comBorda()"
+        [class.shadow-default-sm]="comBorda()"
         [style.width.px]="tamanho()"
         [style.height.px]="tamanho()"
         [style.fontSize.px]="tamanhoFonte()"
@@ -82,7 +90,8 @@ export class CandidatoAvatarComponent {
   readonly foto = input<FotoCandidato | null | undefined>(null);
   readonly nome = input<string>('');
   readonly partido = input<string>('');
-  readonly tamanho = input<32 | 48 | 64>(32);
+  readonly tamanho = input<32 | 36 | 48 | 64 | number>(36);
+  readonly comBorda = input<boolean>(true);
 
   readonly erroImagem = signal<boolean>(false);
 
@@ -102,6 +111,7 @@ export class CandidatoAvatarComponent {
     const t = this.tamanho();
     if (t >= 64) return 20;
     if (t >= 48) return 15;
+    if (t >= 36) return 12;
     return 11;
   });
 
