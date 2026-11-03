@@ -90,7 +90,7 @@ export class CandidatoAvatarComponent {
   readonly foto = input<FotoCandidato | null | undefined>(null);
   readonly nome = input<string>('');
   readonly partido = input<string>('');
-  readonly tamanho = input<32 | 36 | 48 | 64 | number>(36);
+  readonly tamanho = input<32 | 36 | 48 | 64 | 96 | number>(36);
   readonly comBorda = input<boolean>(true);
 
   readonly erroImagem = signal<boolean>(false);
@@ -109,6 +109,7 @@ export class CandidatoAvatarComponent {
 
   readonly tamanhoFonte = computed(() => {
     const t = this.tamanho();
+    if (t >= 96) return 28;
     if (t >= 64) return 20;
     if (t >= 48) return 15;
     if (t >= 36) return 12;

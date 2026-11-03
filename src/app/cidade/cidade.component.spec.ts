@@ -1276,6 +1276,16 @@ describe('CidadeComponent', () => {
 
     expect(posPartido).toBeLessThan(posNome);
     expect(posNome).toBeLessThan(posNumero);
+
+    // Card da prefeita também segue o padrão unificado .candidato-foto-tag com tag de eleição
+    const prefCard = compiled.querySelector('[data-testid="card-prefeito"]');
+    expect(prefCard).toBeTruthy();
+    const prefFotoTag = prefCard?.querySelector('.candidato-foto-tag');
+    expect(prefFotoTag).toBeTruthy();
+    expect(prefFotoTag?.querySelector('app-candidato-avatar')).toBeTruthy();
+    const prefTagEleicao = prefFotoTag?.querySelector('.tag-eleicao');
+    expect(prefTagEleicao).toBeTruthy();
+    expect(prefTagEleicao?.textContent?.trim()).toBe('eleito');
   });
 
   it('should render official IBGE indicators: territorial area, demographic density, estimated population and schooling (DSH 0.12.0)', () => {

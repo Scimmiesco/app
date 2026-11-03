@@ -89,7 +89,7 @@ describe('CandidatoAvatarComponent', () => {
     expect(fallback?.textContent?.trim()).toBe('VL');
   });
 
-  it('should support different sizes (32, 36, 48, 64)', () => {
+  it('should support different sizes (32, 36, 48, 64, 96)', () => {
     fixture.componentRef.setInput('foto', null);
     fixture.componentRef.setInput('nome', 'Nelsinho Trad');
     fixture.componentRef.setInput('tamanho', 36);
@@ -107,5 +107,11 @@ describe('CandidatoAvatarComponent', () => {
     fixture.detectChanges();
     expect(fallback.style.width).toBe('48px');
     expect(fallback.style.height).toBe('48px');
+
+    fixture.componentRef.setInput('tamanho', 96);
+    fixture.detectChanges();
+    expect(fallback.style.width).toBe('96px');
+    expect(fallback.style.height).toBe('96px');
+    expect(fallback.style.fontSize).toBe('28px');
   });
 });
