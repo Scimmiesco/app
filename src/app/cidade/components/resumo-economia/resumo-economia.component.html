@@ -1,26 +1,91 @@
 <div class="card-brutalista space-y-4" data-testid="card-resumo-economia">
-  <app-cabecalho-secao
-    [secao]="secao()"
-    [fonte]="fonte()"
-    [kickerTestId]="'resumo-economia-kicker'"
-    [tituloTestId]="'resumo-economia-titulo'"
-    [textoCurado]="true"
-  />
+  <!-- BLOCO ATIVIDADE ECONÔMICA (IBGE) -->
+  @if (secao(); as secaoEco) {
+    <div>
+      <app-cabecalho-secao
+        [secao]="secaoEco"
+        [fonte]="fonte()"
+        [kickerTestId]="'resumo-economia-kicker'"
+        [tituloTestId]="'resumo-economia-titulo'"
+        [textoCurado]="true"
+      />
 
-  @if (secao().status === 'pendente') {
-    <div class="bloco-pendente">
-      <strong>Dado pendente:</strong> {{ secao().motivo || 'Em fase de apuração oficial.' }}
+      @if (secaoEco.status === 'pendente') {
+        <div class="bloco-pendente mt-3">
+          <strong>Dado pendente:</strong> {{ secaoEco.motivo || 'Em fase de apuração oficial.' }}
+        </div>
+      } @else if (secaoEco.dados; as dadosEco) {
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
+          <div class="metric-card" data-testid="card-metrica-pib-total">
+            <span class="metric-label">PIB Total</span>
+            <span class="metric-value-lg">{{ formatarMoeda(dadosEco.pib_total) }}</span>
+          </div>
+          <div class="metric-card" data-testid="card-metrica-pib-per-capita">
+            <span class="metric-label">PIB Per Capita</span>
+            <span class="metric-value-lg">{{ formatarMoeda(dadosEco.pib_per_capita) }}</span>
+          </div>
+        </div>
+      }
     </div>
-  } @else if (secao().dados; as dadosEco) {
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-      <div class="metric-card" data-testid="card-metrica-pib-total">
-        <span class="metric-label">PIB Total</span>
-        <span class="metric-value-lg">{{ formatarMoeda(dadosEco.pib_total) }}</span>
-      </div>
-      <div class="metric-card" data-testid="card-metrica-pib-per-capita">
-        <span class="metric-label">PIB Per Capita</span>
-        <span class="metric-value-lg">{{ formatarMoeda(dadosEco.pib_per_capita) }}</span>
-      </div>
+  }
+
+  <!-- BLOCO FINANÇAS PÚBLICAS (SICONFI / TESOURO) -->
+  @if (secaoFinancas(); as sFin) {
+    <div
+      [class.pt-4]="secao()"
+      [class.border-t-2]="secao()"
+      [class.border-black]="secao()"
+      data-testid="card-resumo-financas"
+    >
+      <app-cabecalho-secao
+        [secao]="sFin"
+        [fonte]="fonteFinancas()"
+        [kickerTestId]="'resumo-financas-kicker'"
+        [tituloTestId]="'resumo-financas-titulo'"
+        [textoCurado]="true"
+      />
+
+      @if (sFin.status === 'pendente') {
+        <div class="bloco-pendente mt-3">
+          <strong>Dado pendente:</strong> {{ sFin.motivo || 'Em fase de apuração oficial.' }}
+        </div>
+      } @else if (sFin.dados; as dadosFin) {
+        <div class="mt-3">
+          @if (dadosFin.receita_bruta !== undefined || dadosFin.despesa_bruta !== undefined) {
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="metric-card" data-testid="card-metrica-receita-bruta">
+                <span class="metric-label">Receitas Brutas (DCA {{ sFin.ano }})</span>
+                <span class="metric-value-lg">{{ formatarMoeda(dadosFin.receita_bruta) }}</span>
+              </div>
+              <div class="metric-card" data-testid="card-metrica-despesa-bruta">
+                <span class="metric-label">Despesas Empenhadas (DCA {{ sFin.ano }})</span>
+                <span class="metric-value-lg">{{ formatarMoeda(dadosFin.despesa_bruta) }}</span>
+              </div>
+            </div>
+          } @else {
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div class="metric-card">
+                <span class="metric-label">Receita Total</span>
+                <span class="metric-value">{{ formatarMoeda(dadosFin.receita_total) }}</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Transferências</span>
+                <span class="metric-value">{{
+                  formatarMoeda(dadosFin.transferencias_correntes)
+                }}</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">IPTU Arrecadado</span>
+                <span class="metric-value">{{ formatarMoeda(dadosFin.iptu) }}</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">ISS Arrecadado</span>
+                <span class="metric-value">{{ formatarMoeda(dadosFin.iss) }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      }
     </div>
   }
 </div>

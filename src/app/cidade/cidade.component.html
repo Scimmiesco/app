@@ -65,9 +65,14 @@
       />
     }
 
-    <!-- ECONOMIA (IBGE) -->
-    @if (snap.secoes.resumo_economia; as secao) {
-      <app-resumo-economia [secao]="secao" [fonte]="fonte(secao.fonte)" />
+    <!-- ECONOMIA E FINANÇAS PÚBLICAS (IBGE / SICONFI) -->
+    @if (snap.secoes.resumo_economia || snap.secoes.resumo_financas) {
+      <app-resumo-economia
+        [secao]="snap.secoes.resumo_economia"
+        [secaoFinancas]="snap.secoes.resumo_financas"
+        [fonte]="fonte(snap.secoes.resumo_economia?.fonte)"
+        [fonteFinancas]="fonte(snap.secoes.resumo_financas?.fonte)"
+      />
     }
 
     <!-- EDUCAÇÃO (INEP / IDEB & ESCOLARIZAÇÃO IBGE) -->
@@ -77,11 +82,6 @@
         [secaoEscolarizacao]="snap.secoes.resumo_escolarizacao"
         [fonte]="fonte(secao.fonte)"
       />
-    }
-
-    <!-- FINANÇAS MUNICIPAIS (SICONFI / TESOURO) -->
-    @if (snap.secoes.resumo_financas; as secao) {
-      <app-resumo-financas [secao]="secao" [fonte]="fonte(secao.fonte)" />
     }
 
     <!-- ELEIÇÃO PRESIDENCIAL 2026 (TSE) COM ABAS (1T, 2T E COMPARATIVO) -->
