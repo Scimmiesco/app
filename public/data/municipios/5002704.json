@@ -1,6 +1,6 @@
 {
- "schema_version": "0.9.0",
- "gerado_em": "2026-11-02T22:19:34-0400",
+ "schema_version": "0.9.1",
+ "gerado_em": "2026-11-03T10:25:40-0400",
  "municipio": {
   "codigo_ibge": 5002704,
   "codigo_tse": "90514",
@@ -85,7 +85,7 @@
    "status": "oficial",
    "fonte": "ibge_censo_2022",
    "ano": 2022,
-   "coletado_em": "2026-11-02T22:19:34-0400",
+   "coletado_em": "2026-11-03T10:25:40-0400",
    "motivo": null,
    "dados": {
     "nome": "Campo Grande",
@@ -99,7 +99,7 @@
    "status": "oficial",
    "fonte": "ibge_censo_2022",
    "ano": 2022,
-   "coletado_em": "2026-11-02T22:19:34-0400",
+   "coletado_em": "2026-11-03T10:25:40-0400",
    "motivo": null,
    "dados": {
     "populacao": 898100,
@@ -121,7 +121,7 @@
    "status": "oficial",
    "fonte": "ibge_pib_2023",
    "ano": 2023,
-   "coletado_em": "2026-11-02T22:19:34-0400",
+   "coletado_em": "2026-11-03T10:25:40-0400",
    "motivo": null,
    "dados": {
     "pib_total": 42269768000.0,
@@ -134,7 +134,7 @@
    "status": "oficial",
    "fonte": "inep_ideb_2023",
    "ano": 2023,
-   "coletado_em": "2026-11-02T22:19:34-0400",
+   "coletado_em": "2026-11-03T10:25:40-0400",
    "motivo": null,
    "dados": {
     "anos_iniciais": {
@@ -155,7 +155,7 @@
    "status": "oficial",
    "fonte": "siconfi_dca_2023",
    "ano": 2023,
-   "coletado_em": "2026-11-02T22:19:34-0400",
+   "coletado_em": "2026-11-03T10:25:40-0400",
    "motivo": null,
    "dados": {
     "receita_total": 5484604047.75,
@@ -171,7 +171,7 @@
    "status": "oficial",
    "fonte": "tse_2026_1t",
    "ano": 2026,
-   "coletado_em": "2026-11-02T22:19:34-0400",
+   "coletado_em": "2026-11-03T10:25:40-0400",
    "motivo": null,
    "dados": {
     "eleitores_aptos": 640427,
@@ -193,7 +193,7 @@
    "status": "oficial",
    "fonte": "tse_2026_2t_bu",
    "ano": 2026,
-   "coletado_em": "2026-11-02T22:19:34-0400",
+   "coletado_em": "2026-11-03T10:25:40-0400",
    "motivo": null,
    "dados": {
     "eleitores_aptos": 640427,
@@ -219,7 +219,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-02T22:19:34-0400",
+   "coletado_em": "2026-11-03T10:25:40-0400",
    "motivo": null,
    "dados": [
     {
@@ -261,12 +261,13 @@
    "status": "oficial",
    "fonte": "senado_api",
    "ano": 2026,
-   "coletado_em": "2026-11-02T22:19:34-0400",
+   "coletado_em": "2026-11-03T10:25:40-0400",
    "motivo": null,
    "dados": [
     {
      "nome": "Nelsinho Trad",
      "nome_urna": "Nelsinho Trad",
+     "nome_completo": "Nelson Trad Filho",
      "partido": "PSD",
      "votos": null,
      "pct": null,
@@ -302,6 +303,7 @@
     {
      "nome": "Soraya Thronicke",
      "nome_urna": "Soraya Thronicke",
+     "nome_completo": "Soraya Vieira Thronicke",
      "partido": "PSB",
      "votos": null,
      "pct": null,
@@ -314,14 +316,9 @@
      "motivo_sem_votos": null,
      "fonte": "senado_api",
      "url_perfil": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5988",
-     "numero": null,
-     "numero_fonte": null,
-     "numero_historico": {
-      "numero": "177",
-      "ano": 2018,
-      "cargo": "SENADOR",
-      "fonte": "tse_candidatos_2018"
-     },
+     "numero": "400",
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null,
      "foto": {
       "arquivo": "fotos/senado_5988.jpg",
       "fonte": "Senado Federal - Dados Abertos",
@@ -337,6 +334,7 @@
     {
      "nome": "Tereza Cristina",
      "nome_urna": "Tereza Cristina",
+     "nome_completo": "Tereza Cristina Correa da Costa Dias",
      "partido": "PP",
      "votos": null,
      "pct": null,
@@ -436,7 +434,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-02T22:19:34-0400",
+   "coletado_em": "2026-11-03T10:25:40-0400",
    "motivo": null,
    "dados": [
     {
@@ -773,7 +771,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-02T22:19:34-0400",
+   "coletado_em": "2026-11-03T10:25:40-0400",
    "motivo": null,
    "dados": [
     {
@@ -1459,7 +1457,7 @@
    "status": "oficial",
    "fonte": "tse_2024_abertos",
    "ano": 2024,
-   "coletado_em": "2026-11-02T22:19:34-0400",
+   "coletado_em": "2026-11-03T10:25:40-0400",
    "motivo": null,
    "dados": [
     {
@@ -1500,7 +1498,7 @@
    "status": "oficial",
    "fonte": "tse_2024_abertos",
    "ano": 2024,
-   "coletado_em": "2026-11-02T22:19:34-0400",
+   "coletado_em": "2026-11-03T10:25:40-0400",
    "motivo": null,
    "dados": [
     {

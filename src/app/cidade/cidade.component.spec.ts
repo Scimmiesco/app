@@ -334,6 +334,20 @@ describe('CidadeComponent', () => {
             mandato_fim: '2031-01-31',
             status_eleicao_2026: 'em_exercicio',
           },
+          {
+            nome: 'SORAYA THRONICKE',
+            nome_urna: 'SORAYA THRONICKE',
+            partido: 'PSB',
+            numero: '400',
+            numero_historico: null,
+            votos: null,
+            pct: null,
+            situacao: 'EM EXERCÍCIO',
+            em_exercicio: true,
+            mandato_inicio: '2019-02-01',
+            mandato_fim: '2027-01-31',
+            status_eleicao_2026: 'em_exercicio',
+          },
         ],
       },
       deputados_estaduais: {
@@ -785,8 +799,29 @@ describe('CidadeComponent', () => {
     expect(restoVander?.classList.contains('text-black')).toBe(true);
   });
 
+  it('should render current ballot number 400 for Soraya Thronicke without "Último" (P1-28)', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const linhaSoraya = compiled.querySelector('[data-testid="linha-senador-soraya thronicke"]');
+    expect(linhaSoraya).toBeTruthy();
+
+    const numEl = linhaSoraya?.querySelector('[data-testid="numero-candidato"]');
+    expect(numEl).toBeTruthy();
+    expect(numEl?.textContent).toContain('400');
+    expect(numEl?.textContent).not.toContain('Último');
+    expect(numEl?.classList.contains('numero-historico')).toBe(false);
+
+    const digitoPartido = numEl?.querySelector('.digito-partido');
+    const digitoResto = numEl?.querySelector('.digito-resto');
+
+    expect(digitoPartido?.textContent?.trim()).toBe('40');
+    // PSB color is #b45309 (rgb(180, 83, 9))
+    expect((digitoPartido as HTMLElement)?.style.color).toBe('rgb(180, 83, 9)');
+    expect(digitoResto?.textContent?.trim()).toBe('0');
+    expect(digitoResto?.classList.contains('text-black')).toBe(true);
+  });
+
   it('should return historical candidate number info via getNumeroHistorico (US-14)', () => {
-    // 4 official cases from DSH / TSE (consulta_cand)
+    // Official cases from DSH / TSE (consulta_cand)
     const nelsinho = component.getNumeroHistorico({
       nome: 'Nelsinho Trad',
       numero: null,
@@ -799,23 +834,6 @@ describe('CidadeComponent', () => {
     } as unknown as ParlamentarItem);
     expect(nelsinho).toEqual({
       numero: '144',
-      ano: 2018,
-      cargo: 'SENADOR',
-      fonte: 'tse_candidatos_2018',
-    });
-
-    const soraya = component.getNumeroHistorico({
-      nome: 'Soraya Thronicke',
-      numero: null,
-      numero_historico: {
-        numero: '177',
-        ano: 2018,
-        cargo: 'SENADOR',
-        fonte: 'tse_candidatos_2018',
-      },
-    } as unknown as ParlamentarItem);
-    expect(soraya).toEqual({
-      numero: '177',
       ano: 2018,
       cargo: 'SENADOR',
       fonte: 'tse_candidatos_2018',
@@ -854,6 +872,14 @@ describe('CidadeComponent', () => {
       cargo: 'DEPUTADO FEDERAL',
       fonte: 'tse_candidatos_2022',
     });
+
+    // Soraya disputou 2026: possui número atual 400 e numero_historico nulo (P1-28)
+    const soraya2026 = component.getNumeroHistorico({
+      nome: 'Soraya Thronicke',
+      numero: '400',
+      numero_historico: null,
+    } as unknown as ParlamentarItem);
+    expect(soraya2026).toBeNull();
 
     // Candidate without historical number
     const semHistorico = component.getNumeroHistorico({
@@ -907,6 +933,16 @@ describe('CidadeComponent', () => {
       } as unknown as ParlamentarItem),
     ).toBe('11');
 
+    // Candidata ao Senado 2026 com número oficial (P1-28)
+    expect(
+      component.getNumero({
+        nome: 'SORAYA THRONICKE',
+        nome_urna: 'SORAYA',
+        partido: 'PSB',
+        numero: '400',
+      } as unknown as ParlamentarItem),
+    ).toBe('400');
+
     // Senadores sem candidatura 2026 (numero null)
     expect(
       component.getNumero({
@@ -921,14 +957,6 @@ describe('CidadeComponent', () => {
         nome: 'NELSINHO TRAD',
         nome_urna: 'NELSINHO TRAD',
         partido: 'PSD',
-        numero: null,
-      } as unknown as ParlamentarItem),
-    ).toBeNull();
-    expect(
-      component.getNumero({
-        nome: 'SORAYA THRONICKE',
-        nome_urna: 'SORAYA THRONICKE',
-        partido: 'PODE',
         numero: null,
       } as unknown as ParlamentarItem),
     ).toBeNull();
