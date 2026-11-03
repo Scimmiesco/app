@@ -89,6 +89,7 @@
   @include mixins.badge-variant(tokens.$color-black, #ffffff);
 }
 
+.badge-nao-concorreu,
 .badge-neutral {
   @include mixins.badge-variant(tokens.$color-white, #000000);
 }

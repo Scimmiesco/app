@@ -273,6 +273,8 @@ export class CidadeComponent {
         return 'em exercício';
       case 'nao_reeleito':
         return 'não reeleito';
+      case 'nao_concorreu_ao_cargo':
+        return 'não concorreu ao cargo';
       case 'reeleito':
         return 'reeleito';
       case 'eleito':

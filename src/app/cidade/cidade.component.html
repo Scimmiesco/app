@@ -1750,13 +1750,27 @@
                         <span class="badge badge-xs badge-eleito">Eleito novo</span>
                       } @else if (dep.status_eleicao_2026 === 'nao_reeleito') {
                         <span class="badge badge-xs badge-nao-reeleito">Não reeleito</span>
+                      } @else if (dep.status_eleicao_2026 === 'nao_concorreu_ao_cargo') {
+                        <span class="badge badge-xs badge-nao-concorreu"
+                          >Não concorreu ao cargo</span
+                        >
                       } @else {
                         <span class="badge badge-xs badge-neutral">{{
                           formatarStatus(dep.status_eleicao_2026)
                         }}</span>
                       }
                     </td>
-                    <td class="cell-situacao">{{ dep.situacao || '—' }}</td>
+                    <td class="cell-situacao">
+                      {{ dep.situacao || '—' }}
+                      @if (dep.cargo_2026 && dep.cargo_2026 !== 'Deputado Federal') {
+                        <span class="block text-[11px] text-meta mt-0.5">
+                          {{ dep.cargo_2026 === 'Senador' ? 'Senado' : dep.cargo_2026 }}:
+                          {{ formatarNumero(dep.votos_2026_outro) }} ({{
+                            formatarPct(dep.pct_2026_outro)
+                          }}) — {{ dep.situacao_2026_outro || 'não eleito' | lowercase }}
+                        </span>
+                      }
+                    </td>
                     <td class="cell-votos-mandato hidden md:table-cell">
                       @if (
                         dep.votos_nominais_mandato_atual !== null &&
@@ -1776,6 +1790,10 @@
               </tbody>
             </table>
           </div>
+          <p class="text-xs text-meta mt-2" data-testid="legenda-status-deputados">
+            <strong>Legenda:</strong> Não reeleito = disputou o cargo; Não concorreu = não disputou
+            este cargo.
+          </p>
         }
       </div>
     }

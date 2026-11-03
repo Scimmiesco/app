@@ -271,8 +271,13 @@ describe('CidadeComponent', () => {
             em_exercicio: true,
             mandato_inicio: '2023-02-01',
             mandato_fim: '2027-01-31',
-            status_eleicao_2026: 'nao_reeleito',
+            status_eleicao_2026: 'nao_concorreu_ao_cargo',
             votos_nominais_mandato_atual: 930,
+            concorreu_2026: true,
+            cargo_2026: 'Senador',
+            votos_2026_outro: 361920,
+            pct_2026_outro: 13.88,
+            situacao_2026_outro: 'NÃO ELEITO',
           },
         ],
       },
@@ -975,6 +980,7 @@ describe('CidadeComponent', () => {
   it('should format status values removing raw underscores (P2-06)', () => {
     expect(component.formatarStatus('em_exercicio')).toBe('em exercício');
     expect(component.formatarStatus('nao_reeleito')).toBe('não reeleito');
+    expect(component.formatarStatus('nao_concorreu_ao_cargo')).toBe('não concorreu ao cargo');
     expect(component.formatarStatus('reeleito')).toBe('reeleito');
     expect(component.formatarStatus('eleito')).toBe('eleito');
     expect(component.formatarStatus(null)).toBe('—');
@@ -1169,5 +1175,21 @@ describe('CidadeComponent', () => {
     expect(govTable).toBeTruthy();
     const thsGov = govTable?.querySelectorAll('th.hidden.sm\\:table-cell');
     expect(thsGov && thsGov.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('should handle non-reelected and did-not-run-for-office candidates with votes and notes (US-16)', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    // Vander Loubet: status "Não concorreu ao cargo" e nota do Senado em situacao
+    const linhaVander = compiled.querySelector('[data-testid="linha-deputado-vander loubet"]');
+    expect(linhaVander).toBeTruthy();
+    expect(linhaVander?.textContent).toContain('Não concorreu ao cargo');
+    expect(linhaVander?.textContent).toContain('Senado: 361.920 (13,88%) — não eleito');
+
+    // Legenda explicativa presente no bloco
+    const legenda = compiled.querySelector('[data-testid="legenda-status-deputados"]');
+    expect(legenda).toBeTruthy();
+    expect(legenda?.textContent).toContain(
+      'Não reeleito = disputou o cargo; Não concorreu = não disputou este cargo',
+    );
   });
 });

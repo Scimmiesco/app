@@ -131,12 +131,18 @@ export interface ParlamentarItem {
   em_exercicio: boolean;
   mandato_inicio?: string;
   mandato_fim: string;
-  status_eleicao_2026: 'reeleito' | 'eleito' | 'nao_reeleito' | 'em_exercicio' | string;
+  status_eleicao_2026:
+    'reeleito' | 'eleito' | 'nao_reeleito' | 'nao_concorreu_ao_cargo' | 'em_exercicio' | string;
   votos_nominais_mandato_atual?: number | null;
   motivo_sem_votos?: string | null;
   fonte?: string;
   fonte_votos_mandato?: string;
   url_perfil?: string;
+  concorreu_2026?: boolean;
+  cargo_2026?: string;
+  votos_2026_outro?: number | null;
+  pct_2026_outro?: number | null;
+  situacao_2026_outro?: string | null;
 }
 
 export interface SecoesMunicipio {

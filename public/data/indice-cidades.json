@@ -1,6 +1,6 @@
 {
- "schema_version": "0.9.1",
- "gerado_em": "2026-11-03T10:25:40-0400",
+ "schema_version": "0.10.0",
+ "gerado_em": "2026-11-03T13:26:55-0400",
  "cidades": [
   {
    "codigo_ibge": 5002704,
