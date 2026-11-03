@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-como-calculamos',
   imports: [],
   templateUrl: './como-calculamos.component.html',
-  styleUrl: './como-calculamos.component.scss',
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ComoCalculamosComponent {}

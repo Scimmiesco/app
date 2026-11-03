@@ -7,7 +7,7 @@ import { CabecalhoSecaoComponent } from '../../../shared/components/cabecalho-se
   selector: 'app-resumo-financas',
   imports: [CabecalhoSecaoComponent],
   templateUrl: './resumo-financas.component.html',
-  styleUrl: './resumo-financas.component.scss',
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResumoFinancasComponent {

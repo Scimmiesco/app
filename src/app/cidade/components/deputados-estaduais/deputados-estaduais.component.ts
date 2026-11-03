@@ -9,7 +9,7 @@ import { CartaoParlamentarComponent } from '../../../shared/components/cartao-pa
   selector: 'app-deputados-estaduais',
   imports: [CabecalhoSecaoComponent, CartaoParlamentarComponent],
   templateUrl: './deputados-estaduais.component.html',
-  styleUrl: './deputados-estaduais.component.scss',
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeputadosEstaduaisComponent {

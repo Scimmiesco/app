@@ -21,6 +21,7 @@ import { VereadoresComponent } from './components/vereadores/vereadores.componen
 
 @Component({
   selector: 'app-cidade',
+  providers: [CidadeStore],
   imports: [
     CommonModule,
     CabecalhoCidadeComponent,

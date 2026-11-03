@@ -1,60 +1,19 @@
 <div class="card-brutalista space-y-4" data-testid="card-governador">
-  <div class="card-header-grouped" data-testid="governador-header">
-    <div class="flex flex-wrap items-start justify-between gap-2">
-      <div>
-        <p class="section-kicker" data-testid="governador-kicker">
-          {{ secao().categoria || 'ELEIÇÃO 2026' }}
-        </p>
-        <h2 class="heading-2 text-lg" data-testid="governador-titulo">{{ secao().titulo }}</h2>
-      </div>
-      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
-        @if (secao().status === 'oficial') {
-          <span class="badge badge-sm badge-oficial" data-testid="governador-badge-status"
-            >oficial</span
-          >
-          <span class="text-meta">
-            @if (fonte(); as fonteMeta) {
-              <a
-                [href]="fonteMeta.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="link-fonte"
-                data-testid="governador-link-fonte"
-              >
-                {{ fonteMeta.orgao }} · {{ fonteMeta.titulo }}
-              </a>
-            } @else {
-              <span>{{ secao().fonte }}</span>
-            }
-            · {{ secao().ano }}
-          </span>
-        } @else if (secao().status === 'curado') {
-          <span class="badge badge-sm badge-curado" data-testid="governador-badge-status"
-            >curado</span
-          >
-        } @else {
-          <span class="badge badge-sm badge-pendente" data-testid="governador-badge-status"
-            >pendente</span
-          >
-        }
-      </div>
-    </div>
-
-    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-      @if (secao().mandato) {
-        <span class="badge badge-sm badge-mandato" data-testid="governador-badge-mandato">
-          Mandato: {{ secao().mandato }}
-        </span>
-      }
-      @if (secao().pct_base) {
-        <span class="text-meta" data-testid="governador-base-percentual">
-          Base do %:
-          <strong class="text-contrast">{{
-            secao().pct_base === 'votos_nominais_do_cargo' ? 'Nominais do cargo' : secao().pct_base
-          }}</strong>
-        </span>
-      }
-    </div>
+  <div data-testid="governador-header">
+    <app-cabecalho-secao
+      [secao]="secao()"
+      [fonte]="fonte()"
+      [mostrarFonte]="true"
+      [mostrarMandato]="true"
+      [agrupado]="true"
+      categoriaPadrao="ELEIÇÃO 2026"
+      kickerTestId="governador-kicker"
+      tituloTestId="governador-titulo"
+      badgeTestId="governador-badge-status"
+      linkTestId="governador-link-fonte"
+      mandatoTestId="governador-badge-mandato"
+      pctBaseTestId="governador-base-percentual"
+    />
   </div>
 
   @if (governador().length > 0) {

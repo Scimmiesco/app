@@ -1,4 +1,4 @@
-<div class="flex items-center gap-2.5">
+<div class="flex items-center gap-2.5 sm:gap-3">
   <div class="candidato-foto-tag">
     <app-candidato-avatar
       [foto]="parlamentar().foto"
@@ -17,11 +17,18 @@
     }
   </div>
   <div class="min-w-0 flex-1 flex flex-col justify-center">
-    <div class="mb-0.5">
+    <div class="mb-0.5 flex items-center gap-2">
       <app-partido-badge [sigla]="parlamentar().partido" />
+      @if (cargo(); as rotuloCargo) {
+        <span class="metric-label mb-0">{{ rotuloCargo }}</span>
+      }
     </div>
     <span
-      class="nome-candidato font-bold block truncate max-w-[125px] sm:max-w-none text-xs sm:text-sm"
+      [class]="
+        tamanhoNomeLg()
+          ? 'nome-candidato font-bold block truncate text-base sm:text-lg'
+          : 'nome-candidato font-bold block truncate max-w-[125px] sm:max-w-none text-xs sm:text-sm'
+      "
       [title]="parlamentar().nome_urna"
     >
       {{ parlamentar().nome_urna }}

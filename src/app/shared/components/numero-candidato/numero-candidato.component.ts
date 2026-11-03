@@ -6,7 +6,7 @@ import { getCorPartido, getNumeroPrefixo, getNumeroResto } from '../../../core/u
   selector: 'app-numero-candidato',
   imports: [],
   templateUrl: './numero-candidato.component.html',
-  styleUrl: './numero-candidato.component.scss',
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NumeroCandidatoComponent {
@@ -19,6 +19,13 @@ export class NumeroCandidatoComponent {
     if (valor === null || valor === undefined) return null;
     const texto = String(valor).trim();
     return texto.length > 0 ? texto : null;
+  });
+
+  readonly historicoValido = computed(() => {
+    const h = this.historico();
+    if (!h || h.numero === null || h.numero === undefined) return null;
+    const num = String(h.numero).trim();
+    return num.length > 0 ? { ...h, numero: num } : null;
   });
 
   readonly cor = getCorPartido;

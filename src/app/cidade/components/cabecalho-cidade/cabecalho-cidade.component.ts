@@ -12,7 +12,7 @@ import { formatarNumero } from '../../../core/utils/formatadores';
   selector: 'app-cabecalho-cidade',
   imports: [],
   templateUrl: './cabecalho-cidade.component.html',
-  styleUrl: './cabecalho-cidade.component.scss',
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CabecalhoCidadeComponent {

@@ -14,43 +14,13 @@
         <div
           class="metric-card bg-white col-span-1 sm:col-span-3 flex flex-wrap items-center justify-between gap-3 p-4"
         >
-          <div class="flex items-center gap-3">
-            <div class="candidato-foto-tag">
-              <app-candidato-avatar
-                [foto]="pref.foto"
-                [nome]="pref.nome_urna"
-                [partido]="pref.partido"
-                [tamanho]="96"
-                [comBorda]="false"
-              />
-              @if (pref.situacao && pref.situacao.startsWith('ELEITO')) {
-                <span class="tag-eleicao tag-eleito" data-testid="prefeito-status-eleicao"
-                  >eleito</span
-                >
-              } @else if (pref.situacao) {
-                <span class="tag-eleicao tag-neutral" data-testid="prefeito-status-eleicao">{{
-                  pref.situacao
-                }}</span>
-              }
-            </div>
-            <div class="min-w-0 flex-1 flex flex-col justify-center">
-              <div class="mb-0.5 flex items-center gap-2">
-                <app-partido-badge [sigla]="pref.partido" />
-                <span class="metric-label mb-0">Prefeita Municipal</span>
-              </div>
-              <span
-                class="nome-candidato font-bold block truncate text-base sm:text-lg"
-                [title]="pref.nome_urna"
-              >
-                {{ pref.nome_urna }}
-              </span>
-              <app-numero-candidato
-                [numero]="pref.numero"
-                [historico]="pref.numero_historico"
-                [partido]="pref.partido"
-              />
-            </div>
-          </div>
+          <app-cartao-parlamentar
+            [parlamentar]="pref"
+            contexto="prefeito"
+            cargo="Prefeita Municipal"
+            [tamanhoNomeLg]="true"
+            class="flex-1 min-w-0"
+          />
           <div class="text-right">
             <span class="metric-label">Votos no Pleito Municipal</span>
             <span class="metric-value">{{ formatarNumero(pref.votos) }}</span>

@@ -5,7 +5,7 @@ import { FonteMeta, SecaoEnvelope } from '../../../core/models/contrato.model';
   selector: 'app-cabecalho-secao',
   imports: [],
   templateUrl: './cabecalho-secao.component.html',
-  styleUrl: './cabecalho-secao.component.scss',
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CabecalhoSecaoComponent {
@@ -16,6 +16,8 @@ export class CabecalhoSecaoComponent {
   readonly badgeTestId = input<string | null>(null);
   readonly linkTestId = input<string | null>(null);
   readonly mandatoTestId = input<string | null>(null);
+  readonly pctBaseTestId = input<string | null>(null);
+  readonly agrupado = input<boolean>(false);
   readonly mostrarFonte = input<boolean>(true);
   readonly mostrarMandato = input<boolean>(false);
   readonly textoCurado = input<boolean>(false);

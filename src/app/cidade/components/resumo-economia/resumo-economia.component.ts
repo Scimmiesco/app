@@ -7,7 +7,7 @@ import { CabecalhoSecaoComponent } from '../../../shared/components/cabecalho-se
   selector: 'app-resumo-economia',
   imports: [CabecalhoSecaoComponent],
   templateUrl: './resumo-economia.component.html',
-  styleUrl: './resumo-economia.component.scss',
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResumoEconomiaComponent {

@@ -11,7 +11,7 @@ import { CabecalhoSecaoComponent } from '../../../shared/components/cabecalho-se
   selector: 'app-resumo-escolarizacao',
   imports: [CabecalhoSecaoComponent],
   templateUrl: './resumo-escolarizacao.component.html',
-  styleUrl: './resumo-escolarizacao.component.scss',
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResumoEscolarizacaoComponent {

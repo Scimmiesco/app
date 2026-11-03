@@ -25,7 +25,7 @@ const CIDADE_PADRAO: CidadeItemIndice = {
 const MENSAGEM_ERRO =
   'Não foi possível carregar os dados oficiais deste município. Verifique se o arquivo está disponível ou tente novamente.';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class CidadeStore {
   private readonly dataService = inject(DataService);
   private readonly destroyRef = inject(DestroyRef);
@@ -42,12 +42,11 @@ export class CidadeStore {
   constructor() {
     combineLatest([this.codigo$, this.recarga$.pipe(startWith(undefined))])
       .pipe(
-        tap(() => {
+        switchMap(([codigo]) => {
+          const alvo = (codigo || '').trim() || '5002704';
           this.carregando.set(true);
           this.erro.set(null);
-        }),
-        switchMap(([codigo]) =>
-          this.dataService.getCidade(codigo || '5002704').pipe(
+          return this.dataService.getCidade(alvo).pipe(
             tap(() => this.carregando.set(false)),
             catchError((err) => {
               console.error('Erro ao carregar dados do município:', err);
@@ -55,8 +54,8 @@ export class CidadeStore {
               this.erro.set(MENSAGEM_ERRO);
               return of(null);
             }),
-          ),
-        ),
+          );
+        }),
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe((snap) => this.snapshot.set(snap));
@@ -71,14 +70,15 @@ export class CidadeStore {
   }
 
   carregar(codigo: string): void {
-    const alvo = codigo || '5002704';
+    const alvo = (codigo || '').trim() || '5002704';
     if (this.codigo$.value !== alvo) {
       this.codigo$.next(alvo);
     }
   }
 
   recarregar(): void {
-    this.dataService.limparCacheCidade(this.codigo$.value);
+    const codigoAtual = this.codigo$.value || '5002704';
+    this.dataService.limparCacheCidade(codigoAtual);
     this.recarga$.next();
   }
 }

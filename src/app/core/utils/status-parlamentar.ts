@@ -2,7 +2,7 @@ import { ParlamentarItem } from '../models/contrato.model';
 import { formatarStatus } from './formatadores';
 
 export type ContextoTagParlamentar =
-  'governador' | 'senador' | 'deputado-federal' | 'deputado-estadual' | 'vereador';
+  'governador' | 'senador' | 'deputado-federal' | 'deputado-estadual' | 'vereador' | 'prefeito';
 
 export interface TagParlamentar {
   texto: string;
@@ -51,6 +51,16 @@ export function resolverTagParlamentar(
       if (status === 'reeleito') return criarTag('reeleito', 'tag-reeleito');
       if (status === 'eleito' || situacaoEleito) return criarTag('eleito', 'tag-eleito');
       if (status) return criarTag(formatarStatus(status), 'tag-neutral');
+      return null;
+
+    case 'prefeito':
+      if (status === 'reeleito')
+        return criarTag('reeleito', 'tag-reeleito', 'prefeito-status-eleicao');
+      if (status === 'eleito' || situacaoEleito) {
+        return criarTag('eleito', 'tag-eleito', 'prefeito-status-eleicao');
+      }
+      if (status) return criarTag(formatarStatus(status), 'tag-neutral', 'prefeito-status-eleicao');
+      if (situacao) return criarTag(situacao, 'tag-neutral', 'prefeito-status-eleicao');
       return null;
   }
 }

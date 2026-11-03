@@ -11,7 +11,7 @@ import { CabecalhoSecaoComponent } from '../../../shared/components/cabecalho-se
   selector: 'app-resumo-populacao-estimada',
   imports: [CabecalhoSecaoComponent],
   templateUrl: './resumo-populacao-estimada.component.html',
-  styleUrl: './resumo-populacao-estimada.component.scss',
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResumoPopulacaoEstimadaComponent {

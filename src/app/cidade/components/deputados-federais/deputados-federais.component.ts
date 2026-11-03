@@ -2,13 +2,14 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 import { FonteMeta, ParlamentarItem, SecaoEnvelope } from '../../../core/models/contrato.model';
 import { formatarDataIso, formatarNumero, formatarPct } from '../../../core/utils/formatadores';
 import { ordenarParlamentares } from '../../../core/utils/ordenar-parlamentares';
+import { CabecalhoSecaoComponent } from '../../../shared/components/cabecalho-secao/cabecalho-secao.component';
 import { CartaoParlamentarComponent } from '../../../shared/components/cartao-parlamentar/cartao-parlamentar.component';
 
 @Component({
   selector: 'app-deputados-federais',
-  imports: [CartaoParlamentarComponent],
+  imports: [CabecalhoSecaoComponent, CartaoParlamentarComponent],
   templateUrl: './deputados-federais.component.html',
-  styleUrl: './deputados-federais.component.scss',
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeputadosFederaisComponent {

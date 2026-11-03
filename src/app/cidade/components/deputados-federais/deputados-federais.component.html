@@ -1,50 +1,18 @@
 <div class="card-brutalista space-y-4" data-testid="card-deputados-federais">
-  <div class="card-header-grouped" data-testid="deputados-header">
-    <div class="flex flex-wrap items-start justify-between gap-2">
-      <div>
-        <p class="section-kicker" data-testid="deputados-federais-kicker">
-          {{ secao().categoria || 'ELEIÇÃO 2026' }}
-        </p>
-        <h2 class="heading-2 text-lg" data-testid="deputados-titulo">{{ secao().titulo }}</h2>
-      </div>
-      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
-        @if (secao().status === 'oficial') {
-          <span class="badge badge-sm badge-oficial" data-testid="deputados-badge-status"
-            >oficial</span
-          >
-          <span class="text-meta">
-            @if (fonte(); as fonteMeta) {
-              <a
-                [href]="fonteMeta.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="link-fonte"
-              >
-                {{ fonteMeta.orgao }} · {{ fonteMeta.titulo }}
-              </a>
-            } @else {
-              <span>{{ secao().fonte }}</span>
-            }
-            · {{ secao().ano }}
-          </span>
-        } @else {
-          <span class="badge badge-sm badge-pendente">pendente</span>
-        }
-      </div>
-    </div>
-
-    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-      @if (secao().mandato) {
-        <span class="badge badge-sm badge-mandato" data-testid="deputados-badge-mandato">
-          Mandato: {{ secao().mandato }}
-        </span>
-      }
-      @if (secao().pct_base) {
-        <span class="text-meta" data-testid="deputados-base-percentual">
-          Base do %: <strong class="text-contrast">{{ secao().pct_base }}</strong>
-        </span>
-      }
-    </div>
+  <div data-testid="deputados-header">
+    <app-cabecalho-secao
+      [secao]="secao()"
+      [fonte]="fonte()"
+      [mostrarFonte]="true"
+      [mostrarMandato]="true"
+      [agrupado]="true"
+      categoriaPadrao="ELEIÇÃO 2026"
+      kickerTestId="deputados-federais-kicker"
+      tituloTestId="deputados-titulo"
+      badgeTestId="deputados-badge-status"
+      mandatoTestId="deputados-badge-mandato"
+      pctBaseTestId="deputados-base-percentual"
+    />
   </div>
 
   @if (secao().status === 'pendente') {

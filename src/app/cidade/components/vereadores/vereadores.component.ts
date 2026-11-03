@@ -9,7 +9,7 @@ import { CartaoParlamentarComponent } from '../../../shared/components/cartao-pa
   selector: 'app-vereadores',
   imports: [CabecalhoSecaoComponent, CartaoParlamentarComponent],
   templateUrl: './vereadores.component.html',
-  styleUrl: './vereadores.component.scss',
+  host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VereadoresComponent {

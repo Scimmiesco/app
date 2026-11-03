@@ -7,7 +7,7 @@
     <span class="digito-partido" [style.color]="cor(partido())">{{ prefixo(num) }}</span
     ><span class="digito-resto text-black">{{ resto(num) }}</span>
   </span>
-} @else if (historico(); as hist) {
+} @else if (historicoValido(); as hist) {
   <span
     class="numero-candidato numero-historico block text-sm font-bold tabular-nums mt-0.5"
     [attr.data-partido]="partido()"

@@ -72,6 +72,9 @@ describe('resolverTagParlamentar', () => {
         'vereador',
       )?.classe,
     ).toBe('tag-eleito');
+    expect(resolverTagParlamentar(criar({ situacao: 'ELEITO' }), 'prefeito')?.classe).toBe(
+      'tag-eleito',
+    );
   });
 
   it('should return null when the candidate has no election status', () => {
