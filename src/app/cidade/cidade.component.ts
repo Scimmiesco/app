@@ -12,10 +12,8 @@ import { GovernadorComponent } from './components/governador/governador.componen
 import { PrefeitoComponent } from './components/prefeito/prefeito.component';
 import { ResumoEconomiaComponent } from './components/resumo-economia/resumo-economia.component';
 import { ResumoEducacaoComponent } from './components/resumo-educacao/resumo-educacao.component';
-import { ResumoEscolarizacaoComponent } from './components/resumo-escolarizacao/resumo-escolarizacao.component';
 import { ResumoFinancasComponent } from './components/resumo-financas/resumo-financas.component';
 import { ResumoIbgeComponent } from './components/resumo-ibge/resumo-ibge.component';
-import { ResumoPopulacaoEstimadaComponent } from './components/resumo-populacao-estimada/resumo-populacao-estimada.component';
 import { SenadoresComponent } from './components/senadores/senadores.component';
 import { VereadoresComponent } from './components/vereadores/vereadores.component';
 
@@ -27,8 +25,6 @@ import { VereadoresComponent } from './components/vereadores/vereadores.componen
     CabecalhoCidadeComponent,
     ResumoIbgeComponent,
     ResumoEconomiaComponent,
-    ResumoPopulacaoEstimadaComponent,
-    ResumoEscolarizacaoComponent,
     ResumoEducacaoComponent,
     ResumoFinancasComponent,
     EleicaoPresidencialComponent,

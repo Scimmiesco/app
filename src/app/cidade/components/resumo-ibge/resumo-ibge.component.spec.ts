@@ -3,6 +3,7 @@ import {
   FonteMeta,
   MapaMeta,
   ResumoIbgeDados,
+  ResumoPopulacaoEstimadaDados,
   SecaoEnvelope,
 } from '../../../core/models/contrato.model';
 import { ResumoIbgeComponent } from './resumo-ibge.component';
@@ -23,6 +24,19 @@ const secao: SecaoEnvelope<ResumoIbgeDados> = {
     cor_raca_pct: { Branca: 45.1, Parda: 45.4 },
     area_territorial_km2: 8082.978,
     densidade_hab_km2: 111.11,
+  },
+};
+
+const secaoPopEst: SecaoEnvelope<ResumoPopulacaoEstimadaDados> = {
+  titulo: 'População estimada',
+  categoria: 'A CIDADE',
+  status: 'oficial',
+  fonte: 'ibge_estimativa_populacao_2026',
+  ano: 2026,
+  coletado_em: '2026-10-30T10:00:00-0400',
+  motivo: null,
+  dados: {
+    populacao_estimada: 970843,
   },
 };
 
@@ -101,5 +115,17 @@ describe('ResumoIbgeComponent', () => {
         'href',
       ),
     ).toContain('servicodados.ibge.gov.br');
+  });
+
+  it('should render population estimate when secaoPopEst is provided', () => {
+    const fixture = TestBed.createComponent(ResumoIbgeComponent);
+    fixture.componentRef.setInput('secao', secao);
+    fixture.componentRef.setInput('secaoPopEst', secaoPopEst);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+    const cardPopEst = el.querySelector('[data-testid="card-resumo-populacao-estimada"]');
+    expect(cardPopEst).toBeTruthy();
+    expect(cardPopEst?.textContent).toContain('970.843 hab');
+    expect(cardPopEst?.textContent).toContain('2026');
   });
 });

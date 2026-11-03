@@ -120,18 +120,21 @@
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
       data-testid="resumo-ibge-grid-metricas"
     >
-      <div class="metric-card" data-testid="card-metrica-renda-media">
-        <span class="metric-label">Renda Média p/c</span>
-        <span class="metric-value">{{ formatarMoeda(dadosIbge.renda_media_pc) }}</span>
-      </div>
-      <div class="metric-card" data-testid="card-metrica-renda-mediana">
-        <span class="metric-label">Renda Mediana p/c</span>
-        <span class="metric-value">{{ formatarMoeda(dadosIbge.renda_mediana_pc) }}</span>
-      </div>
-      <div class="metric-card" data-testid="card-metrica-taxa-urbanizacao">
-        <span class="metric-label">Taxa de Urbanização</span>
-        <span class="metric-value">{{ formatarPct(dadosIbge.pct_urbana) }}</span>
-      </div>
+      @if (secaoPopEst(); as sPop) {
+        @if (sPop.dados; as dadosPop) {
+          <div class="metric-card" data-testid="card-resumo-populacao-estimada">
+            <span class="metric-label">População Estimada (IBGE {{ sPop.ano }})</span>
+            <span class="metric-value-lg" data-testid="card-metrica-populacao-estimada"
+              >{{ formatarNumero(dadosPop.populacao_estimada) }} hab</span
+            >
+          </div>
+        }
+      } @else if (dadosIbge.populacao) {
+        <div class="metric-card" data-testid="card-metrica-populacao">
+          <span class="metric-label">População (Censo {{ secao().ano }})</span>
+          <span class="metric-value-lg">{{ formatarNumero(dadosIbge.populacao) }} hab</span>
+        </div>
+      }
       @if (dadosIbge.area_territorial_km2) {
         <div class="metric-card" data-testid="card-metrica-area-territorial">
           <span class="metric-label">Área Territorial (2022)</span>
@@ -146,6 +149,18 @@
           >
         </div>
       }
+      <div class="metric-card" data-testid="card-metrica-renda-media">
+        <span class="metric-label">Renda Média p/c</span>
+        <span class="metric-value">{{ formatarMoeda(dadosIbge.renda_media_pc) }}</span>
+      </div>
+      <div class="metric-card" data-testid="card-metrica-renda-mediana">
+        <span class="metric-label">Renda Mediana p/c</span>
+        <span class="metric-value">{{ formatarMoeda(dadosIbge.renda_mediana_pc) }}</span>
+      </div>
+      <div class="metric-card" data-testid="card-metrica-taxa-urbanizacao">
+        <span class="metric-label">Taxa de Urbanização</span>
+        <span class="metric-value">{{ formatarPct(dadosIbge.pct_urbana) }}</span>
+      </div>
     </div>
 
     <!-- Composição Cor e Raça -->

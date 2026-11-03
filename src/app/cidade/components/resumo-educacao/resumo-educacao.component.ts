@@ -1,7 +1,13 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { KeyValuePipe } from '@angular/common';
-import { FonteMeta, ResumoEducacaoDados, SecaoEnvelope } from '../../../core/models/contrato.model';
+import {
+  FonteMeta,
+  ResumoEducacaoDados,
+  ResumoEscolarizacaoDados,
+  SecaoEnvelope,
+} from '../../../core/models/contrato.model';
 import { CabecalhoSecaoComponent } from '../../../shared/components/cabecalho-secao/cabecalho-secao.component';
+import { formatarPct } from '../../../core/utils/formatadores';
 
 @Component({
   selector: 'app-resumo-educacao',
@@ -12,5 +18,10 @@ import { CabecalhoSecaoComponent } from '../../../shared/components/cabecalho-se
 })
 export class ResumoEducacaoComponent {
   readonly secao = input.required<SecaoEnvelope<ResumoEducacaoDados>>();
+  readonly secaoEscolarizacao = input<SecaoEnvelope<ResumoEscolarizacaoDados> | null | undefined>(
+    null,
+  );
   readonly fonte = input<FonteMeta | undefined>(undefined);
+
+  protected readonly formatarPct = formatarPct;
 }

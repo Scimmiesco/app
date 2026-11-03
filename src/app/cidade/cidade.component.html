@@ -58,6 +58,7 @@
     @if (snap.secoes.resumo_ibge_censo; as secao) {
       <app-resumo-ibge
         [secao]="secao"
+        [secaoPopEst]="snap.secoes.resumo_populacao_estimada"
         [fonte]="fonte(secao.fonte)"
         [mapa]="snap.mapa"
         [nomeMunicipio]="snap.municipio.nome"
@@ -69,19 +70,13 @@
       <app-resumo-economia [secao]="secao" [fonte]="fonte(secao.fonte)" />
     }
 
-    <!-- POPULAÇÃO ESTIMADA (IBGE) -->
-    @if (snap.secoes.resumo_populacao_estimada; as secao) {
-      <app-resumo-populacao-estimada [secao]="secao" [fonte]="fonte(secao.fonte)" />
-    }
-
-    <!-- ESCOLARIZAÇÃO (IBGE) -->
-    @if (snap.secoes.resumo_escolarizacao; as secao) {
-      <app-resumo-escolarizacao [secao]="secao" [fonte]="fonte(secao.fonte)" />
-    }
-
-    <!-- EDUCAÇÃO (INEP / IDEB) -->
+    <!-- EDUCAÇÃO (INEP / IDEB & ESCOLARIZAÇÃO IBGE) -->
     @if (snap.secoes.resumo_educacao; as secao) {
-      <app-resumo-educacao [secao]="secao" [fonte]="fonte(secao.fonte)" />
+      <app-resumo-educacao
+        [secao]="secao"
+        [secaoEscolarizacao]="snap.secoes.resumo_escolarizacao"
+        [fonte]="fonte(secao.fonte)"
+      />
     }
 
     <!-- FINANÇAS MUNICIPAIS (SICONFI / TESOURO) -->

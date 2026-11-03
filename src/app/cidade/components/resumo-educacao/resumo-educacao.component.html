@@ -12,8 +12,23 @@
       <strong>Dado pendente:</strong> {{ secao().motivo || 'Em fase de apuração oficial.' }}
     </div>
   } @else if (secao().dados; as dadosEdu) {
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-      <div class="metric-card">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
+      data-testid="resumo-educacao-grid-metricas"
+    >
+      @if (secaoEscolarizacao(); as sEsc) {
+        @if (sEsc.dados; as dadosEsc) {
+          <div class="metric-card" data-testid="card-resumo-escolarizacao">
+            <span class="metric-label"
+              >Taxa de Escolarização 6 a 14 anos (Censo {{ sEsc.ano }})</span
+            >
+            <span class="metric-value-lg" data-testid="card-metrica-escolarizacao">{{
+              formatarPct(dadosEsc.faixa_6_14_pct)
+            }}</span>
+          </div>
+        }
+      }
+      <div class="metric-card" data-testid="card-metrica-ideb-iniciais">
         <span class="metric-label mb-1">IDEB — Anos Iniciais</span>
         <div class="flex flex-wrap gap-3 text-sm">
           @for (item of dadosEdu.anos_iniciais | keyvalue; track item.key) {
@@ -24,7 +39,7 @@
           }
         </div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" data-testid="card-metrica-ideb-finais">
         <span class="metric-label mb-1">IDEB — Anos Finais</span>
         <div class="flex flex-wrap gap-3 text-sm">
           @for (item of dadosEdu.anos_finais | keyvalue; track item.key) {
