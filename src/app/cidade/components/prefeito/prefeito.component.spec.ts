@@ -35,12 +35,12 @@ describe('PrefeitoComponent', () => {
 
     const el = fixture.nativeElement as HTMLElement;
     expect(el.querySelector('.candidato-foto-tag app-candidato-avatar')).toBeTruthy();
-    expect(el.querySelector('[data-testid="prefeito-status-eleicao"]')?.textContent?.trim()).toBe(
-      'eleito',
-    );
+    expect(el.querySelector('.tag-eleicao')?.textContent?.trim()).toBe('em exercício');
     expect(el.querySelector('.nome-candidato')?.textContent).toContain('ADRIANE LOPES');
     expect(el.textContent).toContain('222.407');
     expect(el.querySelector('[data-testid="numero-candidato"]')?.textContent).toContain('11');
-    expect(el.textContent).toContain('Em Exercício');
+    expect(el.querySelector('.tag-eleicao')?.getAttribute('title')).toContain(
+      'Mandato em exercício',
+    );
   });
 });

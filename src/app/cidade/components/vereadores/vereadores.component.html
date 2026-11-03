@@ -15,22 +15,16 @@
           <th scope="col">Candidato</th>
           <th scope="col" class="col-right">Votos</th>
           <th scope="col" class="col-right">% Votos</th>
-          <th scope="col" class="col-center hidden sm:table-cell">Exercício</th>
-          <th scope="col">Situação</th>
         </tr>
       </thead>
       <tbody>
         @for (ver of vereadores(); track ver.nome) {
           <tr>
             <td class="cell-nome">
-              <app-cartao-parlamentar [parlamentar]="ver" contexto="vereador" />
+              <app-cartao-parlamentar [parlamentar]="ver" [anoPleito]="secao().ano" />
             </td>
             <td class="cell-votos">{{ formatarNumero(ver.votos) }}</td>
             <td class="cell-pct">{{ formatarPct(ver.pct) }}</td>
-            <td class="cell-center hidden sm:table-cell">
-              <span class="badge badge-xs badge-exercicio-sim">SIM</span>
-            </td>
-            <td class="cell-situacao">{{ ver.situacao || 'ELEITO' }}</td>
           </tr>
         }
       </tbody>

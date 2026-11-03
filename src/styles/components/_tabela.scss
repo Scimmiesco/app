@@ -69,6 +69,11 @@
       color: #ffffff;
     }
 
+    &.tag-suplente {
+      background-color: tokens.$color-amarelo;
+      color: tokens.$color-black;
+    }
+
     &.tag-nao-concorreu,
     &.tag-em-exercicio,
     &.tag-neutral {

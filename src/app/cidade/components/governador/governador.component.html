@@ -22,7 +22,6 @@
         <thead>
           <tr>
             <th scope="col">Candidato</th>
-            <th scope="col" class="col-center hidden sm:table-cell">Em Exercício</th>
             <th scope="col" class="col-right">Votos 2026</th>
             <th scope="col" class="col-right">
               @if (secao().pct_base === 'votos_nominais_do_cargo') {
@@ -34,40 +33,19 @@
               }
             </th>
             <th scope="col" class="col-center hidden sm:table-cell">Fim do Mandato</th>
-            <th scope="col">Situação TSE</th>
           </tr>
         </thead>
         <tbody>
           @for (gov of governador(); track gov.nome) {
             <tr [class.em-exercicio]="gov.em_exercicio">
               <td class="cell-nome">
-                <app-cartao-parlamentar
-                  [parlamentar]="gov"
-                  contexto="governador"
-                  tagTestId="governador-status-eleicao"
-                />
-              </td>
-              <td class="cell-center hidden sm:table-cell">
-                @if (gov.em_exercicio) {
-                  <span
-                    class="badge badge-xs badge-exercicio-sim"
-                    data-testid="governador-exercicio-sim"
-                    >SIM</span
-                  >
-                } @else {
-                  <span
-                    class="badge badge-xs badge-exercicio-nao"
-                    data-testid="governador-exercicio-nao"
-                    >NÃO</span
-                  >
-                }
+                <app-cartao-parlamentar [parlamentar]="gov" [anoPleito]="secao().ano" />
               </td>
               <td class="cell-votos">{{ formatarNumero(gov.votos) }}</td>
               <td class="cell-pct">{{ formatarPct(gov.pct) }}</td>
               <td class="cell-mandato-fim hidden sm:table-cell">
                 {{ formatarDataIso(gov.mandato_fim) }}
               </td>
-              <td class="cell-situacao">{{ gov.situacao || '—' }}</td>
             </tr>
           }
         </tbody>

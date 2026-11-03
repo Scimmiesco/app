@@ -14,72 +14,63 @@ function criar(over: Partial<ParlamentarItem>): ParlamentarItem {
 }
 
 describe('resolverTagParlamentar', () => {
-  it('should map governor tags including reeleito and ELEITO situation', () => {
-    expect(
-      resolverTagParlamentar(criar({ status_eleicao_2026: 'reeleito' }), 'governador')?.classe,
-    ).toBe('tag-reeleito');
-    expect(
-      resolverTagParlamentar(criar({ status_eleicao_2026: 'eleito' }), 'governador')?.texto,
-    ).toBe('eleito');
-    expect(
-      resolverTagParlamentar(
-        criar({ status_eleicao_2026: 'em_exercicio', situacao: 'ELEITO' }),
-        'governador',
-      )?.classe,
-    ).toBe('tag-eleito');
-  });
-
-  it('should map senator tags including em exercício', () => {
-    expect(
-      resolverTagParlamentar(criar({ status_eleicao_2026: 'em_exercicio' }), 'senador')?.texto,
-    ).toBe('em exercício');
-    expect(
-      resolverTagParlamentar(criar({ status_eleicao_2026: 'nao_reeleito' }), 'senador'),
-    ).toEqual({
-      texto: 'não reeleito',
-      classe: 'tag-neutral',
-      testId: null,
-    });
-  });
-
-  it('should distinguish not reelected from did not run for federal deputy', () => {
-    expect(
-      resolverTagParlamentar(criar({ status_eleicao_2026: 'nao_reeleito' }), 'deputado-federal')
-        ?.classe,
-    ).toBe('tag-nao-reeleito');
-    expect(
-      resolverTagParlamentar(
-        criar({ status_eleicao_2026: 'nao_concorreu_ao_cargo' }),
-        'deputado-federal',
-      ),
-    ).toEqual({
-      texto: 'Não concorreu ao cargo',
-      classe: 'tag-nao-concorreu',
-      testId: 'badge-nao-concorreu',
-    });
-  });
-
-  it('should accept ELEITO situation for state deputies and councilors', () => {
-    expect(
-      resolverTagParlamentar(
-        criar({ status_eleicao_2026: 'eleito', situacao: 'ELEITO POR QP' }),
-        'deputado-estadual',
-      )?.classe,
-    ).toBe('tag-eleito');
-    expect(
-      resolverTagParlamentar(
-        criar({ status_eleicao_2026: 'eleito', situacao: 'ELEITO POR QP' }),
-        'vereador',
-      )?.classe,
-    ).toBe('tag-eleito');
-    expect(resolverTagParlamentar(criar({ situacao: 'ELEITO' }), 'prefeito')?.classe).toBe(
-      'tag-eleito',
+  it('should map reelected, elected and not reelected', () => {
+    expect(resolverTagParlamentar(criar({ status_eleicao_2026: 'reeleito' }))?.texto).toBe(
+      'reeleito',
+    );
+    expect(resolverTagParlamentar(criar({ status_eleicao_2026: 'eleito' }))?.texto).toBe('eleito');
+    expect(resolverTagParlamentar(criar({ status_eleicao_2026: 'nao_reeleito' }))?.texto).toBe(
+      'não reeleito',
     );
   });
 
-  it('should return null when the candidate has no election status', () => {
-    expect(
-      resolverTagParlamentar(criar({ status_eleicao_2026: '' }), 'deputado-federal'),
-    ).toBeNull();
+  it('should distinguish suplente from nao reeleito using the official TSE situation', () => {
+    const suplente = resolverTagParlamentar(
+      criar({ status_eleicao_2026: 'nao_reeleito', situacao: 'SUPLENTE' }),
+    );
+    expect(suplente?.situacao).toBe('suplente');
+    expect(suplente?.texto).toBe('suplente');
+    expect(suplente?.classe).toBe('tag-suplente');
+    expect(suplente?.descricao).toContain('ficou como suplente');
+  });
+
+  it('should explain when the candidate did not run for the office', () => {
+    const tag = resolverTagParlamentar(
+      criar({
+        status_eleicao_2026: 'nao_concorreu_ao_cargo',
+        cargo_2026: 'Senador',
+        situacao: null,
+      }),
+    );
+    expect(tag?.situacao).toBe('nao_concorreu');
+    expect(tag?.texto).toBe('não concorreu');
+    expect(tag?.testId).toBe('badge-nao-concorreu');
+    expect(tag?.descricao).toContain('Senador');
+  });
+
+  it('should map current mandate without election as em exercício', () => {
+    const tag = resolverTagParlamentar(
+      criar({ status_eleicao_2026: 'em_exercicio', situacao: 'em exercício' }),
+    );
+    expect(tag?.situacao).toBe('em_exercicio');
+    expect(tag?.texto).toBe('em exercício');
+    expect(tag?.descricao).toContain('Mandato em exercício');
+    expect(tag?.descricao).toContain('Mandato até 31/01/2031');
+  });
+
+  it('should keep the official TSE situation in the accessible description', () => {
+    const tag = resolverTagParlamentar(
+      criar({ status_eleicao_2026: 'eleito', situacao: 'ELEITO POR QP' }),
+    );
+    expect(tag?.descricao).toContain('ELEITO POR QP');
+  });
+
+  it('should return null when the candidate has no election status or situation', () => {
+    expect(resolverTagParlamentar(criar({ status_eleicao_2026: '', situacao: null }))).toBeNull();
+    const outro = resolverTagParlamentar(
+      criar({ status_eleicao_2026: 'suplente_2', situacao: null }),
+    );
+    expect(outro?.situacao).toBe('outro');
+    expect(outro?.classe).toBe('tag-neutral');
   });
 });

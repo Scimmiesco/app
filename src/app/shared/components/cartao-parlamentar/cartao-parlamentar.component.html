@@ -12,6 +12,8 @@
         class="tag-eleicao"
         [class]="'tag-eleicao ' + tagStatus.classe"
         [attr.data-testid]="tagStatus.testId"
+        [title]="tagStatus.descricao"
+        [attr.aria-label]="tagStatus.descricao"
         >{{ tagStatus.texto }}</span
       >
     }

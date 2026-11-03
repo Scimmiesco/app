@@ -37,7 +37,7 @@ describe('VereadoresComponent', () => {
     expect(el.textContent).toContain('MARQUINHOS TRAD');
     expect(el.textContent).toContain('8.567');
     expect(el.textContent).toContain('1,95%');
-    expect(el.textContent).toContain('SIM');
+    expect(el.querySelector('.tag-eleicao')?.textContent?.trim()).toBe('em exercício');
     expect(el.querySelector('[data-testid="numero-candidato"]')?.textContent).toContain('12345');
   });
 });

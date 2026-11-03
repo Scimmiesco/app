@@ -49,7 +49,9 @@ describe('GovernadorComponent', () => {
     expect(card?.textContent).toContain('67,07%');
     expect(card?.textContent).toContain('31/12/2030');
     expect(card?.textContent).toContain('reeleito');
-    expect(card?.textContent).toContain('SIM');
+    const tag = card?.querySelector('.tag-eleicao');
+    expect(tag?.textContent?.trim()).toBe('reeleito');
+    expect(tag?.getAttribute('title')).toContain('ELEITO');
     expect(card?.querySelector('[data-testid="governador-badge-mandato"]')?.textContent).toContain(
       'Mandato: 2027-2030',
     );
@@ -58,6 +60,6 @@ describe('GovernadorComponent', () => {
     );
     expect(
       card?.querySelector('[data-testid="tabela-governador"] th:last-child')?.textContent?.trim(),
-    ).toBe('Situação TSE');
+    ).toBe('Fim do Mandato');
   });
 });

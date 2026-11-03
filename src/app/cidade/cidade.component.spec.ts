@@ -772,10 +772,10 @@ describe('CidadeComponent', () => {
     expect(cardGov?.textContent).toContain('914.323');
     expect(cardGov?.textContent).toContain('67,07%');
     expect(cardGov?.textContent).toContain('31/12/2030');
-    expect(cardGov?.textContent).toContain('SIM');
-    expect(cardGov?.textContent).toContain('reeleito');
-    expect(cardGov?.textContent).toContain('ELEITO');
-    expect(cardGov?.textContent).toContain('Situação TSE');
+    const tagGov = cardGov?.querySelector('.tag-eleicao');
+    expect(tagGov?.textContent?.trim()).toBe('reeleito');
+    expect(tagGov?.getAttribute('title')).toContain('ELEITO');
+    expect(cardGov?.querySelector('.cell-situacao')).toBeNull();
     expect(cardGov?.textContent).toContain('Mandato: 2027-2030');
     expect(cardGov?.textContent).toContain('% Nominais do cargo');
     expect(cardGov?.textContent).toContain(
@@ -794,7 +794,7 @@ describe('CidadeComponent', () => {
     expect(badgeMandato?.textContent?.trim()).toBe('Mandato: 2027-2030');
     expect(
       cardGov.querySelector('[data-testid="tabela-governador"] th:last-child')?.textContent?.trim(),
-    ).toBe('Situação TSE');
+    ).toBe('Fim do Mandato');
   });
 
   it('should order deputados with em_exercicio=true first', () => {
@@ -1254,27 +1254,24 @@ describe('CidadeComponent', () => {
     const govTable = compiled.querySelector('[data-testid="tabela-governador"]');
     expect(govTable).toBeTruthy();
     const thsGov = govTable?.querySelectorAll('th.hidden.sm\\:table-cell');
-    expect(thsGov && thsGov.length).toBeGreaterThanOrEqual(2);
+    expect(thsGov && thsGov.length).toBeGreaterThanOrEqual(1);
   });
 
-  it('should handle non-reelected and did-not-run-for-office candidates with votes and dash for situation (US-16)', () => {
+  it('should handle non-reelected and did-not-run-for-office candidates with votes and unified badge (US-16)', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    // Vander Loubet: status "Não concorreu ao cargo" e traço na situação TSE
+    // Vander Loubet: não disputou o cargo; a informação vive no selo sob a foto
     const linhaVander = compiled.querySelector('[data-testid="linha-deputado-vander loubet"]');
     expect(linhaVander).toBeTruthy();
-    expect(linhaVander?.textContent).toContain('Não concorreu ao cargo');
-
-    // A coluna de situação deve conter apenas o traço '—'
-    const situacaoEl = linhaVander?.querySelector('.cell-situacao');
-    expect(situacaoEl?.textContent?.trim()).toBe('—');
+    const tagVander = linhaVander?.querySelector('.tag-eleicao');
+    expect(tagVander?.textContent?.trim()).toBe('não concorreu');
+    expect(tagVander?.getAttribute('title')).toContain('Senador');
+    expect(linhaVander?.querySelector('.cell-situacao')).toBeNull();
     expect(linhaVander?.textContent).not.toContain('Senado: 361.920');
 
     // Legenda explicativa presente no bloco
     const legenda = compiled.querySelector('[data-testid="legenda-status-deputados"]');
     expect(legenda).toBeTruthy();
-    expect(legenda?.textContent).toContain(
-      'Não reeleito = disputou o cargo; Não concorreu = não disputou este cargo',
-    );
+    expect(legenda?.textContent).toContain('não reeleito = disputou e não foi eleito');
   });
 
   it('should integrate candidate photo and election tag in unified container with shared shadow, and order party, name and number vertically', () => {
@@ -1320,7 +1317,7 @@ describe('CidadeComponent', () => {
     expect(prefFotoTag?.querySelector('app-candidato-avatar')).toBeTruthy();
     const prefTagEleicao = prefFotoTag?.querySelector('.tag-eleicao');
     expect(prefTagEleicao).toBeTruthy();
-    expect(prefTagEleicao?.textContent?.trim()).toBe('eleito');
+    expect(prefTagEleicao?.textContent?.trim()).toBe('em exercício');
   });
 
   it('should render official IBGE indicators: territorial area, demographic density, estimated population and schooling (DSH 0.12.0)', () => {

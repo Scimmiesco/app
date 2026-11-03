@@ -12,9 +12,7 @@
       <thead>
         <tr>
           <th scope="col">Candidato</th>
-          <th scope="col" class="col-center hidden sm:table-cell">Em Exercício</th>
           <th scope="col" class="col-center hidden sm:table-cell">Mandato</th>
-          <th scope="col">Situação</th>
         </tr>
       </thead>
       <tbody>
@@ -24,20 +22,12 @@
             [attr.data-testid]="'linha-senador-' + sen.nome_urna.toLowerCase()"
           >
             <td class="cell-nome">
-              <app-cartao-parlamentar [parlamentar]="sen" contexto="senador" />
-            </td>
-            <td class="cell-center hidden sm:table-cell">
-              @if (sen.em_exercicio) {
-                <span class="badge badge-xs badge-exercicio-sim">SIM</span>
-              } @else {
-                <span class="badge badge-xs badge-exercicio-nao">NÃO</span>
-              }
+              <app-cartao-parlamentar [parlamentar]="sen" [anoPleito]="secao().ano" />
             </td>
             <td class="cell-mandato-fim hidden sm:table-cell">
               {{ sen.mandato_inicio ? formatarDataIso(sen.mandato_inicio) + ' a ' : ''
               }}{{ formatarDataIso(sen.mandato_fim) }}
             </td>
-            <td class="cell-situacao">{{ sen.situacao || '—' }}</td>
           </tr>
         }
       </tbody>

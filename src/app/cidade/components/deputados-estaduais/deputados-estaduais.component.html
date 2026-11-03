@@ -15,18 +15,16 @@
           <th scope="col">Candidato</th>
           <th scope="col" class="col-right">Votos 2026</th>
           <th scope="col" class="col-right">% Válidos</th>
-          <th scope="col">Situação</th>
         </tr>
       </thead>
       <tbody>
         @for (est of deputadosEstaduais(); track est.nome) {
           <tr>
             <td class="cell-nome">
-              <app-cartao-parlamentar [parlamentar]="est" contexto="deputado-estadual" />
+              <app-cartao-parlamentar [parlamentar]="est" [anoPleito]="secao().ano" />
             </td>
             <td class="cell-votos">{{ formatarNumero(est.votos) }}</td>
             <td class="cell-pct">{{ formatarPct(est.pct) }}</td>
-            <td class="cell-situacao">{{ est.situacao || 'ELEITO' }}</td>
           </tr>
         }
       </tbody>

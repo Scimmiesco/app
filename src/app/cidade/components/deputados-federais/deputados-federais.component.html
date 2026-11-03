@@ -27,9 +27,7 @@
             <th scope="col">Candidato</th>
             <th scope="col" class="col-right">Votos 2026</th>
             <th scope="col" class="col-right">% Nominais</th>
-            <th scope="col" class="col-center hidden sm:table-cell">Em Exercício</th>
             <th scope="col" class="col-center hidden sm:table-cell">Fim do Mandato</th>
-            <th scope="col">Situação</th>
             <th scope="col" class="col-right hidden md:table-cell">Votos Mandato (Câmara)</th>
           </tr>
         </thead>
@@ -37,21 +35,13 @@
           @for (dep of deputadosFederais(); track dep.nome) {
             <tr [class.em-exercicio]="dep.em_exercicio" [attr.data-testid]="testIdLinha(dep)">
               <td class="cell-nome">
-                <app-cartao-parlamentar [parlamentar]="dep" contexto="deputado-federal" />
+                <app-cartao-parlamentar [parlamentar]="dep" [anoPleito]="secao().ano" />
               </td>
               <td class="cell-votos">{{ formatarNumero(dep.votos) }}</td>
               <td class="cell-pct">{{ formatarPct(dep.pct) }}</td>
-              <td class="cell-center hidden sm:table-cell">
-                @if (dep.em_exercicio) {
-                  <span class="badge badge-xs badge-exercicio-sim">SIM</span>
-                } @else {
-                  <span class="badge badge-xs badge-exercicio-nao">NÃO</span>
-                }
-              </td>
               <td class="cell-mandato-fim hidden sm:table-cell">
                 {{ formatarDataIso(dep.mandato_fim) }}
               </td>
-              <td class="cell-situacao">{{ dep.situacao || '—' }}</td>
               <td class="cell-votos-mandato hidden md:table-cell">
                 @if (
                   dep.votos_nominais_mandato_atual !== null &&
@@ -70,8 +60,9 @@
       </table>
     </div>
     <p class="text-xs text-meta mt-2" data-testid="legenda-status-deputados">
-      <strong>Legenda:</strong> Não reeleito = disputou o cargo; Não concorreu = não disputou este
-      cargo.
+      <strong>Legenda:</strong> não reeleito = disputou e não foi eleito; suplente = disputou e
+      ficou como suplente; não concorreu = não disputou este cargo. Toque ou passe o cursor sobre o
+      selo para ver a classificação oficial do TSE.
     </p>
   }
 </div>

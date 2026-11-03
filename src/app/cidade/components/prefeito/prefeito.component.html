@@ -16,7 +16,7 @@
         >
           <app-cartao-parlamentar
             [parlamentar]="pref"
-            contexto="prefeito"
+            [anoPleito]="secao().ano"
             cargo="Prefeita Municipal"
             [tamanhoNomeLg]="true"
             class="flex-1 min-w-0"
@@ -24,7 +24,6 @@
           <div class="text-right">
             <span class="metric-label">Votos no Pleito Municipal</span>
             <span class="metric-value">{{ formatarNumero(pref.votos) }}</span>
-            <span class="badge badge-xs badge-oficial block mt-1">Em Exercício</span>
           </div>
         </div>
       }

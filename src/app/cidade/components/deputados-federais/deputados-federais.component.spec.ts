@@ -51,6 +51,7 @@ const secao: SecaoEnvelope<ParlamentarItem[]> = {
       em_exercicio: true,
       mandato_fim: '2031-01-31',
       status_eleicao_2026: 'nao_concorreu_ao_cargo',
+      cargo_2026: 'Senador',
     },
   ],
 };
@@ -67,12 +68,14 @@ describe('DeputadosFederaisComponent', () => {
     expect(ordem[2].getAttribute('data-testid')).toBe('linha-deputado-rose modesto');
 
     const vander = el.querySelector('[data-testid="linha-deputado-vander loubet"]');
-    expect(vander?.textContent).toContain('Não concorreu ao cargo');
-    expect(vander?.querySelector('.cell-situacao')?.textContent?.trim()).toBe('—');
+    const tagVander = vander?.querySelector('.tag-eleicao');
+    expect(tagVander?.textContent?.trim()).toBe('não concorreu');
+    expect(tagVander?.getAttribute('title')).toContain('Senador');
+    expect(vander?.querySelector('.cell-situacao')).toBeNull();
     expect(vander?.textContent).toContain('Último:');
     expect(vander?.textContent).toContain('1331');
     expect(el.querySelector('[data-testid="legenda-status-deputados"]')?.textContent).toContain(
-      'Não reeleito = disputou o cargo; Não concorreu = não disputou este cargo',
+      'não reeleito = disputou e não foi eleito',
     );
     expect(el.querySelector('[data-testid="tabela-deputados"]')?.textContent).toContain('958');
   });
