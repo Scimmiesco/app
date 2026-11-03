@@ -1,0 +1,35 @@
+<div class="card-brutalista space-y-4" data-testid="card-deputados-estaduais">
+  <app-cabecalho-secao
+    [secao]="secao()"
+    [mostrarFonte]="false"
+    [mostrarMandato]="true"
+    [kickerTestId]="'deputados-estaduais-kicker'"
+    [tituloTestId]="'deputados-estaduais-titulo'"
+    categoriaPadrao="ELEIÇÃO 2026"
+  />
+
+  <div class="tabela-wrapper">
+    <table class="tabela-brutalista">
+      <thead>
+        <tr>
+          <th scope="col">Candidato</th>
+          <th scope="col" class="col-right">Votos 2026</th>
+          <th scope="col" class="col-right">% Válidos</th>
+          <th scope="col">Situação</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (est of deputadosEstaduais(); track est.nome) {
+          <tr>
+            <td class="cell-nome">
+              <app-cartao-parlamentar [parlamentar]="est" contexto="deputado-estadual" />
+            </td>
+            <td class="cell-votos">{{ formatarNumero(est.votos) }}</td>
+            <td class="cell-pct">{{ formatarPct(est.pct) }}</td>
+            <td class="cell-situacao">{{ est.situacao || 'ELEITO' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

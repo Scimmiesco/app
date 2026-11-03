@@ -1,0 +1,21 @@
+@if (numeroAtual(); as num) {
+  <span
+    class="numero-candidato block text-sm font-bold tabular-nums mt-0.5"
+    [attr.data-partido]="partido()"
+    data-testid="numero-candidato"
+  >
+    <span class="digito-partido" [style.color]="cor(partido())">{{ prefixo(num) }}</span
+    ><span class="digito-resto text-black">{{ resto(num) }}</span>
+  </span>
+} @else if (historico(); as hist) {
+  <span
+    class="numero-candidato numero-historico block text-sm font-bold tabular-nums mt-0.5"
+    [attr.data-partido]="partido()"
+    data-testid="numero-candidato"
+  >
+    <span class="text-xs font-normal text-meta mr-1">Último: </span>
+    <span class="digito-partido" [style.color]="cor(partido())">{{ prefixo(hist.numero) }}</span
+    ><span class="digito-resto text-black">{{ resto(hist.numero) }}</span>
+    <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
+  </span>
+}

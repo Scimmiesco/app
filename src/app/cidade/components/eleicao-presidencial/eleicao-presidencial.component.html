@@ -1,0 +1,162 @@
+@if (secao1t() || secao2t()) {
+  <div class="card-brutalista space-y-4" data-testid="card-eleicao-presidencial">
+    <!-- CABEÇALHO ESTÁVEL E NAVEGAÇÃO DE ABAS INTEGRADA -->
+    <div
+      class="border-b-2 border-black/10 pb-4 space-y-3"
+      data-testid="header-eleicao-presidencial"
+    >
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+        <div>
+          <p class="section-kicker" data-testid="eleicao-presidencial-kicker">ELEIÇÃO 2026</p>
+          <h2 class="heading-2 text-lg" data-testid="titulo-eleicao-presidencial">
+            Presidencial — 1º e 2º turnos
+          </h2>
+          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mt-0.5">
+            <span class="badge badge-sm badge-oficial">oficial</span>
+            <span class="text-meta">
+              @if (abaPresidencial() === '1t' && secao1t(); as s1) {
+                @if (fonte1t(); as f) {
+                  <a [href]="f.url" target="_blank" rel="noopener noreferrer" class="link-fonte">
+                    {{ f.orgao }} · {{ f.titulo }}
+                  </a>
+                } @else {
+                  <span>{{ s1.fonte }}</span>
+                }
+                · {{ s1.ano }}
+              } @else if (abaPresidencial() === '2t' && secao2t(); as s2) {
+                @if (fonte2t(); as f) {
+                  <a [href]="f.url" target="_blank" rel="noopener noreferrer" class="link-fonte">
+                    {{ f.orgao }} · {{ f.titulo }}
+                  </a>
+                } @else {
+                  <span>{{ s2.fonte }}</span>
+                }
+                · {{ s2.ano }}
+              } @else {
+                <span>TSE · Dados Oficiais Consolidados (1º e 2º Turnos) · 2026</span>
+              }
+            </span>
+          </div>
+        </div>
+
+        <!-- NAVEGAÇÃO POR ABAS SEGMENTED CONTROL BRUTALISTA -->
+        <div
+          class="container-default inline-flex items-center gap-1.5 p-1.5 flex-nowrap shrink-0 max-w-full overflow-x-auto"
+          role="tablist"
+          aria-label="Turnos da Eleição Presidencial 2026"
+          data-testid="abas-eleicao-presidencial"
+        >
+          <button
+            type="button"
+            role="tab"
+            id="aba-presidencial-1t"
+            aria-controls="painel-presidencial-1t"
+            [attr.aria-selected]="abaPresidencial() === '1t'"
+            class="px-4 py-1.5 rounded-xs text-xs font-black uppercase tracking-wider cursor-pointer transition-all duration-150 select-none shrink-0 whitespace-nowrap"
+            [class.bg-black]="abaPresidencial() === '1t'"
+            [class.text-white]="abaPresidencial() === '1t'"
+            [class.shadow-default-sm]="abaPresidencial() === '1t'"
+            [class.bg-transparent]="abaPresidencial() !== '1t'"
+            [class.text-black]="abaPresidencial() !== '1t'"
+            [class.hover-bg-amber]="abaPresidencial() !== '1t'"
+            (click)="selecionarAbaPresidencial('1t')"
+            data-testid="aba-1t"
+          >
+            1º Turno
+          </button>
+          <button
+            type="button"
+            role="tab"
+            id="aba-presidencial-2t"
+            aria-controls="painel-presidencial-2t"
+            [attr.aria-selected]="abaPresidencial() === '2t'"
+            class="px-4 py-1.5 rounded-xs text-xs font-black uppercase tracking-wider cursor-pointer transition-all duration-150 select-none shrink-0 whitespace-nowrap"
+            [class.bg-black]="abaPresidencial() === '2t'"
+            [class.text-white]="abaPresidencial() === '2t'"
+            [class.shadow-default-sm]="abaPresidencial() === '2t'"
+            [class.bg-transparent]="abaPresidencial() !== '2t'"
+            [class.text-black]="abaPresidencial() !== '2t'"
+            [class.hover-bg-amber]="abaPresidencial() !== '2t'"
+            (click)="selecionarAbaPresidencial('2t')"
+            data-testid="aba-2t"
+          >
+            2º Turno
+          </button>
+          <button
+            type="button"
+            role="tab"
+            id="aba-presidencial-comparativo"
+            aria-controls="painel-presidencial-comparativo"
+            [attr.aria-selected]="abaPresidencial() === 'comparativo'"
+            class="px-4 py-1.5 rounded-xs text-xs font-black uppercase tracking-wider cursor-pointer transition-all duration-150 select-none shrink-0 whitespace-nowrap"
+            [class.bg-black]="abaPresidencial() === 'comparativo'"
+            [class.text-white]="abaPresidencial() === 'comparativo'"
+            [class.shadow-default-sm]="abaPresidencial() === 'comparativo'"
+            [class.bg-transparent]="abaPresidencial() !== 'comparativo'"
+            [class.text-black]="abaPresidencial() !== 'comparativo'"
+            [class.hover-bg-amber]="abaPresidencial() !== 'comparativo'"
+            (click)="selecionarAbaPresidencial('comparativo')"
+            data-testid="aba-comparativo"
+          >
+            Comparativo
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABA 1: PRIMEIRO TURNO -->
+    @if (abaPresidencial() === '1t') {
+      <div
+        id="painel-presidencial-1t"
+        role="tabpanel"
+        aria-labelledby="aba-presidencial-1t"
+        class="space-y-4 painel-aba-presidencial"
+        data-testid="painel-presidencial-1t"
+      >
+        @if (secao1t()?.dados; as dadosPres1) {
+          <app-presidencial-turno [dados]="dadosPres1" [turno]="1" />
+        } @else {
+          <div class="bloco-pendente">
+            <strong>Dado pendente:</strong> Apuração do 1º turno indisponível no momento.
+          </div>
+        }
+      </div>
+    }
+
+    <!-- ABA 2: SEGUNDO TURNO -->
+    @if (abaPresidencial() === '2t') {
+      <div
+        id="painel-presidencial-2t"
+        role="tabpanel"
+        aria-labelledby="aba-presidencial-2t"
+        class="space-y-4 painel-aba-presidencial"
+        data-testid="painel-presidencial-2t"
+      >
+        @if (secao2t()?.dados; as dadosPres2) {
+          <app-presidencial-turno [dados]="dadosPres2" [turno]="2" />
+        } @else {
+          <div class="bloco-pendente" data-testid="presidencial-2t-pendente">
+            <strong>Dado pendente:</strong>
+            {{
+              secao2t()?.motivo ||
+                'Dados do 2º turno não disponíveis ou em apuração oficial pelo TSE.'
+            }}
+          </div>
+        }
+      </div>
+    }
+
+    <!-- ABA 3: COMPARATIVO 1º VS 2º TURNO (ESTRUTURA COESA E HARMONIOSA) -->
+    @if (abaPresidencial() === 'comparativo') {
+      <div
+        id="painel-presidencial-comparativo"
+        role="tabpanel"
+        aria-labelledby="aba-presidencial-comparativo"
+        class="space-y-4 painel-aba-presidencial"
+        data-testid="painel-presidencial-comparativo"
+      >
+        <app-presidencial-comparativo [secao1t]="secao1t()" [secao2t]="secao2t()" />
+      </div>
+    }
+  </div>
+}

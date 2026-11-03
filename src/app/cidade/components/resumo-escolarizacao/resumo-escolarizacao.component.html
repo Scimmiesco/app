@@ -1,0 +1,20 @@
+<div class="card-brutalista space-y-4" data-testid="card-resumo-escolarizacao">
+  <app-cabecalho-secao
+    [secao]="secao()"
+    [fonte]="fonte()"
+    [curadoComoPendente]="true"
+    [kickerTestId]="'resumo-escolarizacao-kicker'"
+    [tituloTestId]="'resumo-escolarizacao-titulo'"
+  />
+
+  @if (secao().dados; as dadosEsc) {
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div class="metric-card" data-testid="card-metrica-escolarizacao">
+        <span class="metric-label"
+          >Taxa de Escolarização 6 a 14 anos (Censo {{ secao().ano }})</span
+        >
+        <span class="metric-value-lg">{{ formatarPct(dadosEsc.faixa_6_14_pct) }}</span>
+      </div>
+    </div>
+  }
+</div>

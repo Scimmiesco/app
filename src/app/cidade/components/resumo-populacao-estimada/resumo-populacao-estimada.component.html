@@ -1,0 +1,20 @@
+<div class="card-brutalista space-y-4" data-testid="card-resumo-populacao-estimada">
+  <app-cabecalho-secao
+    [secao]="secao()"
+    [fonte]="fonte()"
+    [curadoComoPendente]="true"
+    [kickerTestId]="'resumo-populacao-estimada-kicker'"
+    [tituloTestId]="'resumo-populacao-estimada-titulo'"
+  />
+
+  @if (secao().dados; as dadosPopEst) {
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div class="metric-card" data-testid="card-metrica-populacao-estimada">
+        <span class="metric-label">População Estimada (IBGE {{ secao().ano }})</span>
+        <span class="metric-value-lg"
+          >{{ formatarNumero(dadosPopEst.populacao_estimada) }} hab</span
+        >
+      </div>
+    </div>
+  }
+</div>

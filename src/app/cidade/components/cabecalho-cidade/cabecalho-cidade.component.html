@@ -1,0 +1,129 @@
+<div class="card-brutalista space-y-4" data-testid="container-hero-cidade">
+  <div
+    class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 pb-3 border-b-2 border-black/10"
+  >
+    <div>
+      <div class="flex flex-wrap items-center gap-2 mb-2">
+        @if (secao(); as secaoCab) {
+          @if (secaoCab.status === 'oficial') {
+            <span class="badge badge-oficial" data-testid="badge-status-cabecalho"
+              >Fonte oficial</span
+            >
+          } @else if (secaoCab.status === 'curado') {
+            <span class="badge badge-curado" data-testid="badge-status-cabecalho">Curado</span>
+          } @else {
+            <span class="badge badge-pendente" data-testid="badge-status-cabecalho">Pendente</span>
+          }
+        }
+        <span class="text-xs font-bold" data-testid="rotulo-codigos-ibge-tse">
+          IBGE: {{ municipio().codigo_ibge }} · TSE: {{ municipio().codigo_tse }}
+        </span>
+      </div>
+
+      <h1 id="cidade-heading" class="heading-1 text-2xl sm:text-3xl" data-testid="titulo-cidade">
+        {{ municipio().nome }} / {{ municipio().uf }}
+      </h1>
+      <p class="text-meta mt-1 font-medium" data-testid="subtitulo-cidade">
+        Panorama da cidade e de quem foi eleito
+      </p>
+    </div>
+
+    <!-- Seletor de Cidades com Borda Preta Dinâmica -->
+    <div class="flex items-center gap-2 self-start sm:self-center">
+      <label for="cidade-select" class="sr-only" data-testid="label-seletor-cidade"
+        >Selecionar Município</label
+      >
+      <select
+        id="cidade-select"
+        class="select-default"
+        [value]="codigoIbge() || '5002704'"
+        (change)="aoSelecionarCidade($event)"
+        data-testid="select-cidade"
+      >
+        @for (cid of cidades(); track cid.codigo_ibge) {
+          <option [value]="cid.codigo_ibge" [attr.data-testid]="'opcao-cidade-' + cid.codigo_ibge">
+            {{ cid.nome }} - {{ cid.uf }}
+          </option>
+        }
+      </select>
+    </div>
+  </div>
+
+  <!-- BLOCO CABEÇALHO DA CIDADE INTEGRADO -->
+  @if (secao(); as secaoCab) {
+    <div class="space-y-3" data-testid="card-cabecalho-cidade">
+      <div
+        class="flex flex-wrap items-start justify-between gap-2 text-xs"
+        data-testid="cabecalho-header"
+      >
+        <div>
+          <p class="section-kicker" data-testid="cabecalho-kicker">
+            {{ secaoCab.categoria || 'A CIDADE' }}
+          </p>
+          <h2 class="heading-2 text-base" data-testid="cabecalho-titulo">{{ secaoCab.titulo }}</h2>
+        </div>
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+          @if (secaoCab.status === 'oficial') {
+            <span class="badge badge-sm badge-oficial" data-testid="cabecalho-badge-status"
+              >oficial</span
+            >
+            <span class="text-meta">
+              @if (fonte(); as fonteCab) {
+                <a
+                  [href]="fonteCab.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="link-fonte"
+                  data-testid="cabecalho-link-fonte"
+                >
+                  {{ fonteCab.orgao }} · {{ fonteCab.titulo }}
+                </a>
+              } @else {
+                <span data-testid="cabecalho-nome-fonte">{{ secaoCab.fonte }}</span>
+              }
+              · {{ secaoCab.ano }}
+            </span>
+          } @else if (secaoCab.status === 'curado') {
+            <span class="badge badge-sm badge-curado" data-testid="cabecalho-badge-status"
+              >curado</span
+            >
+            <span class="text-meta">Fonte curada — validação pendente</span>
+          } @else {
+            <span class="badge badge-sm badge-pendente" data-testid="cabecalho-badge-status"
+              >pendente</span
+            >
+          }
+        </div>
+      </div>
+
+      @if (secaoCab.status === 'pendente') {
+        <div class="bloco-pendente" data-testid="cabecalho-alerta-pendente">
+          <strong>Dado pendente:</strong> {{ secaoCab.motivo || 'Em fase de coleta oficial.' }}
+        </div>
+      } @else if (secaoCab.dados; as dadosCab) {
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" data-testid="cabecalho-grid-metricas">
+          <div class="metric-card" data-testid="card-metrica-municipio">
+            <span class="metric-label" data-testid="label-metrica-municipio">Município</span>
+            <span class="metric-value-lg" data-testid="valor-metrica-municipio">{{
+              dadosCab.nome
+            }}</span>
+          </div>
+          <div class="metric-card" data-testid="card-metrica-estado">
+            <span class="metric-label" data-testid="label-metrica-estado">Estado</span>
+            <span class="metric-value-lg" data-testid="valor-metrica-estado">{{
+              dadosCab.uf
+            }}</span>
+          </div>
+          <div class="metric-card" data-testid="card-metrica-populacao">
+            <span class="metric-label" data-testid="label-metrica-populacao"
+              >População Censo 2022</span
+            >
+            <span class="metric-value-lg" data-testid="valor-metrica-populacao"
+              >{{ formatarNumero(dadosCab.populacao) }} hab.</span
+            >
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

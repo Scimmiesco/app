@@ -1,0 +1,234 @@
+@if (comparativo(); as comp) {
+  <!-- MÉTRICAS GERAIS COMPARATIVAS (EXATA MESMA GRADE DE 1T E 2T) -->
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" data-testid="comparativo-metricas-gerais">
+    <div class="metric-card">
+      <span class="metric-label">Eleitores Aptos</span>
+      <span class="metric-value">{{ formatarNumero(comp.t1.eleitores_aptos) }}</span>
+      <span class="text-meta text-xs block mt-1">Mesma base eleitoral</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-label">Comparecimento</span>
+      <div class="flex items-baseline justify-between mt-0.5">
+        <span class="metric-value">{{ formatarPct(comp.t2.comparecimento_pct) }}</span>
+        <span class="font-bold text-xs" [class.text-green-700]="comp.difComparecimento > 0">
+          {{ formatarVariacaoPct(comp.difComparecimento) }}
+        </span>
+      </div>
+      <span class="text-meta text-xs block mt-1"
+        >1T: {{ formatarPct(comp.t1.comparecimento_pct) }}</span
+      >
+    </div>
+    <div class="metric-card">
+      <span class="metric-label">Votos Válidos</span>
+      <div class="flex items-baseline justify-between mt-0.5">
+        <span class="metric-value">{{ formatarNumero(comp.t2.validos) }}</span>
+        <span class="font-bold text-xs" [class.text-green-700]="comp.difValidos > 0">
+          {{ formatarVariacaoVotos(comp.difValidos) }}
+        </span>
+      </div>
+      <span class="text-meta text-xs block mt-1">1T: {{ formatarNumero(comp.t1.validos) }}</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-label">Seções / Locais</span>
+      <span class="metric-value">{{ comp.t1.secoes }} / {{ comp.t1.locais }}</span>
+      <span class="text-meta text-xs block mt-1">Mesma infraestrutura</span>
+    </div>
+  </div>
+
+  <!-- CARDS CANDIDATOS COMPARATIVOS (EXATA MESMA GRADE DE 1T E 2T) -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1" data-testid="comparativo-cards-resumo">
+    <div
+      class="metric-card bg-white card-candidato"
+      data-partido="PL"
+      data-testid="card-comp-flavio"
+    >
+      <div class="flex items-start justify-between gap-2">
+        <div>
+          <span class="metric-label font-black text-black">Flávio Bolsonaro (Variação)</span>
+          <span class="numero-candidato" data-partido="PL">
+            <span class="digito-partido" [style.color]="cor('PL')">22</span>
+          </span>
+        </div>
+        <app-partido-badge sigla="PL" />
+      </div>
+      <div class="flex items-baseline justify-between mt-2">
+        <span class="metric-value">{{ formatarVariacaoVotos(comp.difFlavioVotos) }}</span>
+        <span class="font-black text-base" [class.text-green-700]="comp.difFlavioVotos > 0">{{
+          formatarVariacaoPct(comp.difFlavioPct)
+        }}</span>
+      </div>
+      <span class="text-meta text-xs block mt-1"
+        >1T: {{ formatarPct(comp.t1.pct_flavio) }} → 2T: {{ formatarPct(comp.t2.pct_flavio) }}</span
+      >
+    </div>
+
+    <div class="metric-card bg-white card-candidato" data-partido="PT" data-testid="card-comp-lula">
+      <div class="flex items-start justify-between gap-2">
+        <div>
+          <span class="metric-label font-black text-black">Lula (Variação)</span>
+          <span class="numero-candidato" data-partido="PT">
+            <span class="digito-partido" [style.color]="cor('PT')">13</span>
+          </span>
+        </div>
+        <app-partido-badge sigla="PT" />
+      </div>
+      <div class="flex items-baseline justify-between mt-2">
+        <span class="metric-value">{{ formatarVariacaoVotos(comp.difLulaVotos) }}</span>
+        <span class="font-black text-base" [class.text-green-700]="comp.difLulaVotos > 0">{{
+          formatarVariacaoPct(comp.difLulaPct)
+        }}</span>
+      </div>
+      <span class="text-meta text-xs block mt-1"
+        >1T: {{ formatarPct(comp.t1.pct_lula) }} → 2T: {{ formatarPct(comp.t2.pct_lula) }}</span
+      >
+    </div>
+
+    <div
+      class="metric-card bg-white card-candidato"
+      data-partido="OUTROS"
+      data-testid="card-comp-comparecimento"
+    >
+      <div class="flex items-start justify-between gap-2">
+        <div>
+          <span class="metric-label font-black text-black">Migração de Terceiros</span>
+          <span class="text-xs text-meta block mt-0.5 font-bold">1º → 2º turno</span>
+        </div>
+        <span
+          class="badge badge-xs bg-slate-200 text-slate-800 border-2 border-black font-bold uppercase"
+          >Outros</span
+        >
+      </div>
+      <div class="flex items-baseline justify-between mt-2">
+        <span class="metric-value">{{ formatarVariacaoVotos(comp.difOutrosVotos) }}</span>
+        <span class="font-bold text-sm text-meta">{{
+          formatarVariacaoPct(comp.difOutrosPct)
+        }}</span>
+      </div>
+      <span class="text-meta text-xs block mt-1"
+        >1T: {{ formatarNumero(comp.t1.outros) }} votos redistribuídos</span
+      >
+    </div>
+  </div>
+
+  <!-- TABELA COMPARATIVA -->
+  <div class="tabela-wrapper" data-testid="tabela-comparativa-presidencial">
+    <table class="tabela-brutalista">
+      <thead>
+        <tr>
+          <th scope="col">Candidato / Métrica</th>
+          <th scope="col" class="col-right">1º Turno (Votos)</th>
+          <th scope="col" class="col-right">1º Turno (%)</th>
+          <th scope="col" class="col-right">2º Turno (Votos)</th>
+          <th scope="col" class="col-right">2º Turno (%)</th>
+          <th scope="col" class="col-right hidden sm:table-cell">Variação Votos</th>
+          <th scope="col" class="col-right">Variação (p.p.)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tr-candidato" data-partido="PL">
+          <td class="cell-nome">
+            <div class="flex items-center justify-between gap-2">
+              <div class="min-w-0">
+                <span class="nome-candidato font-bold block" title="Flávio Bolsonaro"
+                  >Flávio Bolsonaro</span
+                >
+                <span class="numero-candidato" data-partido="PL">
+                  <span class="digito-partido" [style.color]="cor('PL')">22</span>
+                </span>
+              </div>
+              <app-partido-badge sigla="PL" />
+            </div>
+          </td>
+          <td class="cell-votos">{{ formatarNumero(comp.t1.flavio) }}</td>
+          <td class="cell-pct">{{ formatarPct(comp.t1.pct_flavio) }}</td>
+          <td class="cell-votos">{{ formatarNumero(comp.t2.flavio) }}</td>
+          <td class="cell-pct font-bold" [style.color]="cor('PL')">
+            {{ formatarPct(comp.t2.pct_flavio) }}
+          </td>
+          <td
+            class="cell-votos font-bold hidden sm:table-cell"
+            [class.text-green-700]="comp.difFlavioVotos > 0"
+          >
+            {{ formatarVariacaoVotos(comp.difFlavioVotos) }}
+          </td>
+          <td class="cell-pct font-bold" [class.text-green-700]="comp.difFlavioPct > 0">
+            {{ formatarVariacaoPct(comp.difFlavioPct) }}
+          </td>
+        </tr>
+        <tr class="tr-candidato" data-partido="PT">
+          <td class="cell-nome">
+            <div class="flex items-center justify-between gap-2">
+              <div class="min-w-0">
+                <span class="nome-candidato font-bold block" title="Lula">Lula</span>
+                <span class="numero-candidato" data-partido="PT">
+                  <span class="digito-partido" [style.color]="cor('PT')">13</span>
+                </span>
+              </div>
+              <app-partido-badge sigla="PT" />
+            </div>
+          </td>
+          <td class="cell-votos">{{ formatarNumero(comp.t1.lula) }}</td>
+          <td class="cell-pct">{{ formatarPct(comp.t1.pct_lula) }}</td>
+          <td class="cell-votos">{{ formatarNumero(comp.t2.lula) }}</td>
+          <td class="cell-pct font-bold" [style.color]="cor('PT')">
+            {{ formatarPct(comp.t2.pct_lula) }}
+          </td>
+          <td
+            class="cell-votos font-bold hidden sm:table-cell"
+            [class.text-green-700]="comp.difLulaVotos > 0"
+          >
+            {{ formatarVariacaoVotos(comp.difLulaVotos) }}
+          </td>
+          <td class="cell-pct font-bold" [class.text-green-700]="comp.difLulaPct > 0">
+            {{ formatarVariacaoPct(comp.difLulaPct) }}
+          </td>
+        </tr>
+        <tr class="tr-candidato" data-partido="OUTROS">
+          <td class="cell-nome">
+            <div class="flex items-center justify-between gap-2">
+              <div class="min-w-0">
+                <span class="nome-candidato font-bold block" title="Outros Candidatos"
+                  >Outros Candidatos</span
+                >
+              </div>
+              <span
+                class="badge badge-xs bg-slate-200 text-slate-800 border-2 border-black font-bold uppercase"
+                >Outros</span
+              >
+            </div>
+          </td>
+          <td class="cell-votos">{{ formatarNumero(comp.t1.outros) }}</td>
+          <td class="cell-pct">
+            {{ formatarPct(100 - (comp.t1.pct_lula + comp.t1.pct_flavio)) }}
+          </td>
+          <td class="cell-votos">{{ formatarNumero(comp.t2.outros) }}</td>
+          <td class="cell-pct">0,00%</td>
+          <td class="cell-votos hidden sm:table-cell">
+            {{ formatarVariacaoVotos(comp.difOutrosVotos) }}
+          </td>
+          <td class="cell-pct">{{ formatarVariacaoPct(comp.difOutrosPct) }}</td>
+        </tr>
+        <tr class="bg-slate-50 font-bold border-t-2 border-black">
+          <td class="cell-nome">
+            <span class="nome-candidato block" title="Total Votos Válidos"
+              >Total Votos Válidos</span
+            >
+          </td>
+          <td class="cell-votos">{{ formatarNumero(comp.t1.validos) }}</td>
+          <td class="cell-pct">100,00%</td>
+          <td class="cell-votos">{{ formatarNumero(comp.t2.validos) }}</td>
+          <td class="cell-pct">100,00%</td>
+          <td class="cell-votos hidden sm:table-cell">
+            {{ formatarVariacaoVotos(comp.difValidos) }}
+          </td>
+          <td class="cell-pct">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+} @else {
+  <div class="bloco-pendente" data-testid="comparativo-pendente">
+    <strong>Comparativo pendente:</strong> Necessário que ambos os turnos estejam apurados para
+    gerar o comparativo oficial.
+  </div>
+}

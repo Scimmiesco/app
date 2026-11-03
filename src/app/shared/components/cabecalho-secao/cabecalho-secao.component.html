@@ -1,0 +1,55 @@
+<div class="card-header">
+  <div>
+    <p class="section-kicker" [attr.data-testid]="kickerTestId()">
+      {{ secao().categoria || categoriaPadrao() }}
+    </p>
+    <h2 class="heading-2 text-lg" [attr.data-testid]="tituloTestId()">{{ secao().titulo }}</h2>
+  </div>
+  <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+    @if (mostrarFonte()) {
+      @if (secao().status === 'oficial') {
+        <span class="badge badge-sm badge-oficial" [attr.data-testid]="badgeTestId()">oficial</span>
+        <span class="text-meta">
+          @if (fonte(); as fonteMeta) {
+            <a
+              [href]="fonteMeta.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-fonte"
+              [attr.data-testid]="linkTestId()"
+            >
+              {{ fonteMeta.orgao }} · {{ fonteMeta.titulo }}
+            </a>
+          } @else {
+            <span>{{ secao().fonte }}</span>
+          }
+          · {{ secao().ano }}
+        </span>
+      } @else if (secao().status === 'curado' && !curadoComoPendente()) {
+        <span class="badge badge-sm badge-curado" [attr.data-testid]="badgeTestId()">curado</span>
+        @if (textoCurado()) {
+          <span class="text-meta">Fonte curada — validação pendente</span>
+        }
+      } @else {
+        <span class="badge badge-sm badge-pendente" [attr.data-testid]="badgeTestId()"
+          >pendente</span
+        >
+      }
+    } @else {
+      @if (secao().status === 'oficial') {
+        <span class="badge badge-sm badge-oficial" [attr.data-testid]="badgeTestId()">oficial</span>
+      } @else if (secao().status === 'curado') {
+        <span class="badge badge-sm badge-curado" [attr.data-testid]="badgeTestId()">curado</span>
+      } @else {
+        <span class="badge badge-sm badge-pendente" [attr.data-testid]="badgeTestId()"
+          >pendente</span
+        >
+      }
+    }
+    @if (mostrarMandato() && secao().mandato) {
+      <span class="badge badge-sm badge-mandato" [attr.data-testid]="mandatoTestId()"
+        >Mandato: {{ secao().mandato }}</span
+      >
+    }
+  </div>
+</div>

@@ -1,0 +1,97 @@
+import { TestBed } from '@angular/core/testing';
+import {
+  CabecalhoDados,
+  FonteMeta,
+  MunicipioMeta,
+  SecaoEnvelope,
+} from '../../../core/models/contrato.model';
+import { CabecalhoCidadeComponent } from './cabecalho-cidade.component';
+
+const municipio: MunicipioMeta = {
+  codigo_ibge: 5002704,
+  codigo_tse: '90514',
+  nome: 'Campo Grande',
+  uf: 'MS',
+};
+
+const fonte: FonteMeta = {
+  orgao: 'IBGE',
+  titulo: 'Censo 2022',
+  url: 'https://sidra.ibge.gov.br/',
+  consultado_em: '2026-10-26',
+  confianca: 'oficial',
+};
+
+const secao: SecaoEnvelope<CabecalhoDados> = {
+  titulo: 'Panorama geral',
+  categoria: 'A CIDADE',
+  status: 'oficial',
+  fonte: 'ibge_censo_2022',
+  ano: 2022,
+  coletado_em: '2026-10-29T16:17:22-0400',
+  motivo: null,
+  dados: { nome: 'Campo Grande', uf: 'MS', populacao: 898100 },
+};
+
+function render(): HTMLElement {
+  const fixture = TestBed.createComponent(CabecalhoCidadeComponent);
+  fixture.componentRef.setInput('municipio', municipio);
+  fixture.componentRef.setInput('secao', secao);
+  fixture.componentRef.setInput('fonte', fonte);
+  fixture.componentRef.setInput('codigoIbge', '5002704');
+  fixture.componentRef.setInput('cidades', [
+    {
+      codigo_ibge: 5002704,
+      codigo_tse: '90514',
+      nome: 'Campo Grande',
+      uf: 'MS',
+      arquivo: 'municipios/5002704.json',
+      disponivel: true,
+    },
+  ]);
+  fixture.detectChanges();
+  return fixture.nativeElement as HTMLElement;
+}
+
+describe('CabecalhoCidadeComponent', () => {
+  it('should render city title, codes and population', () => {
+    const el = render();
+    expect(el.querySelector('h1')?.textContent).toContain('Campo Grande / MS');
+    expect(el.querySelector('[data-testid="rotulo-codigos-ibge-tse"]')?.textContent).toContain(
+      '5002704',
+    );
+    expect(el.querySelector('[data-testid="valor-metrica-populacao"]')?.textContent).toContain(
+      '898.100',
+    );
+    expect(el.querySelector('[data-testid="cabecalho-link-fonte"]')?.getAttribute('href')).toBe(
+      fonte.url,
+    );
+  });
+
+  it('should emit the selected city code', () => {
+    const fixture = TestBed.createComponent(CabecalhoCidadeComponent);
+    fixture.componentRef.setInput('municipio', municipio);
+    fixture.componentRef.setInput('secao', secao);
+    fixture.componentRef.setInput('cidades', [
+      {
+        codigo_ibge: 5002704,
+        codigo_tse: '90514',
+        nome: 'Campo Grande',
+        uf: 'MS',
+        arquivo: 'municipios/5002704.json',
+        disponivel: true,
+      },
+    ]);
+    const emitidos: string[] = [];
+    fixture.componentInstance.cidadeSelecionada.subscribe((codigo) => emitidos.push(codigo));
+    fixture.detectChanges();
+
+    const select = fixture.nativeElement.querySelector(
+      '[data-testid="select-cidade"]',
+    ) as HTMLSelectElement;
+    select.value = '5002704';
+    select.dispatchEvent(new Event('change'));
+
+    expect(emitidos).toEqual(['5002704']);
+  });
+});

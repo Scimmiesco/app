@@ -1,0 +1,123 @@
+<div class="card-brutalista space-y-4" data-testid="card-governador">
+  <div class="card-header-grouped" data-testid="governador-header">
+    <div class="flex flex-wrap items-start justify-between gap-2">
+      <div>
+        <p class="section-kicker" data-testid="governador-kicker">
+          {{ secao().categoria || 'ELEIÇÃO 2026' }}
+        </p>
+        <h2 class="heading-2 text-lg" data-testid="governador-titulo">{{ secao().titulo }}</h2>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+        @if (secao().status === 'oficial') {
+          <span class="badge badge-sm badge-oficial" data-testid="governador-badge-status"
+            >oficial</span
+          >
+          <span class="text-meta">
+            @if (fonte(); as fonteMeta) {
+              <a
+                [href]="fonteMeta.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link-fonte"
+                data-testid="governador-link-fonte"
+              >
+                {{ fonteMeta.orgao }} · {{ fonteMeta.titulo }}
+              </a>
+            } @else {
+              <span>{{ secao().fonte }}</span>
+            }
+            · {{ secao().ano }}
+          </span>
+        } @else if (secao().status === 'curado') {
+          <span class="badge badge-sm badge-curado" data-testid="governador-badge-status"
+            >curado</span
+          >
+        } @else {
+          <span class="badge badge-sm badge-pendente" data-testid="governador-badge-status"
+            >pendente</span
+          >
+        }
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+      @if (secao().mandato) {
+        <span class="badge badge-sm badge-mandato" data-testid="governador-badge-mandato">
+          Mandato: {{ secao().mandato }}
+        </span>
+      }
+      @if (secao().pct_base) {
+        <span class="text-meta" data-testid="governador-base-percentual">
+          Base do %:
+          <strong class="text-contrast">{{
+            secao().pct_base === 'votos_nominais_do_cargo' ? 'Nominais do cargo' : secao().pct_base
+          }}</strong>
+        </span>
+      }
+    </div>
+  </div>
+
+  @if (governador().length > 0) {
+    <div class="tabela-wrapper" data-testid="wrapper-tabela-governador">
+      <table class="tabela-brutalista" data-testid="tabela-governador">
+        <thead>
+          <tr>
+            <th scope="col">Candidato</th>
+            <th scope="col" class="col-center hidden sm:table-cell">Em Exercício</th>
+            <th scope="col" class="col-right">Votos 2026</th>
+            <th scope="col" class="col-right">
+              @if (secao().pct_base === 'votos_nominais_do_cargo') {
+                % Nominais do cargo
+              } @else if (secao().pct_base) {
+                % {{ secao().pct_base }}
+              } @else {
+                % Votos
+              }
+            </th>
+            <th scope="col" class="col-center hidden sm:table-cell">Fim do Mandato</th>
+            <th scope="col">Situação TSE</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (gov of governador(); track gov.nome) {
+            <tr [class.em-exercicio]="gov.em_exercicio">
+              <td class="cell-nome">
+                <app-cartao-parlamentar
+                  [parlamentar]="gov"
+                  contexto="governador"
+                  tagTestId="governador-status-eleicao"
+                />
+              </td>
+              <td class="cell-center hidden sm:table-cell">
+                @if (gov.em_exercicio) {
+                  <span
+                    class="badge badge-xs badge-exercicio-sim"
+                    data-testid="governador-exercicio-sim"
+                    >SIM</span
+                  >
+                } @else {
+                  <span
+                    class="badge badge-xs badge-exercicio-nao"
+                    data-testid="governador-exercicio-nao"
+                    >NÃO</span
+                  >
+                }
+              </td>
+              <td class="cell-votos">{{ formatarNumero(gov.votos) }}</td>
+              <td class="cell-pct">{{ formatarPct(gov.pct) }}</td>
+              <td class="cell-mandato-fim hidden sm:table-cell">
+                {{ formatarDataIso(gov.mandato_fim) }}
+              </td>
+              <td class="cell-situacao">{{ gov.situacao || '—' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    @if (secao().nota) {
+      <p class="text-xs text-meta mt-2" data-testid="governador-nota">
+        <strong>Nota:</strong> {{ secao().nota }}
+      </p>
+    }
+  }
+</div>

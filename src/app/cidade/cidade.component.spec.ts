@@ -4,10 +4,38 @@ import { of } from 'rxjs';
 import { CidadeComponent } from './cidade.component';
 import { DataService } from '../core/services/data.service';
 import { IndiceCidades, MunicipioSnapshot, ParlamentarItem } from '../core/models/contrato.model';
+import { By } from '@angular/platform-browser';
+import { calcularComparativoPresidencial } from '../core/utils/comparativo-presidencial';
+import {
+  formatarMoeda,
+  formatarStatus,
+  formatarVariacaoPct,
+  formatarVariacaoVotos,
+  getNumero,
+  getNumeroHistorico,
+} from '../core/utils/formatadores';
+import { DeputadosFederaisComponent } from './components/deputados-federais/deputados-federais.component';
+import { EleicaoPresidencialComponent } from './components/eleicao-presidencial/eleicao-presidencial.component';
+import { ResumoIbgeComponent } from './components/resumo-ibge/resumo-ibge.component';
 
 describe('CidadeComponent', () => {
   let component: CidadeComponent;
   let fixture: ComponentFixture<CidadeComponent>;
+
+  function obterResumoIbge(): ResumoIbgeComponent {
+    return fixture.debugElement.query(By.directive(ResumoIbgeComponent))
+      .componentInstance as ResumoIbgeComponent;
+  }
+
+  function obterEleicao(): EleicaoPresidencialComponent {
+    return fixture.debugElement.query(By.directive(EleicaoPresidencialComponent))
+      .componentInstance as EleicaoPresidencialComponent;
+  }
+
+  function obterDeputadosFederais(): DeputadosFederaisComponent {
+    return fixture.debugElement.query(By.directive(DeputadosFederaisComponent))
+      .componentInstance as DeputadosFederaisComponent;
+  }
 
   const mockSnapshot: MunicipioSnapshot = {
     schema_version: '0.8.0',
@@ -553,11 +581,11 @@ describe('CidadeComponent', () => {
       '[data-testid="botao-toggle-mapa"]',
     ) as HTMLButtonElement | null;
     expect(botaoToggle).toBeTruthy();
-    expect(component.mostrarMapa()).toBe(false);
+    expect(obterResumoIbge().mostrarMapa()).toBe(false);
 
     botaoToggle?.click();
     fixture.detectChanges();
-    expect(component.mostrarMapa()).toBe(true);
+    expect(obterResumoIbge().mostrarMapa()).toBe(true);
     expect(botaoToggle?.textContent).toContain('Ocultar Mapa');
 
     const painelMapa = compiled.querySelector('[data-testid="card-mapa-oficial"]');
@@ -565,7 +593,7 @@ describe('CidadeComponent', () => {
 
     botaoToggle?.click();
     fixture.detectChanges();
-    expect(component.mostrarMapa()).toBe(false);
+    expect(obterResumoIbge().mostrarMapa()).toBe(false);
     expect(painelMapa?.classList.contains('painel-aberto')).toBe(false);
   });
 
@@ -594,48 +622,51 @@ describe('CidadeComponent', () => {
     expect(abaComp?.classList.contains('whitespace-nowrap')).toBe(true);
 
     // 1º Turno padrão
-    expect(component.abaPresidencial()).toBe('1t');
+    expect(obterEleicao().abaPresidencial()).toBe('1t');
     expect(compiled.querySelector('[data-testid="painel-presidencial-1t"]')).toBeTruthy();
     expect(compiled.querySelector('[data-testid="card-presidencial-1t-lula"]')).toBeTruthy();
 
     // Alternar para 2º Turno
     aba2t?.click();
     fixture.detectChanges();
-    expect(component.abaPresidencial()).toBe('2t');
+    expect(obterEleicao().abaPresidencial()).toBe('2t');
     expect(compiled.querySelector('[data-testid="painel-presidencial-2t"]')).toBeTruthy();
     expect(compiled.querySelector('[data-testid="card-presidencial-2t-flavio"]')).toBeTruthy();
 
     // Alternar para Comparativo
     abaComp?.click();
     fixture.detectChanges();
-    expect(component.abaPresidencial()).toBe('comparativo');
+    expect(obterEleicao().abaPresidencial()).toBe('comparativo');
     expect(compiled.querySelector('[data-testid="painel-presidencial-comparativo"]')).toBeTruthy();
     expect(compiled.querySelector('[data-testid="tabela-comparativa-presidencial"]')).toBeTruthy();
   });
 
   it('should correctly calculate and format comparative presidential data according to official TSE BU results', () => {
-    const comp = component.comparativoPresidencial();
+    const comp = calcularComparativoPresidencial(
+      mockSnapshot.secoes.eleicao_2026_1t,
+      mockSnapshot.secoes.eleicao_2026_2t,
+    );
     expect(comp).toBeTruthy();
     // 312867 - 289672 = 23195
     expect(comp?.difFlavioVotos).toBe(23195);
-    expect(component.formatarVariacaoVotos(comp?.difFlavioVotos)).toBe('+23.195');
+    expect(formatarVariacaoVotos(comp?.difFlavioVotos)).toBe('+23.195');
     // 199121 - 159856 = 39265
     expect(comp?.difLulaVotos).toBe(39265);
-    expect(component.formatarVariacaoVotos(comp?.difLulaVotos)).toBe('+39.265');
+    expect(formatarVariacaoVotos(comp?.difLulaVotos)).toBe('+39.265');
     // 38.89 - 32.38 = 6.51
     expect(comp?.difLulaPct).toBeCloseTo(6.51, 2);
-    expect(component.formatarVariacaoPct(comp?.difLulaPct)).toContain('+6,51');
+    expect(formatarVariacaoPct(comp?.difLulaPct)).toContain('+6,51');
     // 61.11 - 58.67 = 2.44
     expect(comp?.difFlavioPct).toBeCloseTo(2.44, 2);
-    expect(component.formatarVariacaoPct(comp?.difFlavioPct)).toContain('+2,44');
+    expect(formatarVariacaoPct(comp?.difFlavioPct)).toContain('+2,44');
     // Comparecimento percentual: 82.31 - 79.98 = +2.33 p.p. (crescimento no 2T, refutando hipótese de queda)
     expect(comp?.difComparecimento).toBeCloseTo(2.33, 2);
     expect(comp?.difComparecimento).toBeGreaterThan(0);
-    expect(component.formatarVariacaoPct(comp?.difComparecimento)).toContain('+2,33');
+    expect(formatarVariacaoPct(comp?.difComparecimento)).toContain('+2,33');
     // Comparecimento absoluto: 527124 - 512243 = +14881 eleitores (+14.887 no texto do DSH foi lapso aritmético sobre 527.124 e 512.243)
     expect(comp?.difComparecimentoAbs).toBe(14881);
     expect(comp?.difComparecimentoAbs).toBeGreaterThan(0);
-    expect(component.formatarVariacaoVotos(comp?.difComparecimentoAbs)).toBe('+14.881');
+    expect(formatarVariacaoVotos(comp?.difComparecimentoAbs)).toBe('+14.881');
 
     // Validação de consistência matemática
     const aptos = comp?.t1.eleitores_aptos ?? 0;
@@ -649,7 +680,7 @@ describe('CidadeComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
     // 1º Turno
-    component.selecionarAbaPresidencial('1t');
+    obterEleicao().selecionarAbaPresidencial('1t');
     fixture.detectChanges();
 
     const cardFlavio1t = compiled.querySelector('[data-testid="card-presidencial-1t-flavio"]');
@@ -667,7 +698,7 @@ describe('CidadeComponent', () => {
     expect(cardLula1t?.querySelector('.barra-votos-preenchimento')).toBeTruthy();
 
     // 2º Turno
-    component.selecionarAbaPresidencial('2t');
+    obterEleicao().selecionarAbaPresidencial('2t');
     fixture.detectChanges();
 
     const cardFlavio2t = compiled.querySelector('[data-testid="card-presidencial-2t-flavio"]');
@@ -683,7 +714,7 @@ describe('CidadeComponent', () => {
     expect(cardLula2t?.querySelector('.digito-partido')?.textContent).toContain('13');
 
     // Comparativo
-    component.selecionarAbaPresidencial('comparativo');
+    obterEleicao().selecionarAbaPresidencial('comparativo');
     fixture.detectChanges();
 
     const cardFlavioComp = compiled.querySelector('[data-testid="card-comp-flavio"]');
@@ -767,7 +798,7 @@ describe('CidadeComponent', () => {
   });
 
   it('should order deputados with em_exercicio=true first', () => {
-    const ordenados = component.deputadosFederais();
+    const ordenados = obterDeputadosFederais().deputadosFederais();
     expect(ordenados.length).toBe(3);
     expect(ordenados[0].em_exercicio).toBe(true);
     expect(ordenados[1].em_exercicio).toBe(true);
@@ -876,7 +907,7 @@ describe('CidadeComponent', () => {
 
   it('should return historical candidate number info via getNumeroHistorico (US-14)', () => {
     // Official cases from DSH / TSE (consulta_cand)
-    const nelsinho = component.getNumeroHistorico({
+    const nelsinho = getNumeroHistorico({
       nome: 'Nelsinho Trad',
       numero: null,
       numero_historico: {
@@ -893,7 +924,7 @@ describe('CidadeComponent', () => {
       fonte: 'tse_candidatos_2018',
     });
 
-    const tereza = component.getNumeroHistorico({
+    const tereza = getNumeroHistorico({
       nome: 'Tereza Cristina',
       numero: null,
       numero_historico: {
@@ -910,7 +941,7 @@ describe('CidadeComponent', () => {
       fonte: 'tse_candidatos_2022',
     });
 
-    const vander = component.getNumeroHistorico({
+    const vander = getNumeroHistorico({
       nome: 'Vander Loubet',
       numero: null,
       numero_historico: {
@@ -928,7 +959,7 @@ describe('CidadeComponent', () => {
     });
 
     // Soraya disputou 2026: possui número atual 400 e numero_historico nulo (P1-28)
-    const soraya2026 = component.getNumeroHistorico({
+    const soraya2026 = getNumeroHistorico({
       nome: 'Soraya Thronicke',
       numero: '400',
       numero_historico: null,
@@ -936,7 +967,7 @@ describe('CidadeComponent', () => {
     expect(soraya2026).toBeNull();
 
     // Candidate without historical number
-    const semHistorico = component.getNumeroHistorico({
+    const semHistorico = getNumeroHistorico({
       nome: 'FULANO',
       numero: null,
       numero_historico: null,
@@ -947,7 +978,7 @@ describe('CidadeComponent', () => {
   it('should strictly return cand.numero without fallback dictionary (US-13)', () => {
     // Oficial numbers from TSE / DSH 0.7.0
     expect(
-      component.getNumero({
+      getNumero({
         nome: 'LIDIO LOPES',
         nome_urna: 'LIDIO LOPES',
         partido: 'AVANTE',
@@ -955,7 +986,7 @@ describe('CidadeComponent', () => {
       } as unknown as ParlamentarItem),
     ).toBe('70777');
     expect(
-      component.getNumero({
+      getNumero({
         nome: 'CAMILA JARA',
         nome_urna: 'CAMILA JARA',
         partido: 'PT',
@@ -963,7 +994,7 @@ describe('CidadeComponent', () => {
       } as unknown as ParlamentarItem),
     ).toBe('1367');
     expect(
-      component.getNumero({
+      getNumero({
         nome: 'CAPITÃO CONTAR',
         nome_urna: 'CAPITÃO CONTAR',
         partido: 'PRTB',
@@ -971,7 +1002,7 @@ describe('CidadeComponent', () => {
       } as unknown as ParlamentarItem),
     ).toBe('221');
     expect(
-      component.getNumero({
+      getNumero({
         nome: 'MARA CASEIRO',
         nome_urna: 'MARA CASEIRO',
         partido: 'PSDB',
@@ -979,7 +1010,7 @@ describe('CidadeComponent', () => {
       } as unknown as ParlamentarItem),
     ).toBe('2200');
     expect(
-      component.getNumero({
+      getNumero({
         nome: 'ADRIANE LOPES',
         nome_urna: 'ADRIANE LOPES',
         partido: 'PP',
@@ -989,7 +1020,7 @@ describe('CidadeComponent', () => {
 
     // Candidata ao Senado 2026 com número oficial (P1-28)
     expect(
-      component.getNumero({
+      getNumero({
         nome: 'SORAYA THRONICKE',
         nome_urna: 'SORAYA',
         partido: 'PSB',
@@ -999,7 +1030,7 @@ describe('CidadeComponent', () => {
 
     // Senadores sem candidatura 2026 (numero null)
     expect(
-      component.getNumero({
+      getNumero({
         nome: 'TEREZA CRISTINA',
         nome_urna: 'TEREZA CRISTINA',
         partido: 'PP',
@@ -1007,7 +1038,7 @@ describe('CidadeComponent', () => {
       } as unknown as ParlamentarItem),
     ).toBeNull();
     expect(
-      component.getNumero({
+      getNumero({
         nome: 'NELSINHO TRAD',
         nome_urna: 'NELSINHO TRAD',
         partido: 'PSD',
@@ -1017,7 +1048,7 @@ describe('CidadeComponent', () => {
 
     // No fallback to party prefix if numero is missing/null
     expect(
-      component.getNumero({
+      getNumero({
         nome: 'FULANO SEM NUMERO',
         nome_urna: 'FULANO',
         partido: 'PT',
@@ -1027,26 +1058,26 @@ describe('CidadeComponent', () => {
   });
 
   it('should format status values removing raw underscores (P2-06)', () => {
-    expect(component.formatarStatus('em_exercicio')).toBe('em exercício');
-    expect(component.formatarStatus('nao_reeleito')).toBe('não reeleito');
-    expect(component.formatarStatus('nao_concorreu_ao_cargo')).toBe('não concorreu ao cargo');
-    expect(component.formatarStatus('reeleito')).toBe('reeleito');
-    expect(component.formatarStatus('eleito')).toBe('eleito');
-    expect(component.formatarStatus(null)).toBe('—');
+    expect(formatarStatus('em_exercicio')).toBe('em exercício');
+    expect(formatarStatus('nao_reeleito')).toBe('não reeleito');
+    expect(formatarStatus('nao_concorreu_ao_cargo')).toBe('não concorreu ao cargo');
+    expect(formatarStatus('reeleito')).toBe('reeleito');
+    expect(formatarStatus('eleito')).toBe('eleito');
+    expect(formatarStatus(null)).toBe('—');
   });
 
   it('should format currency using non-breaking space and prevent wrapping in monetary metrics', () => {
-    expect(component.formatarMoeda(null)).toBe('—');
-    expect(component.formatarMoeda(undefined)).toBe('—');
+    expect(formatarMoeda(null)).toBe('—');
+    expect(formatarMoeda(undefined)).toBe('—');
 
-    const moeda = component.formatarMoeda(2450.5);
+    const moeda = formatarMoeda(2450.5);
     expect(moeda).toContain('R$');
     expect(moeda).toContain('2.450,50');
     // Não pode conter espaço comum entre R$ e o valor numérico
     expect(moeda.includes(' ')).toBe(false);
     expect(moeda.includes('\u00A0')).toBe(true);
 
-    const moedaGrande = component.formatarMoeda(5484604047.75);
+    const moedaGrande = formatarMoeda(5484604047.75);
     expect(moedaGrande).toContain('R$');
     expect(moedaGrande).toContain('5.484.604.047,75');
     expect(moedaGrande.includes(' ')).toBe(false);

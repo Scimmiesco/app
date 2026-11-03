@@ -1,0 +1,109 @@
+<div class="card-brutalista space-y-4" data-testid="card-deputados-federais">
+  <div class="card-header-grouped" data-testid="deputados-header">
+    <div class="flex flex-wrap items-start justify-between gap-2">
+      <div>
+        <p class="section-kicker" data-testid="deputados-federais-kicker">
+          {{ secao().categoria || 'ELEIÇÃO 2026' }}
+        </p>
+        <h2 class="heading-2 text-lg" data-testid="deputados-titulo">{{ secao().titulo }}</h2>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+        @if (secao().status === 'oficial') {
+          <span class="badge badge-sm badge-oficial" data-testid="deputados-badge-status"
+            >oficial</span
+          >
+          <span class="text-meta">
+            @if (fonte(); as fonteMeta) {
+              <a
+                [href]="fonteMeta.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link-fonte"
+              >
+                {{ fonteMeta.orgao }} · {{ fonteMeta.titulo }}
+              </a>
+            } @else {
+              <span>{{ secao().fonte }}</span>
+            }
+            · {{ secao().ano }}
+          </span>
+        } @else {
+          <span class="badge badge-sm badge-pendente">pendente</span>
+        }
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+      @if (secao().mandato) {
+        <span class="badge badge-sm badge-mandato" data-testid="deputados-badge-mandato">
+          Mandato: {{ secao().mandato }}
+        </span>
+      }
+      @if (secao().pct_base) {
+        <span class="text-meta" data-testid="deputados-base-percentual">
+          Base do %: <strong class="text-contrast">{{ secao().pct_base }}</strong>
+        </span>
+      }
+    </div>
+  </div>
+
+  @if (secao().status === 'pendente') {
+    <div class="bloco-pendente">
+      <strong>Dado pendente:</strong> {{ secao().motivo || 'Em fase de apuração oficial.' }}
+    </div>
+  } @else {
+    <div class="tabela-wrapper" data-testid="wrapper-tabela-deputados">
+      <table class="tabela-brutalista" data-testid="tabela-deputados">
+        <thead>
+          <tr>
+            <th scope="col">Candidato</th>
+            <th scope="col" class="col-right">Votos 2026</th>
+            <th scope="col" class="col-right">% Nominais</th>
+            <th scope="col" class="col-center hidden sm:table-cell">Em Exercício</th>
+            <th scope="col" class="col-center hidden sm:table-cell">Fim do Mandato</th>
+            <th scope="col">Situação</th>
+            <th scope="col" class="col-right hidden md:table-cell">Votos Mandato (Câmara)</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (dep of deputadosFederais(); track dep.nome) {
+            <tr [class.em-exercicio]="dep.em_exercicio" [attr.data-testid]="testIdLinha(dep)">
+              <td class="cell-nome">
+                <app-cartao-parlamentar [parlamentar]="dep" contexto="deputado-federal" />
+              </td>
+              <td class="cell-votos">{{ formatarNumero(dep.votos) }}</td>
+              <td class="cell-pct">{{ formatarPct(dep.pct) }}</td>
+              <td class="cell-center hidden sm:table-cell">
+                @if (dep.em_exercicio) {
+                  <span class="badge badge-xs badge-exercicio-sim">SIM</span>
+                } @else {
+                  <span class="badge badge-xs badge-exercicio-nao">NÃO</span>
+                }
+              </td>
+              <td class="cell-mandato-fim hidden sm:table-cell">
+                {{ formatarDataIso(dep.mandato_fim) }}
+              </td>
+              <td class="cell-situacao">{{ dep.situacao || '—' }}</td>
+              <td class="cell-votos-mandato hidden md:table-cell">
+                @if (
+                  dep.votos_nominais_mandato_atual !== null &&
+                  dep.votos_nominais_mandato_atual !== undefined
+                ) {
+                  <span>{{ formatarNumero(dep.votos_nominais_mandato_atual) }}</span>
+                } @else {
+                  <span class="text-empty" [title]="dep.motivo_sem_votos || 'Sem registro anterior'"
+                    >—</span
+                  >
+                }
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs text-meta mt-2" data-testid="legenda-status-deputados">
+      <strong>Legenda:</strong> Não reeleito = disputou o cargo; Não concorreu = não disputou este
+      cargo.
+    </p>
+  }
+</div>

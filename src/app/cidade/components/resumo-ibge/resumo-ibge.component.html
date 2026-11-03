@@ -1,0 +1,166 @@
+<div class="card-brutalista space-y-4" data-testid="card-resumo-ibge">
+  <div
+    class="card-header flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3"
+    data-testid="resumo-ibge-header"
+  >
+    <div>
+      <p class="section-kicker" data-testid="resumo-ibge-kicker">
+        {{ secao().categoria || 'A CIDADE' }}
+      </p>
+      <h2 class="heading-2 text-lg" data-testid="resumo-ibge-titulo">{{ secao().titulo }}</h2>
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mt-0.5">
+        @if (secao().status === 'oficial') {
+          <span class="badge badge-sm badge-oficial" data-testid="resumo-ibge-badge-status"
+            >oficial</span
+          >
+          <span class="text-meta">
+            @if (fonte(); as fonteMeta) {
+              <a
+                [href]="fonteMeta.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link-fonte"
+              >
+                {{ fonteMeta.orgao }} · {{ fonteMeta.titulo }}
+              </a>
+            } @else {
+              <span>{{ secao().fonte }}</span>
+            }
+            · {{ secao().ano }}
+          </span>
+        } @else if (secao().status === 'curado') {
+          <span class="badge badge-sm badge-curado">curado</span>
+        } @else {
+          <span class="badge badge-sm badge-pendente">pendente</span>
+        }
+      </div>
+    </div>
+
+    <!-- BOTÃO DINÂMICO PARA REVELAR / OCULTAR O MAPA TERRITORIAL (US-08) -->
+    @if (mapa()) {
+      <button
+        type="button"
+        class="btn-default flex items-center gap-1.5 px-3 py-1.5 border-2 border-black rounded-sm bg-white font-black text-xs uppercase shadow-default-sm cursor-pointer hover:bg-black hover:text-white transition-colors self-start sm:self-center select-none"
+        (click)="toggleMapa()"
+        [attr.aria-expanded]="mostrarMapa()"
+        aria-controls="painel-mapa-municipio"
+        data-testid="botao-toggle-mapa"
+      >
+        <span>{{ mostrarMapa() ? '✕ Ocultar Mapa' : '🗺️ Ver Mapa Territorial' }}</span>
+      </button>
+    }
+  </div>
+
+  @if (secao().status === 'pendente') {
+    <div class="bloco-pendente">
+      <strong>Dado pendente:</strong> {{ secao().motivo || 'Em fase de coleta oficial.' }}
+    </div>
+  } @else if (secao().dados; as dadosIbge) {
+    <!-- PAINEL COLAPSÁVEL DO MAPA VETORIAL OFICIAL IBGE (US-08) COM TRANSIÇÃO SUAVE -->
+    @if (mapa(); as mapaData) {
+      <div
+        id="painel-mapa-municipio"
+        class="painel-expansivel-mapa"
+        [class.painel-aberto]="mostrarMapa()"
+        [attr.aria-hidden]="!mostrarMapa()"
+        data-testid="card-mapa-oficial"
+      >
+        <div class="painel-conteudo-interno">
+          <div class="mb-3">
+            <p class="section-kicker" data-testid="mapa-kicker">TERRITÓRIO</p>
+            <h2 class="heading-2 text-base" data-testid="mapa-titulo">Mapa do município</h2>
+          </div>
+          <div
+            class="flex flex-col md:flex-row items-center justify-between gap-6 p-4 mb-2 bg-white border-2 border-black rounded-sm shadow-default-sm"
+          >
+            <div class="w-full md:w-1/2 flex justify-center" data-testid="mapa-svg-wrapper">
+              <img
+                [src]="'/data/' + mapaData.svg"
+                [alt]="'Mapa oficial do município de ' + nomeMunicipio()"
+                loading="lazy"
+                class="max-h-64 w-auto object-contain"
+                data-testid="mapa-svg-elemento"
+              />
+            </div>
+
+            <div class="w-full md:w-1/2 space-y-3 text-xs" data-testid="mapa-metadados-painel">
+              <div class="flex items-center gap-2">
+                <span class="badge badge-sm badge-oficial" data-testid="mapa-badge-fonte">
+                  {{ mapaData.fonte.orgao }} · {{ mapaData.fonte.tipo }}
+                </span>
+                <span class="text-meta">Malha oficial vetorial</span>
+              </div>
+
+              <div class="p-3 bg-slate-50 border border-black/15 rounded-xs space-y-1">
+                <span class="metric-label">Proveniência Cartográfica</span>
+                <p class="font-bold text-black">{{ mapaData.fonte.tipo }}</p>
+                <p class="text-meta">
+                  Coletado em {{ mapaData.fonte.consultado_em }} · Malha oficial com sede municipal
+                  demarcada.
+                </p>
+              </div>
+
+              <div class="flex flex-wrap gap-2 pt-1">
+                <a
+                  [href]="mapaData.fonte.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="link-fonte font-bold"
+                  data-testid="mapa-link-fonte-ibge"
+                >
+                  Baixar SVG da Malha Oficial (IBGE API) ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
+      data-testid="resumo-ibge-grid-metricas"
+    >
+      <div class="metric-card" data-testid="card-metrica-renda-media">
+        <span class="metric-label">Renda Média p/c</span>
+        <span class="metric-value">{{ formatarMoeda(dadosIbge.renda_media_pc) }}</span>
+      </div>
+      <div class="metric-card" data-testid="card-metrica-renda-mediana">
+        <span class="metric-label">Renda Mediana p/c</span>
+        <span class="metric-value">{{ formatarMoeda(dadosIbge.renda_mediana_pc) }}</span>
+      </div>
+      <div class="metric-card" data-testid="card-metrica-taxa-urbanizacao">
+        <span class="metric-label">Taxa de Urbanização</span>
+        <span class="metric-value">{{ formatarPct(dadosIbge.pct_urbana) }}</span>
+      </div>
+      @if (dadosIbge.area_territorial_km2) {
+        <div class="metric-card" data-testid="card-metrica-area-territorial">
+          <span class="metric-label">Área Territorial (2022)</span>
+          <span class="metric-value">{{ formatarNumero(dadosIbge.area_territorial_km2) }} km²</span>
+        </div>
+      }
+      @if (dadosIbge.densidade_hab_km2) {
+        <div class="metric-card" data-testid="card-metrica-densidade-demografica">
+          <span class="metric-label">Densidade Demográfica</span>
+          <span class="metric-value"
+            >{{ formatarNumero(dadosIbge.densidade_hab_km2) }} hab/km²</span
+          >
+        </div>
+      }
+    </div>
+
+    <!-- Composição Cor e Raça -->
+    @if (dadosIbge.cor_raca_pct) {
+      <div class="metric-card" data-testid="card-metrica-distribuicao-etnica">
+        <span class="metric-label mb-1">Distribuição Étnico-Racial (Censo 2022)</span>
+        <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs font-semibold text-meta">
+          @for (item of dadosIbge.cor_raca_pct | keyvalue; track item.key) {
+            <span>
+              {{ item.key }}:
+              <strong class="text-contrast">{{ formatarPct(item.value) }}</strong>
+            </span>
+          }
+        </div>
+      </div>
+    }
+  }
+</div>
