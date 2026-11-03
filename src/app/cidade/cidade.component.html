@@ -70,6 +70,8 @@
       <app-resumo-economia
         [secao]="snap.secoes.resumo_economia"
         [secaoFinancas]="snap.secoes.resumo_financas"
+        [rendaMedia]="snap.secoes.resumo_ibge_censo?.dados?.renda_media_pc"
+        [rendaMediana]="snap.secoes.resumo_ibge_censo?.dados?.renda_mediana_pc"
         [fonte]="fonte(snap.secoes.resumo_economia?.fonte)"
         [fonteFinancas]="fonte(snap.secoes.resumo_financas?.fonte)"
       />

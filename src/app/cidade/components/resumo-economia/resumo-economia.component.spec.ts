@@ -93,4 +93,21 @@ describe('ResumoEconomiaComponent', () => {
     expect(el.textContent).toContain('IPTU Arrecadado');
     expect(el.textContent).toContain('ISS Arrecadado');
   });
+
+  it('should render income metrics alongside economy when provided', () => {
+    const fixture = TestBed.createComponent(ResumoEconomiaComponent);
+    fixture.componentRef.setInput('secao', secao);
+    fixture.componentRef.setInput('rendaMedia', 2088.31);
+    fixture.componentRef.setInput('rendaMediana', 1237.33);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+
+    const rendaMediaEl = el.querySelector('[data-testid="card-metrica-renda-media"]');
+    expect(rendaMediaEl).toBeTruthy();
+    expect(rendaMediaEl?.textContent).toContain('2.088,31');
+
+    const rendaMedianaEl = el.querySelector('[data-testid="card-metrica-renda-mediana"]');
+    expect(rendaMedianaEl).toBeTruthy();
+    expect(rendaMedianaEl?.textContent).toContain('1.237,33');
+  });
 });

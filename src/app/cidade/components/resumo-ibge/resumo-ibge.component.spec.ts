@@ -84,9 +84,9 @@ describe('ResumoIbgeComponent', () => {
     expect(
       el.querySelector('[data-testid="card-metrica-densidade-demografica"]')?.textContent,
     ).toContain('111,11 hab/km²');
-    expect(el.querySelector('[data-testid="card-metrica-renda-media"]')?.textContent).toContain(
-      'R$',
-    );
+    expect(
+      el.querySelector('[data-testid="card-metrica-taxa-urbanizacao"]')?.textContent,
+    ).toContain('98,70%');
     expect(
       el.querySelector('[data-testid="card-metrica-distribuicao-etnica"]')?.textContent,
     ).toContain('45,10%');

@@ -7,7 +7,7 @@ import {
   ResumoPopulacaoEstimadaDados,
   SecaoEnvelope,
 } from '../../../core/models/contrato.model';
-import { formatarMoeda, formatarNumero, formatarPct } from '../../../core/utils/formatadores';
+import { formatarNumero, formatarPct } from '../../../core/utils/formatadores';
 
 @Component({
   selector: 'app-resumo-ibge',
@@ -28,7 +28,6 @@ export class ResumoIbgeComponent {
   readonly mostrarMapa = signal<boolean>(false);
 
   protected readonly formatarNumero = formatarNumero;
-  protected readonly formatarMoeda = formatarMoeda;
   protected readonly formatarPct = formatarPct;
 
   toggleMapa(): void {

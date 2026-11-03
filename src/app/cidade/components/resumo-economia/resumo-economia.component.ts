@@ -18,6 +18,8 @@ import { CabecalhoSecaoComponent } from '../../../shared/components/cabecalho-se
 export class ResumoEconomiaComponent {
   readonly secao = input<SecaoEnvelope<ResumoEconomiaDados> | null | undefined>(null);
   readonly secaoFinancas = input<SecaoEnvelope<ResumoFinancasDados> | null | undefined>(null);
+  readonly rendaMedia = input<number | null | undefined>(null);
+  readonly rendaMediana = input<number | null | undefined>(null);
   readonly fonte = input<FonteMeta | undefined>(undefined);
   readonly fonteFinancas = input<FonteMeta | undefined>(undefined);
 

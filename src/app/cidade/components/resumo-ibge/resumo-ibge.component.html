@@ -117,7 +117,7 @@
       </div>
     }
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"
       data-testid="resumo-ibge-grid-metricas"
     >
       @if (secaoPopEst(); as sPop) {
@@ -149,14 +149,6 @@
           >
         </div>
       }
-      <div class="metric-card" data-testid="card-metrica-renda-media">
-        <span class="metric-label">Renda Média p/c</span>
-        <span class="metric-value">{{ formatarMoeda(dadosIbge.renda_media_pc) }}</span>
-      </div>
-      <div class="metric-card" data-testid="card-metrica-renda-mediana">
-        <span class="metric-label">Renda Mediana p/c</span>
-        <span class="metric-value">{{ formatarMoeda(dadosIbge.renda_mediana_pc) }}</span>
-      </div>
       <div class="metric-card" data-testid="card-metrica-taxa-urbanizacao">
         <span class="metric-label">Taxa de Urbanização</span>
         <span class="metric-value">{{ formatarPct(dadosIbge.pct_urbana) }}</span>
