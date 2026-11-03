@@ -105,6 +105,18 @@ export interface NumeroHistorico {
   fonte: string;
 }
 
+export interface FotoCandidato {
+  arquivo: string;
+  fonte: string;
+  url: string;
+  credito: string;
+  ano: number;
+  sha256: string;
+  largura: number;
+  altura: number;
+  licenca?: string;
+}
+
 export interface ParlamentarItem {
   nome: string;
   nome_urna: string;
@@ -112,6 +124,7 @@ export interface ParlamentarItem {
   numero?: string | number | null;
   numero_fonte?: string | null;
   numero_historico?: NumeroHistorico | null;
+  foto?: FotoCandidato | null;
   votos?: number | null;
   pct?: number | null;
   situacao?: string | null;

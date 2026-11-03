@@ -1,6 +1,6 @@
 {
- "schema_version": "0.8.0",
- "gerado_em": "2026-11-01T22:41:18-0400",
+ "schema_version": "0.9.0",
+ "gerado_em": "2026-11-02T22:19:34-0400",
  "municipio": {
   "codigo_ibge": 5002704,
   "codigo_tse": "90514",
@@ -85,7 +85,7 @@
    "status": "oficial",
    "fonte": "ibge_censo_2022",
    "ano": 2022,
-   "coletado_em": "2026-11-01T22:41:18-0400",
+   "coletado_em": "2026-11-02T22:19:34-0400",
    "motivo": null,
    "dados": {
     "nome": "Campo Grande",
@@ -99,7 +99,7 @@
    "status": "oficial",
    "fonte": "ibge_censo_2022",
    "ano": 2022,
-   "coletado_em": "2026-11-01T22:41:18-0400",
+   "coletado_em": "2026-11-02T22:19:34-0400",
    "motivo": null,
    "dados": {
     "populacao": 898100,
@@ -121,7 +121,7 @@
    "status": "oficial",
    "fonte": "ibge_pib_2023",
    "ano": 2023,
-   "coletado_em": "2026-11-01T22:41:18-0400",
+   "coletado_em": "2026-11-02T22:19:34-0400",
    "motivo": null,
    "dados": {
     "pib_total": 42269768000.0,
@@ -134,7 +134,7 @@
    "status": "oficial",
    "fonte": "inep_ideb_2023",
    "ano": 2023,
-   "coletado_em": "2026-11-01T22:41:18-0400",
+   "coletado_em": "2026-11-02T22:19:34-0400",
    "motivo": null,
    "dados": {
     "anos_iniciais": {
@@ -155,7 +155,7 @@
    "status": "oficial",
    "fonte": "siconfi_dca_2023",
    "ano": 2023,
-   "coletado_em": "2026-11-01T22:41:18-0400",
+   "coletado_em": "2026-11-02T22:19:34-0400",
    "motivo": null,
    "dados": {
     "receita_total": 5484604047.75,
@@ -171,7 +171,7 @@
    "status": "oficial",
    "fonte": "tse_2026_1t",
    "ano": 2026,
-   "coletado_em": "2026-11-01T22:41:18-0400",
+   "coletado_em": "2026-11-02T22:19:34-0400",
    "motivo": null,
    "dados": {
     "eleitores_aptos": 640427,
@@ -193,7 +193,7 @@
    "status": "oficial",
    "fonte": "tse_2026_2t_bu",
    "ano": 2026,
-   "coletado_em": "2026-11-01T22:41:18-0400",
+   "coletado_em": "2026-11-02T22:19:34-0400",
    "motivo": null,
    "dados": {
     "eleitores_aptos": 640427,
@@ -219,7 +219,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-01T22:41:18-0400",
+   "coletado_em": "2026-11-02T22:19:34-0400",
    "motivo": null,
    "dados": [
     {
@@ -237,7 +237,18 @@
      "motivo_sem_votos": null,
      "numero": "11",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002536582.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "732c51dd358c7a2f3f7081ca0dc21e6fbf9b2479362219350d083e8e0f23d4b7",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     }
    ],
    "pct_base": "votos_nominais_do_cargo",
@@ -250,7 +261,7 @@
    "status": "oficial",
    "fonte": "senado_api",
    "ano": 2026,
-   "coletado_em": "2026-11-01T22:41:18-0400",
+   "coletado_em": "2026-11-02T22:19:34-0400",
    "motivo": null,
    "dados": [
     {
@@ -275,6 +286,17 @@
       "ano": 2018,
       "cargo": "SENADOR",
       "fonte": "tse_candidatos_2018"
+     },
+     "foto": {
+      "arquivo": "fotos/senado_5985.jpg",
+      "fonte": "Senado Federal - Dados Abertos",
+      "url": "https://legis.senado.leg.br/senadores/fotos-oficiais/5985",
+      "credito": "Senado Federal",
+      "ano": 2026,
+      "sha256": "9adcfba11616ba7f66aff9e5b415efd12ffa90f82e44a69882de68a6b16d9f3f",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "Uso oficial"
      }
     },
     {
@@ -299,6 +321,17 @@
       "ano": 2018,
       "cargo": "SENADOR",
       "fonte": "tse_candidatos_2018"
+     },
+     "foto": {
+      "arquivo": "fotos/senado_5988.jpg",
+      "fonte": "Senado Federal - Dados Abertos",
+      "url": "https://legis.senado.leg.br/senadores/fotos-oficiais/5988",
+      "credito": "Senado Federal",
+      "ano": 2026,
+      "sha256": "ad8c9944177151488e66cc212e55091f2aa31f5e4d6fd3c5e7d5e0c71368d31b",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "Uso oficial"
      }
     },
     {
@@ -323,6 +356,17 @@
       "ano": 2022,
       "cargo": "SENADOR",
       "fonte": "tse_candidatos_2022"
+     },
+     "foto": {
+      "arquivo": "fotos/senado_5736.jpg",
+      "fonte": "Senado Federal - Dados Abertos",
+      "url": "https://legis.senado.leg.br/senadores/fotos-oficiais/5736",
+      "credito": "Senado Federal",
+      "ano": 2026,
+      "sha256": "3174b11a2786f4b63e2bcc7fee386eeb8048b034e22f6e3c7efefe6bca5220f3",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "Uso oficial"
      }
     },
     {
@@ -340,7 +384,18 @@
      "motivo_sem_votos": null,
      "numero": "222",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002535764.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "c135bbfd25c31412c524f5a9a71de7462f62b19049059712a354c40da8ba5e68",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "RENAN BARBOSA CONTAR",
@@ -357,7 +412,18 @@
      "motivo_sem_votos": null,
      "numero": "221",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002535769.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "1473a58d6154d0975fba0b81762ede7d79895b69b04e5e1833347c93affe5123",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     }
    ],
    "pct_base": "votos_nominais_do_cargo",
@@ -370,7 +436,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-01T22:41:18-0400",
+   "coletado_em": "2026-11-02T22:19:34-0400",
    "motivo": null,
    "dados": [
     {
@@ -389,7 +455,18 @@
      "fonte_votos_mandato": "camara_api",
      "numero": "1367",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/camara_220548.jpg",
+      "fonte": "Camara dos Deputados",
+      "url": "https://www.camara.leg.br/internet/deputado/bandep/220548.jpg",
+      "credito": "Camara dos Deputados",
+      "ano": 2026,
+      "sha256": "7c1044bff35802681495708fd7e2196d96f17aff041ebd276701efdedcadf8be",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "Uso oficial"
+     }
     },
     {
      "nome": "MARCOS SBOROWSKI POLLON",
@@ -407,7 +484,18 @@
      "fonte_votos_mandato": "camara_api",
      "numero": "2222",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/camara_220547.jpg",
+      "fonte": "Camara dos Deputados",
+      "url": "https://www.camara.leg.br/internet/deputado/bandep/220547.jpg",
+      "credito": "Camara dos Deputados",
+      "ano": 2026,
+      "sha256": "31bf81a51f07c355cc794a18f734eebe915747178fcce61564593eabad2d4058",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "Uso oficial"
+     }
     },
     {
      "nome": "RODOLFO OLIVEIRA NOGUEIRA",
@@ -425,7 +513,18 @@
      "fonte_votos_mandato": "camara_api",
      "numero": "2211",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/camara_220546.jpg",
+      "fonte": "Camara dos Deputados",
+      "url": "https://www.camara.leg.br/internet/deputado/bandep/220546.jpg",
+      "credito": "Camara dos Deputados",
+      "ano": 2026,
+      "sha256": "77058947655093cd80c34a5eabf0d5db2fe84e798d73d775bb7445dce991948b",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "Uso oficial"
+     }
     },
     {
      "nome": "HUMBERTO REZENDE PEREIRA",
@@ -443,7 +542,18 @@
      "fonte_votos_mandato": "camara_api",
      "numero": "1010",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/camara_204358.jpg",
+      "fonte": "Camara dos Deputados",
+      "url": "https://www.camara.leg.br/internet/deputado/bandep/204358.jpg",
+      "credito": "Camara dos Deputados",
+      "ano": 2026,
+      "sha256": "6bb2618a4c1ee99bfeb94751c6e8845e855999588965603552e5b782b451b2b9",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "Uso oficial"
+     }
     },
     {
      "nome": "DAGOBERTO NOGUEIRA FILHO",
@@ -461,7 +571,18 @@
      "fonte_votos_mandato": "camara_api",
      "numero": "1111",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/camara_141411.jpg",
+      "fonte": "Camara dos Deputados",
+      "url": "https://www.camara.leg.br/internet/deputado/bandep/141411.jpg",
+      "credito": "Camara dos Deputados",
+      "ano": 2026,
+      "sha256": "d1e84a80bb5a81a07c8c4714eedfee666ec6099e6bc265f5a4892b2a606bd5fb",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "Uso oficial"
+     }
     },
     {
      "nome": "Dr. Luiz Ovando",
@@ -479,7 +600,18 @@
      "fonte": "camara_api",
      "numero": "1122",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/camara_204351.jpg",
+      "fonte": "Camara dos Deputados",
+      "url": "https://www.camara.leg.br/internet/deputado/bandep/204351.jpg",
+      "credito": "Camara dos Deputados",
+      "ano": 2026,
+      "sha256": "f3e4b270e46132f7f5dbfa317572084cb48edf73d1988dba76b8e3a58eaae0d3",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "Uso oficial"
+     }
     },
     {
      "nome": "Geraldo Resende",
@@ -497,7 +629,18 @@
      "fonte": "camara_api",
      "numero": "4411",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/camara_74374.jpg",
+      "fonte": "Camara dos Deputados",
+      "url": "https://www.camara.leg.br/internet/deputado/bandep/74374.jpg",
+      "credito": "Camara dos Deputados",
+      "ano": 2026,
+      "sha256": "530fb9543972e7a96a998451c25db624ec6902818363ed27c8a77a2c228a9069",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "Uso oficial"
+     }
     },
     {
      "nome": "Vander Loubet",
@@ -520,6 +663,17 @@
       "ano": 2022,
       "cargo": "DEPUTADO FEDERAL",
       "fonte": "tse_candidatos_2022"
+     },
+     "foto": {
+      "arquivo": "fotos/camara_74376.jpg",
+      "fonte": "Camara dos Deputados",
+      "url": "https://www.camara.leg.br/internet/deputado/bandep/74376.jpg",
+      "credito": "Camara dos Deputados",
+      "ano": 2026,
+      "sha256": "5de75152dd2e5ccf9a2c20d9b1bbf13081aa46358c6edeffa68d9fe359a04df6",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "Uso oficial"
      }
     },
     {
@@ -538,7 +692,18 @@
      "fonte_votos_mandato": null,
      "numero": "4444",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002538788.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "c3ac1c335d54d1fcbc256f0ffe602e3a5af9f58b0d5647246357244b1153fd0b",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "MARA ELISA NAVACCHI CASEIRO",
@@ -556,7 +721,18 @@
      "fonte_votos_mandato": null,
      "numero": "2200",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002536286.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "fa775312f44f47fba918010e87515368200d88e4cf86d3b2c8a3d6761ee1c2f7",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "ISA JANE MARCONDES NANTES",
@@ -574,7 +750,18 @@
      "fonte_votos_mandato": null,
      "numero": "1022",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002537356.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "b3556c784cda8c02fa1ff2a36c8d5234cb19cebf20b5237e93a2d680b741a7ff",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     }
    ],
    "pct_base": "votos_nominais_do_cargo",
@@ -586,7 +773,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-01T22:41:18-0400",
+   "coletado_em": "2026-11-02T22:19:34-0400",
    "motivo": null,
    "dados": [
     {
@@ -604,7 +791,18 @@
      "motivo_sem_votos": null,
      "numero": "22121",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002536055.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "7e067f82ab67547d40e96fde405394ce9859a2e0b33c297293e823efb046b13b",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "PAULO JOSE ARAUJO CORREA",
@@ -621,7 +819,18 @@
      "motivo_sem_votos": null,
      "numero": "22222",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002536056.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "8616879c0cbe6e3e9ba39ac8ce3e3fd21c79bb8a1251a92f938e100460cd69b9",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "PEDRO ARLEI CARAVINA",
@@ -638,7 +847,18 @@
      "motivo_sem_votos": null,
      "numero": "45045",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002535532.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "c86a2ee68766913f39af265d5c5010219d07b618f3ac5bfd78aaf446a716cb5d",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "JOSÉ ORCIRIO MIRANDA DOS SANTOS",
@@ -655,7 +875,18 @@
      "motivo_sem_votos": null,
      "numero": "13111",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002547058.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "07e763088b45e8acebf20a2d0386d267c6a72badfd487aa82dbbdfcd7a8eb383",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "CARLOS ALBERTO DAVID DOS SANTOS",
@@ -672,7 +903,18 @@
      "motivo_sem_votos": null,
      "numero": "22800",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002536066.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "738611220de8418e95131c03ba09b5d225da3c53e30b4343a3d46f846ccf7d2d",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "ANDRE PUCCINELLI",
@@ -689,7 +931,18 @@
      "motivo_sem_votos": null,
      "numero": "15123",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002544705.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "da2b1e546d6b350268746e4ee355449a1dd7098f1f8215c94abbb447d4b8c3cb",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "TIAGO RESENDE BOTELHO",
@@ -706,7 +959,18 @@
      "motivo_sem_votos": null,
      "numero": "13123",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002547055.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "d348bb49e6050680bc7b4195120bf653f7591b1df7c6098273f9da9dd30c3a4a",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "ANGELO CHAVES GUERREIRO",
@@ -723,7 +987,18 @@
      "motivo_sem_votos": null,
      "numero": "45055",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002535531.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "2cca1c078737b44747f7d0e4a5edfd2348cfa30ed9ae9a832ebb4bff3481c00f",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "GIANNI DIAS AGUILLAR NOGUEIRA",
@@ -740,7 +1015,18 @@
      "motivo_sem_votos": null,
      "numero": "22000",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002536054.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "6c81d16904130270dcf86c65ffaedd36c30d185b62f24713d28fc30134ded679",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "ODILON FERRAZ ALVES RIBEIRO",
@@ -757,7 +1043,18 @@
      "motivo_sem_votos": null,
      "numero": "22345",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002536067.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "214c9fcb5fd604095690d9a57e3554560d418b590050616d17ea8cdab00a8d8f",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "GERSON CLARO DINO",
@@ -774,7 +1071,18 @@
      "motivo_sem_votos": null,
      "numero": "11111",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002539703.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "9a7bf38535817dcdefa3306cb7053ec19ecfc475e992728172ddf0be03c7bb00",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "LONDRES MACHADO",
@@ -791,7 +1099,18 @@
      "motivo_sem_votos": null,
      "numero": "11123",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002539710.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "558edce98a91dfa5e98d93e8945d010d88cd46a6d6d02467f24770ade08a381e",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "HELIO PELUFFO FILHO",
@@ -808,7 +1127,18 @@
      "motivo_sem_votos": null,
      "numero": "11234",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002539694.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "10772ce99b524bfa1ea71268dc301b7223072bc564b56bf8f0e4bb52d6659266",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "DAVERSON MUNHOZ DE MATOS",
@@ -825,7 +1155,18 @@
      "motivo_sem_votos": null,
      "numero": "22333",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002536060.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "93c5a3c7b9a89e8a9c011c5aa4a7264cefc4707239028ed25cbbee490a9c2491",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "GLEICE JANE BARBOSA",
@@ -842,7 +1183,18 @@
      "motivo_sem_votos": null,
      "numero": "13777",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002547068.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "62453ad27620eefdc9df162150d883599f67afc6242d19bb7f1d9aa32b86200e",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "ANDRE LUIS SANCHES SALINEIRO",
@@ -859,7 +1211,18 @@
      "motivo_sem_votos": null,
      "numero": "22067",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002536068.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "16408d6557620d91d5f0e64d97bf5f2cca8223d80624aa6fc3eed34481e45799",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "PEDRO CESAR KEMP GONÇALVES",
@@ -876,7 +1239,18 @@
      "motivo_sem_votos": null,
      "numero": "13613",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002547061.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "884d7b1041cd535e90d856fecf97ddb0db8332224579ce78781362887ebcfc77",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "LUIZ CARLOS CORREIA DE LIMA",
@@ -893,7 +1267,18 @@
      "motivo_sem_votos": null,
      "numero": "22022",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002536069.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "0606931b44084ee4c5aaa68d4ff87d7bc5f5ce6533e8c9cfc7615620a986f2d7",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "RINALDO MODESTO DE OLIVEIRA",
@@ -910,7 +1295,18 @@
      "motivo_sem_votos": null,
      "numero": "44044",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002539708.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "bd43533a3a545464c1f8c73e5eebf26699894dc9af79e782267a11d45d261f23",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "MARCIO FERNANDES",
@@ -927,7 +1323,18 @@
      "motivo_sem_votos": null,
      "numero": "22123",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002536072.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "b7d67b580d30ecad83dfff1e68570b16f74472978d1568515cae0a515a03ed09",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "RENATO PIERETTI CAMARA",
@@ -944,7 +1351,18 @@
      "motivo_sem_votos": null,
      "numero": "10150",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002537512.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "9dc655c4bf840b2e8c7c62ab56f2faf4286ef6076853642cb0cfb94632fc6ab3",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "LIDIO NOGUEIRA LOPES",
@@ -961,7 +1379,18 @@
      "motivo_sem_votos": null,
      "numero": "70777",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002549560.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "083ef9398467eec8aaa05c2380b4b497c1441b688d1f4a7a5060585ed4fea773",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "PAULO ROBERTO DUARTE",
@@ -978,7 +1407,18 @@
      "motivo_sem_votos": null,
      "numero": "45300",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002535520.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "37172367ce7e1a87f0fc5b079094d2fada1db21d5fa36149a39ab2b6ef3a89a7",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "PEDRO PEDROSSIAN NETO",
@@ -995,7 +1435,18 @@
      "motivo_sem_votos": null,
      "numero": "10000",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2026_120002537505.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2026)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2026,
+      "sha256": "ac939f2ce451ef161b567dbb341437b03781c31d801009b6b7e25b5c7db6dabe",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     }
    ],
    "pct_base": "votos_nominais_do_cargo",
@@ -1008,7 +1459,7 @@
    "status": "oficial",
    "fonte": "tse_2024_abertos",
    "ano": 2024,
-   "coletado_em": "2026-11-01T22:41:18-0400",
+   "coletado_em": "2026-11-02T22:19:34-0400",
    "motivo": null,
    "dados": [
     {
@@ -1026,7 +1477,18 @@
      "motivo_sem_votos": null,
      "numero": "11",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002167893.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "2f544bb8e3fe966c140b84a2e31ecd44e8bf524f9edb2f26e39abea67c357138",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     }
    ],
    "pct_base": "votos_nominais_do_cargo",
@@ -1038,7 +1500,7 @@
    "status": "oficial",
    "fonte": "tse_2024_abertos",
    "ano": 2024,
-   "coletado_em": "2026-11-01T22:41:18-0400",
+   "coletado_em": "2026-11-02T22:19:34-0400",
    "motivo": null,
    "dados": [
     {
@@ -1056,7 +1518,18 @@
      "motivo_sem_votos": null,
      "numero": "12345",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002166412.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "e6d005b5b679a58fe35993b1eee6b7ffdeba6f82d5fab6b053a42cf557691af0",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "RAFAEL BRANDÃO SCAQUETTI TAVARES",
@@ -1073,7 +1546,18 @@
      "motivo_sem_votos": null,
      "numero": "22022",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002030407.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "f223c64f176bd46efab727a6f25dc9404c74052c57ac75eb5502ca7b6e4e29c1",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "CARLOS AUGUSTO BORGES",
@@ -1090,7 +1574,18 @@
      "motivo_sem_votos": null,
      "numero": "40122",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002026985.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "5ea13ee264c9f350b2a7cbe89f76b67b622dd2f35e264e4ae366491fa6560a5c",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "SILVIO EDUARDO ALVES PENA",
@@ -1107,7 +1602,18 @@
      "motivo_sem_votos": null,
      "numero": "45800",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002058938.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "8f8c0936c302612f2b7893dea465cd8b2f5b3408e47d1cccf2b6457ee8615dfd",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "FRANCISCO GONÇALVES DE CARVALHO",
@@ -1124,7 +1630,18 @@
      "motivo_sem_votos": null,
      "numero": "44777",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002173602.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "b1a043826a0f05214626be7410a6f650d3c260146e8ccf2c5e25d0474b64b3d5",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "FÁBIO DA ROCHA E SILVA FERREIRA",
@@ -1141,7 +1658,18 @@
      "motivo_sem_votos": null,
      "numero": "44000",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002173589.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "f4cd117c402d94869c8f1f8fe98afc180c9dc6fdc35a03fd048743b60575864b",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "RIVERTON FRANCISCO DE SOUZA",
@@ -1158,7 +1686,18 @@
      "motivo_sem_votos": null,
      "numero": "11111",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002170796.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "1fd31f9d509cf7244bd2acf8c169a7b8c6202a55df42eab8bf30f4b2d98aa608",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "ADEMAR VIEIRA JUNIOR",
@@ -1175,7 +1714,18 @@
      "motivo_sem_votos": null,
      "numero": "15123",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120001994137.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "1153ee19270ec2d50f6fc0bfeb97d0ca195dbac023df063ea9f14040932030f1",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "VICTOR ROCHA PIRES DE OLIVEIRA",
@@ -1192,7 +1742,18 @@
      "motivo_sem_votos": null,
      "numero": "45033",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002058937.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "adffdae06f6647ec13c2f37b01c542c81927fc01087c08226b2f3e9f02a7c64b",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "JUARI LOPES PINTO",
@@ -1209,7 +1770,18 @@
      "motivo_sem_votos": null,
      "numero": "45999",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002058941.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "c10b564af9c89537ad7cb7f03c1c867cb23c19f56ab6afac7429c2a0916bc23c",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "FLAVIO PEREIRA MOURA",
@@ -1226,7 +1798,18 @@
      "motivo_sem_votos": null,
      "numero": "45699",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002058914.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "04e4fa28b4c6810c116383721e7c9d883cfb89569e00a93c30317b724e21fa65",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "LUIZA RIBEIRO GONÇALVES",
@@ -1243,7 +1826,18 @@
      "motivo_sem_votos": null,
      "numero": "13700",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120001918934.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "0c5a1a245f5e42b095b82e0a12752da1e1ff859794ef78cb3660355322cf789f",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "ANDRÉ LUIS SANCHES SALINEIRO",
@@ -1260,7 +1854,18 @@
      "motivo_sem_votos": null,
      "numero": "22067",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002030403.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "69e8e8e98a65746d465b2cf624cd34e0111f5e6920f388d3a490a2b2d12f9e5d",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "EPAMINONDAS VICENTE SILVA NETO",
@@ -1277,7 +1882,18 @@
      "motivo_sem_votos": null,
      "numero": "45678",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002058923.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "ae70db271fa463b62f3fa729f09dd557aa9e61433434b636c1f5b58f5a6c23f6",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "ANA CLAUDIA PEREIRA PORTELA",
@@ -1294,7 +1910,18 @@
      "motivo_sem_votos": null,
      "numero": "22222",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002030414.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "9806de04d6edaaed6191e0a5c17f19bb8385081cc32bd1d7edf4f9dd2c41d21e",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "JOSE CLARO DOS SANTOS NETO",
@@ -1311,7 +1938,18 @@
      "motivo_sem_votos": null,
      "numero": "10123",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002031469.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "1d589d928a1bf48f26ad31e5e7ec381adc349220971283dabfb75e2f285c9bfb",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "MAICON CLEYTHON RODRIGUES NOGUEIRA",
@@ -1328,7 +1966,18 @@
      "motivo_sem_votos": null,
      "numero": "11511",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002170801.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "83c43d08a8fd9ccbb4d3a5f849aa71f5c07fb2792922713e0d7e393b9f19e6fb",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "VANDERLEI PINHEIRO DE LIMA",
@@ -1345,7 +1994,18 @@
      "motivo_sem_votos": null,
      "numero": "11655",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002170820.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "afb70ab630b1af3db12c72a0c4fc2232940e8a0f3fe568ac31cb791312a6cd48",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "WILSON MANOEL DIAS LANDS",
@@ -1362,7 +2022,18 @@
      "motivo_sem_votos": null,
      "numero": "70700",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002231068.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "4f79c5afcf7e72a216f2797ba64a87346e3ae81ca94f7423e52e4258f4064f1e",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "HERCULANO BORGES DANIEL",
@@ -1379,7 +2050,18 @@
      "motivo_sem_votos": null,
      "numero": "10088",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002031470.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "5c4db73910ea8a1d2caaf54dd3ab2a325395963dd298345f4157919892c67a68",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "ROBERTO DE AVELAR",
@@ -1396,7 +2078,18 @@
      "motivo_sem_votos": null,
      "numero": "11222",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002170815.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "61332742ced2abd30eb090fff0d0c8c9e9a83d5f29b6abda926f13b627e33d10",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "JAMAL MOHAMED SALEM",
@@ -1413,7 +2106,18 @@
      "motivo_sem_votos": null,
      "numero": "15678",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120001994132.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "be810f47536ffb6d9e49f969792399b3088ce96b7668e3e3b5ec67eb6bc23054",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "LANDMARK FERREIRA RIOS",
@@ -1430,7 +2134,18 @@
      "motivo_sem_votos": null,
      "numero": "13123",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120001918942.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "3e6f60aaaa9d0f5411b5a6d38c397c99bfd528e51ae8809415a6761b10fa989e",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "CLODOILSON DOS SANTOS PIRES",
@@ -1447,7 +2162,18 @@
      "motivo_sem_votos": null,
      "numero": "20020",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120001919752.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "6263c97854feeab5cf4cb1ab6e79c4ef6b3e307539dfb4879c4fd44bca7d6533",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "JEAN FELIPE MORAIS FERREIRA BARBOSA",
@@ -1464,7 +2190,18 @@
      "motivo_sem_votos": null,
      "numero": "13000",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120001918922.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "1d21d46f7c91baa425ac430f1c4ee23b6c41dab7527c18a3f3c40420cd83a1d6",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "LIVIO VIANA DE OLIVEIRA LEITE",
@@ -1481,7 +2218,18 @@
      "motivo_sem_votos": null,
      "numero": "44123",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002173605.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "4252ddde547f486cee64e4eab4d6735e7a92b3fe5864369550bc0e22d3f99b3c",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "RONILÇO CRUZ DE OLIVEIRA",
@@ -1498,7 +2246,18 @@
      "motivo_sem_votos": null,
      "numero": "20067",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120001919725.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "f147311a085de5f015a00b25e31c2fb3c8b36f61f8c1e2c8a0635be36b0c6e12",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "WILTON CELESTE CANDELORIO",
@@ -1515,7 +2274,18 @@
      "motivo_sem_votos": null,
      "numero": "70555",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120002231084.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "345feb7673623d0cbaf8899af972d29b22bc77c99a1c1331875d11f0da8fdf58",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     },
     {
      "nome": "OTÁVIO AUGUSTO TRAD MARTINS",
@@ -1532,7 +2302,18 @@
      "motivo_sem_votos": null,
      "numero": "55123",
      "numero_fonte": "tse_candidatos",
-     "numero_historico": null
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/tse2024_120001974632.jpg",
+      "fonte": "TSE - Dados Abertos (fotos de candidatos 2024)",
+      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2024/fotos/foto_cand2024_MS_div.zip",
+      "credito": "TSE",
+      "ano": 2024,
+      "sha256": "9b2bda95746f052068a2aae3bb3d8e17039693d8217ee29b34cb88bd5b09c024",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     }
     }
    ],
    "pct_base": "votos_nominais_do_cargo",

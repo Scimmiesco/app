@@ -1380,34 +1380,50 @@
                 @for (gov of governador(); track gov.nome) {
                   <tr [class.em-exercicio]="gov.em_exercicio">
                     <td class="cell-nome">
-                      <span class="nome-candidato block">{{ gov.nome_urna }}</span>
-                      @if (getNumero(gov); as num) {
-                        <span
-                          class="numero-candidato block text-sm font-bold tabular-nums"
-                          [attr.data-partido]="gov.partido"
-                          data-testid="numero-candidato"
-                        >
-                          <span class="digito-partido" [style.color]="getCorPartido(gov.partido)">{{
-                            getNumeroPrefixo(num)
-                          }}</span
-                          ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
-                        </span>
-                      } @else if (getNumeroHistorico(gov); as hist) {
-                        <span
-                          class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
-                          [attr.data-partido]="gov.partido"
-                          data-testid="numero-candidato"
-                        >
-                          <span class="text-xs font-normal text-meta mr-1">Último: </span>
-                          <span class="digito-partido" [style.color]="getCorPartido(gov.partido)">{{
-                            getNumeroPrefixo(hist.numero)
-                          }}</span
-                          ><span class="digito-resto text-black">{{
-                            getNumeroResto(hist.numero)
-                          }}</span>
-                          <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
-                        </span>
-                      }
+                      <div class="flex items-center gap-2">
+                        <app-candidato-avatar
+                          [foto]="gov.foto"
+                          [nome]="gov.nome_urna"
+                          [partido]="gov.partido"
+                          [tamanho]="32"
+                        />
+                        <div class="min-w-0">
+                          <span class="nome-candidato block">{{ gov.nome_urna }}</span>
+                          @if (getNumero(gov); as num) {
+                            <span
+                              class="numero-candidato block text-sm font-bold tabular-nums"
+                              [attr.data-partido]="gov.partido"
+                              data-testid="numero-candidato"
+                            >
+                              <span
+                                class="digito-partido"
+                                [style.color]="getCorPartido(gov.partido)"
+                                >{{ getNumeroPrefixo(num) }}</span
+                              ><span class="digito-resto text-black">{{
+                                getNumeroResto(num)
+                              }}</span>
+                            </span>
+                          } @else if (getNumeroHistorico(gov); as hist) {
+                            <span
+                              class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                              [attr.data-partido]="gov.partido"
+                              data-testid="numero-candidato"
+                            >
+                              <span class="text-xs font-normal text-meta mr-1">Último: </span>
+                              <span
+                                class="digito-partido"
+                                [style.color]="getCorPartido(gov.partido)"
+                                >{{ getNumeroPrefixo(hist.numero) }}</span
+                              ><span class="digito-resto text-black">{{
+                                getNumeroResto(hist.numero)
+                              }}</span>
+                              <span class="text-xs font-normal text-meta ml-1">
+                                · {{ hist.ano }}</span
+                              >
+                            </span>
+                          }
+                        </div>
+                      </div>
                     </td>
                     <td class="cell-center">
                       <app-partido-badge [sigla]="gov.partido" />
@@ -1494,34 +1510,48 @@
                   [attr.data-testid]="'linha-senador-' + sen.nome_urna.toLowerCase()"
                 >
                   <td class="cell-nome">
-                    <span class="nome-candidato block">{{ sen.nome_urna }}</span>
-                    @if (getNumero(sen); as num) {
-                      <span
-                        class="numero-candidato block text-sm font-bold tabular-nums"
-                        [attr.data-partido]="sen.partido"
-                        data-testid="numero-candidato"
-                      >
-                        <span class="digito-partido" [style.color]="getCorPartido(sen.partido)">{{
-                          getNumeroPrefixo(num)
-                        }}</span
-                        ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
-                      </span>
-                    } @else if (getNumeroHistorico(sen); as hist) {
-                      <span
-                        class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
-                        [attr.data-partido]="sen.partido"
-                        data-testid="numero-candidato"
-                      >
-                        <span class="text-xs font-normal text-meta mr-1">Último: </span>
-                        <span class="digito-partido" [style.color]="getCorPartido(sen.partido)">{{
-                          getNumeroPrefixo(hist.numero)
-                        }}</span
-                        ><span class="digito-resto text-black">{{
-                          getNumeroResto(hist.numero)
-                        }}</span>
-                        <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
-                      </span>
-                    }
+                    <div class="flex items-center gap-2">
+                      <app-candidato-avatar
+                        [foto]="sen.foto"
+                        [nome]="sen.nome_urna"
+                        [partido]="sen.partido"
+                        [tamanho]="32"
+                      />
+                      <div class="min-w-0">
+                        <span class="nome-candidato block">{{ sen.nome_urna }}</span>
+                        @if (getNumero(sen); as num) {
+                          <span
+                            class="numero-candidato block text-sm font-bold tabular-nums"
+                            [attr.data-partido]="sen.partido"
+                            data-testid="numero-candidato"
+                          >
+                            <span
+                              class="digito-partido"
+                              [style.color]="getCorPartido(sen.partido)"
+                              >{{ getNumeroPrefixo(num) }}</span
+                            ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
+                          </span>
+                        } @else if (getNumeroHistorico(sen); as hist) {
+                          <span
+                            class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                            [attr.data-partido]="sen.partido"
+                            data-testid="numero-candidato"
+                          >
+                            <span class="text-xs font-normal text-meta mr-1">Último: </span>
+                            <span
+                              class="digito-partido"
+                              [style.color]="getCorPartido(sen.partido)"
+                              >{{ getNumeroPrefixo(hist.numero) }}</span
+                            ><span class="digito-resto text-black">{{
+                              getNumeroResto(hist.numero)
+                            }}</span>
+                            <span class="text-xs font-normal text-meta ml-1">
+                              · {{ hist.ano }}</span
+                            >
+                          </span>
+                        }
+                      </div>
+                    </div>
                   </td>
                   <td class="cell-center">
                     <app-partido-badge [sigla]="sen.partido" />
@@ -1631,34 +1661,50 @@
                     [attr.data-testid]="'linha-deputado-' + (dep.nome_urna | lowercase)"
                   >
                     <td class="cell-nome">
-                      <span class="nome-candidato block">{{ dep.nome_urna }}</span>
-                      @if (getNumero(dep); as num) {
-                        <span
-                          class="numero-candidato block text-sm font-bold tabular-nums"
-                          [attr.data-partido]="dep.partido"
-                          data-testid="numero-candidato"
-                        >
-                          <span class="digito-partido" [style.color]="getCorPartido(dep.partido)">{{
-                            getNumeroPrefixo(num)
-                          }}</span
-                          ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
-                        </span>
-                      } @else if (getNumeroHistorico(dep); as hist) {
-                        <span
-                          class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
-                          [attr.data-partido]="dep.partido"
-                          data-testid="numero-candidato"
-                        >
-                          <span class="text-xs font-normal text-meta mr-1">Último: </span>
-                          <span class="digito-partido" [style.color]="getCorPartido(dep.partido)">{{
-                            getNumeroPrefixo(hist.numero)
-                          }}</span
-                          ><span class="digito-resto text-black">{{
-                            getNumeroResto(hist.numero)
-                          }}</span>
-                          <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
-                        </span>
-                      }
+                      <div class="flex items-center gap-2">
+                        <app-candidato-avatar
+                          [foto]="dep.foto"
+                          [nome]="dep.nome_urna"
+                          [partido]="dep.partido"
+                          [tamanho]="32"
+                        />
+                        <div class="min-w-0">
+                          <span class="nome-candidato block">{{ dep.nome_urna }}</span>
+                          @if (getNumero(dep); as num) {
+                            <span
+                              class="numero-candidato block text-sm font-bold tabular-nums"
+                              [attr.data-partido]="dep.partido"
+                              data-testid="numero-candidato"
+                            >
+                              <span
+                                class="digito-partido"
+                                [style.color]="getCorPartido(dep.partido)"
+                                >{{ getNumeroPrefixo(num) }}</span
+                              ><span class="digito-resto text-black">{{
+                                getNumeroResto(num)
+                              }}</span>
+                            </span>
+                          } @else if (getNumeroHistorico(dep); as hist) {
+                            <span
+                              class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                              [attr.data-partido]="dep.partido"
+                              data-testid="numero-candidato"
+                            >
+                              <span class="text-xs font-normal text-meta mr-1">Último: </span>
+                              <span
+                                class="digito-partido"
+                                [style.color]="getCorPartido(dep.partido)"
+                                >{{ getNumeroPrefixo(hist.numero) }}</span
+                              ><span class="digito-resto text-black">{{
+                                getNumeroResto(hist.numero)
+                              }}</span>
+                              <span class="text-xs font-normal text-meta ml-1">
+                                · {{ hist.ano }}</span
+                              >
+                            </span>
+                          }
+                        </div>
+                      </div>
                     </td>
                     <td class="cell-center">
                       <app-partido-badge [sigla]="dep.partido" />
@@ -1752,34 +1798,48 @@
               @for (est of deputadosEstaduais(); track est.nome) {
                 <tr>
                   <td class="cell-nome">
-                    <span class="nome-candidato block">{{ est.nome_urna }}</span>
-                    @if (getNumero(est); as num) {
-                      <span
-                        class="numero-candidato block text-sm font-bold tabular-nums"
-                        [attr.data-partido]="est.partido"
-                        data-testid="numero-candidato"
-                      >
-                        <span class="digito-partido" [style.color]="getCorPartido(est.partido)">{{
-                          getNumeroPrefixo(num)
-                        }}</span
-                        ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
-                      </span>
-                    } @else if (getNumeroHistorico(est); as hist) {
-                      <span
-                        class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
-                        [attr.data-partido]="est.partido"
-                        data-testid="numero-candidato"
-                      >
-                        <span class="text-xs font-normal text-meta mr-1">Último: </span>
-                        <span class="digito-partido" [style.color]="getCorPartido(est.partido)">{{
-                          getNumeroPrefixo(hist.numero)
-                        }}</span
-                        ><span class="digito-resto text-black">{{
-                          getNumeroResto(hist.numero)
-                        }}</span>
-                        <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
-                      </span>
-                    }
+                    <div class="flex items-center gap-2">
+                      <app-candidato-avatar
+                        [foto]="est.foto"
+                        [nome]="est.nome_urna"
+                        [partido]="est.partido"
+                        [tamanho]="32"
+                      />
+                      <div class="min-w-0">
+                        <span class="nome-candidato block">{{ est.nome_urna }}</span>
+                        @if (getNumero(est); as num) {
+                          <span
+                            class="numero-candidato block text-sm font-bold tabular-nums"
+                            [attr.data-partido]="est.partido"
+                            data-testid="numero-candidato"
+                          >
+                            <span
+                              class="digito-partido"
+                              [style.color]="getCorPartido(est.partido)"
+                              >{{ getNumeroPrefixo(num) }}</span
+                            ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
+                          </span>
+                        } @else if (getNumeroHistorico(est); as hist) {
+                          <span
+                            class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                            [attr.data-partido]="est.partido"
+                            data-testid="numero-candidato"
+                          >
+                            <span class="text-xs font-normal text-meta mr-1">Último: </span>
+                            <span
+                              class="digito-partido"
+                              [style.color]="getCorPartido(est.partido)"
+                              >{{ getNumeroPrefixo(hist.numero) }}</span
+                            ><span class="digito-resto text-black">{{
+                              getNumeroResto(hist.numero)
+                            }}</span>
+                            <span class="text-xs font-normal text-meta ml-1">
+                              · {{ hist.ano }}</span
+                            >
+                          </span>
+                        }
+                      </div>
+                    </div>
                   </td>
                   <td class="cell-center">
                     <app-partido-badge [sigla]="est.partido" />
@@ -1832,40 +1892,48 @@
               <div
                 class="metric-card bg-white col-span-1 sm:col-span-3 flex flex-wrap items-center justify-between gap-3 p-4"
               >
-                <div>
-                  <span class="metric-label">Prefeito Municipal</span>
-                  <span class="metric-value-lg">{{ pref.nome_urna }}</span>
-                  @if (getNumero(pref); as num) {
-                    <span
-                      class="numero-candidato block text-sm font-bold tabular-nums"
-                      [attr.data-partido]="pref.partido"
-                      data-testid="numero-candidato"
+                <div class="flex items-center gap-3">
+                  <app-candidato-avatar
+                    [foto]="pref.foto"
+                    [nome]="pref.nome_urna"
+                    [partido]="pref.partido"
+                    [tamanho]="48"
+                  />
+                  <div>
+                    <span class="metric-label">Prefeito Municipal</span>
+                    <span class="metric-value-lg">{{ pref.nome_urna }}</span>
+                    @if (getNumero(pref); as num) {
+                      <span
+                        class="numero-candidato block text-sm font-bold tabular-nums"
+                        [attr.data-partido]="pref.partido"
+                        data-testid="numero-candidato"
+                      >
+                        <span class="digito-partido" [style.color]="getCorPartido(pref.partido)">{{
+                          getNumeroPrefixo(num)
+                        }}</span
+                        ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
+                      </span>
+                    } @else if (getNumeroHistorico(pref); as hist) {
+                      <span
+                        class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                        [attr.data-partido]="pref.partido"
+                        data-testid="numero-candidato"
+                      >
+                        <span class="text-xs font-normal text-meta mr-1">Último: </span>
+                        <span class="digito-partido" [style.color]="getCorPartido(pref.partido)">{{
+                          getNumeroPrefixo(hist.numero)
+                        }}</span
+                        ><span class="digito-resto text-black">{{
+                          getNumeroResto(hist.numero)
+                        }}</span>
+                        <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
+                      </span>
+                    }
+                    <span class="text-meta block mt-0.5"
+                      >Partido: <app-partido-badge [sigla]="pref.partido" /> ·
+                      {{ pref.situacao }}</span
                     >
-                      <span class="digito-partido" [style.color]="getCorPartido(pref.partido)">{{
-                        getNumeroPrefixo(num)
-                      }}</span
-                      ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
-                    </span>
-                  } @else if (getNumeroHistorico(pref); as hist) {
-                    <span
-                      class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
-                      [attr.data-partido]="pref.partido"
-                      data-testid="numero-candidato"
-                    >
-                      <span class="text-xs font-normal text-meta mr-1">Último: </span>
-                      <span class="digito-partido" [style.color]="getCorPartido(pref.partido)">{{
-                        getNumeroPrefixo(hist.numero)
-                      }}</span
-                      ><span class="digito-resto text-black">{{
-                        getNumeroResto(hist.numero)
-                      }}</span>
-                      <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
-                    </span>
-                  }
-                  <span class="text-meta block mt-0.5"
-                    >Partido: <app-partido-badge [sigla]="pref.partido" /> ·
-                    {{ pref.situacao }}</span
-                  >
+                  </div>
                 </div>
                 <div class="text-right">
                   <span class="metric-label">Votos no Pleito Municipal</span>
@@ -1921,34 +1989,48 @@
               @for (ver of vereadores(); track ver.nome) {
                 <tr>
                   <td class="cell-nome">
-                    <span class="nome-candidato block">{{ ver.nome_urna }}</span>
-                    @if (getNumero(ver); as num) {
-                      <span
-                        class="numero-candidato block text-sm font-bold tabular-nums"
-                        [attr.data-partido]="ver.partido"
-                        data-testid="numero-candidato"
-                      >
-                        <span class="digito-partido" [style.color]="getCorPartido(ver.partido)">{{
-                          getNumeroPrefixo(num)
-                        }}</span
-                        ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
-                      </span>
-                    } @else if (getNumeroHistorico(ver); as hist) {
-                      <span
-                        class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
-                        [attr.data-partido]="ver.partido"
-                        data-testid="numero-candidato"
-                      >
-                        <span class="text-xs font-normal text-meta mr-1">Último: </span>
-                        <span class="digito-partido" [style.color]="getCorPartido(ver.partido)">{{
-                          getNumeroPrefixo(hist.numero)
-                        }}</span
-                        ><span class="digito-resto text-black">{{
-                          getNumeroResto(hist.numero)
-                        }}</span>
-                        <span class="text-xs font-normal text-meta ml-1"> · {{ hist.ano }}</span>
-                      </span>
-                    }
+                    <div class="flex items-center gap-2">
+                      <app-candidato-avatar
+                        [foto]="ver.foto"
+                        [nome]="ver.nome_urna"
+                        [partido]="ver.partido"
+                        [tamanho]="32"
+                      />
+                      <div class="min-w-0">
+                        <span class="nome-candidato block">{{ ver.nome_urna }}</span>
+                        @if (getNumero(ver); as num) {
+                          <span
+                            class="numero-candidato block text-sm font-bold tabular-nums"
+                            [attr.data-partido]="ver.partido"
+                            data-testid="numero-candidato"
+                          >
+                            <span
+                              class="digito-partido"
+                              [style.color]="getCorPartido(ver.partido)"
+                              >{{ getNumeroPrefixo(num) }}</span
+                            ><span class="digito-resto text-black">{{ getNumeroResto(num) }}</span>
+                          </span>
+                        } @else if (getNumeroHistorico(ver); as hist) {
+                          <span
+                            class="numero-candidato numero-historico block text-sm font-bold tabular-nums"
+                            [attr.data-partido]="ver.partido"
+                            data-testid="numero-candidato"
+                          >
+                            <span class="text-xs font-normal text-meta mr-1">Último: </span>
+                            <span
+                              class="digito-partido"
+                              [style.color]="getCorPartido(ver.partido)"
+                              >{{ getNumeroPrefixo(hist.numero) }}</span
+                            ><span class="digito-resto text-black">{{
+                              getNumeroResto(hist.numero)
+                            }}</span>
+                            <span class="text-xs font-normal text-meta ml-1">
+                              · {{ hist.ano }}</span
+                            >
+                          </span>
+                        }
+                      </div>
+                    </div>
                   </td>
                   <td class="cell-center">
                     <app-partido-badge [sigla]="ver.partido" />

@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { DataService } from '../core/services/data.service';
 import { FonteMeta, NumeroHistorico, ParlamentarItem } from '../core/models/contrato.model';
 import { PartidoBadgeComponent } from '../shared/components/partido-badge/partido-badge.component';
+import { CandidatoAvatarComponent } from '../shared/components/candidato-avatar/candidato-avatar.component';
 
 export const CORES_PARTIDOS: Record<string, string> = {
   PT: '#a0001c',
@@ -34,7 +35,7 @@ export const CORES_PARTIDOS: Record<string, string> = {
 
 @Component({
   selector: 'app-cidade',
-  imports: [CommonModule, PartidoBadgeComponent],
+  imports: [CommonModule, PartidoBadgeComponent, CandidatoAvatarComponent],
   templateUrl: './cidade.component.html',
   styleUrl: './cidade.component.css',
 })

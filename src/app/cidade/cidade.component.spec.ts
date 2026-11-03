@@ -1090,4 +1090,22 @@ describe('CidadeComponent', () => {
     expect(compiled.querySelector('[data-testid="card-deputados-federais"]')).toBeTruthy();
     expect(compiled.querySelector('[data-testid="card-como-calculamos"]')).toBeTruthy();
   });
+
+  it('should render candidate avatars across parlamentar tables and mayoral card (US-15)', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const avatars = compiled.querySelectorAll('app-candidato-avatar');
+    expect(avatars.length).toBeGreaterThan(0);
+
+    // Governador
+    const govCard = compiled.querySelector('[data-testid="card-governador"]');
+    expect(govCard?.querySelector('app-candidato-avatar')).toBeTruthy();
+
+    // Deputados Federais
+    const depCard = compiled.querySelector('[data-testid="card-deputados-federais"]');
+    expect(depCard?.querySelector('app-candidato-avatar')).toBeTruthy();
+
+    // Prefeito
+    const prefCard = compiled.querySelector('[data-testid="card-prefeito"]');
+    expect(prefCard?.querySelector('app-candidato-avatar')).toBeTruthy();
+  });
 });
