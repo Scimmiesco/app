@@ -1136,4 +1136,20 @@ describe('CidadeComponent', () => {
     const prefCard = compiled.querySelector('[data-testid="card-prefeito"]');
     expect(prefCard?.querySelector('app-candidato-avatar')).toBeTruthy();
   });
+
+  it('should apply responsive column classes and ellipsis accessibility titles on candidate names', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    // Candidatos possuem classe nome-candidato e atributo title para acessibilidade em nomes truncados
+    const nomes = compiled.querySelectorAll('.nome-candidato');
+    expect(nomes.length).toBeGreaterThan(0);
+    nomes.forEach((el) => {
+      expect(el.getAttribute('title')).toBeTruthy();
+    });
+
+    // Colunas secundárias em tabelas usam hidden sm:table-cell para otimização em mobile 393px
+    const govTable = compiled.querySelector('[data-testid="tabela-governador"]');
+    expect(govTable).toBeTruthy();
+    const thsGov = govTable?.querySelectorAll('th.hidden.sm\\:table-cell');
+    expect(thsGov && thsGov.length).toBeGreaterThanOrEqual(2);
+  });
 });

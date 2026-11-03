@@ -102,7 +102,10 @@
 }
 
 .card-brutalista {
-  @include mixins.brutalist-card(tokens.$color-bg-card, 1rem);
+  @include mixins.brutalist-card(tokens.$color-bg-card, 0.75rem);
+  @media (min-width: tokens.$bp-sm) {
+    padding: 1rem;
+  }
   max-width: 100%;
   box-sizing: border-box;
 }

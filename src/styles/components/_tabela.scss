@@ -23,7 +23,7 @@
     color: tokens.$color-black;
 
     th {
-      @apply p-2 font-black uppercase tracking-wider text-black;
+      @apply p-1.5 sm:p-2 font-black uppercase tracking-wider text-black;
 
       &:first-child {
         position: sticky;
@@ -31,6 +31,11 @@
         z-index: 2;
         background-color: tokens.$color-bg-page;
         border-right: 1px solid rgba(0, 0, 0, 0.1);
+        max-width: 175px;
+
+        @media (min-width: tokens.$bp-sm) {
+          max-width: none;
+        }
       }
 
       &.col-center {
@@ -61,6 +66,11 @@
         z-index: 1;
         background-color: tokens.$color-white;
         border-right: 1px solid rgba(0, 0, 0, 0.1);
+        max-width: 175px;
+
+        @media (min-width: tokens.$bp-sm) {
+          max-width: none;
+        }
       }
 
       &.em-exercicio,
@@ -71,10 +81,23 @@
       }
 
       td {
-        @apply p-2 text-black;
+        @apply p-1.5 sm:p-2 text-black;
 
         &.cell-nome {
-          @apply font-bold whitespace-nowrap;
+          @apply font-bold;
+          max-width: 175px;
+
+          @media (min-width: tokens.$bp-sm) {
+            max-width: none;
+          }
+
+          .nome-candidato {
+            @apply block truncate max-w-[120px];
+
+            @media (min-width: tokens.$bp-sm) {
+              max-width: none;
+            }
+          }
         }
 
         &.cell-center {
