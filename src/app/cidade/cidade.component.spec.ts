@@ -577,6 +577,64 @@ describe('CidadeComponent', () => {
     expect(comp?.t2.comparecimento_pct).toBeCloseTo(calcPct2, 1);
   });
 
+  it('should apply party colors, badges, numbers, and progress bars to presidential candidates in 1T, 2T, and comparativo', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    // 1º Turno
+    component.selecionarAbaPresidencial('1t');
+    fixture.detectChanges();
+
+    const cardFlavio1t = compiled.querySelector('[data-testid="card-presidencial-1t-flavio"]');
+    expect(cardFlavio1t).toBeTruthy();
+    expect(cardFlavio1t?.getAttribute('data-partido')).toBe('PL');
+    expect(cardFlavio1t?.querySelector('app-partido-badge')?.textContent).toContain('PL');
+    expect(cardFlavio1t?.querySelector('.digito-partido')?.textContent).toContain('22');
+    expect(cardFlavio1t?.querySelector('.barra-votos-preenchimento')).toBeTruthy();
+
+    const cardLula1t = compiled.querySelector('[data-testid="card-presidencial-1t-lula"]');
+    expect(cardLula1t).toBeTruthy();
+    expect(cardLula1t?.getAttribute('data-partido')).toBe('PT');
+    expect(cardLula1t?.querySelector('app-partido-badge')?.textContent).toContain('PT');
+    expect(cardLula1t?.querySelector('.digito-partido')?.textContent).toContain('13');
+    expect(cardLula1t?.querySelector('.barra-votos-preenchimento')).toBeTruthy();
+
+    // 2º Turno
+    component.selecionarAbaPresidencial('2t');
+    fixture.detectChanges();
+
+    const cardFlavio2t = compiled.querySelector('[data-testid="card-presidencial-2t-flavio"]');
+    expect(cardFlavio2t).toBeTruthy();
+    expect(cardFlavio2t?.getAttribute('data-partido')).toBe('PL');
+    expect(cardFlavio2t?.querySelector('app-partido-badge')?.textContent).toContain('PL');
+    expect(cardFlavio2t?.querySelector('.digito-partido')?.textContent).toContain('22');
+
+    const cardLula2t = compiled.querySelector('[data-testid="card-presidencial-2t-lula"]');
+    expect(cardLula2t).toBeTruthy();
+    expect(cardLula2t?.getAttribute('data-partido')).toBe('PT');
+    expect(cardLula2t?.querySelector('app-partido-badge')?.textContent).toContain('PT');
+    expect(cardLula2t?.querySelector('.digito-partido')?.textContent).toContain('13');
+
+    // Comparativo
+    component.selecionarAbaPresidencial('comparativo');
+    fixture.detectChanges();
+
+    const cardFlavioComp = compiled.querySelector('[data-testid="card-comp-flavio"]');
+    expect(cardFlavioComp).toBeTruthy();
+    expect(cardFlavioComp?.getAttribute('data-partido')).toBe('PL');
+
+    const cardLulaComp = compiled.querySelector('[data-testid="card-comp-lula"]');
+    expect(cardLulaComp).toBeTruthy();
+    expect(cardLulaComp?.getAttribute('data-partido')).toBe('PT');
+
+    const tabelaComp = compiled.querySelector('[data-testid="tabela-comparativa-presidencial"]');
+    expect(tabelaComp).toBeTruthy();
+    const rows = tabelaComp?.querySelectorAll('tbody tr.tr-candidato');
+    expect(rows?.length).toBe(3);
+    expect(rows?.[0].getAttribute('data-partido')).toBe('PL');
+    expect(rows?.[1].getAttribute('data-partido')).toBe('PT');
+    expect(rows?.[2].getAttribute('data-partido')).toBe('OUTROS');
+  });
+
   it('should render appropriate badge classes dynamically based on section status (oficial, curado, pendente)', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelectorAll('.badge-oficial').length).toBeGreaterThan(0);

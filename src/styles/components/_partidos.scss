@@ -182,3 +182,69 @@ $partidos: (
     color: map.get($prop, bg);
   }
 }
+
+// Cards de candidatos com destaque de cor partidária (Neo-Brutalismo / ADR-010)
+.card-candidato {
+  position: relative;
+  transition: tokens.$transition-fast;
+
+  @each $sigla, $prop in $partidos {
+    &[data-partido='#{$sigla}'] {
+      box-shadow:
+        inset 4px 0 0 map.get($prop, bg),
+        tokens.$shadow-hard-sm;
+    }
+  }
+
+  &[data-partido='OUTROS'] {
+    box-shadow:
+      inset 4px 0 0 #64748b,
+      tokens.$shadow-hard-sm;
+  }
+}
+
+// Linhas da tabela com destaque de cor partidária na primeira coluna fixa
+.tabela-brutalista tbody tr.tr-candidato {
+  @each $sigla, $prop in $partidos {
+    &[data-partido='#{$sigla}'] > td:first-child {
+      box-shadow: inset 4px 0 0 map.get($prop, bg);
+    }
+  }
+
+  &[data-partido='OUTROS'] > td:first-child {
+    box-shadow: inset 4px 0 0 #64748b;
+  }
+}
+
+// Barras de proporção de votos (vote share) com cores partidárias
+.barra-votos-trilho {
+  @apply w-full bg-slate-100 border border-black/20 h-2 rounded-xs overflow-hidden;
+}
+
+.barra-votos-preenchimento {
+  @apply h-full transition-all duration-300;
+  background-color: tokens.$color-black;
+
+  @each $sigla, $prop in $partidos {
+    &[data-partido='#{$sigla}'] {
+      background-color: map.get($prop, bg);
+    }
+  }
+
+  &[data-partido='OUTROS'] {
+    background-color: #64748b;
+  }
+}
+
+// Utilitários de texto com cor partidária
+.texto-partido {
+  @each $sigla, $prop in $partidos {
+    &[data-partido='#{$sigla}'] {
+      color: map.get($prop, bg);
+    }
+  }
+
+  &[data-partido='OUTROS'] {
+    color: #475569;
+  }
+}
