@@ -28,7 +28,9 @@
     >
       <div class="flex items-start justify-between gap-2">
         <div>
-          <span class="metric-label font-black text-black">{{ cand.nome }}</span>
+          <span class="nome-candidato text-sm sm:text-base font-bold block" [title]="cand.nome">{{
+            cand.nome
+          }}</span>
           <span
             class="numero-candidato"
             [attr.data-partido]="cand.partido"
@@ -77,7 +79,9 @@
   >
     <div class="flex items-start justify-between gap-2">
       <div>
-        <span class="metric-label font-black text-black">Outros Candidatos</span>
+        <span class="nome-candidato text-sm sm:text-base font-bold block" title="Outros Candidatos"
+          >Outros Candidatos</span
+        >
         @if (turno() === 2) {
           <span class="text-xs text-meta block mt-0.5 font-bold">Demais</span>
         } @else {

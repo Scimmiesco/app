@@ -125,3 +125,12 @@ h3,
 .text-tabular {
   font-variant-numeric: tabular-nums;
 }
+
+// Nomes de candidatos — fonte de título neo-brutalista (Russo One)
+.nome-candidato {
+  font-family: tokens.$font-candidato;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: tokens.$color-black;
+  text-transform: uppercase;
+}

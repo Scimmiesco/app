@@ -6,6 +6,11 @@ Licença: SIL Open Font License 1.1 (ver OFL-Bungee.txt)
 Origem: https://fonts.google.com/specimen/Bungee (Google Fonts)
 Arquivos: bungee-latin.woff2, bungee-latin-ext.woff2
 
+Russo One (display para nomes de candidatos) — Copyright 2011-2012 Jovanny Lemonad
+Licença: SIL Open Font License 1.1 (ver OFL-RussoOne.txt)
+Origem: https://fonts.google.com/specimen/Russo+One (Google Fonts)
+Arquivos: russo-one-latin.woff2, russo-one-latin-ext.woff2
+
 Archivo (texto) — Copyright 2019 The Archivo Project Authors
 Licença: SIL Open Font License 1.1 (ver OFL-Archivo.txt)
 Origem: https://fonts.google.com/specimen/Archivo (Google Fonts)

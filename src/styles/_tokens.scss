@@ -37,6 +37,7 @@ $shadow-hard-lg: 5px 5px 0 #000000;
 
 // 5. Tipografia (fontes locais em public/fonts)
 $font-display: 'Bungee', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+$font-candidato: 'Russo One', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
 $font-texto:
   'Archivo',
   ui-sans-serif,
@@ -90,6 +91,7 @@ $transition-collapse: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-collapse: #{$transition-collapse};
 
   --fonte-display: #{$font-display};
+  --fonte-candidato: #{$font-candidato};
   --fonte-texto: #{$font-texto};
 }
 

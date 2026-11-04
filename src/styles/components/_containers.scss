@@ -152,17 +152,19 @@
 
 .metric-value {
   @apply text-base text-black whitespace-nowrap tabular-nums;
+  font-family: tokens.$font-texto;
   font-weight: 800;
+  font-variant-numeric: tabular-nums;
 }
 
 .metric-value-lg {
-  font-family: tokens.$font-display;
-  font-weight: 400;
-  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-  line-height: 1.05;
-  letter-spacing: 0.005em;
-  color: tokens.$color-black;
-  white-space: nowrap;
+  @apply text-black whitespace-nowrap tabular-nums;
+  font-family: tokens.$font-texto;
+  font-weight: 900;
+  font-size: clamp(1.15rem, 1.85vw, 1.45rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
 }
 
 // 4. Skeleton Loader
