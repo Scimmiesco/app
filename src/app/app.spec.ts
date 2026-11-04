@@ -16,12 +16,14 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render header branding and footer sources', async () => {
+  it('should render skip link and footer sources', async () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('header')?.textContent).toContain('Eleitor');
+    expect(
+      compiled.querySelector('[data-testid="skip-link-conteudo-principal"]')?.textContent,
+    ).toContain('Pular para o conteúdo principal');
     expect(compiled.querySelector('footer')?.textContent).toContain('Fontes Oficiais:');
     expect(compiled.querySelector('footer')?.textContent).toContain('TSE');
   });
