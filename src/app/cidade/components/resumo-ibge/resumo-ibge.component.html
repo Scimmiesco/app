@@ -1,9 +1,9 @@
 <div class="card-brutalista space-y-4" data-testid="card-resumo-ibge">
   <div
-    class="card-header flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3"
+    class="card-header card-header-actions flex flex-row items-start justify-between gap-3"
     data-testid="resumo-ibge-header"
   >
-    <div class="min-w-0 max-w-full">
+    <div class="min-w-0 flex-1">
       <p class="section-kicker" data-testid="resumo-ibge-kicker">
         {{ secao().categoria || 'A CIDADE' }}
       </p>
@@ -41,13 +41,16 @@
     @if (mapa()) {
       <button
         type="button"
-        class="btn-default flex items-center gap-1.5 px-3 py-1.5 border-2 border-black rounded-sm bg-white font-black text-xs uppercase shadow-default-sm cursor-pointer hover:bg-black hover:text-white transition-colors self-start sm:self-center select-none"
+        class="btn-default shrink-0 self-start flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 border-2 border-black rounded-sm bg-white font-black text-xs uppercase shadow-default-sm cursor-pointer hover:bg-black hover:text-white transition-colors select-none"
         (click)="toggleMapa()"
         [attr.aria-expanded]="mostrarMapa()"
         aria-controls="painel-mapa-municipio"
         data-testid="botao-toggle-mapa"
       >
-        <span>{{ mostrarMapa() ? '✕ Ocultar Mapa' : '🗺️ Ver Mapa Territorial' }}</span>
+        <span>{{ mostrarMapa() ? '✕ Ocultar Mapa' : '🗺️ Ver Mapa' }}</span>
+        @if (!mostrarMapa()) {
+          <span class="hidden sm:inline">&nbsp;Territorial</span>
+        }
       </button>
     }
   </div>
