@@ -15,25 +15,25 @@
           <strong>Dado pendente:</strong> {{ secaoEco.motivo || 'Em fase de apuração oficial.' }}
         </div>
       } @else if (secaoEco.dados; as dadosEco) {
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
           <div class="metric-card" data-testid="card-metrica-pib-total">
             <span class="metric-label">PIB Total</span>
-            <span class="metric-value-lg">{{ formatarMoeda(dadosEco.pib_total) }}</span>
+            <span class="metric-value">{{ formatarMoeda(dadosEco.pib_total) }}</span>
           </div>
           <div class="metric-card" data-testid="card-metrica-pib-per-capita">
             <span class="metric-label">PIB Per Capita</span>
-            <span class="metric-value-lg">{{ formatarMoeda(dadosEco.pib_per_capita) }}</span>
+            <span class="metric-value">{{ formatarMoeda(dadosEco.pib_per_capita) }}</span>
           </div>
           @if (rendaMedia() !== null && rendaMedia() !== undefined) {
             <div class="metric-card" data-testid="card-metrica-renda-media">
               <span class="metric-label">Renda Média p/c</span>
-              <span class="metric-value-lg">{{ formatarMoeda(rendaMedia()) }}</span>
+              <span class="metric-value">{{ formatarMoeda(rendaMedia()) }}</span>
             </div>
           }
           @if (rendaMediana() !== null && rendaMediana() !== undefined) {
             <div class="metric-card" data-testid="card-metrica-renda-mediana">
               <span class="metric-label">Renda Mediana p/c</span>
-              <span class="metric-value-lg">{{ formatarMoeda(rendaMediana()) }}</span>
+              <span class="metric-value">{{ formatarMoeda(rendaMediana()) }}</span>
             </div>
           }
         </div>
@@ -67,11 +67,11 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div class="metric-card" data-testid="card-metrica-receita-bruta">
                 <span class="metric-label">Receitas Brutas (DCA {{ sFin.ano }})</span>
-                <span class="metric-value-lg">{{ formatarMoeda(dadosFin.receita_bruta) }}</span>
+                <span class="metric-value">{{ formatarMoeda(dadosFin.receita_bruta) }}</span>
               </div>
               <div class="metric-card" data-testid="card-metrica-despesa-bruta">
                 <span class="metric-label">Despesas Empenhadas (DCA {{ sFin.ano }})</span>
-                <span class="metric-value-lg">{{ formatarMoeda(dadosFin.despesa_bruta) }}</span>
+                <span class="metric-value">{{ formatarMoeda(dadosFin.despesa_bruta) }}</span>
               </div>
             </div>
           } @else {

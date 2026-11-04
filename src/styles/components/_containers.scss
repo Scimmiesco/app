@@ -158,12 +158,9 @@
 }
 
 .metric-value-lg {
-  @apply text-black whitespace-nowrap tabular-nums;
+  @apply text-base text-black whitespace-nowrap tabular-nums;
   font-family: tokens.$font-texto;
-  font-weight: 900;
-  font-size: clamp(1.15rem, 1.85vw, 1.45rem);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
+  font-weight: 800;
   font-variant-numeric: tabular-nums;
 }
 

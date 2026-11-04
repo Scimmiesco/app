@@ -124,7 +124,7 @@
         @if (sPop.dados; as dadosPop) {
           <div class="metric-card" data-testid="card-resumo-populacao-estimada">
             <span class="metric-label">População Estimada (IBGE {{ sPop.ano }})</span>
-            <span class="metric-value-lg" data-testid="card-metrica-populacao-estimada"
+            <span class="metric-value" data-testid="card-metrica-populacao-estimada"
               >{{ formatarNumero(dadosPop.populacao_estimada) }} hab</span
             >
           </div>
@@ -132,7 +132,7 @@
       } @else if (dadosIbge.populacao) {
         <div class="metric-card" data-testid="card-metrica-populacao">
           <span class="metric-label">População (Censo {{ secao().ano }})</span>
-          <span class="metric-value-lg">{{ formatarNumero(dadosIbge.populacao) }} hab</span>
+          <span class="metric-value">{{ formatarNumero(dadosIbge.populacao) }} hab</span>
         </div>
       }
       @if (dadosIbge.area_territorial_km2) {
