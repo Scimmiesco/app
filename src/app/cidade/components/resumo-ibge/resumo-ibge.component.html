@@ -3,35 +3,36 @@
     class="card-header flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3"
     data-testid="resumo-ibge-header"
   >
-    <div>
+    <div class="min-w-0 max-w-full">
       <p class="section-kicker" data-testid="resumo-ibge-kicker">
         {{ secao().categoria || 'A CIDADE' }}
       </p>
       <h2 class="heading-2" data-testid="resumo-ibge-titulo">{{ secao().titulo }}</h2>
-      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mt-0.5">
+      <div class="flex items-center gap-x-2 text-xs mt-1 min-w-0 max-w-full">
         @if (secao().status === 'oficial') {
-          <span class="badge badge-sm badge-oficial" data-testid="resumo-ibge-badge-status"
+          <span class="badge badge-sm badge-oficial shrink-0" data-testid="resumo-ibge-badge-status"
             >oficial</span
           >
-          <span class="text-meta">
+          <span class="text-meta flex items-center min-w-0 max-w-full">
             @if (fonte(); as fonteMeta) {
               <a
                 [href]="fonteMeta.url"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="link-fonte"
+                class="link-fonte truncate min-w-0"
+                [title]="fonteMeta.orgao + ' · ' + fonteMeta.titulo"
               >
                 {{ fonteMeta.orgao }} · {{ fonteMeta.titulo }}
               </a>
             } @else {
-              <span>{{ secao().fonte }}</span>
+              <span class="truncate min-w-0" [title]="secao().fonte">{{ secao().fonte }}</span>
             }
-            · {{ secao().ano }}
+            <span class="shrink-0 whitespace-nowrap ml-1">· {{ secao().ano }}</span>
           </span>
         } @else if (secao().status === 'curado') {
-          <span class="badge badge-sm badge-curado">curado</span>
+          <span class="badge badge-sm badge-curado shrink-0">curado</span>
         } @else {
-          <span class="badge badge-sm badge-pendente">pendente</span>
+          <span class="badge badge-sm badge-pendente shrink-0">pendente</span>
         }
       </div>
     </div>

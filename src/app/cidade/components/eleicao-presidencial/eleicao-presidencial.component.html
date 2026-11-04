@@ -6,34 +6,48 @@
       data-testid="header-eleicao-presidencial"
     >
       <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
-        <div>
+        <div class="min-w-0 max-w-full">
           <p class="section-kicker" data-testid="eleicao-presidencial-kicker">ELEIÇÃO 2026</p>
           <h2 class="heading-2" data-testid="titulo-eleicao-presidencial">
             Presidencial — 1º e 2º turnos
           </h2>
-          <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mt-0.5">
-            <span class="badge badge-sm badge-oficial">oficial</span>
-            <span class="text-meta">
+          <div class="flex items-center gap-x-2 text-xs mt-1 min-w-0 max-w-full">
+            <span class="badge badge-sm badge-oficial shrink-0">oficial</span>
+            <span class="text-meta flex items-center min-w-0 max-w-full">
               @if (abaPresidencial() === '1t' && secao1t(); as s1) {
                 @if (fonte1t(); as f) {
-                  <a [href]="f.url" target="_blank" rel="noopener noreferrer" class="link-fonte">
+                  <a
+                    [href]="f.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-fonte truncate min-w-0"
+                    [title]="f.orgao + ' · ' + f.titulo"
+                  >
                     {{ f.orgao }} · {{ f.titulo }}
                   </a>
                 } @else {
-                  <span>{{ s1.fonte }}</span>
+                  <span class="truncate min-w-0" [title]="s1.fonte">{{ s1.fonte }}</span>
                 }
-                · {{ s1.ano }}
+                <span class="shrink-0 whitespace-nowrap ml-1">· {{ s1.ano }}</span>
               } @else if (abaPresidencial() === '2t' && secao2t(); as s2) {
                 @if (fonte2t(); as f) {
-                  <a [href]="f.url" target="_blank" rel="noopener noreferrer" class="link-fonte">
+                  <a
+                    [href]="f.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-fonte truncate min-w-0"
+                    [title]="f.orgao + ' · ' + f.titulo"
+                  >
                     {{ f.orgao }} · {{ f.titulo }}
                   </a>
                 } @else {
-                  <span>{{ s2.fonte }}</span>
+                  <span class="truncate min-w-0" [title]="s2.fonte">{{ s2.fonte }}</span>
                 }
-                · {{ s2.ano }}
+                <span class="shrink-0 whitespace-nowrap ml-1">· {{ s2.ano }}</span>
               } @else {
-                <span>TSE · Dados Oficiais Consolidados (1º e 2º Turnos) · 2026</span>
+                <span class="truncate min-w-0"
+                  >TSE · Dados Oficiais Consolidados (1º e 2º Turnos) · 2026</span
+                >
               }
             </span>
           </div>

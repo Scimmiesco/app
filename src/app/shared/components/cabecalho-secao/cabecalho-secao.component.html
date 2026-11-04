@@ -1,57 +1,56 @@
 @if (agrupado()) {
   <div class="card-header-grouped">
-    <div class="flex flex-wrap items-start justify-between gap-2">
-      <div>
-        <p class="section-kicker" [attr.data-testid]="kickerTestId()">
-          {{ secao().categoria || categoriaPadrao() }}
-        </p>
-        <h2 class="heading-2" [attr.data-testid]="tituloTestId()">{{ secao().titulo }}</h2>
-      </div>
-      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+    <div class="min-w-0 max-w-full">
+      <p class="section-kicker" [attr.data-testid]="kickerTestId()">
+        {{ secao().categoria || categoriaPadrao() }}
+      </p>
+      <h2 class="heading-2" [attr.data-testid]="tituloTestId()">{{ secao().titulo }}</h2>
+      <div class="flex items-center gap-x-2 text-xs mt-1 min-w-0 max-w-full">
         @if (mostrarFonte()) {
           @if (secao().status === 'oficial') {
-            <span class="badge badge-sm badge-oficial" [attr.data-testid]="badgeTestId()"
+            <span class="badge badge-sm badge-oficial shrink-0" [attr.data-testid]="badgeTestId()"
               >oficial</span
             >
-            <span class="text-meta">
+            <span class="text-meta flex items-center min-w-0 max-w-full">
               @if (fonte(); as fonteMeta) {
                 <a
                   [href]="fonteMeta.url"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="link-fonte"
+                  class="link-fonte truncate min-w-0"
+                  [title]="fonteMeta.orgao + ' · ' + fonteMeta.titulo"
                   [attr.data-testid]="linkTestId()"
                 >
                   {{ fonteMeta.orgao }} · {{ fonteMeta.titulo }}
                 </a>
               } @else {
-                <span>{{ secao().fonte }}</span>
+                <span class="truncate min-w-0" [title]="secao().fonte">{{ secao().fonte }}</span>
               }
-              · {{ secao().ano }}
+              <span class="shrink-0 whitespace-nowrap ml-1">· {{ secao().ano }}</span>
             </span>
           } @else if (secao().status === 'curado' && !curadoComoPendente()) {
-            <span class="badge badge-sm badge-curado" [attr.data-testid]="badgeTestId()"
+            <span class="badge badge-sm badge-curado shrink-0" [attr.data-testid]="badgeTestId()"
               >curado</span
             >
             @if (textoCurado()) {
-              <span class="text-meta">Fonte curada — validação pendente</span>
+              <span class="text-meta truncate min-w-0">Fonte curada — validação pendente</span>
             }
           } @else {
-            <span class="badge badge-sm badge-pendente" [attr.data-testid]="badgeTestId()"
+            <span class="badge badge-sm badge-pendente shrink-0" [attr.data-testid]="badgeTestId()"
               >pendente</span
             >
           }
         } @else {
           @if (secao().status === 'oficial') {
-            <span class="badge badge-sm badge-oficial" [attr.data-testid]="badgeTestId()"
+            <span class="badge badge-sm badge-oficial shrink-0" [attr.data-testid]="badgeTestId()"
               >oficial</span
             >
           } @else if (secao().status === 'curado') {
-            <span class="badge badge-sm badge-curado" [attr.data-testid]="badgeTestId()"
+            <span class="badge badge-sm badge-curado shrink-0" [attr.data-testid]="badgeTestId()"
               >curado</span
             >
           } @else {
-            <span class="badge badge-sm badge-pendente" [attr.data-testid]="badgeTestId()"
+            <span class="badge badge-sm badge-pendente shrink-0" [attr.data-testid]="badgeTestId()"
               >pendente</span
             >
           }
@@ -62,7 +61,7 @@
     @if ((mostrarMandato() && secao().mandato) || secao().pct_base) {
       <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
         @if (mostrarMandato() && secao().mandato) {
-          <span class="badge badge-sm badge-mandato" [attr.data-testid]="mandatoTestId()">
+          <span class="badge badge-sm badge-mandato shrink-0" [attr.data-testid]="mandatoTestId()">
             Mandato: {{ secao().mandato }}
           </span>
         }
@@ -79,62 +78,67 @@
   </div>
 } @else {
   <div class="card-header">
-    <div>
+    <div class="min-w-0 max-w-full">
       <p class="section-kicker" [attr.data-testid]="kickerTestId()">
         {{ secao().categoria || categoriaPadrao() }}
       </p>
       <h2 class="heading-2" [attr.data-testid]="tituloTestId()">{{ secao().titulo }}</h2>
-    </div>
-    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
-      @if (mostrarFonte()) {
-        @if (secao().status === 'oficial') {
-          <span class="badge badge-sm badge-oficial" [attr.data-testid]="badgeTestId()"
-            >oficial</span
-          >
-          <span class="text-meta">
-            @if (fonte(); as fonteMeta) {
-              <a
-                [href]="fonteMeta.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="link-fonte"
-                [attr.data-testid]="linkTestId()"
-              >
-                {{ fonteMeta.orgao }} · {{ fonteMeta.titulo }}
-              </a>
-            } @else {
-              <span>{{ secao().fonte }}</span>
+      <div class="flex items-center gap-x-2 text-xs mt-1 min-w-0 max-w-full">
+        @if (mostrarFonte()) {
+          @if (secao().status === 'oficial') {
+            <span class="badge badge-sm badge-oficial shrink-0" [attr.data-testid]="badgeTestId()"
+              >oficial</span
+            >
+            <span class="text-meta flex items-center min-w-0 max-w-full">
+              @if (fonte(); as fonteMeta) {
+                <a
+                  [href]="fonteMeta.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="link-fonte truncate min-w-0"
+                  [title]="fonteMeta.orgao + ' · ' + fonteMeta.titulo"
+                  [attr.data-testid]="linkTestId()"
+                >
+                  {{ fonteMeta.orgao }} · {{ fonteMeta.titulo }}
+                </a>
+              } @else {
+                <span class="truncate min-w-0" [title]="secao().fonte">{{ secao().fonte }}</span>
+              }
+              <span class="shrink-0 whitespace-nowrap ml-1">· {{ secao().ano }}</span>
+            </span>
+          } @else if (secao().status === 'curado' && !curadoComoPendente()) {
+            <span class="badge badge-sm badge-curado shrink-0" [attr.data-testid]="badgeTestId()"
+              >curado</span
+            >
+            @if (textoCurado()) {
+              <span class="text-meta truncate min-w-0">Fonte curada — validação pendente</span>
             }
-            · {{ secao().ano }}
-          </span>
-        } @else if (secao().status === 'curado' && !curadoComoPendente()) {
-          <span class="badge badge-sm badge-curado" [attr.data-testid]="badgeTestId()">curado</span>
-          @if (textoCurado()) {
-            <span class="text-meta">Fonte curada — validação pendente</span>
+          } @else {
+            <span class="badge badge-sm badge-pendente shrink-0" [attr.data-testid]="badgeTestId()"
+              >pendente</span
+            >
           }
         } @else {
-          <span class="badge badge-sm badge-pendente" [attr.data-testid]="badgeTestId()"
-            >pendente</span
-          >
+          @if (secao().status === 'oficial') {
+            <span class="badge badge-sm badge-oficial shrink-0" [attr.data-testid]="badgeTestId()"
+              >oficial</span
+            >
+          } @else if (secao().status === 'curado') {
+            <span class="badge badge-sm badge-curado shrink-0" [attr.data-testid]="badgeTestId()"
+              >curado</span
+            >
+          } @else {
+            <span class="badge badge-sm badge-pendente shrink-0" [attr.data-testid]="badgeTestId()"
+              >pendente</span
+            >
+          }
         }
-      } @else {
-        @if (secao().status === 'oficial') {
-          <span class="badge badge-sm badge-oficial" [attr.data-testid]="badgeTestId()"
-            >oficial</span
-          >
-        } @else if (secao().status === 'curado') {
-          <span class="badge badge-sm badge-curado" [attr.data-testid]="badgeTestId()">curado</span>
-        } @else {
-          <span class="badge badge-sm badge-pendente" [attr.data-testid]="badgeTestId()"
-            >pendente</span
-          >
+        @if (mostrarMandato() && secao().mandato) {
+          <span class="badge badge-sm badge-mandato shrink-0" [attr.data-testid]="mandatoTestId()">
+            Mandato: {{ secao().mandato }}
+          </span>
         }
-      }
-      @if (mostrarMandato() && secao().mandato) {
-        <span class="badge badge-sm badge-mandato" [attr.data-testid]="mandatoTestId()"
-          >Mandato: {{ secao().mandato }}</span
-        >
-      }
+      </div>
     </div>
   </div>
 }
