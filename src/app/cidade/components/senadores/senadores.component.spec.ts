@@ -57,4 +57,28 @@ describe('SenadoresComponent', () => {
     // A tabela de senadores não possui coluna de votos: apenas mandato e situação.
     expect(soraya?.textContent).toContain('31/01/2031');
   });
+
+  it('should render official badge and source link when fonte is provided', () => {
+    const fixture = TestBed.createComponent(SenadoresComponent);
+    fixture.componentRef.setInput('secao', secao);
+    fixture.componentRef.setInput('fonte', {
+      orgao: 'Senado Federal',
+      titulo: 'Dados Abertos - parlamentares em exercicio',
+      url: 'https://legis.senado.leg.br/dadosabertos/senador/lista/atual.json',
+      consultado_em: '2026-10-29',
+      confianca: 'oficial',
+    });
+    fixture.detectChanges();
+
+    const el = fixture.nativeElement as HTMLElement;
+    expect(el.querySelector('[data-testid="senadores-badge-status"]')?.textContent).toContain(
+      'oficial',
+    );
+    const link = el.querySelector('[data-testid="senadores-link-fonte"]') as HTMLAnchorElement;
+    expect(link).toBeTruthy();
+    expect(link.getAttribute('href')).toBe(
+      'https://legis.senado.leg.br/dadosabertos/senador/lista/atual.json',
+    );
+    expect(link.textContent).toContain('Senado Federal');
+  });
 });

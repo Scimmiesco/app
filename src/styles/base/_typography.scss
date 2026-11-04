@@ -141,6 +141,13 @@ h3,
   color: rgba(0, 0, 0, 0.4);
 }
 
+// Abreviaturas e siglas acessíveis para leigos (WCAG)
+abbr[title] {
+  text-decoration: underline dotted 1px;
+  text-underline-offset: 2px;
+  cursor: help;
+}
+
 .text-tabular {
   font-variant-numeric: tabular-nums;
 }

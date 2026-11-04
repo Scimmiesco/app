@@ -101,7 +101,7 @@
 
     <!-- SENADORES (MS) -->
     @if (snap.secoes.senadores; as secao) {
-      <app-senadores [secao]="secao" />
+      <app-senadores [secao]="secao" [fonte]="fonte(secao.fonte)" />
     }
 
     <!-- DEPUTADOS FEDERAIS (MS) -->

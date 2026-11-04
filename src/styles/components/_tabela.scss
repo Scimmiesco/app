@@ -184,11 +184,7 @@
           }
 
           .nome-candidato {
-            @apply block truncate max-w-[125px];
-
-            @media (min-width: tokens.$bp-sm) {
-              max-width: none;
-            }
+            @apply block truncate;
           }
         }
 

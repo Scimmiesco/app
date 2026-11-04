@@ -12,6 +12,12 @@
       <strong>Dado pendente:</strong> {{ secao().motivo || 'Em fase de apuração oficial.' }}
     </div>
   } @else if (secao().dados; as dadosEdu) {
+    <p class="text-xs text-meta leading-relaxed" data-testid="descricao-educacao">
+      O <strong>IDEB</strong> (Índice de Desenvolvimento da Educação Básica) mede a qualidade da
+      educação escolar numa escala de <strong>0 a 10</strong>, calculada pelo MEC/INEP a partir do
+      aprendizado dos alunos e das taxas de aprovação.
+    </p>
+
     <div
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
       data-testid="resumo-educacao-grid-metricas"
@@ -19,7 +25,9 @@
       @if (secaoEscolarizacao(); as sEsc) {
         @if (sEsc.dados; as dadosEsc) {
           <div class="metric-card" data-testid="card-resumo-escolarizacao">
-            <span class="metric-label"
+            <span
+              class="metric-label"
+              title="Percentual da população de 6 a 14 anos que frequenta a escola"
               >Taxa de Escolarização 6 a 14 anos (Censo {{ sEsc.ano }})</span
             >
             <span class="metric-value" data-testid="card-metrica-escolarizacao">{{
@@ -29,7 +37,12 @@
         }
       }
       <div class="metric-card" data-testid="card-metrica-ideb-iniciais">
-        <span class="metric-label mb-1">IDEB — Anos Iniciais</span>
+        <span
+          class="metric-label mb-1"
+          title="Índice de Desenvolvimento da Educação Básica — Anos Iniciais do Ensino Fundamental (1º ao 5º ano, nota de 0 a 10)"
+          ><abbr title="Índice de Desenvolvimento da Educação Básica">IDEB</abbr> — Anos Iniciais
+          (1º ao 5º ano)</span
+        >
         <div class="flex flex-wrap gap-3 text-sm">
           @for (item of dadosEdu.anos_iniciais | keyvalue; track item.key) {
             <div>
@@ -40,7 +53,12 @@
         </div>
       </div>
       <div class="metric-card" data-testid="card-metrica-ideb-finais">
-        <span class="metric-label mb-1">IDEB — Anos Finais</span>
+        <span
+          class="metric-label mb-1"
+          title="Índice de Desenvolvimento da Educação Básica — Anos Finais do Ensino Fundamental (6º ao 9º ano, nota de 0 a 10)"
+          ><abbr title="Índice de Desenvolvimento da Educação Básica">IDEB</abbr> — Anos Finais (6º
+          ao 9º ano)</span
+        >
         <div class="flex flex-wrap gap-3 text-sm">
           @for (item of dadosEdu.anos_finais | keyvalue; track item.key) {
             <div>
