@@ -20,7 +20,7 @@ html {
 
 body {
   @apply min-h-screen antialiased;
-  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  font-family: tokens.$font-texto;
   max-width: 100%;
   overflow-x: hidden;
 }

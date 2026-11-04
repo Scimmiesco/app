@@ -7,7 +7,7 @@
       <p class="section-kicker" data-testid="resumo-ibge-kicker">
         {{ secao().categoria || 'A CIDADE' }}
       </p>
-      <h2 class="heading-2 text-lg" data-testid="resumo-ibge-titulo">{{ secao().titulo }}</h2>
+      <h2 class="heading-2" data-testid="resumo-ibge-titulo">{{ secao().titulo }}</h2>
       <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mt-0.5">
         @if (secao().status === 'oficial') {
           <span class="badge badge-sm badge-oficial" data-testid="resumo-ibge-badge-status"
@@ -68,7 +68,7 @@
         <div class="painel-conteudo-interno">
           <div class="mb-3">
             <p class="section-kicker" data-testid="mapa-kicker">TERRITÓRIO</p>
-            <h2 class="heading-2 text-base" data-testid="mapa-titulo">Mapa do município</h2>
+            <h2 class="heading-2 heading-2--menor" data-testid="mapa-titulo">Mapa do município</h2>
           </div>
           <div
             class="flex flex-col md:flex-row items-center justify-between gap-6 p-4 mb-2 bg-white border-2 border-black rounded-sm shadow-default-sm"

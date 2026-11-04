@@ -1,72 +1,124 @@
 // ==========================================================================
-// BASE: TIPOGRAFIA E HIERARQUIA VISUAL (ADR-010)
-// Classes semânticas para uso limpo no HTML sem utilitários diretos de cor
+// BASE: SISTEMA TIPOGRÁFICO (ADR-025)
+// Display: Bungee (títulos exagerados) · Texto: Archivo (leitura)
+// Hierarquia: H1 hero > H2 seção > H2 secundário > kicker > corpo
 // ==========================================================================
 
 @use '../tokens' as tokens;
 
+// H1 — nome da cidade, o título mais alto da página
 h1,
 .heading-1 {
-  @apply font-extrabold tracking-tight text-black;
-  line-height: 1.15;
+  font-family: tokens.$font-display;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 5.4vw, 3.3rem);
+  line-height: 0.9;
+  letter-spacing: 0.002em;
+  text-transform: uppercase;
+  color: tokens.$color-black;
+  text-wrap: balance;
+  text-shadow: 3px 3px 0 tokens.$color-amarelo;
+  margin: 0;
 }
 
+// H2 — título de seção, sempre em caixa alta com régua amarela
 h2,
 .heading-2 {
-  @apply font-extrabold text-black;
-  text-transform: none;
-  letter-spacing: -0.01em;
+  font-family: tokens.$font-display;
+  font-weight: 400;
+  font-size: clamp(1.2rem, 2.4vw, 1.65rem);
+  line-height: 1;
+  letter-spacing: 0.004em;
+  text-transform: uppercase;
+  color: tokens.$color-black;
+  width: fit-content;
+  max-width: 100%;
+  padding-bottom: 0.12em;
+  border-bottom: 0.26em solid tokens.$color-amarelo;
+  text-wrap: balance;
+  margin: 0;
 }
 
+// H2 secundário — sub-blocos dentro de um cartão (mapa, panorama, metodologia)
+.heading-2--menor {
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  line-height: 1.05;
+  border-bottom-width: 0.18em;
+  border-bottom-color: tokens.$color-black;
+  letter-spacing: 0.01em;
+}
+
+// H3 — terceiro nível, quando existir
 h3,
 .heading-3 {
-  @apply font-bold text-black;
+  font-family: tokens.$font-display;
+  font-weight: 400;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: tokens.$color-black;
+  margin: 0;
 }
 
-// Kicker de categoria dos blocos (ADR-016 / 10-design-titulos.md)
+// Kicker — etiqueta preta de categoria, contraste máximo com o H2
 .section-kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  font-family: tokens.$font-texto;
   font-size: 10px;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #000000;
-  line-height: 1.2;
-  margin-bottom: 2px;
+  letter-spacing: 0.16em;
+  color: tokens.$color-white;
+  background-color: tokens.$color-black;
+  line-height: 1.25;
+  padding: 2px 6px;
+  margin-bottom: 6px;
 }
 
-// Textos auxiliares e metadados com opacidade do preto padrão
+// Textos auxiliares e metadados
 .text-meta {
-  @apply text-xs font-medium;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.45;
   color: rgba(0, 0, 0, 0.72);
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
 .text-meta-subtle {
-  @apply text-xs;
+  font-size: 0.72rem;
   color: rgba(0, 0, 0, 0.6);
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
 .text-contrast {
-  @apply font-black text-black;
+  font-weight: 800;
+  color: tokens.$color-black;
 }
 
 // Links para fontes oficiais
 .link-fonte {
-  @apply underline font-semibold text-black transition-opacity;
+  display: inline;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  color: tokens.$color-black;
+  transition: opacity 0.15s ease;
   overflow-wrap: anywhere;
   word-break: break-word;
 
   &:hover {
-    opacity: 0.75;
+    opacity: 0.7;
   }
 }
 
 // Indicador de valor ausente (—)
 .text-empty {
-  @apply font-normal;
+  font-weight: 400;
   color: rgba(0, 0, 0, 0.4);
 }
 

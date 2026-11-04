@@ -20,7 +20,7 @@
         </span>
       </div>
 
-      <h1 id="cidade-heading" class="heading-1 text-2xl sm:text-3xl" data-testid="titulo-cidade">
+      <h1 id="cidade-heading" class="heading-1" data-testid="titulo-cidade">
         {{ municipio().nome }} / {{ municipio().uf }}
       </h1>
       <p class="text-meta mt-1 font-medium" data-testid="subtitulo-cidade">
@@ -60,7 +60,9 @@
           <p class="section-kicker" data-testid="cabecalho-kicker">
             {{ secaoCab.categoria || 'A CIDADE' }}
           </p>
-          <h2 class="heading-2 text-base" data-testid="cabecalho-titulo">{{ secaoCab.titulo }}</h2>
+          <h2 class="heading-2 heading-2--menor" data-testid="cabecalho-titulo">
+            {{ secaoCab.titulo }}
+          </h2>
         </div>
         <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
           @if (secaoCab.status === 'oficial') {

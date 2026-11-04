@@ -46,7 +46,13 @@
   }
 
   .app-brand-title {
-    @apply text-base font-black tracking-tight text-black;
+    font-family: tokens.$font-display;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: tokens.$color-black;
   }
 }
 
@@ -134,16 +140,29 @@
 }
 
 .metric-label {
-  @apply block text-xs font-bold uppercase tracking-wider;
+  display: block;
+  font-family: tokens.$font-texto;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
   color: rgba(0, 0, 0, 0.72);
 }
 
 .metric-value {
-  @apply text-base font-black text-black whitespace-nowrap tabular-nums;
+  @apply text-base text-black whitespace-nowrap tabular-nums;
+  font-weight: 800;
 }
 
 .metric-value-lg {
-  @apply text-lg font-black text-black whitespace-nowrap tabular-nums;
+  font-family: tokens.$font-display;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  line-height: 1.05;
+  letter-spacing: 0.005em;
+  color: tokens.$color-black;
+  white-space: nowrap;
 }
 
 // 4. Skeleton Loader

@@ -35,19 +35,32 @@ $shadow-hard: 3px 3px 0 #000000;
 $shadow-hard-sm: 2px 2px 0 #000000;
 $shadow-hard-lg: 5px 5px 0 #000000;
 
-// 5. Bordas e Raios
+// 5. Tipografia (fontes locais em public/fonts)
+$font-display: 'Bungee', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+$font-texto:
+  'Archivo',
+  ui-sans-serif,
+  system-ui,
+  -apple-system,
+  'Segoe UI',
+  Roboto,
+  'Helvetica Neue',
+  Arial,
+  sans-serif;
+
+// 6. Bordas e Raios
 $border-width-default: 2px;
 $border-solid-black: 2px solid #000000;
 $radius-sm: 0.125rem; // 2px (rounded-sm)
 $radius-md: 0.25rem; // 4px (rounded)
 
-// 6. Breakpoints
+// 7. Breakpoints
 $bp-mobile: 393px;
 $bp-sm: 640px;
 $bp-md: 768px;
 $bp-lg: 1024px;
 
-// 7. Transições Padrão
+// 8. Transições Padrão
 $transition-default: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 $transition-fast: all 0.15s ease;
 $transition-collapse: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -75,6 +88,9 @@ $transition-collapse: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-default: #{$transition-default};
   --transition-fast: #{$transition-fast};
   --transition-collapse: #{$transition-collapse};
+
+  --fonte-display: #{$font-display};
+  --fonte-texto: #{$font-texto};
 }
 
 @media (prefers-reduced-motion: reduce) {

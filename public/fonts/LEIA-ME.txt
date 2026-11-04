@@ -1,0 +1,14 @@
+Fontes locais do Eleitor v2
+==========================
+
+Bungee (display) — Copyright 2018 The Bungee Project Authors
+Licença: SIL Open Font License 1.1 (ver OFL-Bungee.txt)
+Origem: https://fonts.google.com/specimen/Bungee (Google Fonts)
+Arquivos: bungee-latin.woff2, bungee-latin-ext.woff2
+
+Archivo (texto) — Copyright 2019 The Archivo Project Authors
+Licença: SIL Open Font License 1.1 (ver OFL-Archivo.txt)
+Origem: https://fonts.google.com/specimen/Archivo (Google Fonts)
+Arquivos: archivo-latin.woff2 (variável 100-900), archivo-latin-ext.woff2
+
+Servidas localmente; nenhum hotlink em runtime.
