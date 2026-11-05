@@ -24,20 +24,20 @@
    "faixas": "muito_abaixo <=10; abaixo <40; proximo 40-60; acima <90; muito_acima >=90"
   },
   "aviso": "Mediana dos municipios nao e o IDEB Brasil oficial (agregado por matriculas).",
-  "gerado_em": "2026-11-05T16:47:45-0400",
+  "gerado_em": "2026-11-05T16:48:12-0400",
   "fonte": {
    "anos_iniciais": {
     "url": "https://download.inep.gov.br/ideb/resultados/divulgacao_anos_iniciais_municipios_2025.zip",
     "zip_sha256": "89100286327ab07a4b1318ba51974d62da90af334f663bedf6374cb67298a3e7",
     "zip_bytes": 25308289,
-    "xlsx": "divulgacao_anos_iniciais_municipios_2025/divulgacao_anos_iniciais_municipios_2025.xlsx",
+    "xlsx": "dados_fontes/inep/ideb/2025/municipal/divulgacao_anos_iniciais_municipios_2025/divulgacao_anos_iniciais_municipios_2025.xlsx",
     "xlsx_sha256": "e132cd0ab83179ffc8263029e67db737aebf84a6977b38fbe3e25bcaf96ba774"
    },
    "anos_finais": {
     "url": "https://download.inep.gov.br/ideb/resultados/divulgacao_anos_finais_municipios_2025.zip",
     "zip_sha256": "5f81ae18d33567608f10551d4f563a6879afc0182ff28cfd81e913958a30a6b3",
     "zip_bytes": 24381009,
-    "xlsx": "divulgacao_anos_finais_municipios_2025/divulgacao_anos_finais_municipios_2025.xlsx",
+    "xlsx": "dados_fontes/inep/ideb/2025/municipal/divulgacao_anos_finais_municipios_2025/divulgacao_anos_finais_municipios_2025.xlsx",
     "xlsx_sha256": "0a54ddd3010781033273dcfb318baef22c3136345ca0c64125c4a33daebc6ed4"
    }
   }
