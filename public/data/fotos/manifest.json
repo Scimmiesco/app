@@ -1650,6 +1650,17 @@
    "largura": 256,
    "altura": 256,
    "licenca": "CC-BY"
+  },
+  "deputados_federais|MERLONG SOLANO": {
+   "arquivo": "fotos/camara_188097.jpg",
+   "fonte": "Câmara dos Deputados - Dados Abertos",
+   "url": "https://www.camara.leg.br/internet/deputado/bandep/188097.jpg",
+   "credito": "Câmara dos Deputados",
+   "ano": 2026,
+   "sha256": "b451cf39e05fc24cbe907709693ca72ea4651afde7923a149b53506e49ec092d",
+   "largura": 256,
+   "altura": 256,
+   "licenca": "CC-BY"
   }
  }
 }

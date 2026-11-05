@@ -1,6 +1,6 @@
 {
  "schema_version": "0.12.0",
- "gerado_em": "2026-11-05T14:14:33-0400",
+ "gerado_em": "2026-11-05T14:39:57-0400",
  "municipio": {
   "codigo_ibge": 2211001,
   "codigo_tse": "12190",
@@ -89,6 +89,13 @@
    "orgao": "Senado Federal",
    "titulo": "Dados Abertos - parlamentares em exercício (PI)",
    "url": "https://legis.senado.leg.br/dadosabertos/senador/lista/atual.json",
+   "consultado_em": "2026-11-05",
+   "confianca": "oficial"
+  },
+  "camara_api": {
+   "orgao": "Câmara dos Deputados",
+   "titulo": "Dados Abertos - deputados em exercício e votos do mandato 2023-2026",
+   "url": "https://dadosabertos.camara.leg.br/api/v2/deputados",
    "consultado_em": "2026-11-05",
    "confianca": "oficial"
   }
@@ -437,8 +444,8 @@
      "mandato_inicio": "2027-02-01",
      "mandato_fim": "2031-01-31",
      "status_eleicao_2026": "reeleito",
-     "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": "Votos nominais do mandato na Câmara não coletados neste lote",
+     "votos_nominais_mandato_atual": 904,
+     "motivo_sem_votos": null,
      "numero": "1515",
      "numero_fonte": "tse_candidatos",
      "numero_historico": null,
@@ -453,7 +460,15 @@
       "altura": 256,
       "licenca": "CC-BY"
      },
+     "votos_por_ano": {
+      "2023": 238,
+      "2024": 245,
+      "2025": 353,
+      "2026": 68
+     },
+     "fonte_mandato": "camara_api",
      "fonte": "tse_2026_abertos",
+     "camara_id": 220699,
      "concorreu_2026": true,
      "cargo_2026": "Deputado Federal"
     },
@@ -468,8 +483,8 @@
      "mandato_inicio": "2027-02-01",
      "mandato_fim": "2031-01-31",
      "status_eleicao_2026": "reeleito",
-     "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": "Votos nominais do mandato na Câmara não coletados neste lote",
+     "votos_nominais_mandato_atual": 1029,
+     "motivo_sem_votos": null,
      "numero": "1313",
      "numero_fonte": "tse_candidatos",
      "numero_historico": null,
@@ -484,7 +499,15 @@
       "altura": 256,
       "licenca": "CC-BY"
      },
+     "votos_por_ano": {
+      "2023": 286,
+      "2024": 251,
+      "2025": 380,
+      "2026": 112
+     },
+     "fonte_mandato": "camara_api",
      "fonte": "tse_2026_abertos",
+     "camara_id": 220688,
      "concorreu_2026": true,
      "cargo_2026": "Deputado Federal"
     },
@@ -499,8 +522,8 @@
      "mandato_inicio": "2027-02-01",
      "mandato_fim": "2031-01-31",
      "status_eleicao_2026": "reeleito",
-     "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": "Votos nominais do mandato na Câmara não coletados neste lote",
+     "votos_nominais_mandato_atual": 796,
+     "motivo_sem_votos": null,
      "numero": "1000",
      "numero_fonte": "tse_candidatos",
      "numero_historico": null,
@@ -515,7 +538,15 @@
       "altura": 256,
       "licenca": "CC-BY"
      },
+     "votos_por_ano": {
+      "2023": 183,
+      "2024": 201,
+      "2025": 315,
+      "2026": 97
+     },
+     "fonte_mandato": "camara_api",
      "fonte": "tse_2026_abertos",
+     "camara_id": 220697,
      "concorreu_2026": true,
      "cargo_2026": "Deputado Federal"
     },
@@ -530,8 +561,8 @@
      "mandato_inicio": "2027-02-01",
      "mandato_fim": "2031-01-31",
      "status_eleicao_2026": "reeleito",
-     "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": "Votos nominais do mandato na Câmara não coletados neste lote",
+     "votos_nominais_mandato_atual": 761,
+     "motivo_sem_votos": null,
      "numero": "1111",
      "numero_fonte": "tse_candidatos",
      "numero_historico": null,
@@ -546,7 +577,15 @@
       "altura": 256,
       "licenca": "CC-BY"
      },
+     "votos_por_ano": {
+      "2023": 224,
+      "2024": 235,
+      "2025": 236,
+      "2026": 66
+     },
+     "fonte_mandato": "camara_api",
      "fonte": "tse_2026_abertos",
+     "camara_id": 66385,
      "concorreu_2026": true,
      "cargo_2026": "Deputado Federal"
     },
@@ -561,8 +600,8 @@
      "mandato_inicio": "2027-02-01",
      "mandato_fim": "2031-01-31",
      "status_eleicao_2026": "reeleito",
-     "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": "Votos nominais do mandato na Câmara não coletados neste lote",
+     "votos_nominais_mandato_atual": 917,
+     "motivo_sem_votos": null,
      "numero": "1511",
      "numero_fonte": "tse_candidatos",
      "numero_historico": null,
@@ -577,7 +616,15 @@
       "altura": 256,
       "licenca": "CC-BY"
      },
+     "votos_por_ano": {
+      "2023": 260,
+      "2024": 209,
+      "2025": 336,
+      "2026": 112
+     },
+     "fonte_mandato": "camara_api",
      "fonte": "tse_2026_abertos",
+     "camara_id": 204431,
      "concorreu_2026": true,
      "cargo_2026": "Deputado Federal"
     },
@@ -592,8 +639,8 @@
      "mandato_inicio": "2027-02-01",
      "mandato_fim": "2031-01-31",
      "status_eleicao_2026": "reeleito",
-     "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": "Votos nominais do mandato na Câmara não coletados neste lote",
+     "votos_nominais_mandato_atual": 1019,
+     "motivo_sem_votos": null,
      "numero": "1312",
      "numero_fonte": "tse_candidatos",
      "numero_historico": null,
@@ -608,7 +655,15 @@
       "altura": 256,
       "licenca": "CC-BY"
      },
+     "votos_por_ano": {
+      "2023": 277,
+      "2024": 240,
+      "2025": 387,
+      "2026": 115
+     },
+     "fonte_mandato": "camara_api",
      "fonte": "tse_2026_abertos",
+     "camara_id": 191923,
      "concorreu_2026": true,
      "cargo_2026": "Deputado Federal"
     },
@@ -623,8 +678,8 @@
      "mandato_inicio": "2023-02-01",
      "mandato_fim": "2027-01-31",
      "status_eleicao_2026": "nao_reeleito",
-     "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": "Votos nominais do mandato na Câmara não coletados neste lote",
+     "votos_nominais_mandato_atual": 941,
+     "motivo_sem_votos": null,
      "numero": "1110",
      "numero_fonte": "tse_candidatos",
      "numero_historico": null,
@@ -639,9 +694,56 @@
       "altura": 256,
       "licenca": "CC-BY"
      },
+     "votos_por_ano": {
+      "2023": 270,
+      "2024": 242,
+      "2025": 330,
+      "2026": 99
+     },
+     "fonte_mandato": "camara_api",
      "concorreu_2026": true,
      "cargo_2026": "Deputado Federal",
-     "fonte": "tse_2026_abertos"
+     "fonte": "tse_2026_abertos",
+     "camara_id": 123086
+    },
+    {
+     "nome": "MERLONG SOLANO NOGUEIRA",
+     "nome_urna": "MERLONG SOLANO",
+     "partido": "PT",
+     "votos": 78499,
+     "pct": 3.86,
+     "situacao": "SUPLENTE",
+     "em_exercicio": true,
+     "mandato_inicio": "2023-02-01",
+     "mandato_fim": "2027-01-31",
+     "status_eleicao_2026": "nao_reeleito",
+     "votos_nominais_mandato_atual": 1116,
+     "motivo_sem_votos": null,
+     "numero": "1333",
+     "numero_fonte": "tse_candidatos",
+     "numero_historico": null,
+     "foto": {
+      "arquivo": "fotos/camara_188097.jpg",
+      "fonte": "Câmara dos Deputados - Dados Abertos",
+      "url": "https://www.camara.leg.br/internet/deputado/bandep/188097.jpg",
+      "credito": "Câmara dos Deputados",
+      "ano": 2026,
+      "sha256": "b451cf39e05fc24cbe907709693ca72ea4651afde7923a149b53506e49ec092d",
+      "largura": 256,
+      "altura": 256,
+      "licenca": "CC-BY"
+     },
+     "votos_por_ano": {
+      "2023": 298,
+      "2024": 268,
+      "2025": 424,
+      "2026": 126
+     },
+     "fonte_mandato": "camara_api",
+     "concorreu_2026": true,
+     "cargo_2026": "Deputado Federal",
+     "fonte": "tse_2026_abertos",
+     "camara_id": 188097
     },
     {
      "nome": "FLORENTINO ALVES VERAS NETO",
@@ -654,8 +756,8 @@
      "mandato_inicio": "2023-02-01",
      "mandato_fim": "2027-01-31",
      "status_eleicao_2026": "nao_reeleito",
-     "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": "Votos nominais do mandato na Câmara não coletados neste lote",
+     "votos_nominais_mandato_atual": 949,
+     "motivo_sem_votos": null,
      "numero": "1310",
      "numero_fonte": "tse_candidatos",
      "numero_historico": null,
@@ -670,51 +772,21 @@
       "altura": 256,
       "licenca": "CC-BY"
      },
+     "votos_por_ano": {
+      "2023": 247,
+      "2024": 229,
+      "2025": 362,
+      "2026": 111
+     },
+     "fonte_mandato": "camara_api",
      "concorreu_2026": true,
      "cargo_2026": "Deputado Federal",
-     "fonte": "tse_2026_abertos"
+     "fonte": "tse_2026_abertos",
+     "camara_id": 220700
     },
     {
-     "nome": "REJANE RIBEIRO SOUSA DIAS",
-     "nome_urna": "REJANE DIAS",
-     "partido": "PT",
-     "votos": null,
-     "pct": null,
-     "situacao": null,
-     "em_exercicio": true,
-     "mandato_inicio": "2023-02-01",
-     "mandato_fim": "2027-01-31",
-     "status_eleicao_2026": "nao_concorreu_ao_cargo",
-     "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": "Votos nominais do mandato na Câmara não coletados neste lote",
-     "numero": null,
-     "numero_fonte": null,
-     "numero_historico": {
-      "numero": "1311",
-      "ano": 2022,
-      "cargo": "DEPUTADO FEDERAL",
-      "fonte": "tse_candidatos_2022"
-     },
-     "foto": {
-      "arquivo": "fotos/tse2022_180001610756.jpg",
-      "fonte": "TSE - Dados Abertos (fotos de candidatos 2022)",
-      "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/fotos/foto_cand2022_PI_div.zip",
-      "credito": "TSE",
-      "ano": 2022,
-      "sha256": "712d691d7e1e686d4ba8ea8014a9f143de6d33b6acc053992042b4d8a70d6d69",
-      "largura": 256,
-      "altura": 256,
-      "licenca": "CC-BY"
-     },
-     "concorreu_2026": false,
-     "cargo_2026": null,
-     "votos_2026_outro": null,
-     "pct_2026_outro": null,
-     "situacao_2026_outro": null
-    },
-    {
-     "nome": "JULIO CÉSAR DE CARVALHO LIMA",
-     "nome_urna": "JULIO CÉSAR",
+     "nome": "JÚLIO CÉSAR DE CARVALHO LIMA",
+     "nome_urna": "Júlio Cesar",
      "partido": "PSD",
      "votos": null,
      "pct": null,
@@ -723,8 +795,8 @@
      "mandato_inicio": "2023-02-01",
      "mandato_fim": "2027-01-31",
      "status_eleicao_2026": "nao_concorreu_ao_cargo",
-     "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": "Votos nominais do mandato na Câmara não coletados neste lote",
+     "votos_nominais_mandato_atual": 816,
+     "motivo_sem_votos": null,
      "numero": null,
      "numero_fonte": null,
      "numero_historico": {
@@ -744,11 +816,20 @@
       "altura": 256,
       "licenca": "CC-BY"
      },
+     "votos_por_ano": {
+      "2023": 201,
+      "2024": 204,
+      "2025": 321,
+      "2026": 90
+     },
+     "fonte_mandato": "camara_api",
      "concorreu_2026": true,
      "cargo_2026": "Senador",
      "votos_2026_outro": 989146,
      "pct_2026_outro": 26.98,
-     "situacao_2026_outro": "ELEITO"
+     "situacao_2026_outro": "ELEITO",
+     "fonte": "tse_2026_abertos",
+     "camara_id": 74317
     },
     {
      "nome": "GEORGIANO FERNANDES LIMA NETO",
@@ -762,7 +843,7 @@
      "mandato_fim": "2031-01-31",
      "status_eleicao_2026": "eleito",
      "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": null,
+     "motivo_sem_votos": "Sem mandato na Câmara 2023-2026 (assume em 2027)",
      "numero": "5555",
      "numero_fonte": "tse_candidatos",
      "numero_historico": null,
@@ -777,6 +858,7 @@
       "altura": 256,
       "licenca": "CC-BY"
      },
+     "fonte": "tse_2026_abertos",
      "concorreu_2026": true,
      "cargo_2026": "Deputado Federal"
     },
@@ -792,7 +874,7 @@
      "mandato_fim": "2031-01-31",
      "status_eleicao_2026": "eleito",
      "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": null,
+     "motivo_sem_votos": "Sem mandato na Câmara 2023-2026 (assume em 2027)",
      "numero": "4321",
      "numero_fonte": "tse_candidatos",
      "numero_historico": null,
@@ -807,6 +889,7 @@
       "altura": 256,
       "licenca": "CC-BY"
      },
+     "fonte": "tse_2026_abertos",
      "concorreu_2026": true,
      "cargo_2026": "Deputado Federal"
     },
@@ -822,7 +905,7 @@
      "mandato_fim": "2031-01-31",
      "status_eleicao_2026": "eleito",
      "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": null,
+     "motivo_sem_votos": "Sem mandato na Câmara 2023-2026 (assume em 2027)",
      "numero": "1311",
      "numero_fonte": "tse_candidatos",
      "numero_historico": null,
@@ -837,6 +920,7 @@
       "altura": 256,
       "licenca": "CC-BY"
      },
+     "fonte": "tse_2026_abertos",
      "concorreu_2026": true,
      "cargo_2026": "Deputado Federal"
     },
@@ -852,7 +936,7 @@
      "mandato_fim": "2031-01-31",
      "status_eleicao_2026": "eleito",
      "votos_nominais_mandato_atual": null,
-     "motivo_sem_votos": null,
+     "motivo_sem_votos": "Sem mandato na Câmara 2023-2026 (assume em 2027)",
      "numero": "5500",
      "numero_fonte": "tse_candidatos",
      "numero_historico": null,
@@ -867,13 +951,14 @@
       "altura": 256,
       "licenca": "CC-BY"
      },
+     "fonte": "tse_2026_abertos",
      "concorreu_2026": true,
      "cargo_2026": "Deputado Federal"
     }
    ],
    "pct_base": "votos_nominais_do_cargo",
    "mandato": "Lista única: atuais (2023-2026) e eleitos 2027-2031",
-   "nota": "Inclui deputados em exercício que não foram reeleitos ou não disputaram o cargo; os votos nominais do mandato na Câmara não foram coletados neste lote."
+   "nota": "Inclui deputados em exercício que não foram reeleitos ou não disputaram o cargo. Votos nominais do mandato (2023-2026) via API da Câmara para os atuais."
   },
   "deputados_estaduais": {
    "titulo": "Deputados estaduais do Piauí",
