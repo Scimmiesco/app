@@ -1,0 +1,25 @@
+{
+ "ibge": "4106902",
+ "municipio": "Curitiba",
+ "uf": "PR",
+ "svg": "geo/4106902.svg",
+ "viewBox": "-49.39610 25.33830 0.21771 0.31391",
+ "viewBox_malha": "-49.3893 25.3451 0.20409999999999684 0.3003",
+ "largura": 420,
+ "altura": 606,
+ "bytes": 4051,
+ "vertices_aproximados": 451,
+ "sede": null,
+ "suavizacao": {
+  "metodo": "stroke-linejoin/cap=round + feGaussianBlur",
+  "raio_px": 1.1
+ },
+ "fonte": {
+  "orgao": "IBGE",
+  "tipo": "malha municipal (SVG oficial)",
+  "url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/4106902?formato=image/svg+xml",
+  "sha256": "2fe4c4d567602be48958cbab2a93b4d110e869aad88b9a1bced14956a1778529",
+  "bytes_malha": 3181,
+  "consultado_em": "2026-11-05"
+ }
+}

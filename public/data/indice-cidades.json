@@ -1,6 +1,6 @@
 {
  "schema_version": "0.12.0",
- "gerado_em": "2026-11-05T14:14:14-0400",
+ "gerado_em": "2026-11-05T15:42:28-0400",
  "cidades": [
   {
    "codigo_ibge": 5002704,
@@ -8,6 +8,14 @@
    "nome": "Campo Grande",
    "uf": "MS",
    "arquivo": "municipios/5002704.json",
+   "disponivel": true
+  },
+  {
+   "codigo_ibge": 4106902,
+   "codigo_tse": "75353",
+   "nome": "Curitiba",
+   "uf": "PR",
+   "arquivo": "municipios/4106902.json",
    "disponivel": true
   },
   {
