@@ -1,6 +1,6 @@
 {
  "schema_version": "0.12.0",
- "gerado_em": "2026-11-05T14:39:57-0400",
+ "gerado_em": "2026-11-05T15:26:13-0400",
  "municipio": {
   "codigo_ibge": 2211001,
   "codigo_tse": "12190",
@@ -98,6 +98,13 @@
    "url": "https://dadosabertos.camara.leg.br/api/v2/deputados",
    "consultado_em": "2026-11-05",
    "confianca": "oficial"
+  },
+  "inep_ideb_2025": {
+   "orgao": "INEP",
+   "titulo": "IDEB 2025 por município",
+   "url": "https://download.inep.gov.br/ideb/resultados/",
+   "consultado_em": "2026-11-05",
+   "confianca": "oficial"
   }
  },
  "secoes": {
@@ -178,12 +185,23 @@
   "resumo_educacao": {
    "titulo": "Educação",
    "categoria": "A CIDADE",
-   "status": "pendente",
-   "fonte": "inep_ideb_2023",
-   "ano": 2023,
-   "coletado_em": "2026-11-05T14:14:31-0400",
-   "motivo": "IDEB 2023 de Teresina ainda não foi coletado pelo pipeline v2 (fonte INEP sem coletor versionado).",
-   "dados": {}
+   "status": "oficial",
+   "fonte": "inep_ideb_2025",
+   "ano": 2025,
+   "coletado_em": "2026-11-05T15:26:06-0400",
+   "motivo": null,
+   "dados": {
+    "anos_iniciais": {
+     "Estadual": 6.0,
+     "Municipal": 6.9,
+     "Pública": 6.8
+    },
+    "anos_finais": {
+     "Estadual": 5.3,
+     "Municipal": 5.9,
+     "Pública": 5.7
+    }
+   }
   },
   "resumo_financas": {
    "titulo": "Finanças municipais",
@@ -2681,12 +2699,7 @@
    "mandato": "2025-2028"
   }
  },
- "pendencias": [
-  {
-   "secao": "resumo_educacao",
-   "motivo": "IDEB 2023 de Teresina ainda não foi coletado pelo pipeline v2 (fonte INEP sem coletor versionado)."
-  }
- ],
+ "pendencias": [],
  "mapa": {
   "svg": "geo/2211001.svg",
   "viewBox": "-42.98309 4.77391 0.39648 0.82508",
