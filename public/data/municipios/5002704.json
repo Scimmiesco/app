@@ -1,6 +1,6 @@
 {
  "schema_version": "0.12.0",
- "gerado_em": "2026-11-03T14:18:07-0400",
+ "gerado_em": "2026-11-05T14:05:11-0400",
  "municipio": {
   "codigo_ibge": 5002704,
   "codigo_tse": "90514",
@@ -113,7 +113,7 @@
    "status": "oficial",
    "fonte": "ibge_censo_2022",
    "ano": 2022,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": {
     "nome": "Campo Grande",
@@ -127,7 +127,7 @@
    "status": "oficial",
    "fonte": "ibge_censo_2022",
    "ano": 2022,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": {
     "renda_media_pc": 2088.31,
@@ -150,7 +150,7 @@
    "status": "oficial",
    "fonte": "ibge_pib_2023",
    "ano": 2023,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": {
     "pib_total": 42269768000.0,
@@ -163,7 +163,7 @@
    "status": "oficial",
    "fonte": "ibge_estimativas",
    "ano": 2026,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": {
     "populacao_estimada": 970843
@@ -175,7 +175,7 @@
    "status": "oficial",
    "fonte": "ibge_indicadores_60045",
    "ano": 2022,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": {
     "faixa_6_14_pct": 98.07
@@ -187,7 +187,7 @@
    "status": "oficial",
    "fonte": "inep_ideb_2023",
    "ano": 2023,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": {
     "anos_iniciais": {
@@ -208,7 +208,7 @@
    "status": "oficial",
    "fonte": "siconfi_dca_2025",
    "ano": 2025,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": {
     "receita_bruta": 6060081890.75,
@@ -221,7 +221,7 @@
    "status": "oficial",
    "fonte": "tse_2026_1t",
    "ano": 2026,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": {
     "eleitores_aptos": 640427,
@@ -243,7 +243,7 @@
    "status": "oficial",
    "fonte": "tse_2026_2t_bu",
    "ano": 2026,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": {
     "eleitores_aptos": 640427,
@@ -269,7 +269,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": [
     {
@@ -311,7 +311,7 @@
    "status": "oficial",
    "fonte": "senado_api",
    "ano": 2026,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": [
     {
@@ -484,7 +484,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": [
     {
@@ -846,7 +846,7 @@
    "status": "oficial",
    "fonte": "tse_2026_abertos",
    "ano": 2026,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": [
     {
@@ -1532,15 +1532,15 @@
    "status": "oficial",
    "fonte": "tse_2024_abertos",
    "ano": 2024,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": [
     {
      "nome": "ADRIANE BARBOSA NOGUEIRA LOPES",
      "nome_urna": "ADRIANE LOPES",
      "partido": "PP",
-     "votos": 363612,
-     "pct": 41.42,
+     "votos": 222699,
+     "pct": 51.45,
      "situacao": "ELEITO",
      "em_exercicio": true,
      "mandato_inicio": "2025-01-01",
@@ -1573,7 +1573,7 @@
    "status": "oficial",
    "fonte": "tse_2024_abertos",
    "ano": 2024,
-   "coletado_em": "2026-11-03T14:18:07-0400",
+   "coletado_em": "2026-11-05T14:05:11-0400",
    "motivo": null,
    "dados": [
     {

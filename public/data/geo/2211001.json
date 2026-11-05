@@ -1,0 +1,25 @@
+{
+ "ibge": "2211001",
+ "municipio": "Teresina",
+ "uf": "PI",
+ "svg": "geo/2211001.svg",
+ "viewBox": "-42.98309 4.77391 0.39648 0.82508",
+ "viewBox_malha": "-42.9707 4.7863 0.37170000000000414 0.8003",
+ "largura": 420,
+ "altura": 874,
+ "bytes": 3005,
+ "vertices_aproximados": 261,
+ "sede": null,
+ "suavizacao": {
+  "metodo": "stroke-linejoin/cap=round + feGaussianBlur",
+  "raio_px": 1.1
+ },
+ "fonte": {
+  "orgao": "IBGE",
+  "tipo": "malha municipal (SVG oficial)",
+  "url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/2211001?formato=image/svg+xml",
+  "sha256": "3e9e4651020bf04be5aa4d9ec52fa80cadc44481cb2cbf4f0c763a98042f222e",
+  "bytes_malha": 2136,
+  "consultado_em": "2026-11-05"
+ }
+}
