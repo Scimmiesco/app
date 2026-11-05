@@ -32,11 +32,20 @@ const FORMATADOR_PCT = new Intl.NumberFormat('pt-BR', {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 });
+const FORMATADOR_INDICE = new Intl.NumberFormat('pt-BR', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
 const FORMATADOR_DATA = new Intl.DateTimeFormat('pt-BR');
 
 export function formatarNumero(val?: number | null): string {
   if (val === null || val === undefined) return '—';
   return FORMATADOR_NUMERO.format(val);
+}
+
+export function formatarIndice(val?: number | null): string {
+  if (val === null || val === undefined) return '—';
+  return FORMATADOR_INDICE.format(val);
 }
 
 export function formatarMoeda(val?: number | null): string {

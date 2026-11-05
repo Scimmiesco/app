@@ -30,6 +30,45 @@ export interface MunicipioMeta {
   geo?: CoordenadasMunicipio;
 }
 
+export type FaixaBenchmark = 'muito_abaixo' | 'abaixo' | 'proximo' | 'acima' | 'muito_acima';
+
+export interface EducacaoItemBenchmark {
+  valor: number;
+  desvio_mediana: number;
+  percentil: number;
+  z_robusto?: number;
+  faixa: FaixaBenchmark | string;
+  faixa_rotulo: string;
+  n: number;
+  min?: number;
+  max?: number;
+  media?: number;
+  mediana: number;
+  q1?: number;
+  q3?: number;
+  p10?: number;
+  p90?: number;
+  mad?: number;
+}
+
+export interface EducacaoBenchmarkMeta {
+  indicador: string;
+  ano: number;
+  universo: string;
+  ponderacao: string;
+  metodo?: Record<string, string>;
+  aviso?: string;
+}
+
+export interface EducacaoBenchmark {
+  meta: EducacaoBenchmarkMeta;
+  comparacoes: {
+    anos_iniciais?: Record<string, EducacaoItemBenchmark>;
+    anos_finais?: Record<string, EducacaoItemBenchmark>;
+    [etapa: string]: Record<string, EducacaoItemBenchmark> | undefined;
+  };
+}
+
 export interface SecaoEnvelope<T> {
   titulo: string;
   categoria?: string;
@@ -42,6 +81,7 @@ export interface SecaoEnvelope<T> {
   pct_base?: string;
   mandato?: string;
   nota?: string;
+  benchmark?: EducacaoBenchmark;
 }
 
 export interface PendenciaItem {

@@ -1,5 +1,6 @@
 import {
   formatarDataIso,
+  formatarIndice,
   formatarMoeda,
   formatarNumero,
   formatarPct,
@@ -33,6 +34,11 @@ describe('formatadores', () => {
   it('should format percentages and variations', () => {
     expect(formatarPct(58.67)).toBe('58,67%');
     expect(formatarPct(100)).toBe('100,00%');
+    expect(formatarIndice(0.81)).toBe('0,81');
+    expect(formatarIndice(0.05)).toBe('0,05');
+    expect(formatarIndice(0.5)).toBe('0,50');
+    expect(formatarIndice(null)).toBe('—');
+    expect(formatarIndice(undefined)).toBe('—');
     expect(formatarVariacaoVotos(23195)).toBe('+23.195');
     expect(formatarVariacaoVotos(-1)).toBe('-1');
     expect(formatarVariacaoPct(2.33)).toBe('+2,33 p.p.');

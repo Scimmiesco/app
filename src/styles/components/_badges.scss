@@ -37,6 +37,12 @@
   &.badge-shadow {
     box-shadow: tokens.$shadow-hard-sm;
   }
+
+  // Modificador Benchmark
+  &.badge-benchmark {
+    cursor: help;
+    user-select: none;
+  }
 }
 
 // 2. As 4 Cores Duras Principais (Repetidas em todos os badges)
