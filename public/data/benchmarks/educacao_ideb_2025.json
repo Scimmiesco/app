@@ -1,0 +1,461 @@
+{
+ "schema_version": "1.0.0",
+ "meta": {
+  "indicador": "ideb",
+  "ano": 2025,
+  "etapas": [
+   "anos_iniciais",
+   "anos_finais"
+  ],
+  "redes": [
+   "Estadual",
+   "Municipal",
+   "Pública"
+  ],
+  "universo": "municipios brasileiros com IDEB 2025 publicado",
+  "ponderacao": "nao_ponderada (cada municipio vale 1)",
+  "metodo": {
+   "mediana": "P50 da distribuicao dos municipios",
+   "quartis": "P25/P75 por interpolacao linear",
+   "desvio": "valor - mediana",
+   "mad": "mediana(|valor - mediana|)",
+   "z_robusto": "0,6745 * desvio / MAD (quando MAD > 0)",
+   "percentil": "(menores + 0,5 * iguais) / N * 100",
+   "faixas": "muito_abaixo <=10; abaixo <40; proximo 40-60; acima <90; muito_acima >=90"
+  },
+  "aviso": "Mediana dos municipios nao e o IDEB Brasil oficial (agregado por matriculas).",
+  "gerado_em": "2026-11-05T16:40:41-0400",
+  "fonte": {
+   "anos_iniciais": {
+    "url": "https://download.inep.gov.br/ideb/resultados/divulgacao_anos_iniciais_municipios_2025.zip",
+    "zip_sha256": "89100286327ab07a4b1318ba51974d62da90af334f663bedf6374cb67298a3e7",
+    "zip_bytes": 25308289,
+    "xlsx": "divulgacao_anos_iniciais_municipios_2025/divulgacao_anos_iniciais_municipios_2025.xlsx",
+    "xlsx_sha256": "e132cd0ab83179ffc8263029e67db737aebf84a6977b38fbe3e25bcaf96ba774"
+   },
+   "anos_finais": {
+    "url": "https://download.inep.gov.br/ideb/resultados/divulgacao_anos_finais_municipios_2025.zip",
+    "zip_sha256": "5f81ae18d33567608f10551d4f563a6879afc0182ff28cfd81e913958a30a6b3",
+    "zip_bytes": 24381009,
+    "xlsx": "divulgacao_anos_finais_municipios_2025/divulgacao_anos_finais_municipios_2025.xlsx",
+    "xlsx_sha256": "0a54ddd3010781033273dcfb318baef22c3136345ca0c64125c4a33daebc6ed4"
+   }
+  }
+ },
+ "distribuicoes": {
+  "anos_iniciais": {
+   "Estadual": {
+    "n": 1094,
+    "min": 3.7,
+    "max": 8.5,
+    "media": 6.4863,
+    "mediana": 6.5,
+    "q1": 6.0,
+    "q3": 7.0,
+    "p10": 5.5,
+    "p90": 7.5,
+    "mad": 0.5
+   },
+   "Municipal": {
+    "n": 5320,
+    "min": 3.3,
+    "max": 10.0,
+    "media": 6.1802,
+    "mediana": 6.2,
+    "q1": 5.6,
+    "q3": 6.7,
+    "p10": 5.0,
+    "p90": 7.2,
+    "mad": 0.6
+   },
+   "Pública": {
+    "n": 5478,
+    "min": 3.3,
+    "max": 10.0,
+    "media": 6.222,
+    "mediana": 6.2,
+    "q1": 5.6,
+    "q3": 6.8,
+    "p10": 5.1,
+    "p90": 7.2,
+    "mad": 0.6
+   }
+  },
+  "anos_finais": {
+   "Estadual": {
+    "n": 3613,
+    "min": 2.8,
+    "max": 8.2,
+    "media": 5.3025,
+    "mediana": 5.3,
+    "q1": 4.9,
+    "q3": 5.7,
+    "p10": 4.5,
+    "p90": 6.1,
+    "mad": 0.4
+   },
+   "Municipal": {
+    "n": 3292,
+    "min": 2.3,
+    "max": 9.3,
+    "media": 4.885,
+    "mediana": 4.8,
+    "q1": 4.4,
+    "q3": 5.3,
+    "p10": 3.9,
+    "p90": 5.8,
+    "mad": 0.5
+   },
+   "Pública": {
+    "n": 5491,
+    "min": 2.8,
+    "max": 9.3,
+    "media": 5.1153,
+    "mediana": 5.1,
+    "q1": 4.6,
+    "q3": 5.6,
+    "p10": 4.2,
+    "p90": 6.0,
+    "mad": 0.5
+   }
+  }
+ },
+ "cidades": {
+  "5002704": {
+   "nome": "Campo Grande",
+   "uf": "MS",
+   "comparacoes": {
+    "anos_iniciais": {
+     "Estadual": {
+      "valor": 5.2,
+      "desvio_mediana": -1.3,
+      "percentil": 5.16,
+      "z_robusto": -1.7537,
+      "faixa": "muito_abaixo",
+      "faixa_rotulo": "Muito abaixo da mediana",
+      "n": 1094,
+      "min": 3.7,
+      "max": 8.5,
+      "media": 6.4863,
+      "mediana": 6.5,
+      "q1": 6.0,
+      "q3": 7.0,
+      "p10": 5.5,
+      "p90": 7.5,
+      "mad": 0.5
+     },
+     "Municipal": {
+      "valor": 5.7,
+      "desvio_mediana": -0.5,
+      "percentil": 29.52,
+      "z_robusto": -0.5621,
+      "faixa": "abaixo",
+      "faixa_rotulo": "Abaixo da mediana",
+      "n": 5320,
+      "min": 3.3,
+      "max": 10.0,
+      "media": 6.1802,
+      "mediana": 6.2,
+      "q1": 5.6,
+      "q3": 6.7,
+      "p10": 5.0,
+      "p90": 7.2,
+      "mad": 0.6
+     },
+     "Pública": {
+      "valor": 5.7,
+      "desvio_mediana": -0.5,
+      "percentil": 27.44,
+      "z_robusto": -0.5621,
+      "faixa": "abaixo",
+      "faixa_rotulo": "Abaixo da mediana",
+      "n": 5478,
+      "min": 3.3,
+      "max": 10.0,
+      "media": 6.222,
+      "mediana": 6.2,
+      "q1": 5.6,
+      "q3": 6.8,
+      "p10": 5.1,
+      "p90": 7.2,
+      "mad": 0.6
+     }
+    },
+    "anos_finais": {
+     "Estadual": {
+      "valor": 4.9,
+      "desvio_mediana": -0.4,
+      "percentil": 26.13,
+      "z_robusto": -0.6745,
+      "faixa": "abaixo",
+      "faixa_rotulo": "Abaixo da mediana",
+      "n": 3613,
+      "min": 2.8,
+      "max": 8.2,
+      "media": 5.3025,
+      "mediana": 5.3,
+      "q1": 4.9,
+      "q3": 5.7,
+      "p10": 4.5,
+      "p90": 6.1,
+      "mad": 0.4
+     },
+     "Municipal": {
+      "valor": 4.9,
+      "desvio_mediana": 0.1,
+      "percentil": 52.98,
+      "z_robusto": 0.1349,
+      "faixa": "proximo",
+      "faixa_rotulo": "Próximo da mediana",
+      "n": 3292,
+      "min": 2.3,
+      "max": 9.3,
+      "media": 4.885,
+      "mediana": 4.8,
+      "q1": 4.4,
+      "q3": 5.3,
+      "p10": 3.9,
+      "p90": 5.8,
+      "mad": 0.5
+     },
+     "Pública": {
+      "valor": 4.9,
+      "desvio_mediana": -0.2,
+      "percentil": 37.97,
+      "z_robusto": -0.2698,
+      "faixa": "abaixo",
+      "faixa_rotulo": "Abaixo da mediana",
+      "n": 5491,
+      "min": 2.8,
+      "max": 9.3,
+      "media": 5.1153,
+      "mediana": 5.1,
+      "q1": 4.6,
+      "q3": 5.6,
+      "p10": 4.2,
+      "p90": 6.0,
+      "mad": 0.5
+     }
+    }
+   }
+  },
+  "2211001": {
+   "nome": "Teresina",
+   "uf": "PI",
+   "comparacoes": {
+    "anos_iniciais": {
+     "Estadual": {
+      "valor": 6.0,
+      "desvio_mediana": -0.5,
+      "percentil": 25.14,
+      "z_robusto": -0.6745,
+      "faixa": "abaixo",
+      "faixa_rotulo": "Abaixo da mediana",
+      "n": 1094,
+      "min": 3.7,
+      "max": 8.5,
+      "media": 6.4863,
+      "mediana": 6.5,
+      "q1": 6.0,
+      "q3": 7.0,
+      "p10": 5.5,
+      "p90": 7.5,
+      "mad": 0.5
+     },
+     "Municipal": {
+      "valor": 6.9,
+      "desvio_mediana": 0.7,
+      "percentil": 81.46,
+      "z_robusto": 0.7869,
+      "faixa": "acima",
+      "faixa_rotulo": "Acima da mediana",
+      "n": 5320,
+      "min": 3.3,
+      "max": 10.0,
+      "media": 6.1802,
+      "mediana": 6.2,
+      "q1": 5.6,
+      "q3": 6.7,
+      "p10": 5.0,
+      "p90": 7.2,
+      "mad": 0.6
+     },
+     "Pública": {
+      "valor": 6.8,
+      "desvio_mediana": 0.6,
+      "percentil": 76.5,
+      "z_robusto": 0.6745,
+      "faixa": "acima",
+      "faixa_rotulo": "Acima da mediana",
+      "n": 5478,
+      "min": 3.3,
+      "max": 10.0,
+      "media": 6.222,
+      "mediana": 6.2,
+      "q1": 5.6,
+      "q3": 6.8,
+      "p10": 5.1,
+      "p90": 7.2,
+      "mad": 0.6
+     }
+    },
+    "anos_finais": {
+     "Estadual": {
+      "valor": 5.3,
+      "desvio_mediana": 0.0,
+      "percentil": 49.57,
+      "z_robusto": 0.0,
+      "faixa": "proximo",
+      "faixa_rotulo": "Próximo da mediana",
+      "n": 3613,
+      "min": 2.8,
+      "max": 8.2,
+      "media": 5.3025,
+      "mediana": 5.3,
+      "q1": 4.9,
+      "q3": 5.7,
+      "p10": 4.5,
+      "p90": 6.1,
+      "mad": 0.4
+     },
+     "Municipal": {
+      "valor": 5.9,
+      "desvio_mediana": 1.1,
+      "percentil": 91.92,
+      "z_robusto": 1.4839,
+      "faixa": "muito_acima",
+      "faixa_rotulo": "Muito acima da mediana",
+      "n": 3292,
+      "min": 2.3,
+      "max": 9.3,
+      "media": 4.885,
+      "mediana": 4.8,
+      "q1": 4.4,
+      "q3": 5.3,
+      "p10": 3.9,
+      "p90": 5.8,
+      "mad": 0.5
+     },
+     "Pública": {
+      "valor": 5.7,
+      "desvio_mediana": 0.6,
+      "percentil": 80.05,
+      "z_robusto": 0.8094,
+      "faixa": "acima",
+      "faixa_rotulo": "Acima da mediana",
+      "n": 5491,
+      "min": 2.8,
+      "max": 9.3,
+      "media": 5.1153,
+      "mediana": 5.1,
+      "q1": 4.6,
+      "q3": 5.6,
+      "p10": 4.2,
+      "p90": 6.0,
+      "mad": 0.5
+     }
+    }
+   }
+  },
+  "4106902": {
+   "nome": "Curitiba",
+   "uf": "PR",
+   "comparacoes": {
+    "anos_iniciais": {
+     "Municipal": {
+      "valor": 6.9,
+      "desvio_mediana": 0.7,
+      "percentil": 81.46,
+      "z_robusto": 0.7869,
+      "faixa": "acima",
+      "faixa_rotulo": "Acima da mediana",
+      "n": 5320,
+      "min": 3.3,
+      "max": 10.0,
+      "media": 6.1802,
+      "mediana": 6.2,
+      "q1": 5.6,
+      "q3": 6.7,
+      "p10": 5.0,
+      "p90": 7.2,
+      "mad": 0.6
+     },
+     "Pública": {
+      "valor": 6.9,
+      "desvio_mediana": 0.7,
+      "percentil": 80.31,
+      "z_robusto": 0.7869,
+      "faixa": "acima",
+      "faixa_rotulo": "Acima da mediana",
+      "n": 5478,
+      "min": 3.3,
+      "max": 10.0,
+      "media": 6.222,
+      "mediana": 6.2,
+      "q1": 5.6,
+      "q3": 6.8,
+      "p10": 5.1,
+      "p90": 7.2,
+      "mad": 0.6
+     }
+    },
+    "anos_finais": {
+     "Estadual": {
+      "valor": 5.7,
+      "desvio_mediana": 0.4,
+      "percentil": 72.9,
+      "z_robusto": 0.6745,
+      "faixa": "acima",
+      "faixa_rotulo": "Acima da mediana",
+      "n": 3613,
+      "min": 2.8,
+      "max": 8.2,
+      "media": 5.3025,
+      "mediana": 5.3,
+      "q1": 4.9,
+      "q3": 5.7,
+      "p10": 4.5,
+      "p90": 6.1,
+      "mad": 0.4
+     },
+     "Municipal": {
+      "valor": 5.4,
+      "desvio_mediana": 0.6,
+      "percentil": 77.52,
+      "z_robusto": 0.8094,
+      "faixa": "acima",
+      "faixa_rotulo": "Acima da mediana",
+      "n": 3292,
+      "min": 2.3,
+      "max": 9.3,
+      "media": 4.885,
+      "mediana": 4.8,
+      "q1": 4.4,
+      "q3": 5.3,
+      "p10": 3.9,
+      "p90": 5.8,
+      "mad": 0.5
+     },
+     "Pública": {
+      "valor": 5.7,
+      "desvio_mediana": 0.6,
+      "percentil": 80.05,
+      "z_robusto": 0.8094,
+      "faixa": "acima",
+      "faixa_rotulo": "Acima da mediana",
+      "n": 5491,
+      "min": 2.8,
+      "max": 9.3,
+      "media": 5.1153,
+      "mediana": 5.1,
+      "q1": 4.6,
+      "q3": 5.6,
+      "p10": 4.2,
+      "p90": 6.0,
+      "mad": 0.5
+     }
+    }
+   }
+  }
+ }
+}
