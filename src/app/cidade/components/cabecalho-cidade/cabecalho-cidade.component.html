@@ -36,12 +36,16 @@
       <select
         id="cidade-select"
         class="select-default"
-        [value]="codigoIbge() || '5002704'"
+        [value]="codigoAtivo()"
         (change)="aoSelecionarCidade($event)"
         data-testid="select-cidade"
       >
         @for (cid of cidades(); track cid.codigo_ibge) {
-          <option [value]="cid.codigo_ibge" [attr.data-testid]="'opcao-cidade-' + cid.codigo_ibge">
+          <option
+            [value]="cid.codigo_ibge"
+            [selected]="eCidadeAtiva(cid.codigo_ibge)"
+            [attr.data-testid]="'opcao-cidade-' + cid.codigo_ibge"
+          >
             {{ cid.nome }} - {{ cid.uf }}
           </option>
         }

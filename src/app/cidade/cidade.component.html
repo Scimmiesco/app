@@ -48,7 +48,7 @@
       [secao]="snap.secoes.cabecalho"
       [fonte]="fonte(snap.secoes.cabecalho?.fonte)"
       [cidades]="cidades()"
-      [codigoIbge]="codigoIbge()"
+      [codigoIbge]="codigoIbge() || '' + snap.municipio.codigo_ibge"
       (cidadeSelecionada)="navegarParaCidade($event)"
     />
 

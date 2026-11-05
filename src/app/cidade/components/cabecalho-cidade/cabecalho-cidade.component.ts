@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import {
   CabecalhoDados,
   CidadeItemIndice,
@@ -24,10 +24,19 @@ export class CabecalhoCidadeComponent {
 
   readonly cidadeSelecionada = output<string>();
 
+  readonly codigoAtivo = computed(() => {
+    return String(this.codigoIbge() || this.municipio().codigo_ibge || '5002704');
+  });
+
   protected readonly formatarNumero = formatarNumero;
 
+  eCidadeAtiva(codigo: string | number): boolean {
+    return String(codigo) === this.codigoAtivo();
+  }
+
   aoSelecionarCidade(event: Event): void {
-    const novoCodigo = (event.target as HTMLSelectElement).value;
+    const select = event.target as HTMLSelectElement;
+    const novoCodigo = select.value;
     if (novoCodigo) {
       this.cidadeSelecionada.emit(novoCodigo);
     }

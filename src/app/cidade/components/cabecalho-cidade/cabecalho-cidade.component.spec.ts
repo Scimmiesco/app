@@ -94,4 +94,57 @@ describe('CabecalhoCidadeComponent', () => {
 
     expect(emitidos).toEqual(['5002704']);
   });
+
+  it('should mark the active city option as selected when multiple cities are available', () => {
+    const fixture = TestBed.createComponent(CabecalhoCidadeComponent);
+    fixture.componentRef.setInput('municipio', {
+      codigo_ibge: 4106902,
+      codigo_tse: '75353',
+      nome: 'Curitiba',
+      uf: 'PR',
+    });
+    fixture.componentRef.setInput('codigoIbge', '4106902');
+    fixture.componentRef.setInput('cidades', [
+      {
+        codigo_ibge: 5002704,
+        codigo_tse: '90514',
+        nome: 'Campo Grande',
+        uf: 'MS',
+        arquivo: 'municipios/5002704.json',
+        disponivel: true,
+      },
+      {
+        codigo_ibge: 2211001,
+        codigo_tse: '12190',
+        nome: 'Teresina',
+        uf: 'PI',
+        arquivo: 'municipios/2211001.json',
+        disponivel: true,
+      },
+      {
+        codigo_ibge: 4106902,
+        codigo_tse: '75353',
+        nome: 'Curitiba',
+        uf: 'PR',
+        arquivo: 'municipios/4106902.json',
+        disponivel: true,
+      },
+    ]);
+    fixture.detectChanges();
+
+    const select = fixture.nativeElement.querySelector(
+      '[data-testid="select-cidade"]',
+    ) as HTMLSelectElement;
+    expect(select.value).toBe('4106902');
+
+    const opcaoCg = fixture.nativeElement.querySelector(
+      '[data-testid="opcao-cidade-5002704"]',
+    ) as HTMLOptionElement;
+    const opcaoCtba = fixture.nativeElement.querySelector(
+      '[data-testid="opcao-cidade-4106902"]',
+    ) as HTMLOptionElement;
+
+    expect(opcaoCg.selected).toBe(false);
+    expect(opcaoCtba.selected).toBe(true);
+  });
 });
