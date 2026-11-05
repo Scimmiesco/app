@@ -1,6 +1,6 @@
 {
  "schema_version": "0.12.0",
- "gerado_em": "2026-11-05T14:05:11-0400",
+ "gerado_em": "2026-11-05T16:41:15-0400",
  "municipio": {
   "codigo_ibge": 5002704,
   "codigo_tse": "90514",
@@ -105,6 +105,13 @@
    "url": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2025&id_ente=5002704",
    "consultado_em": "2026-11-03",
    "confianca": "oficial"
+  },
+  "inep_ideb_2025": {
+   "orgao": "INEP",
+   "titulo": "IDEB 2025 por município",
+   "url": "https://download.inep.gov.br/ideb/resultados/",
+   "consultado_em": "2026-11-05",
+   "confianca": "oficial"
   }
  },
  "secoes": {
@@ -185,23 +192,155 @@
   "resumo_educacao": {
    "titulo": "Educação",
    "status": "oficial",
-   "fonte": "inep_ideb_2023",
-   "ano": 2023,
-   "coletado_em": "2026-11-05T14:05:11-0400",
+   "fonte": "inep_ideb_2025",
+   "ano": 2025,
+   "coletado_em": "2026-11-05T16:41:03-0400",
    "motivo": null,
    "dados": {
     "anos_iniciais": {
-     "Estadual": 4.0,
-     "Municipal": 5.3,
-     "Pública": 5.3
+     "Estadual": 5.2,
+     "Municipal": 5.7,
+     "Pública": 5.7
     },
     "anos_finais": {
-     "Estadual": 4.7,
-     "Municipal": 4.8,
-     "Pública": 4.8
+     "Estadual": 4.9,
+     "Municipal": 4.9,
+     "Pública": 4.9
     }
    },
-   "categoria": "A CIDADE"
+   "categoria": "A CIDADE",
+   "benchmark": {
+    "meta": {
+     "indicador": "ideb",
+     "ano": 2025,
+     "universo": "municipios brasileiros com IDEB 2025 publicado",
+     "ponderacao": "nao_ponderada (cada municipio vale 1)",
+     "metodo": {
+      "mediana": "P50 da distribuicao dos municipios",
+      "quartis": "P25/P75 por interpolacao linear",
+      "desvio": "valor - mediana",
+      "mad": "mediana(|valor - mediana|)",
+      "z_robusto": "0,6745 * desvio / MAD (quando MAD > 0)",
+      "percentil": "(menores + 0,5 * iguais) / N * 100",
+      "faixas": "muito_abaixo <=10; abaixo <40; proximo 40-60; acima <90; muito_acima >=90"
+     },
+     "aviso": "Mediana dos municipios nao e o IDEB Brasil oficial (agregado por matriculas)."
+    },
+    "comparacoes": {
+     "anos_iniciais": {
+      "Estadual": {
+       "valor": 5.2,
+       "desvio_mediana": -1.3,
+       "percentil": 5.16,
+       "z_robusto": -1.7537,
+       "faixa": "muito_abaixo",
+       "faixa_rotulo": "Muito abaixo da mediana",
+       "n": 1094,
+       "min": 3.7,
+       "max": 8.5,
+       "media": 6.4863,
+       "mediana": 6.5,
+       "q1": 6.0,
+       "q3": 7.0,
+       "p10": 5.5,
+       "p90": 7.5,
+       "mad": 0.5
+      },
+      "Municipal": {
+       "valor": 5.7,
+       "desvio_mediana": -0.5,
+       "percentil": 29.52,
+       "z_robusto": -0.5621,
+       "faixa": "abaixo",
+       "faixa_rotulo": "Abaixo da mediana",
+       "n": 5320,
+       "min": 3.3,
+       "max": 10.0,
+       "media": 6.1802,
+       "mediana": 6.2,
+       "q1": 5.6,
+       "q3": 6.7,
+       "p10": 5.0,
+       "p90": 7.2,
+       "mad": 0.6
+      },
+      "Pública": {
+       "valor": 5.7,
+       "desvio_mediana": -0.5,
+       "percentil": 27.44,
+       "z_robusto": -0.5621,
+       "faixa": "abaixo",
+       "faixa_rotulo": "Abaixo da mediana",
+       "n": 5478,
+       "min": 3.3,
+       "max": 10.0,
+       "media": 6.222,
+       "mediana": 6.2,
+       "q1": 5.6,
+       "q3": 6.8,
+       "p10": 5.1,
+       "p90": 7.2,
+       "mad": 0.6
+      }
+     },
+     "anos_finais": {
+      "Estadual": {
+       "valor": 4.9,
+       "desvio_mediana": -0.4,
+       "percentil": 26.13,
+       "z_robusto": -0.6745,
+       "faixa": "abaixo",
+       "faixa_rotulo": "Abaixo da mediana",
+       "n": 3613,
+       "min": 2.8,
+       "max": 8.2,
+       "media": 5.3025,
+       "mediana": 5.3,
+       "q1": 4.9,
+       "q3": 5.7,
+       "p10": 4.5,
+       "p90": 6.1,
+       "mad": 0.4
+      },
+      "Municipal": {
+       "valor": 4.9,
+       "desvio_mediana": 0.1,
+       "percentil": 52.98,
+       "z_robusto": 0.1349,
+       "faixa": "proximo",
+       "faixa_rotulo": "Próximo da mediana",
+       "n": 3292,
+       "min": 2.3,
+       "max": 9.3,
+       "media": 4.885,
+       "mediana": 4.8,
+       "q1": 4.4,
+       "q3": 5.3,
+       "p10": 3.9,
+       "p90": 5.8,
+       "mad": 0.5
+      },
+      "Pública": {
+       "valor": 4.9,
+       "desvio_mediana": -0.2,
+       "percentil": 37.97,
+       "z_robusto": -0.2698,
+       "faixa": "abaixo",
+       "faixa_rotulo": "Abaixo da mediana",
+       "n": 5491,
+       "min": 2.8,
+       "max": 9.3,
+       "media": 5.1153,
+       "mediana": 5.1,
+       "q1": 4.6,
+       "q3": 5.6,
+       "p10": 4.2,
+       "p90": 6.0,
+       "mad": 0.5
+      }
+     }
+    }
+   }
   },
   "resumo_financas": {
    "titulo": "Finanças municipais",
