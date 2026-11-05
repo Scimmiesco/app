@@ -1,6 +1,6 @@
 {
  "schema_version": "0.12.0",
- "gerado_em": "2026-11-05T15:42:20-0400",
+ "gerado_em": "2026-11-05T16:16:51-0400",
  "municipio": {
   "codigo_ibge": 4106902,
   "codigo_tse": "75353",
@@ -301,11 +301,34 @@
       "altura": 256,
       "licenca": "CC-BY"
      }
+    },
+    {
+     "nome": "CARLOS ROBERTO MASSA JUNIOR",
+     "nome_urna": "CARLOS MASSA RATINHO JUNIOR",
+     "partido": "PSD",
+     "votos": null,
+     "pct": null,
+     "situacao": "em exercício",
+     "em_exercicio": true,
+     "mandato_inicio": "2023-01-01",
+     "mandato_fim": "2026-12-31",
+     "status_eleicao_2026": "em_exercicio",
+     "votos_nominais_mandato_atual": null,
+     "motivo_sem_votos": null,
+     "numero": null,
+     "numero_fonte": null,
+     "numero_historico": {
+      "numero": "55",
+      "ano": 2022,
+      "cargo": "GOVERNADOR",
+      "fonte": "tse_candidatos_2022"
+     },
+     "foto": null
     }
    ],
    "pct_base": "votos_nominais_do_cargo",
    "mandato": "2027-2030",
-   "nota": "Resultado oficial do pleito de 2026."
+   "nota": "SERGIO MORO foi eleito em 2026 e assume o governo em 01/01/2027. O atual governador CARLOS MASSA RATINHO JUNIOR permanece em exercício até 31/12/2026."
   },
   "senadores": {
    "titulo": "Senadores do Paraná",
