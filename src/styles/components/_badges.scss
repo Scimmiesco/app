@@ -37,11 +37,30 @@
   &.badge-shadow {
     box-shadow: tokens.$shadow-hard-sm;
   }
+}
 
-  // Modificador Benchmark
-  &.badge-benchmark {
-    cursor: help;
-    user-select: none;
+// 1.1 Indicador de Benchmark textual (sem badge, colore apenas o número)
+.indicador-benchmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: help;
+  user-select: none;
+
+  &--verde {
+    color: tokens.$color-verde;
+  }
+
+  &--vermelho {
+    color: tokens.$color-vermelho;
+  }
+
+  &--preto {
+    color: tokens.$color-black;
   }
 }
 

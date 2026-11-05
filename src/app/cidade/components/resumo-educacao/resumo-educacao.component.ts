@@ -127,8 +127,12 @@ export class ResumoEducacaoComponent {
     };
   }
 
-  temBenchmark(etapa: 'anos_iniciais' | 'anos_finais'): boolean {
-    const comparacoes = this.secao().benchmark?.comparacoes?.[etapa];
-    return !!comparacoes && Object.keys(comparacoes).length > 0;
+  temBenchmark(): boolean {
+    const comparacoes = this.secao().benchmark?.comparacoes;
+    if (!comparacoes) return false;
+    const temIniciais =
+      !!comparacoes.anos_iniciais && Object.keys(comparacoes.anos_iniciais).length > 0;
+    const temFinais = !!comparacoes.anos_finais && Object.keys(comparacoes.anos_finais).length > 0;
+    return temIniciais || temFinais;
   }
 }

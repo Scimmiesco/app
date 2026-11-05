@@ -122,69 +122,77 @@ describe('ResumoEducacaoComponent', () => {
     expect(cardEsc?.textContent).toContain('2022');
   });
 
-  it('should render subtle national benchmark indicators on a 0 to 1 scale with semantic colors', () => {
+  it('should color only the number without badge styling and show single unified legend', () => {
     const fixture = TestBed.createComponent(ResumoEducacaoComponent);
     fixture.componentRef.setInput('secao', secaoComBenchmark);
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
 
-    // Anos Iniciais - Municipal: percentil 81.46 -> 0,81 (verde, ▲)
-    const badgeIniciaisMun = el.querySelector(
-      '[data-testid="badge-benchmark-iniciais-Municipal"]',
+    // Anos Iniciais - Municipal: percentil 81.46 -> 0,81 (verde, ▲, NÃO é badge)
+    const indIniciaisMun = el.querySelector(
+      '[data-testid="indicador-benchmark-iniciais-Municipal"]',
     ) as HTMLElement;
-    expect(badgeIniciaisMun).toBeTruthy();
-    expect(badgeIniciaisMun.textContent).toContain('0,81');
-    expect(badgeIniciaisMun.textContent).toContain('▲');
-    expect(badgeIniciaisMun.classList.contains('badge-verde')).toBe(true);
-    expect(badgeIniciaisMun.getAttribute('title')).toContain('0,81');
-    expect(badgeIniciaisMun.getAttribute('title')).toContain('Mediana dos municípios: 6,2 (+0,7)');
-    expect(badgeIniciaisMun.getAttribute('aria-label')).toContain('Municipal: nota 6.9');
-    expect(badgeIniciaisMun.getAttribute('aria-label')).toContain('0,81 de 0 a 1');
+    expect(indIniciaisMun).toBeTruthy();
+    expect(indIniciaisMun.textContent).toContain('0,81');
+    expect(indIniciaisMun.textContent).toContain('▲');
+    expect(indIniciaisMun.classList.contains('indicador-benchmark')).toBe(true);
+    expect(indIniciaisMun.classList.contains('indicador-benchmark--verde')).toBe(true);
+    expect(indIniciaisMun.classList.contains('badge')).toBe(false);
+    expect(indIniciaisMun.getAttribute('title')).toContain('0,81');
+    expect(indIniciaisMun.getAttribute('title')).toContain('Mediana dos municípios: 6,2 (+0,7)');
+    expect(indIniciaisMun.getAttribute('aria-label')).toContain('Municipal: nota 6.9');
+    expect(indIniciaisMun.getAttribute('aria-label')).toContain('0,81 de 0 a 1');
 
     // Anos Iniciais - Estadual: percentil 5.16 -> 0,05 (vermelho, ▼)
-    const badgeIniciaisEst = el.querySelector(
-      '[data-testid="badge-benchmark-iniciais-Estadual"]',
+    const indIniciaisEst = el.querySelector(
+      '[data-testid="indicador-benchmark-iniciais-Estadual"]',
     ) as HTMLElement;
-    expect(badgeIniciaisEst).toBeTruthy();
-    expect(badgeIniciaisEst.textContent).toContain('0,05');
-    expect(badgeIniciaisEst.textContent).toContain('▼');
-    expect(badgeIniciaisEst.classList.contains('badge-vermelho')).toBe(true);
+    expect(indIniciaisEst).toBeTruthy();
+    expect(indIniciaisEst.textContent).toContain('0,05');
+    expect(indIniciaisEst.textContent).toContain('▼');
+    expect(indIniciaisEst.classList.contains('indicador-benchmark--vermelho')).toBe(true);
+    expect(indIniciaisEst.classList.contains('badge')).toBe(false);
 
-    // Anos Finais - Estadual: percentil 49.57 -> 0,50 (preto/dark, ● na mediana)
-    const badgeFinaisEst = el.querySelector(
-      '[data-testid="badge-benchmark-finais-Estadual"]',
+    // Anos Finais - Estadual: percentil 49.57 -> 0,50 (preto, ● na mediana)
+    const indFinaisEst = el.querySelector(
+      '[data-testid="indicador-benchmark-finais-Estadual"]',
     ) as HTMLElement;
-    expect(badgeFinaisEst).toBeTruthy();
-    expect(badgeFinaisEst.textContent).toContain('0,50');
-    expect(badgeFinaisEst.textContent).toContain('●');
-    expect(badgeFinaisEst.classList.contains('badge-dark')).toBe(true);
+    expect(indFinaisEst).toBeTruthy();
+    expect(indFinaisEst.textContent).toContain('0,50');
+    expect(indFinaisEst.textContent).toContain('●');
+    expect(indFinaisEst.classList.contains('indicador-benchmark--preto')).toBe(true);
+    expect(indFinaisEst.classList.contains('badge')).toBe(false);
 
     // Anos Finais - Municipal: percentil 29.52 -> 0,30 (vermelho, ▼)
-    const badgeFinaisMun = el.querySelector(
-      '[data-testid="badge-benchmark-finais-Municipal"]',
+    const indFinaisMun = el.querySelector(
+      '[data-testid="indicador-benchmark-finais-Municipal"]',
     ) as HTMLElement;
-    expect(badgeFinaisMun).toBeTruthy();
-    expect(badgeFinaisMun.textContent).toContain('0,30');
-    expect(badgeFinaisMun.textContent).toContain('▼');
-    expect(badgeFinaisMun.classList.contains('badge-vermelho')).toBe(true);
+    expect(indFinaisMun).toBeTruthy();
+    expect(indFinaisMun.textContent).toContain('0,30');
+    expect(indFinaisMun.textContent).toContain('▼');
+    expect(indFinaisMun.classList.contains('indicador-benchmark--vermelho')).toBe(true);
+    expect(indFinaisMun.classList.contains('badge')).toBe(false);
 
-    // Micro-legendas
-    const legendaIniciais = el.querySelector('[data-testid="legenda-benchmark-iniciais"]');
-    expect(legendaIniciais).toBeTruthy();
-    expect(legendaIniciais?.textContent).toContain('Posição nacional (0 a 1)');
-    expect(legendaIniciais?.textContent).toContain('▲ melhor');
-    expect(legendaIniciais?.textContent).toContain('● mediana');
-    expect(legendaIniciais?.textContent).toContain('▼ abaixo');
+    // Legenda unificada em um lugar só (no rodapé da seção)
+    const legendaUnificada = el.querySelector('[data-testid="legenda-benchmark-educacao"]');
+    expect(legendaUnificada).toBeTruthy();
+    expect(legendaUnificada?.textContent).toContain('Posição nacional (0 a 1)');
+    expect(legendaUnificada?.textContent).toContain('▲ melhor');
+    expect(legendaUnificada?.textContent).toContain('● mediana');
+    expect(legendaUnificada?.textContent).toContain('▼ abaixo');
+
+    // Não existem mais legendas individuais nos cartões
+    expect(el.querySelector('[data-testid="legenda-benchmark-iniciais"]')).toBeNull();
+    expect(el.querySelector('[data-testid="legenda-benchmark-finais"]')).toBeNull();
   });
 
-  it('should not render benchmark badges or legend when benchmark is missing', () => {
+  it('should not render benchmark indicators or unified legend when benchmark is missing', () => {
     const fixture = TestBed.createComponent(ResumoEducacaoComponent);
     fixture.componentRef.setInput('secao', secao); // no benchmark
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
 
-    expect(el.querySelector('[data-testid="badge-benchmark-iniciais-2023"]')).toBeNull();
-    expect(el.querySelector('[data-testid="legenda-benchmark-iniciais"]')).toBeNull();
-    expect(el.querySelector('[data-testid="legenda-benchmark-finais"]')).toBeNull();
+    expect(el.querySelector('[data-testid="indicador-benchmark-iniciais-2023"]')).toBeNull();
+    expect(el.querySelector('[data-testid="legenda-benchmark-educacao"]')).toBeNull();
   });
 });
