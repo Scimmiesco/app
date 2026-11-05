@@ -30,9 +30,26 @@
               title="Percentual da população de 6 a 14 anos que frequenta a escola"
               >Taxa de Escolarização 6 a 14 anos (Censo {{ sEsc.ano }})</span
             >
-            <span class="metric-value" data-testid="card-metrica-escolarizacao">{{
-              formatarPct(dadosEsc.faixa_6_14_pct)
-            }}</span>
+            <div class="flex items-center gap-1.5 mt-1">
+              <span class="metric-value" data-testid="card-metrica-escolarizacao">{{
+                formatarPct(dadosEsc.faixa_6_14_pct)
+              }}</span>
+              @if (obterIndicadorEscolarizacao(); as ind) {
+                <span
+                  class="indicador-benchmark"
+                  [class.indicador-benchmark--verde]="ind.cor === 'verde'"
+                  [class.indicador-benchmark--vermelho]="ind.cor === 'vermelho'"
+                  [class.indicador-benchmark--preto]="ind.cor === 'preto'"
+                  [title]="ind.tooltip"
+                  [attr.aria-label]="ind.ariaLabel"
+                  data-testid="indicador-benchmark-escolarizacao"
+                  tabindex="0"
+                >
+                  <span aria-hidden="true">{{ ind.simbolo }}</span>
+                  <span>{{ ind.valorFormatado }}</span>
+                </span>
+              }
+            </div>
           </div>
         }
       }

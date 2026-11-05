@@ -69,7 +69,15 @@ export interface EducacaoBenchmark {
   };
 }
 
-export interface SecaoEnvelope<T> {
+export interface EscolarizacaoBenchmark {
+  meta?: EducacaoBenchmarkMeta;
+  comparacao?: EducacaoItemBenchmark;
+}
+
+export interface SecaoEnvelope<
+  T,
+  B = EducacaoBenchmark | EscolarizacaoBenchmark | EducacaoItemBenchmark,
+> {
   titulo: string;
   categoria?: string;
   status: StatusDado;
@@ -81,7 +89,7 @@ export interface SecaoEnvelope<T> {
   pct_base?: string;
   mandato?: string;
   nota?: string;
-  benchmark?: EducacaoBenchmark;
+  benchmark?: B;
 }
 
 export interface PendenciaItem {
@@ -202,8 +210,11 @@ export interface SecoesMunicipio {
   resumo_ibge_censo?: SecaoEnvelope<ResumoIbgeDados>;
   resumo_economia?: SecaoEnvelope<ResumoEconomiaDados>;
   resumo_populacao_estimada?: SecaoEnvelope<ResumoPopulacaoEstimadaDados>;
-  resumo_escolarizacao?: SecaoEnvelope<ResumoEscolarizacaoDados>;
-  resumo_educacao?: SecaoEnvelope<ResumoEducacaoDados>;
+  resumo_escolarizacao?: SecaoEnvelope<
+    ResumoEscolarizacaoDados,
+    EducacaoItemBenchmark | EscolarizacaoBenchmark
+  >;
+  resumo_educacao?: SecaoEnvelope<ResumoEducacaoDados, EducacaoBenchmark>;
   resumo_financas?: SecaoEnvelope<ResumoFinancasDados>;
   eleicao_2026_1t?: SecaoEnvelope<EleicaoPresidencialDados>;
   eleicao_2026_2t?: SecaoEnvelope<EleicaoPresidencialDados>;

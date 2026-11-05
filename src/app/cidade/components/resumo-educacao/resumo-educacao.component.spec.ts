@@ -28,6 +28,26 @@ const secaoEscolarizacao: SecaoEnvelope<ResumoEscolarizacaoDados> = {
   dados: { faixa_6_14_pct: 98.07 },
 };
 
+const secaoEscolarizacaoComBenchmark: SecaoEnvelope<ResumoEscolarizacaoDados> = {
+  titulo: 'Escolarização',
+  categoria: 'A CIDADE',
+  status: 'oficial',
+  fonte: 'ibge_censo_2022',
+  ano: 2022,
+  coletado_em: '2026-10-26',
+  motivo: null,
+  dados: { faixa_6_14_pct: 98.07 },
+  benchmark: {
+    valor: 98.07,
+    mediana: 97.85,
+    desvio_mediana: 0.22,
+    percentil: 62.4,
+    faixa: 'acima',
+    faixa_rotulo: 'Acima da mediana',
+    n: 5570,
+  },
+};
+
 const secaoComBenchmark: SecaoEnvelope<ResumoEducacaoDados> = {
   titulo: 'Educação',
   categoria: 'A CIDADE',
@@ -120,6 +140,27 @@ describe('ResumoEducacaoComponent', () => {
     expect(cardEsc).toBeTruthy();
     expect(cardEsc?.textContent).toContain('98,07%');
     expect(cardEsc?.textContent).toContain('2022');
+    expect(el.querySelector('[data-testid="indicador-benchmark-escolarizacao"]')).toBeNull();
+  });
+
+  it('should render benchmark indicator for schooling rate when benchmark is provided', () => {
+    const fixture = TestBed.createComponent(ResumoEducacaoComponent);
+    fixture.componentRef.setInput('secao', secao);
+    fixture.componentRef.setInput('secaoEscolarizacao', secaoEscolarizacaoComBenchmark);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+
+    const indEsc = el.querySelector(
+      '[data-testid="indicador-benchmark-escolarizacao"]',
+    ) as HTMLElement;
+    expect(indEsc).toBeTruthy();
+    expect(indEsc.textContent).toContain('6,2');
+    expect(indEsc.textContent).toContain('▲');
+    expect(indEsc.classList.contains('indicador-benchmark--verde')).toBe(true);
+    expect(indEsc.getAttribute('title')).toContain('nota 6,2 (escala 0 a 10)');
+    expect(indEsc.getAttribute('title')).toContain('Mediana dos municípios: 97,85% (+0,22%)');
+    expect(indEsc.getAttribute('aria-label')).toContain('Taxa de Escolarização: 98,07%');
+    expect(indEsc.getAttribute('aria-label')).toContain('nota 6,2 de 0 a 10');
   });
 
   it('should color only the number without badge styling on a 0 to 10 scale and show single unified legend', () => {

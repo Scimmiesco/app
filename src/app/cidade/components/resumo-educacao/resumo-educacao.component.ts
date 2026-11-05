@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { KeyValuePipe } from '@angular/common';
 import {
+  EducacaoBenchmark,
   EducacaoItemBenchmark,
+  EscolarizacaoBenchmark,
   FonteMeta,
   ResumoEducacaoDados,
   ResumoEscolarizacaoDados,
@@ -33,10 +35,12 @@ export interface IndicadorNacionalEducacao {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResumoEducacaoComponent {
-  readonly secao = input.required<SecaoEnvelope<ResumoEducacaoDados>>();
-  readonly secaoEscolarizacao = input<SecaoEnvelope<ResumoEscolarizacaoDados> | null | undefined>(
-    null,
-  );
+  readonly secao = input.required<SecaoEnvelope<ResumoEducacaoDados, EducacaoBenchmark>>();
+  readonly secaoEscolarizacao = input<
+    | SecaoEnvelope<ResumoEscolarizacaoDados, EducacaoItemBenchmark | EscolarizacaoBenchmark>
+    | null
+    | undefined
+  >(null);
   readonly fonte = input<FonteMeta | undefined>(undefined);
 
   protected readonly formatarPct = formatarPct;
@@ -130,12 +134,97 @@ export class ResumoEducacaoComponent {
     };
   }
 
+  obterIndicadorEscolarizacao(): IndicadorNacionalEducacao | null {
+    const sEsc = this.secaoEscolarizacao();
+    if (!sEsc) return null;
+    const bench = sEsc.benchmark;
+    if (!bench) return null;
+
+    const comp: EducacaoItemBenchmark | undefined =
+      'percentil' in bench
+        ? (bench as EducacaoItemBenchmark)
+        : (bench as EscolarizacaoBenchmark).comparacao;
+    if (!comp || comp.percentil === undefined || comp.percentil === null) return null;
+
+    const nota = Math.round(comp.percentil) / 10;
+    const valorFormatado = formatarNota(nota);
+
+    let cor: 'verde' | 'vermelho' | 'preto';
+    let simbolo: string;
+    let rotuloCurto: string;
+
+    const faixa = comp.faixa?.toLowerCase();
+    if (faixa === 'acima' || faixa === 'muito_acima') {
+      cor = 'verde';
+      simbolo = '▲';
+      rotuloCurto = 'melhor';
+    } else if (faixa === 'abaixo' || faixa === 'muito_abaixo') {
+      cor = 'vermelho';
+      simbolo = '▼';
+      rotuloCurto = 'abaixo';
+    } else if (faixa === 'proximo') {
+      cor = 'preto';
+      simbolo = '●';
+      rotuloCurto = 'na média';
+    } else {
+      if (nota >= 5.5) {
+        cor = 'verde';
+        simbolo = '▲';
+        rotuloCurto = 'melhor';
+      } else if (nota <= 4.5) {
+        cor = 'vermelho';
+        simbolo = '▼';
+        rotuloCurto = 'abaixo';
+      } else {
+        cor = 'preto';
+        simbolo = '●';
+        rotuloCurto = 'na média';
+      }
+    }
+
+    const rotulo =
+      comp.faixa_rotulo ||
+      (cor === 'verde'
+        ? 'Acima da mediana'
+        : cor === 'vermelho'
+          ? 'Abaixo da mediana'
+          : 'Na média nacional');
+
+    const deltaSinal = comp.desvio_mediana > 0 ? '+' : '';
+    const deltaTexto =
+      comp.desvio_mediana !== undefined && comp.desvio_mediana !== null
+        ? ` (${deltaSinal}${formatarPct(comp.desvio_mediana)})`
+        : '';
+    const nTexto = comp.n ? ` em ${formatarNumero(comp.n)} cidades` : '';
+    const medianaTexto =
+      comp.mediana !== undefined && comp.mediana !== null
+        ? ` · Mediana dos municípios: ${formatarPct(comp.mediana)}${deltaTexto}${nTexto}`
+        : '';
+
+    const tooltip = `Posição nacional: nota ${valorFormatado} (escala 0 a 10) · ${rotulo}${medianaTexto} · Censo Demográfico 2022 (IBGE)`;
+    const ariaLabel = `Taxa de Escolarização: ${formatarPct(comp.valor)}. Posição nacional: nota ${valorFormatado} de 0 a 10. ${rotulo}.`;
+
+    return {
+      nota,
+      valorFormatado,
+      cor,
+      simbolo,
+      rotulo,
+      rotuloCurto,
+      mediana: comp.mediana,
+      n: comp.n,
+      tooltip,
+      ariaLabel,
+    };
+  }
+
   temBenchmark(): boolean {
-    const comparacoes = this.secao().benchmark?.comparacoes;
-    if (!comparacoes) return false;
-    const temIniciais =
-      !!comparacoes.anos_iniciais && Object.keys(comparacoes.anos_iniciais).length > 0;
-    const temFinais = !!comparacoes.anos_finais && Object.keys(comparacoes.anos_finais).length > 0;
-    return temIniciais || temFinais;
+    const comparacoesEdu = this.secao().benchmark?.comparacoes;
+    const temEdu =
+      !!comparacoesEdu &&
+      (Object.keys(comparacoesEdu['anos_iniciais'] || {}).length > 0 ||
+        Object.keys(comparacoesEdu['anos_finais'] || {}).length > 0);
+    const temEsc = !!this.secaoEscolarizacao()?.benchmark;
+    return temEdu || temEsc;
   }
 }
