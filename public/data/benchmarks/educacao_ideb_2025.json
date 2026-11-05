@@ -24,7 +24,7 @@
    "faixas": "muito_abaixo <=10; abaixo <40; proximo 40-60; acima <90; muito_acima >=90"
   },
   "aviso": "Mediana dos municipios nao e o IDEB Brasil oficial (agregado por matriculas).",
-  "gerado_em": "2026-11-05T16:40:41-0400",
+  "gerado_em": "2026-11-05T16:47:45-0400",
   "fonte": {
    "anos_iniciais": {
     "url": "https://download.inep.gov.br/ideb/resultados/divulgacao_anos_iniciais_municipios_2025.zip",
