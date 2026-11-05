@@ -3245,6 +3245,17 @@
    "largura": 256,
    "altura": 256,
    "licenca": "Uso oficial"
+  },
+  "governador|CARLOS MASSA RATINHO JUNIOR": {
+   "arquivo": "fotos/tse2022_160001614467.jpg",
+   "fonte": "TSE - Dados Abertos (fotos de candidatos 2022)",
+   "url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/fotos/foto_cand2022_PR_div.zip",
+   "credito": "TSE",
+   "ano": 2022,
+   "sha256": "03b4a436f60c096bcfa110c03fce856d9660f4a65b4040c74b08cd4f3d50edb8",
+   "largura": 256,
+   "altura": 256,
+   "licenca": "CC-BY"
   }
  }
 }
