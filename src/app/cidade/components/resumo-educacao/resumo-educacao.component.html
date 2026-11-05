@@ -111,28 +111,30 @@
         class="text-[11px] text-meta pt-2.5 border-t border-black/10 flex flex-wrap items-center justify-between gap-2"
         data-testid="legenda-benchmark-educacao"
       >
-        <span title="Posição relativa do município no IDEB 2025 entre as redes do Brasil">
-          <strong>Posição nacional (0 a 1):</strong> comparativo das redes com a mediana dos
-          municípios brasileiros
+        <span
+          title="Posição relativa do município no IDEB 2025 expressa em nota de 0 a 10 (onde 5,0 é a média/mediana nacional)"
+        >
+          <strong>Posição nacional (nota de 0 a 10):</strong> comparativo das redes com os
+          municípios brasileiros (média = 5,0)
         </span>
         <div class="flex items-center gap-3">
           <span
             class="flex items-center gap-1 font-semibold text-emerald-800"
-            title="Acima da mediana dos municípios"
+            title="Acima da média dos municípios (nota maior que 5)"
           >
-            <span aria-hidden="true">▲</span> melhor
+            <span aria-hidden="true">▲</span> melhor (&gt; 5)
           </span>
           <span
             class="flex items-center gap-1 font-semibold text-zinc-900"
-            title="Na mediana dos municípios"
+            title="Na média dos municípios (nota 5)"
           >
-            <span aria-hidden="true">●</span> mediana
+            <span aria-hidden="true">●</span> média (5)
           </span>
           <span
             class="flex items-center gap-1 font-semibold text-red-700"
-            title="Abaixo da mediana dos municípios"
+            title="Abaixo da média dos municípios (nota menor que 5)"
           >
-            <span aria-hidden="true">▼</span> abaixo
+            <span aria-hidden="true">▼</span> abaixo (&lt; 5)
           </span>
         </div>
       </div>

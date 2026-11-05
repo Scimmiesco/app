@@ -122,53 +122,53 @@ describe('ResumoEducacaoComponent', () => {
     expect(cardEsc?.textContent).toContain('2022');
   });
 
-  it('should color only the number without badge styling and show single unified legend', () => {
+  it('should color only the number without badge styling on a 0 to 10 scale and show single unified legend', () => {
     const fixture = TestBed.createComponent(ResumoEducacaoComponent);
     fixture.componentRef.setInput('secao', secaoComBenchmark);
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
 
-    // Anos Iniciais - Municipal: percentil 81.46 -> 0,81 (verde, ▲, NÃO é badge)
+    // Anos Iniciais - Municipal: percentil 81.46 -> nota 8,1 (verde, ▲, NÃO é badge)
     const indIniciaisMun = el.querySelector(
       '[data-testid="indicador-benchmark-iniciais-Municipal"]',
     ) as HTMLElement;
     expect(indIniciaisMun).toBeTruthy();
-    expect(indIniciaisMun.textContent).toContain('0,81');
+    expect(indIniciaisMun.textContent).toContain('8,1');
     expect(indIniciaisMun.textContent).toContain('▲');
     expect(indIniciaisMun.classList.contains('indicador-benchmark')).toBe(true);
     expect(indIniciaisMun.classList.contains('indicador-benchmark--verde')).toBe(true);
     expect(indIniciaisMun.classList.contains('badge')).toBe(false);
-    expect(indIniciaisMun.getAttribute('title')).toContain('0,81');
+    expect(indIniciaisMun.getAttribute('title')).toContain('nota 8,1 (escala 0 a 10)');
     expect(indIniciaisMun.getAttribute('title')).toContain('Mediana dos municípios: 6,2 (+0,7)');
-    expect(indIniciaisMun.getAttribute('aria-label')).toContain('Municipal: nota 6.9');
-    expect(indIniciaisMun.getAttribute('aria-label')).toContain('0,81 de 0 a 1');
+    expect(indIniciaisMun.getAttribute('aria-label')).toContain('Municipal: nota IDEB 6.9');
+    expect(indIniciaisMun.getAttribute('aria-label')).toContain('nota 8,1 de 0 a 10');
 
-    // Anos Iniciais - Estadual: percentil 5.16 -> 0,05 (vermelho, ▼)
+    // Anos Iniciais - Estadual: percentil 5.16 -> nota 0,5 (vermelho, ▼)
     const indIniciaisEst = el.querySelector(
       '[data-testid="indicador-benchmark-iniciais-Estadual"]',
     ) as HTMLElement;
     expect(indIniciaisEst).toBeTruthy();
-    expect(indIniciaisEst.textContent).toContain('0,05');
+    expect(indIniciaisEst.textContent).toContain('0,5');
     expect(indIniciaisEst.textContent).toContain('▼');
     expect(indIniciaisEst.classList.contains('indicador-benchmark--vermelho')).toBe(true);
     expect(indIniciaisEst.classList.contains('badge')).toBe(false);
 
-    // Anos Finais - Estadual: percentil 49.57 -> 0,50 (preto, ● na mediana)
+    // Anos Finais - Estadual: percentil 49.57 -> nota 5,0 (preto, ● na média)
     const indFinaisEst = el.querySelector(
       '[data-testid="indicador-benchmark-finais-Estadual"]',
     ) as HTMLElement;
     expect(indFinaisEst).toBeTruthy();
-    expect(indFinaisEst.textContent).toContain('0,50');
+    expect(indFinaisEst.textContent).toContain('5,0');
     expect(indFinaisEst.textContent).toContain('●');
     expect(indFinaisEst.classList.contains('indicador-benchmark--preto')).toBe(true);
     expect(indFinaisEst.classList.contains('badge')).toBe(false);
 
-    // Anos Finais - Municipal: percentil 29.52 -> 0,30 (vermelho, ▼)
+    // Anos Finais - Municipal: percentil 29.52 -> nota 3,0 (vermelho, ▼)
     const indFinaisMun = el.querySelector(
       '[data-testid="indicador-benchmark-finais-Municipal"]',
     ) as HTMLElement;
     expect(indFinaisMun).toBeTruthy();
-    expect(indFinaisMun.textContent).toContain('0,30');
+    expect(indFinaisMun.textContent).toContain('3,0');
     expect(indFinaisMun.textContent).toContain('▼');
     expect(indFinaisMun.classList.contains('indicador-benchmark--vermelho')).toBe(true);
     expect(indFinaisMun.classList.contains('badge')).toBe(false);
@@ -176,10 +176,11 @@ describe('ResumoEducacaoComponent', () => {
     // Legenda unificada em um lugar só (no rodapé da seção)
     const legendaUnificada = el.querySelector('[data-testid="legenda-benchmark-educacao"]');
     expect(legendaUnificada).toBeTruthy();
-    expect(legendaUnificada?.textContent).toContain('Posição nacional (0 a 1)');
-    expect(legendaUnificada?.textContent).toContain('▲ melhor');
-    expect(legendaUnificada?.textContent).toContain('● mediana');
-    expect(legendaUnificada?.textContent).toContain('▼ abaixo');
+    expect(legendaUnificada?.textContent).toContain('Posição nacional (nota de 0 a 10)');
+    expect(legendaUnificada?.textContent).toContain('média = 5,0');
+    expect(legendaUnificada?.textContent).toContain('▲ melhor (> 5)');
+    expect(legendaUnificada?.textContent).toContain('● média (5)');
+    expect(legendaUnificada?.textContent).toContain('▼ abaixo (< 5)');
 
     // Não existem mais legendas individuais nos cartões
     expect(el.querySelector('[data-testid="legenda-benchmark-iniciais"]')).toBeNull();

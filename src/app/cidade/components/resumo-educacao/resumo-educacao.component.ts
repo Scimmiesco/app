@@ -8,10 +8,12 @@ import {
   SecaoEnvelope,
 } from '../../../core/models/contrato.model';
 import { CabecalhoSecaoComponent } from '../../../shared/components/cabecalho-secao/cabecalho-secao.component';
-import { formatarIndice, formatarNumero, formatarPct } from '../../../core/utils/formatadores';
+import { formatarNota, formatarNumero, formatarPct } from '../../../core/utils/formatadores';
 
 export interface IndicadorNacionalEducacao {
-  indice: number;
+  /** Nota de 0 a 10 (ex.: 8.1, 5.0, 3.0, 0.5) calculada a partir do percentil nacional */
+  nota: number;
+  /** Nota formatada (ex.: "8,1", "5,0", "3,0", "0,5") */
   valorFormatado: string;
   cor: 'verde' | 'vermelho' | 'preto';
   simbolo: string;
@@ -52,11 +54,12 @@ export class ResumoEducacaoComponent {
     const comp: EducacaoItemBenchmark | undefined = etapaComparacoes[rede];
     if (!comp || comp.percentil === undefined || comp.percentil === null) return null;
 
-    // A variação é expressa na escala normalizada de 0 a 1 (percentil / 100)
-    const indice = Math.round(comp.percentil) / 100;
-    const valorFormatado = formatarIndice(indice);
+    // A posição nacional é convertida em nota de 0 a 10 (percentil / 10),
+    // onde 5,0 representa a média/mediana exata dos municípios brasileiros.
+    const nota = Math.round(comp.percentil) / 10;
+    const valorFormatado = formatarNota(nota);
 
-    // Mapeamento da cor semântica e símbolo (verde = acima/melhor, vermelho = abaixo, preto = mediana/próximo)
+    // Mapeamento da cor semântica e símbolo (verde = acima/melhor, vermelho = abaixo, preto = média 5/próximo)
     let cor: 'verde' | 'vermelho' | 'preto';
     let simbolo: string;
     let rotuloCurto: string;
@@ -73,21 +76,21 @@ export class ResumoEducacaoComponent {
     } else if (faixa === 'proximo') {
       cor = 'preto';
       simbolo = '●';
-      rotuloCurto = 'mediana';
+      rotuloCurto = 'na média';
     } else {
-      // Fallback defensivo baseado no centro da escala (0,50)
-      if (indice > 0.55) {
+      // Fallback defensivo baseado na nota 5,0 (média)
+      if (nota >= 5.5) {
         cor = 'verde';
         simbolo = '▲';
         rotuloCurto = 'melhor';
-      } else if (indice < 0.45) {
+      } else if (nota <= 4.5) {
         cor = 'vermelho';
         simbolo = '▼';
         rotuloCurto = 'abaixo';
       } else {
         cor = 'preto';
         simbolo = '●';
-        rotuloCurto = 'mediana';
+        rotuloCurto = 'na média';
       }
     }
 
@@ -97,7 +100,7 @@ export class ResumoEducacaoComponent {
         ? 'Acima da mediana'
         : cor === 'vermelho'
           ? 'Abaixo da mediana'
-          : 'Na mediana');
+          : 'Na média nacional');
 
     const deltaSinal = comp.desvio_mediana > 0 ? '+' : '';
     const deltaTexto =
@@ -110,11 +113,11 @@ export class ResumoEducacaoComponent {
         ? ` · Mediana dos municípios: ${formatarNumero(comp.mediana)}${deltaTexto}${nTexto}`
         : '';
 
-    const tooltip = `Posição nacional: ${valorFormatado} (escala 0 a 1) · ${rotulo}${medianaTexto} · IDEB 2025`;
-    const ariaLabel = `${rede}: nota ${comp.valor}. Posição nacional: ${valorFormatado} de 0 a 1. ${rotulo}.`;
+    const tooltip = `Posição nacional: nota ${valorFormatado} (escala 0 a 10) · ${rotulo}${medianaTexto} · IDEB 2025`;
+    const ariaLabel = `${rede}: nota IDEB ${comp.valor}. Posição nacional: nota ${valorFormatado} de 0 a 10. ${rotulo}.`;
 
     return {
-      indice,
+      nota,
       valorFormatado,
       cor,
       simbolo,

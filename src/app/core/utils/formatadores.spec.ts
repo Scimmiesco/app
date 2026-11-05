@@ -2,6 +2,7 @@ import {
   formatarDataIso,
   formatarIndice,
   formatarMoeda,
+  formatarNota,
   formatarNumero,
   formatarPct,
   formatarStatus,
@@ -39,6 +40,13 @@ describe('formatadores', () => {
     expect(formatarIndice(0.5)).toBe('0,50');
     expect(formatarIndice(null)).toBe('—');
     expect(formatarIndice(undefined)).toBe('—');
+    expect(formatarNota(8.1)).toBe('8,1');
+    expect(formatarNota(5)).toBe('5,0');
+    expect(formatarNota(3)).toBe('3,0');
+    expect(formatarNota(0.5)).toBe('0,5');
+    expect(formatarNota(10)).toBe('10,0');
+    expect(formatarNota(null)).toBe('—');
+    expect(formatarNota(undefined)).toBe('—');
     expect(formatarVariacaoVotos(23195)).toBe('+23.195');
     expect(formatarVariacaoVotos(-1)).toBe('-1');
     expect(formatarVariacaoPct(2.33)).toBe('+2,33 p.p.');
