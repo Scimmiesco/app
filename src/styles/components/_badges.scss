@@ -134,3 +134,10 @@
   border: 1.5px solid tokens.$color-black;
   box-shadow: 2px 2px 0 tokens.$color-black;
 }
+
+// 4. Outros (Eleição Presidencial / Agrupamento de terceiros)
+.badge-outros {
+  @include mixins.badge-variant(#64748b, #ffffff);
+  border: none;
+  box-shadow: 2px 2px 0 #64748b;
+}

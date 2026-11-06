@@ -95,4 +95,15 @@ describe('PartidoBadgeComponent', () => {
     expect(badge.getAttribute('title')).toBe('Partido XYZ');
     expect(badge.getAttribute('aria-label')).toBe('Partido XYZ');
   });
+
+  it('should render OUTROS special badge with data-partido OUTROS', () => {
+    host.sigla.set('OUTROS');
+    fixture.detectChanges();
+
+    const badge = fixture.nativeElement.querySelector(
+      '[data-testid="badge-partido"]',
+    ) as HTMLElement;
+    expect(badge.getAttribute('data-partido')).toBe('OUTROS');
+    expect(badge.textContent?.trim()).toBe('OUTROS');
+  });
 });

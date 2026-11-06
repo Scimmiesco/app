@@ -67,6 +67,9 @@ describe('PresidencialComparativoComponent', () => {
     expect(rows.length).toBe(4);
     expect(el.textContent).toContain('+6,51 p.p.');
     expect(el.textContent).toContain('+2,44 p.p.');
+
+    const badgesOutros = el.querySelectorAll('.badge-outros');
+    expect(badgesOutros.length).toBe(2);
   });
 
   it('should show pending state when one of the rounds is missing', () => {

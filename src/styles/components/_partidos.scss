@@ -160,6 +160,14 @@ $partidos: (
       box-shadow: 2px 2px 0 map.get($prop, bg);
     }
   }
+
+  // Agrupamento Outros sem partido específico (sem borda, shadow na cor principal #64748b)
+  &[data-partido='OUTROS'] {
+    background-color: #64748b;
+    border: none;
+    color: #ffffff;
+    box-shadow: 2px 2px 0 #64748b;
+  }
 }
 
 // Estilos do número de candidato abaixo do nome (ADR-010 / Neo-Brutalismo)

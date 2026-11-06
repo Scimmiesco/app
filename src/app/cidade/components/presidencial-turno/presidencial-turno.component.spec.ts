@@ -52,6 +52,10 @@ describe('PresidencialTurnoComponent', () => {
     expect(
       el.querySelector('[data-testid="card-presidencial-1t-flavio"] .barra-votos-preenchimento'),
     ).toBeTruthy();
+
+    const badgeOutros = el.querySelector('.badge-outros');
+    expect(badgeOutros).toBeTruthy();
+    expect(badgeOutros?.textContent?.trim()).toBe('Outros');
   });
 
   it('should render the 2nd round with turn-specific test ids and no third-party dispute', () => {
