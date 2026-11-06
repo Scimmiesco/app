@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Agentmap: https://eleitor-five.vercel.app/.well-known/ai-catalog.json

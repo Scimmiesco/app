@@ -1,9 +1,31 @@
 # Eleitor v2
-> Portal de transparência eleitoral e dados municipais e estaduais oficiais do Brasil.
 
-Dados de fontes oficiais primárias:
-- TSE (Tribunal Superior Eleitoral): Resultados de eleições 2024 e 2026
-- IBGE: Censo Demográfico e Estimativas Populacionais
-- INEP: IDEB e SAEB
-- SICONFI: Dados Fiscais e Orçamentários
-- Legislativo: Composição de Câmaras Municipais, Assembleias e Congresso
+> Portal de transparência eleitoral e dados públicos municipais e estaduais do Brasil.
+
+O Eleitor v2 consolida, audita e padroniza dados oficiais de fontes primárias governamentais (TSE, IBGE, INEP, SICONFI e órgãos legislativos), apresentando o raio-X completo das eleições, composição parlamentar, finanças municipais e indicadores educacionais.
+
+## Cidades Disponíveis
+
+- [Campo Grande / MS](https://eleitor-five.vercel.app/cidade/5002704): Snapshot oficial de Campo Grande (MS) com dados eleitorais do TSE, IBGE, INEP e SICONFI.
+- [Teresina / PI](https://eleitor-five.vercel.app/cidade/2211001): Snapshot oficial de Teresina (PI) com resultados de eleições, finanças e educação.
+- [Curitiba / PR](https://eleitor-five.vercel.app/cidade/4106902): Snapshot oficial de Curitiba (PR) com raio-X político e parlamentar.
+
+## Panoramas Estaduais
+
+- [Mato Grosso do Sul](https://eleitor-five.vercel.app/estado/MS): Panorama estadual de MS com senadores, deputados federais e deputados estaduais.
+- [Piauí](https://eleitor-five.vercel.app/estado/PI): Panorama estadual do PI.
+- [Paraná](https://eleitor-five.vercel.app/estado/PR): Panorama estadual do PR.
+
+## Fontes Oficiais Primárias
+
+- [TSE - DivulgaCandContas](https://divulgacandcontas.tse.jus.br/): Resultados eleitorais oficiais de 2024 e 2026, votos nominais e situação dos candidatos.
+- [IBGE Cidades](https://cidades.ibge.gov.br/): Censo Demográfico, estimativas populacionais e dados territoriais.
+- [INEP - Educação Básica](https://www.gov.br/inep/pt-br): Indicadores oficiais da Educação Básica brasileira (IDEB e SAEB).
+- [SICONFI - Tesouro Nacional](https://siconfi.tesouro.gov.br/): Contabilidade fiscal e finanças orçamentárias municipais.
+- [Câmara dos Deputados](https://www.camara.leg.br/): Bancadas oficiais e representação parlamentar federal.
+- [Senado Federal](https://www12.senado.leg.br/): Composição e mandatos dos senadores da República.
+
+## Recursos e APIs
+
+- [Snapshots Municipais (JSON)](https://eleitor-five.vercel.app/data/municipios/index.json): Índice oficial de dados municipais estruturados em JSON.
+- [Catálogo AI (ARD Manifest)](https://eleitor-five.vercel.app/.well-known/ai-catalog.json): Manifesto de descoberta de capacidades para agentes de inteligência artificial.

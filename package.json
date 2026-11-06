@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && node -e \"const fs=require('fs'); if (fs.existsSync('dist/app/browser/index.csr.html')) { fs.copyFileSync('dist/app/browser/index.csr.html', 'dist/app/browser/index.html'); fs.copyFileSync('dist/app/browser/index.csr.html', 'dist/app/index.html'); }\"",
-    "postbuild": "node -e \"const fs=require('fs'); if (fs.existsSync('dist/app/browser/index.csr.html')) { fs.copyFileSync('dist/app/browser/index.csr.html', 'dist/app/browser/index.html'); fs.copyFileSync('dist/app/browser/index.csr.html', 'dist/app/index.html'); }\"",
+    "build": "ng build",
+    "postbuild": "node -e \"const fs=require('fs'); if (fs.existsSync('dist/app/browser/index.csr.html')) { fs.copyFileSync('dist/app/browser/index.csr.html', 'dist/app/browser/index.html'); fs.copyFileSync('dist/app/browser/index.csr.html', 'dist/app/index.html'); } ['robots.txt','llms.txt','ai-catalog.json'].forEach(f => { if (fs.existsSync('dist/app/browser/' + f)) fs.copyFileSync('dist/app/browser/' + f, 'dist/app/' + f); }); if (fs.existsSync('dist/app/browser/.well-known')) fs.cpSync('dist/app/browser/.well-known', 'dist/app/.well-known', {recursive: true});\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=false",
     "lint": "ng lint",

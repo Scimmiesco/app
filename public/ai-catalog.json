@@ -1,0 +1,26 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Eleitor v2",
+    "identifier": "https://eleitor-five.vercel.app",
+    "documentationUrl": "https://eleitor-five.vercel.app/llms.txt"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:eleitor-five.vercel.app:resource:llms-txt",
+      "displayName": "Eleitor v2 LLM Directory",
+      "type": "text/plain",
+      "url": "https://eleitor-five.vercel.app/llms.txt",
+      "description": "Diretório estruturado para LLMs e agentes de IA com resumo de cidades, estados e fontes de dados oficiais.",
+      "tags": ["transparencia", "eleicoes", "tse", "ibge", "inep", "siconfi"]
+    },
+    {
+      "identifier": "urn:air:eleitor-five.vercel.app:dataset:municipios",
+      "displayName": "Snapshots Municipais Oficiais",
+      "type": "application/json",
+      "url": "https://eleitor-five.vercel.app/data/municipios/index.json",
+      "description": "Índice consolidado dos snapshots municipais em formato JSON com proveniência estrita de fontes primárias governamentais.",
+      "tags": ["dados-abertos", "municipios", "eleicoes-2024", "eleicoes-2026"]
+    }
+  ]
+}
