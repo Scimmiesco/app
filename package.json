@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && node -e \"const fs=require('fs'); if (fs.existsSync('dist/app/browser/index.csr.html')) fs.copyFileSync('dist/app/browser/index.csr.html', 'dist/app/browser/index.html');\"",
-    "postbuild": "node -e \"const fs=require('fs'); if (fs.existsSync('dist/app/browser/index.csr.html')) fs.copyFileSync('dist/app/browser/index.csr.html', 'dist/app/browser/index.html');\"",
+    "build": "ng build && node -e \"const fs=require('fs'); if (fs.existsSync('dist/app/browser/index.csr.html')) { fs.copyFileSync('dist/app/browser/index.csr.html', 'dist/app/browser/index.html'); fs.copyFileSync('dist/app/browser/index.csr.html', 'dist/app/index.html'); }\"",
+    "postbuild": "node -e \"const fs=require('fs'); if (fs.existsSync('dist/app/browser/index.csr.html')) { fs.copyFileSync('dist/app/browser/index.csr.html', 'dist/app/browser/index.html'); fs.copyFileSync('dist/app/browser/index.csr.html', 'dist/app/index.html'); }\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=false",
     "lint": "ng lint",
