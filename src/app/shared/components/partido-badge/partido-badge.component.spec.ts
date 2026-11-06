@@ -67,7 +67,7 @@ describe('PartidoBadgeComponent', () => {
     expect(badge.getAttribute('title')).toBe('União Brasil (UNIAO)');
   });
 
-  it('should render MDB and PV with distinct attributes for stripe differentiation', () => {
+  it('should render MDB and PV with distinct attributes and titles', () => {
     host.sigla.set('MDB');
     fixture.detectChanges();
 

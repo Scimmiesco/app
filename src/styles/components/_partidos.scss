@@ -142,21 +142,22 @@ $partidos: (
   letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: nowrap;
-  padding: 1px 6px 1px 8px;
+  padding: 1px 6px;
   box-sizing: border-box;
 
   // Fallback seguro para partidos desconhecidos (fundo preto, texto branco)
   background-color: tokens.$color-black;
+  border-color: tokens.$color-black;
   color: #ffffff;
 
-  // Aplicação das cores partidárias e faixa de 2px na esquerda
+  // Aplicação das cores partidárias (borda e shadow na cor principal, lateral na cor secundária sem borda divisória)
   @each $sigla, $prop in $partidos {
     &[data-partido='#{$sigla}'] {
       background-color: map.get($prop, bg);
+      border: 2px solid map.get($prop, bg);
+      border-left: 4px solid map.get($prop, stripe);
       color: map.get($prop, fg);
-      box-shadow:
-        inset 2px 0 0 map.get($prop, stripe),
-        tokens.$shadow-hard-sm;
+      box-shadow: 2px 2px 0 map.get($prop, bg);
     }
   }
 }
