@@ -84,7 +84,7 @@
   box-shadow: 2px 2px 0 tokens.$color-amarelo;
 }
 
-// LARANJA: Não reeleito, Mandato, Alerta (texto preto para contraste >= 5.9:1 WCAG AA)
+// LARANJA: Não reeleito, Mandato, Alerta (laranja claro + texto preto, contraste >= 9:1 WCAG AAA)
 .badge-laranja,
 .badge-nao-reeleito {
   @include mixins.badge-variant(tokens.$color-laranja, tokens.$color-black);
