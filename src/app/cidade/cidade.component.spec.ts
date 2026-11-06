@@ -526,6 +526,8 @@ describe('CidadeComponent', () => {
       getCidade: () => of(currentSnapshot),
       getIndiceCidades: () => of(mockIndice),
       limparCacheCidade: () => undefined,
+      registrarMunicipioAcessado: () => undefined,
+      getUltimoMunicipio: () => '5002704',
     };
 
     await TestBed.configureTestingModule({

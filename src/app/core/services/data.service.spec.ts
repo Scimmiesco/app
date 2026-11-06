@@ -167,4 +167,18 @@ describe('DataService', () => {
 
     expect(result).toEqual(mockIndiceEstados);
   });
+
+  it('should track and retrieve last accessed municipality', () => {
+    expect(service.getUltimoMunicipio()).toBe('5002704');
+
+    service.registrarMunicipioAcessado('5003702', 'MS');
+    expect(service.getUltimoMunicipio()).toBe('5003702');
+    expect(service.getUltimoMunicipio('MS')).toBe('5003702');
+    expect(service.getUltimoMunicipio('PR')).toBe('5003702');
+
+    service.registrarMunicipioAcessado('4106902', 'PR');
+    expect(service.getUltimoMunicipio()).toBe('4106902');
+    expect(service.getUltimoMunicipio('MS')).toBe('5003702');
+    expect(service.getUltimoMunicipio('PR')).toBe('4106902');
+  });
 });

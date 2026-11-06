@@ -32,48 +32,55 @@
       </p>
     </div>
 
-    <!-- SELETOR DINÂMICO COM SEPARAÇÃO EXPLÍCITA DE ESFERA (ESTADO OU CIDADE) -->
+    <!-- SELETOR UNIFICADO COM TOGGLE DE ESFERA (SEM REDUNDÂNCIA) -->
     <div
-      class="flex flex-col sm:items-end gap-1.5 self-start sm:self-center"
+      class="flex flex-col gap-2.5 self-start sm:self-center w-full sm:w-auto sm:min-w-[280px] p-3 bg-slate-50 border-2 border-black rounded-sm shadow-default-xs"
       data-testid="container-seletor-esfera-estado"
     >
-      <div class="flex items-center gap-1 text-[11px] font-black uppercase text-meta">
-        <span>Esfera de dados:</span>
-      </div>
-      <div class="flex flex-wrap items-center gap-2">
-        <!-- TOGGLE DE ESFERA COM DESTAQUE BRUTALISTA -->
+      <!-- TOGGLE DE ESFERA TERRITORIAL (PERMITE ALTERNAR PARA MUNICIPAL) -->
+      <div class="flex flex-col gap-1">
+        <span class="text-[10px] font-black uppercase text-meta tracking-wider">
+          Esfera Territorial
+        </span>
         <div
-          class="inline-flex border-2 border-black rounded-xs shadow-default-xs bg-white p-0.5"
+          class="grid grid-cols-2 p-0.5 bg-white border-2 border-black rounded-xs shadow-default-xs"
           role="group"
           aria-label="Escolher esfera territorial"
+          data-testid="toggle-esfera-estado"
         >
           <a
-            [routerLink]="['/cidade', estado().capital.codigo_ibge]"
-            class="px-2.5 py-1 text-xs font-black uppercase rounded-xs bg-white text-black hover:bg-slate-100 transition-colors select-none"
-            title="Alternar para a capital {{ estado().capital.nome }}"
+            [routerLink]="['/cidade', codigoRetornoMunicipal()]"
+            class="px-2.5 py-1 text-xs font-black uppercase rounded-xs bg-white text-black hover:bg-slate-100 transition-colors text-center select-none flex items-center justify-center"
+            title="Alternar para a esfera municipal"
             data-testid="btn-alternar-cidade"
           >
-            🏙️ Ver Capital ({{ estado().capital.nome }}) ↗
+            Municipal
           </a>
           <span
-            class="px-2.5 py-1 text-xs font-black uppercase rounded-xs bg-black text-white select-none"
+            class="px-2.5 py-1 text-xs font-black uppercase rounded-xs bg-black text-white text-center select-none flex items-center justify-center"
             data-testid="badge-esfera-estado"
           >
-            🏛️ Estado
+            Estadual
           </span>
         </div>
+      </div>
 
-        <!-- DROPDOWN SELETOR DE ESTADO -->
-        <label for="estado-select" class="sr-only" data-testid="label-seletor-estado"
-          >Selecionar Estado</label
+      <!-- DROPDOWN SELETOR DE ESTADO -->
+      <div class="flex flex-col gap-1 pt-1.5 border-t border-black/10">
+        <label
+          for="estado-select"
+          class="text-[10px] font-black uppercase text-meta tracking-wider"
+          data-testid="label-seletor-estado"
         >
+          Mudar Estado
+        </label>
         <select
           id="estado-select"
-          class="select-default"
+          class="select-default w-full text-xs font-bold"
           [value]="siglaAtiva()"
           (change)="aoSelecionarEstado($event)"
           data-testid="select-estado"
-          title="Trocar estado"
+          title="Selecione outro estado"
         >
           @for (est of estados(); track est.sigla) {
             <option

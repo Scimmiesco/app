@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, shareReplay, throwError } from 'rxjs';
+import { catchError, Observable, shareReplay, tap, throwError } from 'rxjs';
 import {
   EstadoSnapshot,
   IndiceCidades,
@@ -17,6 +17,26 @@ export class DataService {
   private readonly estadoCache = new Map<string, Observable<EstadoSnapshot>>();
   private indiceCache$?: Observable<IndiceCidades>;
   private indiceEstadosCache$?: Observable<IndiceEstados>;
+  private ultimoMunicipioCodigo = '5002704';
+  private readonly ultimoMunicipioPorUf = new Map<string, string>();
+
+  registrarMunicipioAcessado(codigoIbge: string | number, uf?: string): void {
+    const key = String(codigoIbge).trim();
+    if (key) {
+      this.ultimoMunicipioCodigo = key;
+      if (uf) {
+        this.ultimoMunicipioPorUf.set(uf.toUpperCase().trim(), key);
+      }
+    }
+  }
+
+  getUltimoMunicipio(uf?: string): string {
+    if (uf) {
+      const porUf = this.ultimoMunicipioPorUf.get(uf.toUpperCase().trim());
+      if (porUf) return porUf;
+    }
+    return this.ultimoMunicipioCodigo || '5002704';
+  }
 
   getCidade(codigoIbge: string | number): Observable<MunicipioSnapshot> {
     const key = String(codigoIbge);
@@ -26,6 +46,11 @@ export class DataService {
     }
 
     const request$ = this.http.get<MunicipioSnapshot>(`/data/municipios/${key}.json`).pipe(
+      tap((snap) => {
+        if (snap?.municipio) {
+          this.registrarMunicipioAcessado(snap.municipio.codigo_ibge, snap.municipio.uf);
+        }
+      }),
       catchError((err) => {
         this.cidadeCache.delete(key);
         return throwError(() => err);

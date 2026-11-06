@@ -1,4 +1,6 @@
 import { TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
 import {
   EstadoCabecalhoDados,
@@ -6,6 +8,7 @@ import {
   FonteMeta,
   SecaoEnvelope,
 } from '../../../core/models/contrato.model';
+import { DataService } from '../../../core/services/data.service';
 import { CabecalhoEstadoComponent } from './cabecalho-estado.component';
 
 const estado: EstadoMeta = {
@@ -52,13 +55,16 @@ const secao: SecaoEnvelope<EstadoCabecalhoDados> = {
 };
 
 describe('CabecalhoEstadoComponent', () => {
+  let dataService: DataService;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideRouter([])],
+      providers: [provideRouter([]), provideHttpClient(), provideHttpClientTesting(), DataService],
     });
+    dataService = TestBed.inject(DataService);
   });
 
-  it('should render state name, sigla, population and capital link', () => {
+  it('should render state name, sigla, population and municipal link without capital label', () => {
     const fixture = TestBed.createComponent(CabecalhoEstadoComponent);
     fixture.componentRef.setInput('estado', estado);
     fixture.componentRef.setInput('secao', secao);
@@ -90,19 +96,46 @@ describe('CabecalhoEstadoComponent', () => {
     expect(el.querySelector('[data-testid="valor-metrica-capital-estado"]')?.textContent).toContain(
       'Campo Grande',
     );
-    const linkCapital = el.querySelector('[data-testid="link-capital-cidade"]');
-    expect(linkCapital).toBeTruthy();
-    expect(linkCapital?.getAttribute('href')).toBe('/cidade/5002704');
+    const linkMunicipal = el.querySelector('[data-testid="btn-alternar-cidade"]');
+    expect(linkMunicipal).toBeTruthy();
+    expect(linkMunicipal?.getAttribute('href')).toBe('/cidade/5002704');
+    expect(linkMunicipal?.textContent).toContain('Municipal');
+    expect(linkMunicipal?.textContent).not.toContain('(Capital)');
 
     expect(el.querySelector('[data-testid="kicker-esfera-estado"]')?.textContent).toContain(
       'ESFERA ESTADUAL',
     );
     expect(el.querySelector('[data-testid="badge-esfera-estado"]')?.textContent).toContain(
-      'Estado',
+      'Estadual',
     );
-    expect(el.querySelector('[data-testid="btn-alternar-cidade"]')?.getAttribute('href')).toBe(
-      '/cidade/5002704',
-    );
+    expect(
+      el.querySelector('[data-testid="container-seletor-esfera-estado"]')?.textContent,
+    ).toContain('Mudar Estado');
+  });
+
+  it('should return to last selected municipality when previously accessed', () => {
+    dataService.registrarMunicipioAcessado('5003702', 'MS'); // Dourados
+
+    const fixture = TestBed.createComponent(CabecalhoEstadoComponent);
+    fixture.componentRef.setInput('estado', estado);
+    fixture.componentRef.setInput('secao', secao);
+    fixture.componentRef.setInput('fonte', fonte);
+    fixture.componentRef.setInput('siglaUf', 'MS');
+    fixture.componentRef.setInput('estados', [
+      {
+        sigla: 'MS',
+        codigo_uf: 50,
+        nome: 'Mato Grosso do Sul',
+        regiao: 'Centro-Oeste',
+        arquivo: 'estados/MS.json',
+        disponivel: true,
+      },
+    ]);
+    fixture.detectChanges();
+
+    const el = fixture.nativeElement as HTMLElement;
+    const linkMunicipal = el.querySelector('[data-testid="btn-alternar-cidade"]');
+    expect(linkMunicipal?.getAttribute('href')).toBe('/cidade/5003702');
   });
 
   it('should emit selected state when select changes', () => {

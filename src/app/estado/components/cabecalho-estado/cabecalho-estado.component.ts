@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   EstadoCabecalhoDados,
@@ -7,6 +7,7 @@ import {
   FonteMeta,
   SecaoEnvelope,
 } from '../../../core/models/contrato.model';
+import { DataService } from '../../../core/services/data.service';
 import { formatarNumero } from '../../../core/utils/formatadores';
 
 @Component({
@@ -17,6 +18,8 @@ import { formatarNumero } from '../../../core/utils/formatadores';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CabecalhoEstadoComponent {
+  private readonly dataService = inject(DataService);
+
   readonly estado = input.required<EstadoMeta>();
   readonly secao = input<SecaoEnvelope<EstadoCabecalhoDados>>();
   readonly fonte = input<FonteMeta | undefined>(undefined);
@@ -27,6 +30,12 @@ export class CabecalhoEstadoComponent {
 
   readonly siglaAtiva = computed(() => {
     return (this.siglaUf() || this.estado().sigla || 'MS').toUpperCase();
+  });
+
+  readonly codigoRetornoMunicipal = computed(() => {
+    const estadoSigla = this.estado().sigla;
+    const ultimo = this.dataService.getUltimoMunicipio(estadoSigla);
+    return ultimo || String(this.estado().capital.codigo_ibge);
   });
 
   protected readonly formatarNumero = formatarNumero;

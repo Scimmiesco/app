@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, effect, inject, input } from '@angu
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FonteMeta } from '../core/models/contrato.model';
+import { DataService } from '../core/services/data.service';
 import { CidadeStore } from '../core/state/cidade-store';
 import { CabecalhoCidadeComponent } from './components/cabecalho-cidade/cabecalho-cidade.component';
 import { ComoCalculamosComponent } from './components/como-calculamos/como-calculamos.component';
@@ -40,6 +41,7 @@ import { VereadoresComponent } from './components/vereadores/vereadores.componen
 export class CidadeComponent {
   private readonly router = inject(Router);
   private readonly store = inject(CidadeStore);
+  private readonly dataService = inject(DataService);
 
   readonly codigoIbge = input<string>('5002704');
 
@@ -50,7 +52,9 @@ export class CidadeComponent {
 
   constructor() {
     effect(() => {
-      this.store.carregar(this.codigoIbge());
+      const codigo = this.codigoIbge();
+      this.dataService?.registrarMunicipioAcessado?.(codigo);
+      this.store.carregar(codigo);
     });
   }
 

@@ -24,63 +24,60 @@
       <h1 id="cidade-heading" class="heading-1" data-testid="titulo-cidade">
         {{ municipio().nome }} / {{ municipio().uf }}
       </h1>
-      <div class="flex flex-wrap items-center gap-2 mt-1">
-        <p class="text-meta font-medium" data-testid="subtitulo-cidade">
-          Panorama da cidade e de quem foi eleito
-        </p>
-        <a
-          [routerLink]="['/estado', municipio().uf]"
-          class="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 border border-black rounded-xs bg-slate-100 hover:bg-black hover:text-white transition-colors"
-          title="Ver panorama e dados completos do estado de {{ municipio().uf }}"
-          data-testid="link-ver-estado"
-        >
-          <span>🏛️ Ver Estado de {{ municipio().uf }} ↗</span>
-        </a>
-      </div>
+      <p class="text-meta mt-1 font-medium" data-testid="subtitulo-cidade">
+        Panorama da cidade e de quem foi eleito
+      </p>
     </div>
 
-    <!-- SELETOR DINÂMICO COM SEPARAÇÃO EXPLÍCITA DE ESFERA (CIDADE OU ESTADO) -->
+    <!-- SELETOR UNIFICADO COM TOGGLE DE ESFERA (SEM REDUNDÂNCIA) -->
     <div
-      class="flex flex-col sm:items-end gap-1.5 self-start sm:self-center"
+      class="flex flex-col gap-2.5 self-start sm:self-center w-full sm:w-auto sm:min-w-[280px] p-3 bg-slate-50 border-2 border-black rounded-sm shadow-default-xs"
       data-testid="container-seletor-esfera-cidade"
     >
-      <div class="flex items-center gap-1 text-[11px] font-black uppercase text-meta">
-        <span>Esfera de dados:</span>
-      </div>
-      <div class="flex flex-wrap items-center gap-2">
-        <!-- TOGGLE DE ESFERA COM DESTAQUE BRUTALISTA -->
+      <!-- TOGGLE DE ESFERA TERRITORIAL -->
+      <div class="flex flex-col gap-1">
+        <span class="text-[10px] font-black uppercase text-meta tracking-wider">
+          Esfera Territorial
+        </span>
         <div
-          class="inline-flex border-2 border-black rounded-xs shadow-default-xs bg-white p-0.5"
+          class="grid grid-cols-2 p-0.5 bg-white border-2 border-black rounded-xs shadow-default-xs"
           role="group"
           aria-label="Escolher esfera territorial"
+          data-testid="toggle-esfera-cidade"
         >
           <span
-            class="px-2.5 py-1 text-xs font-black uppercase rounded-xs bg-black text-white select-none"
+            class="px-2.5 py-1 text-xs font-black uppercase rounded-xs bg-black text-white text-center select-none flex items-center justify-center"
             data-testid="badge-esfera-cidade"
           >
-            🏙️ Município
+            Municipal
           </span>
           <a
             [routerLink]="['/estado', municipio().uf]"
-            class="px-2.5 py-1 text-xs font-black uppercase rounded-xs bg-white text-black hover:bg-slate-100 transition-colors select-none"
-            title="Alternar para o panorama estadual de {{ municipio().uf }}"
+            class="px-2.5 py-1 text-xs font-black uppercase rounded-xs bg-white text-black hover:bg-slate-100 transition-colors text-center select-none flex items-center justify-center"
+            title="Alternar para a esfera estadual ({{ municipio().uf }})"
             data-testid="btn-alternar-estado"
           >
-            🏛️ Ver Estado ({{ municipio().uf }}) ↗
+            Estadual ({{ municipio().uf }})
           </a>
         </div>
+      </div>
 
-        <!-- DROPDOWN SELETOR DE MUNICÍPIO -->
-        <label for="cidade-select" class="sr-only" data-testid="label-seletor-cidade"
-          >Selecionar Município</label
+      <!-- DROPDOWN SELETOR DE MUNICÍPIO -->
+      <div class="flex flex-col gap-1 pt-1.5 border-t border-black/10">
+        <label
+          for="cidade-select"
+          class="text-[10px] font-black uppercase text-meta tracking-wider"
+          data-testid="label-seletor-cidade"
         >
+          Mudar Município
+        </label>
         <select
           id="cidade-select"
-          class="select-default"
+          class="select-default w-full text-xs font-bold"
           [value]="codigoAtivo()"
           (change)="aoSelecionarCidade($event)"
           data-testid="select-cidade"
-          title="Trocar município"
+          title="Selecione outro município"
         >
           @for (cid of cidades(); track cid.codigo_ibge) {
             <option

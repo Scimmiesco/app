@@ -73,20 +73,20 @@ describe('CabecalhoCidadeComponent', () => {
     expect(el.querySelector('[data-testid="cabecalho-link-fonte"]')?.getAttribute('href')).toBe(
       fonte.url,
     );
-    const linkEstado = el.querySelector('[data-testid="link-ver-estado"]');
+    const linkEstado = el.querySelector('[data-testid="btn-alternar-estado"]');
     expect(linkEstado).toBeTruthy();
-    expect(linkEstado?.textContent).toContain('Ver Estado de MS');
+    expect(linkEstado?.textContent).toContain('Estadual (MS)');
     expect(linkEstado?.getAttribute('href')).toBe('/estado/MS');
 
     expect(el.querySelector('[data-testid="kicker-esfera-cidade"]')?.textContent).toContain(
       'ESFERA MUNICIPAL',
     );
     expect(el.querySelector('[data-testid="badge-esfera-cidade"]')?.textContent).toContain(
-      'Município',
+      'Municipal',
     );
-    expect(el.querySelector('[data-testid="btn-alternar-estado"]')?.getAttribute('href')).toBe(
-      '/estado/MS',
-    );
+    expect(
+      el.querySelector('[data-testid="container-seletor-esfera-cidade"]')?.textContent,
+    ).toContain('Mudar Município');
   });
 
   it('should emit the selected city code', () => {
