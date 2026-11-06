@@ -1,0 +1,61 @@
+<div class="card-brutalista space-y-4" data-testid="card-municipios-estado">
+  <app-cabecalho-secao
+    [secao]="secao()"
+    [fonte]="fonte()"
+    [kickerTestId]="'municipios-estado-kicker'"
+    [tituloTestId]="'municipios-estado-titulo'"
+  />
+
+  @if (secao().status === 'pendente') {
+    <div class="bloco-pendente">
+      <strong>Dado pendente:</strong> {{ secao().motivo || 'Em fase de apuração oficial.' }}
+    </div>
+  } @else if (secao().dados; as municipios) {
+    <p class="text-xs text-meta leading-relaxed" data-testid="descricao-municipios-estado">
+      Cidades integrantes do estado com raio-x eleitoral e indicadores oficiais disponíveis:
+    </p>
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
+      data-testid="grid-municipios-estado"
+    >
+      @for (mun of municipios; track mun.codigo_ibge) {
+        <div
+          class="metric-card hover:bg-slate-50 transition-colors flex flex-col justify-between"
+          [attr.data-testid]="'card-municipio-' + mun.codigo_ibge"
+        >
+          <div>
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-meta text-[11px] font-bold">IBGE: {{ mun.codigo_ibge }}</span>
+              @if (mun.disponivel) {
+                <span class="badge badge-sm badge-oficial">Disponível</span>
+              } @else {
+                <span class="badge badge-sm badge-pendente">Em breve</span>
+              }
+            </div>
+            <h3 class="font-black text-sm text-black mt-1">{{ mun.nome }} / {{ siglaUf() }}</h3>
+            @if (mun.populacao) {
+              <p class="text-xs text-meta mt-0.5">
+                População: <strong>{{ formatarNumero(mun.populacao) }}</strong> hab
+              </p>
+            }
+          </div>
+
+          <div class="mt-3 pt-2 border-t border-black/10">
+            @if (mun.disponivel) {
+              <a
+                [routerLink]="['/cidade', mun.codigo_ibge]"
+                class="inline-flex items-center gap-1 font-bold text-xs text-black hover:text-emerald-700 underline"
+                [attr.data-testid]="'link-municipio-' + mun.codigo_ibge"
+              >
+                <span>Acessar Raio-X da Cidade ↗</span>
+              </a>
+            } @else {
+              <span class="text-xs text-meta">Snapshot em compilação oficial</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

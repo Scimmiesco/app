@@ -267,3 +267,80 @@ export interface IndiceCidades {
   gerado_em: string;
   cidades: CidadeItemIndice[];
 }
+
+export interface EstadoCabecalhoDados {
+  nome: string;
+  sigla: string;
+  populacao: number;
+  eleitorado: number;
+  total_municipios: number;
+  capital: string;
+  regiao: string;
+}
+
+export interface EstadoMeta {
+  codigo_uf: number;
+  sigla: string;
+  nome: string;
+  regiao: string;
+  capital: {
+    nome: string;
+    codigo_ibge: number;
+  };
+  total_municipios: number;
+  populacao?: number;
+  eleitorado_total?: number;
+  area_km2?: number;
+  densidade_hab_km2?: number;
+  pib_total_milhoes?: number;
+  geo?: CoordenadasMunicipio;
+}
+
+export interface MunicipioItemDestaque {
+  codigo_ibge: number;
+  nome: string;
+  populacao?: number;
+  eleitorado?: number;
+  prefeito?: string;
+  partido?: string;
+  disponivel: boolean;
+}
+
+export interface SecoesEstado {
+  cabecalho: SecaoEnvelope<EstadoCabecalhoDados>;
+  governador: SecaoEnvelope<ParlamentarItem[]>;
+  senadores: SecaoEnvelope<ParlamentarItem[]>;
+  deputados_federais: SecaoEnvelope<ParlamentarItem[]>;
+  deputados_estaduais: SecaoEnvelope<ParlamentarItem[]>;
+  resumo_ibge?: SecaoEnvelope<ResumoIbgeDados>;
+  resumo_educacao?: SecaoEnvelope<ResumoEducacaoDados>;
+  resumo_economia?: SecaoEnvelope<ResumoEconomiaDados>;
+  eleicao_2026_1t?: SecaoEnvelope<EleicaoPresidencialDados>;
+  eleicao_2026_2t?: SecaoEnvelope<EleicaoPresidencialDados>;
+  municipios?: SecaoEnvelope<MunicipioItemDestaque[]>;
+}
+
+export interface EstadoSnapshot {
+  schema_version: string;
+  gerado_em: string;
+  estado: EstadoMeta;
+  fontes: Record<string, FonteMeta>;
+  mapa?: MapaMeta;
+  secoes: SecoesEstado;
+  pendencias?: PendenciaItem[];
+}
+
+export interface EstadoItemIndice {
+  sigla: string;
+  codigo_uf: number;
+  nome: string;
+  regiao: string;
+  arquivo: string;
+  disponivel: boolean;
+}
+
+export interface IndiceEstados {
+  schema_version: string;
+  gerado_em: string;
+  estados: EstadoItemIndice[];
+}

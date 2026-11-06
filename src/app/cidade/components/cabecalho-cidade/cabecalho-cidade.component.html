@@ -23,9 +23,19 @@
       <h1 id="cidade-heading" class="heading-1" data-testid="titulo-cidade">
         {{ municipio().nome }} / {{ municipio().uf }}
       </h1>
-      <p class="text-meta mt-1 font-medium" data-testid="subtitulo-cidade">
-        Panorama da cidade e de quem foi eleito
-      </p>
+      <div class="flex flex-wrap items-center gap-2 mt-1">
+        <p class="text-meta font-medium" data-testid="subtitulo-cidade">
+          Panorama da cidade e de quem foi eleito
+        </p>
+        <a
+          [routerLink]="['/estado', municipio().uf]"
+          class="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 border border-black rounded-xs bg-slate-100 hover:bg-black hover:text-white transition-colors"
+          title="Ver panorama e dados completos do estado de {{ municipio().uf }}"
+          data-testid="link-ver-estado"
+        >
+          <span>🏛️ Ver Estado de {{ municipio().uf }} ↗</span>
+        </a>
+      </div>
     </div>
 
     <!-- Seletor de Cidades com Borda Preta Dinâmica -->

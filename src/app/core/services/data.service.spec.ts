@@ -2,7 +2,12 @@ import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { DataService } from './data.service';
-import { IndiceCidades, MunicipioSnapshot } from '../models/contrato.model';
+import {
+  EstadoSnapshot,
+  IndiceCidades,
+  IndiceEstados,
+  MunicipioSnapshot,
+} from '../models/contrato.model';
 
 describe('DataService', () => {
   let service: DataService;
@@ -104,5 +109,62 @@ describe('DataService', () => {
     req.flush(mockIndice);
 
     expect(result).toEqual(mockIndice);
+  });
+
+  it('should fetch estado snapshot with caching', () => {
+    const mockEstado = {
+      schema_version: '0.12.0',
+      gerado_em: '2026-11-05T20:00:00-0400',
+      estado: {
+        codigo_uf: 50,
+        sigla: 'MS',
+        nome: 'Mato Grosso do Sul',
+        regiao: 'Centro-Oeste',
+        capital: { nome: 'Campo Grande', codigo_ibge: 5002704 },
+        total_municipios: 79,
+      },
+      fontes: {},
+      secoes: {},
+      pendencias: [],
+    } as unknown as EstadoSnapshot;
+
+    let res1: EstadoSnapshot | undefined;
+    let res2: EstadoSnapshot | undefined;
+
+    service.getEstado('MS').subscribe((data) => (res1 = data));
+    service.getEstado('ms').subscribe((data) => (res2 = data));
+
+    const req = httpTesting.expectOne('/data/estados/MS.json');
+    expect(req.request.method).toBe('GET');
+    req.flush(mockEstado);
+
+    expect(res1).toEqual(mockEstado);
+    expect(res2).toEqual(mockEstado);
+  });
+
+  it('should fetch indice estados with caching', () => {
+    const mockIndiceEstados: IndiceEstados = {
+      schema_version: '0.12.0',
+      gerado_em: '2026-11-05T20:00:00-0400',
+      estados: [
+        {
+          sigla: 'MS',
+          codigo_uf: 50,
+          nome: 'Mato Grosso do Sul',
+          regiao: 'Centro-Oeste',
+          arquivo: 'estados/MS.json',
+          disponivel: true,
+        },
+      ],
+    };
+
+    let result: IndiceEstados | undefined;
+    service.getIndiceEstados().subscribe((data) => (result = data));
+
+    const req = httpTesting.expectOne('/data/indice-estados.json');
+    expect(req.request.method).toBe('GET');
+    req.flush(mockIndiceEstados);
+
+    expect(result).toEqual(mockIndiceEstados);
   });
 });

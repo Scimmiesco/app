@@ -1,0 +1,89 @@
+<section
+  class="max-w-6xl mx-auto space-y-4"
+  aria-labelledby="estado-heading"
+  data-testid="secao-estado"
+>
+  <!-- ESTADO DE ERRO COM RETRY -->
+  @if (erroCarregamento()) {
+    <div
+      class="card-brutalista border-2 border-black bg-red-100 p-6 space-y-3"
+      role="alert"
+      aria-live="assertive"
+      data-testid="alerta-erro-carregamento-estado"
+    >
+      <div>
+        <p class="section-kicker" data-testid="kicker-erro-estado">ERRO</p>
+        <h2 class="heading-2" data-testid="titulo-erro-estado">
+          Não foi possível carregar os dados
+        </h2>
+      </div>
+      <p class="text-sm font-semibold text-black" data-testid="mensagem-erro-estado">
+        {{ erroCarregamento() }}
+      </p>
+      <div>
+        <button
+          type="button"
+          class="btn-default px-4 py-2 border-2 border-black rounded-sm bg-white font-black text-xs uppercase shadow-default-sm cursor-pointer hover:bg-black hover:text-white transition-colors"
+          (click)="tentarNovamente()"
+          data-testid="botao-tentar-novamente-estado"
+        >
+          🔄 Tentar Novamente
+        </button>
+      </div>
+    </div>
+  } @else if (carregando() || !snapshot()) {
+    <!-- ESTADO DE CARREGAMENTO / SKELETON -->
+    <div
+      class="container-default p-6 animate-pulse"
+      aria-busy="true"
+      aria-label="Carregando dados oficiais do estado"
+      data-testid="container-loading-estado"
+    >
+      <div class="skeleton-bar h-4 w-1/4 mb-4" data-testid="skeleton-linha-curta"></div>
+      <div class="skeleton-bar h-8 w-1/2 mb-2" data-testid="skeleton-linha-media"></div>
+      <div class="skeleton-bar h-4 w-3/4" data-testid="skeleton-linha-longa"></div>
+    </div>
+  } @else if (snapshot(); as snap) {
+    <!-- HERO, SELETOR DINÂMICO E CABEÇALHO DO ESTADO -->
+    <app-cabecalho-estado
+      [estado]="snap.estado"
+      [secao]="snap.secoes.cabecalho"
+      [fonte]="fonte(snap.secoes.cabecalho.fonte)"
+      [estados]="estados()"
+      [siglaUf]="uf() || snap.estado.sigla"
+      (estadoSelecionado)="navegarParaEstado($event)"
+    />
+
+    <!-- GOVERNADOR ELEITO / EM EXERCÍCIO -->
+    @if (snap.secoes.governador; as secao) {
+      <app-governador [secao]="secao" [fonte]="fonte(secao.fonte)" />
+    }
+
+    <!-- SENADORES DO ESTADO -->
+    @if (snap.secoes.senadores; as secao) {
+      <app-senadores [secao]="secao" [fonte]="fonte(secao.fonte)" />
+    }
+
+    <!-- BANCADA FEDERAL (CÂMARA DOS DEPUTADOS) -->
+    @if (snap.secoes.deputados_federais; as secao) {
+      <app-deputados-federais [secao]="secao" [fonte]="fonte(secao.fonte)" />
+    }
+
+    <!-- BANCADA ESTADUAL (ASSEMBLEIA LEGISLATIVA) -->
+    @if (snap.secoes.deputados_estaduais; as secao) {
+      <app-deputados-estaduais [secao]="secao" />
+    }
+
+    <!-- MUNICÍPIOS INTEGRANTES DO ESTADO -->
+    @if (snap.secoes.municipios; as secao) {
+      <app-municipios-estado
+        [secao]="secao"
+        [siglaUf]="snap.estado.sigla"
+        [fonte]="fonte(secao.fonte)"
+      />
+    }
+
+    <!-- METODOLOGIA E TRANSPARÊNCIA -->
+    <app-como-calculamos />
+  }
+</section>

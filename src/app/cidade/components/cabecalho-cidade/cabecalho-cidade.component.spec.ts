@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import {
   CabecalhoDados,
   FonteMeta,
@@ -54,7 +55,13 @@ function render(): HTMLElement {
 }
 
 describe('CabecalhoCidadeComponent', () => {
-  it('should render city title, codes and population', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [provideRouter([])],
+    });
+  });
+
+  it('should render city title, codes and population and link to state', () => {
     const el = render();
     expect(el.querySelector('h1')?.textContent).toContain('Campo Grande / MS');
     expect(el.querySelector('[data-testid="rotulo-codigos-ibge-tse"]')?.textContent).toContain(
@@ -66,6 +73,10 @@ describe('CabecalhoCidadeComponent', () => {
     expect(el.querySelector('[data-testid="cabecalho-link-fonte"]')?.getAttribute('href')).toBe(
       fonte.url,
     );
+    const linkEstado = el.querySelector('[data-testid="link-ver-estado"]');
+    expect(linkEstado).toBeTruthy();
+    expect(linkEstado?.textContent).toContain('Ver Estado de MS');
+    expect(linkEstado?.getAttribute('href')).toBe('/estado/MS');
   });
 
   it('should emit the selected city code', () => {

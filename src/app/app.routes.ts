@@ -11,6 +11,10 @@ export const routes: Routes = [
     loadComponent: () => import('./cidade/cidade.component').then((m) => m.CidadeComponent),
   },
   {
+    path: 'estado/:uf',
+    loadComponent: () => import('./estado/estado.component').then((m) => m.EstadoComponent),
+  },
+  {
     path: '**',
     redirectTo: 'cidade/5002704',
   },

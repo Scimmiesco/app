@@ -1,0 +1,168 @@
+<div class="card-brutalista space-y-4" data-testid="container-hero-estado">
+  <div
+    class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 pb-3 border-b-2 border-black/10"
+  >
+    <div>
+      <div class="flex flex-wrap items-center gap-2 mb-2">
+        @if (secao(); as secaoCab) {
+          @if (secaoCab.status === 'oficial') {
+            <span class="badge badge-oficial" data-testid="badge-status-cabecalho"
+              >Fonte oficial</span
+            >
+          } @else if (secaoCab.status === 'curado') {
+            <span class="badge badge-curado" data-testid="badge-status-cabecalho">Curado</span>
+          } @else {
+            <span class="badge badge-pendente" data-testid="badge-status-cabecalho">Pendente</span>
+          }
+        }
+        <span class="text-xs font-bold" data-testid="rotulo-codigos-estado">
+          UF: {{ estado().sigla }} · Código IBGE: {{ estado().codigo_uf }} · Região:
+          {{ estado().regiao }}
+        </span>
+      </div>
+
+      <h1 id="estado-heading" class="heading-1" data-testid="titulo-estado">
+        {{ estado().nome }} ({{ estado().sigla }})
+      </h1>
+      <p class="text-meta mt-1 font-medium" data-testid="subtitulo-estado">
+        Panorama do estado, governança política e território
+      </p>
+    </div>
+
+    <!-- Seletor de Estados com Borda Preta Dinâmica -->
+    <div class="flex items-center gap-2 self-start sm:self-center">
+      <label for="estado-select" class="sr-only" data-testid="label-seletor-estado"
+        >Selecionar Estado</label
+      >
+      <select
+        id="estado-select"
+        class="select-default"
+        [value]="siglaAtiva()"
+        (change)="aoSelecionarEstado($event)"
+        data-testid="select-estado"
+      >
+        @for (est of estados(); track est.sigla) {
+          <option
+            [value]="est.sigla"
+            [selected]="eEstadoAtivo(est.sigla)"
+            [attr.data-testid]="'opcao-estado-' + est.sigla"
+          >
+            {{ est.nome }} ({{ est.sigla }})
+          </option>
+        }
+      </select>
+    </div>
+  </div>
+
+  <!-- GRID DE MÉTRICAS TERRITORIAIS E POLÍTICAS DO ESTADO -->
+  <div
+    class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 pt-1"
+    data-testid="grid-metricas-estado"
+  >
+    <!-- POPULAÇÃO -->
+    @if (estado().populacao; as pop) {
+      <div class="metric-card" data-testid="card-metrica-populacao-estado">
+        <span class="metric-label" title="População residente oficial apurada pelo Censo 2022"
+          >População (Censo 2022)</span
+        >
+        <span class="metric-value mt-1" data-testid="valor-metrica-populacao-estado">
+          {{ formatarNumero(pop) }}
+        </span>
+        <span class="text-[11px] text-meta">habitantes</span>
+      </div>
+    }
+
+    <!-- ELEITORADO -->
+    @if (estado().eleitorado_total; as eleit) {
+      <div class="metric-card" data-testid="card-metrica-eleitorado-estado">
+        <span class="metric-label" title="Total de eleitores aptos no estado"
+          >Eleitorado Total</span
+        >
+        <span class="metric-value mt-1" data-testid="valor-metrica-eleitorado-estado">
+          {{ formatarNumero(eleit) }}
+        </span>
+        <span class="text-[11px] text-meta">eleitores aptos</span>
+      </div>
+    }
+
+    <!-- TOTAL DE MUNICÍPIOS -->
+    @if (estado().total_municipios; as totMun) {
+      <div class="metric-card" data-testid="card-metrica-municipios-estado">
+        <span class="metric-label" title="Total de municípios integrantes da unidade federativa"
+          >Municípios</span
+        >
+        <span class="metric-value mt-1" data-testid="valor-metrica-municipios-estado">
+          {{ formatarNumero(totMun) }}
+        </span>
+        <span class="text-[11px] text-meta">cidades</span>
+      </div>
+    }
+
+    <!-- CAPITAL COM LINK DIRETO -->
+    <div class="metric-card" data-testid="card-metrica-capital-estado">
+      <span class="metric-label" title="Sede do governo estadual">Capital</span>
+      <span
+        class="metric-value mt-1 text-base font-black"
+        data-testid="valor-metrica-capital-estado"
+      >
+        {{ estado().capital.nome }}
+      </span>
+      <a
+        [routerLink]="['/cidade', estado().capital.codigo_ibge]"
+        class="inline-flex items-center gap-1 text-[11px] font-bold text-black underline mt-0.5 hover:text-emerald-700"
+        data-testid="link-capital-cidade"
+      >
+        <span>Ver cidade da capital ↗</span>
+      </a>
+    </div>
+
+    <!-- ÁREA TERRITORIAL -->
+    @if (estado().area_km2; as area) {
+      <div class="metric-card" data-testid="card-metrica-area-estado">
+        <span class="metric-label" title="Extensão territorial oficial (IBGE)"
+          >Área Territorial</span
+        >
+        <span class="metric-value mt-1" data-testid="valor-metrica-area-estado">
+          {{ formatarNumero(area) }} km²
+        </span>
+        <span class="text-[11px] text-meta">extensão total</span>
+      </div>
+    }
+
+    <!-- DENSIDADE DEMOGRÁFICA -->
+    @if (estado().densidade_hab_km2; as dens) {
+      <div class="metric-card" data-testid="card-metrica-densidade-estado">
+        <span class="metric-label" title="Habitantes por quilômetro quadrado (IBGE)"
+          >Densidade</span
+        >
+        <span class="metric-value mt-1" data-testid="valor-metrica-densidade-estado">
+          {{ formatarNumero(dens) }}
+        </span>
+        <span class="text-[11px] text-meta">hab/km²</span>
+      </div>
+    }
+  </div>
+
+  <!-- RODAPÉ DE PROVENIÊNCIA -->
+  @if (fonte(); as f) {
+    <div
+      class="pt-2 border-t border-black/10 flex flex-wrap items-center justify-between gap-2 text-[11px] text-meta"
+      data-testid="rodape-fonte-estado"
+    >
+      <span>
+        Fonte: <strong>{{ f.orgao }}</strong> ({{ f.titulo }}) · Consultado em {{ f.consultado_em }}
+      </span>
+      @if (f.url) {
+        <a
+          [href]="f.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-fonte font-bold"
+          data-testid="link-fonte-estado"
+        >
+          Acessar órgão oficial ↗
+        </a>
+      }
+    </div>
+  }
+</div>

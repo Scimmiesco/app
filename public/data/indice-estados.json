@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.12.0",
+  "gerado_em": "2026-11-05T20:00:00-0400",
+  "estados": [
+    {
+      "sigla": "MS",
+      "codigo_uf": 50,
+      "nome": "Mato Grosso do Sul",
+      "regiao": "Centro-Oeste",
+      "arquivo": "estados/MS.json",
+      "disponivel": true
+    },
+    {
+      "sigla": "PR",
+      "codigo_uf": 41,
+      "nome": "Paraná",
+      "regiao": "Sul",
+      "arquivo": "estados/PR.json",
+      "disponivel": true
+    },
+    {
+      "sigla": "PI",
+      "codigo_uf": 22,
+      "nome": "Piauí",
+      "regiao": "Nordeste",
+      "arquivo": "estados/PI.json",
+      "disponivel": true
+    }
+  ]
+}

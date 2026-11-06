@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import {
   CabecalhoDados,
   CidadeItemIndice,
@@ -10,7 +11,7 @@ import { formatarNumero } from '../../../core/utils/formatadores';
 
 @Component({
   selector: 'app-cabecalho-cidade',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './cabecalho-cidade.component.html',
   host: { class: 'block' },
   changeDetection: ChangeDetectionStrategy.OnPush,
