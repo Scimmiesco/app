@@ -14,23 +14,20 @@
   @apply text-xs;
   padding: 0.25rem 0.5rem;
 
-  // Modificadores de Tamanho
+  // Modificadores de Tamanho (sem re-injetar borda)
   &.badge-xs {
     @apply text-[10px];
     padding: 0.125rem 0.25rem;
-    border-width: 1.5px;
   }
 
   &.badge-sm {
     @apply text-[11px];
     padding: 0.125rem 0.375rem;
-    border-width: 2px;
   }
 
   &.badge-lg {
     @apply text-sm;
     padding: 0.375rem 0.75rem;
-    border-width: 2px;
   }
 
   // Modificador de Sombra
@@ -64,7 +61,7 @@
   }
 }
 
-// 2. As 4 Cores Duras Principais (Repetidas em todos os badges)
+// 2. As 4 Cores Duras Principais (Sem borda, com shadow na cor primária)
 
 // VERDE: Oficial, Eleito, Reeleito, Em Exercício (SIM), Sucesso
 .badge-verde,
@@ -74,6 +71,8 @@
 .badge-exercicio-sim,
 .badge-success {
   @include mixins.badge-variant(tokens.$color-verde, #ffffff);
+  border: none;
+  box-shadow: 2px 2px 0 tokens.$color-verde;
 }
 
 // AMARELO: Curado, Destaque, Atenção
@@ -81,16 +80,22 @@
 .badge-curado,
 .badge-warning {
   @include mixins.badge-variant(tokens.$color-amarelo, #000000);
+  border: none;
+  box-shadow: 2px 2px 0 tokens.$color-amarelo;
 }
 
 // LARANJA: Não reeleito, Mandato, Alerta
 .badge-laranja,
 .badge-nao-reeleito {
   @include mixins.badge-variant(tokens.$color-laranja, #ffffff);
+  border: none;
+  box-shadow: 2px 2px 0 tokens.$color-laranja;
 }
 
 .badge-mandato {
   @include mixins.badge-variant(tokens.$color-laranja, #ffffff);
+  border: none;
+  box-shadow: 2px 2px 0 tokens.$color-laranja;
   white-space: normal;
   max-width: 100%;
   line-height: 1.25;
@@ -102,19 +107,30 @@
 .badge-exercicio-nao,
 .badge-danger {
   @include mixins.badge-variant(tokens.$color-vermelho, #ffffff);
+  border: none;
+  box-shadow: 2px 2px 0 tokens.$color-vermelho;
 }
 
 // 3. Neutros Estruturais
 .badge-white {
-  @include mixins.badge-variant(tokens.$color-white, #000000);
+  background-color: tokens.$color-white;
+  color: tokens.$color-black;
+  border: 1.5px solid tokens.$color-black;
+  box-shadow: 2px 2px 0 tokens.$color-black;
   @apply font-black;
 }
 
 .badge-dark {
-  @include mixins.badge-variant(tokens.$color-black, #ffffff);
+  background-color: tokens.$color-black;
+  color: #ffffff;
+  border: none;
+  box-shadow: 2px 2px 0 tokens.$color-black;
 }
 
 .badge-nao-concorreu,
 .badge-neutral {
-  @include mixins.badge-variant(tokens.$color-white, #000000);
+  background-color: tokens.$color-white;
+  color: tokens.$color-black;
+  border: 1.5px solid tokens.$color-black;
+  box-shadow: 2px 2px 0 tokens.$color-black;
 }

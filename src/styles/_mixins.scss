@@ -39,10 +39,12 @@
   box-sizing: border-box;
 }
 
-// Variação de cor e contraste para badges
+// Variação de cor e contraste para badges (shadow na cor primária, sem borda)
 @mixin badge-variant($bg-color, $text-color: #ffffff) {
   background-color: $bg-color;
   color: $text-color;
+  border: none;
+  box-shadow: 2px 2px 0 $bg-color;
 }
 
 // Truncamento seguro de texto com elipse
