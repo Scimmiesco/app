@@ -1,6 +1,6 @@
 {
  "schema_version": "0.12.0",
- "gerado_em": "2026-11-05T16:41:51-0400",
+ "gerado_em": "2026-11-05T20:04:37-0400",
  "municipio": {
   "codigo_ibge": 4106902,
   "codigo_tse": "75353",
@@ -180,6 +180,24 @@
    "motivo": null,
    "dados": {
     "faixa_6_14_pct": 98.48
+   },
+   "benchmark": {
+    "valor": 98.48,
+    "desvio_mediana": -0.6,
+    "percentil": 28.16,
+    "z_robusto": -0.6634,
+    "faixa": "abaixo",
+    "faixa_rotulo": "Abaixo da mediana",
+    "n": 5570,
+    "min": 53.26,
+    "max": 100.0,
+    "media": 98.7192,
+    "mediana": 99.08,
+    "q1": 98.37,
+    "q3": 99.62,
+    "p10": 97.38,
+    "p90": 100.0,
+    "mad": 0.61
    }
   },
   "resumo_educacao": {
@@ -188,7 +206,7 @@
    "status": "oficial",
    "fonte": "inep_ideb_2025",
    "ano": 2025,
-   "coletado_em": "2026-11-05T15:36:26-0400",
+   "coletado_em": "2026-11-05T16:47:37-0400",
    "motivo": null,
    "dados": {
     "anos_iniciais": {

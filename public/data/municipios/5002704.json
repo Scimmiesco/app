@@ -187,7 +187,25 @@
    "dados": {
     "faixa_6_14_pct": 98.07
    },
-   "categoria": "A CIDADE"
+   "categoria": "A CIDADE",
+   "benchmark": {
+    "valor": 98.07,
+    "desvio_mediana": -1.01,
+    "percentil": 18.18,
+    "z_robusto": -1.1168,
+    "faixa": "abaixo",
+    "faixa_rotulo": "Abaixo da mediana",
+    "n": 5570,
+    "min": 53.26,
+    "max": 100.0,
+    "media": 98.7192,
+    "mediana": 99.08,
+    "q1": 98.37,
+    "q3": 99.62,
+    "p10": 97.38,
+    "p90": 100.0,
+    "mad": 0.61
+   }
   },
   "resumo_educacao": {
    "titulo": "Educação",
