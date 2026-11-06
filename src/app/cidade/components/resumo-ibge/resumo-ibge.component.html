@@ -67,6 +67,7 @@
         class="painel-expansivel-mapa"
         [class.painel-aberto]="mostrarMapa()"
         [attr.aria-hidden]="!mostrarMapa()"
+        [inert]="!mostrarMapa()"
         data-testid="card-mapa-oficial"
       >
         <div class="painel-conteudo-interno">
@@ -82,6 +83,8 @@
                 [src]="'/data/' + mapaData.svg"
                 [alt]="'Mapa oficial do município de ' + nomeMunicipio()"
                 loading="lazy"
+                width="300"
+                height="256"
                 class="max-h-64 w-auto object-contain"
                 data-testid="mapa-svg-elemento"
               />
@@ -109,6 +112,7 @@
                   [href]="mapaData.fonte.url"
                   target="_blank"
                   rel="noopener noreferrer"
+                  [attr.tabindex]="mostrarMapa() ? null : -1"
                   class="link-fonte font-bold"
                   data-testid="mapa-link-fonte-ibge"
                 >

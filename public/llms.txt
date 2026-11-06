@@ -1,0 +1,9 @@
+# Eleitor v2
+> Portal de transparência eleitoral e dados municipais e estaduais oficiais do Brasil.
+
+Dados de fontes oficiais primárias:
+- TSE (Tribunal Superior Eleitoral): Resultados de eleições 2024 e 2026
+- IBGE: Censo Demográfico e Estimativas Populacionais
+- INEP: IDEB e SAEB
+- SICONFI: Dados Fiscais e Orçamentários
+- Legislativo: Composição de Câmaras Municipais, Assembleias e Congresso

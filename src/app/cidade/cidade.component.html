@@ -30,9 +30,9 @@
       </div>
     </div>
   } @else if (carregando() || !snapshot()) {
-    <!-- ESTADO DE CARREGAMENTO / SKELETON (P1-05) -->
+    <!-- ESTADO DE CARREGAMENTO / SKELETON (P1-05) COM ALTURA ESTÁVEL PARA EVITAR CLS -->
     <div
-      class="container-default p-6 animate-pulse"
+      class="container-default p-6 animate-pulse min-h-[75vh]"
       aria-busy="true"
       aria-label="Carregando dados oficiais do município"
       data-testid="container-loading-cidade"

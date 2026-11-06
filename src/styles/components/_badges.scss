@@ -84,16 +84,16 @@
   box-shadow: 2px 2px 0 tokens.$color-amarelo;
 }
 
-// LARANJA: Não reeleito, Mandato, Alerta
+// LARANJA: Não reeleito, Mandato, Alerta (texto preto para contraste >= 5.9:1 WCAG AA)
 .badge-laranja,
 .badge-nao-reeleito {
-  @include mixins.badge-variant(tokens.$color-laranja, #ffffff);
+  @include mixins.badge-variant(tokens.$color-laranja, tokens.$color-black);
   border: none;
   box-shadow: 2px 2px 0 tokens.$color-laranja;
 }
 
 .badge-mandato {
-  @include mixins.badge-variant(tokens.$color-laranja, #ffffff);
+  @include mixins.badge-variant(tokens.$color-laranja, tokens.$color-black);
   border: none;
   box-shadow: 2px 2px 0 tokens.$color-laranja;
   white-space: normal;

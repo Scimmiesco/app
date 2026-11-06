@@ -32,9 +32,9 @@
       </div>
     </div>
   } @else if (carregando() || !snapshot()) {
-    <!-- ESTADO DE CARREGAMENTO / SKELETON -->
+    <!-- ESTADO DE CARREGAMENTO / SKELETON COM ALTURA ESTÁVEL PARA EVITAR CLS -->
     <div
-      class="container-default p-6 animate-pulse"
+      class="container-default p-6 animate-pulse min-h-[75vh]"
       aria-busy="true"
       aria-label="Carregando dados oficiais do estado"
       data-testid="container-loading-estado"
