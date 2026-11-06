@@ -93,6 +93,16 @@ describe('CabecalhoEstadoComponent', () => {
     const linkCapital = el.querySelector('[data-testid="link-capital-cidade"]');
     expect(linkCapital).toBeTruthy();
     expect(linkCapital?.getAttribute('href')).toBe('/cidade/5002704');
+
+    expect(el.querySelector('[data-testid="kicker-esfera-estado"]')?.textContent).toContain(
+      'ESFERA ESTADUAL',
+    );
+    expect(el.querySelector('[data-testid="badge-esfera-estado"]')?.textContent).toContain(
+      'Estado',
+    );
+    expect(el.querySelector('[data-testid="btn-alternar-cidade"]')?.getAttribute('href')).toBe(
+      '/cidade/5002704',
+    );
   });
 
   it('should emit selected state when select changes', () => {

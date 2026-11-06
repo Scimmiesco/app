@@ -24,6 +24,12 @@ describe('App', () => {
     expect(
       compiled.querySelector('[data-testid="skip-link-conteudo-principal"]')?.textContent,
     ).toContain('Pular para o conteúdo principal');
+    expect(compiled.querySelector('[data-testid="nav-link-cidades"]')?.textContent).toContain(
+      'Cidades',
+    );
+    expect(compiled.querySelector('[data-testid="nav-link-estados"]')?.textContent).toContain(
+      'Estados',
+    );
     expect(compiled.querySelector('footer')?.textContent).toContain('Fontes Oficiais:');
     expect(compiled.querySelector('footer')?.textContent).toContain('TSE');
   });

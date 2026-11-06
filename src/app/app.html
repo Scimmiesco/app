@@ -9,6 +9,40 @@
     Pular para o conteúdo principal
   </a>
 
+  <!-- Barra Superior / Top Navigation Neo-Brutalista com Separação de Esferas -->
+  <header class="app-header" role="banner" data-testid="cabecalho-app">
+    <div class="max-w-6xl mx-auto px-2.5 sm:px-4 py-2 flex items-center justify-between gap-3">
+      <a routerLink="/" class="app-brand" title="Eleitor v2 — Início">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="app-brand-title">ELEITOR v2</span>
+      </a>
+
+      <!-- SELETOR DE ESFERA GLOBAL (MUNICÍPIO / ESTADO) -->
+      <nav
+        aria-label="Navegação por esfera governamental"
+        class="flex items-center gap-2 text-xs font-black uppercase"
+      >
+        <span class="text-meta text-[11px] hidden sm:inline font-bold">Nível:</span>
+        <a
+          routerLink="/cidade/5002704"
+          routerLinkActive="!bg-black !text-white"
+          class="px-2.5 py-1 border-2 border-black rounded-xs shadow-default-xs bg-white text-black hover:bg-slate-100 transition-colors"
+          data-testid="nav-link-cidades"
+        >
+          🏙️ Cidades
+        </a>
+        <a
+          routerLink="/estado/MS"
+          routerLinkActive="!bg-black !text-white"
+          class="px-2.5 py-1 border-2 border-black rounded-xs shadow-default-xs bg-white text-black hover:bg-slate-100 transition-colors"
+          data-testid="nav-link-estados"
+        >
+          🏛️ Estados
+        </a>
+      </nav>
+    </div>
+  </header>
+
   <!-- Área principal -->
   <main
     id="main-content"

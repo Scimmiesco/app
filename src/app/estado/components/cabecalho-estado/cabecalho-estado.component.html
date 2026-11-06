@@ -21,6 +21,9 @@
         </span>
       </div>
 
+      <p class="section-kicker" data-testid="kicker-esfera-estado">
+        ESFERA ESTADUAL · UNIDADE FEDERATIVA
+      </p>
       <h1 id="estado-heading" class="heading-1" data-testid="titulo-estado">
         {{ estado().nome }} ({{ estado().sigla }})
       </h1>
@@ -29,28 +32,60 @@
       </p>
     </div>
 
-    <!-- Seletor de Estados com Borda Preta Dinâmica -->
-    <div class="flex items-center gap-2 self-start sm:self-center">
-      <label for="estado-select" class="sr-only" data-testid="label-seletor-estado"
-        >Selecionar Estado</label
-      >
-      <select
-        id="estado-select"
-        class="select-default"
-        [value]="siglaAtiva()"
-        (change)="aoSelecionarEstado($event)"
-        data-testid="select-estado"
-      >
-        @for (est of estados(); track est.sigla) {
-          <option
-            [value]="est.sigla"
-            [selected]="eEstadoAtivo(est.sigla)"
-            [attr.data-testid]="'opcao-estado-' + est.sigla"
+    <!-- SELETOR DINÂMICO COM SEPARAÇÃO EXPLÍCITA DE ESFERA (ESTADO OU CIDADE) -->
+    <div
+      class="flex flex-col sm:items-end gap-1.5 self-start sm:self-center"
+      data-testid="container-seletor-esfera-estado"
+    >
+      <div class="flex items-center gap-1 text-[11px] font-black uppercase text-meta">
+        <span>Esfera de dados:</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <!-- TOGGLE DE ESFERA COM DESTAQUE BRUTALISTA -->
+        <div
+          class="inline-flex border-2 border-black rounded-xs shadow-default-xs bg-white p-0.5"
+          role="group"
+          aria-label="Escolher esfera territorial"
+        >
+          <a
+            [routerLink]="['/cidade', estado().capital.codigo_ibge]"
+            class="px-2.5 py-1 text-xs font-black uppercase rounded-xs bg-white text-black hover:bg-slate-100 transition-colors select-none"
+            title="Alternar para a capital {{ estado().capital.nome }}"
+            data-testid="btn-alternar-cidade"
           >
-            {{ est.nome }} ({{ est.sigla }})
-          </option>
-        }
-      </select>
+            🏙️ Ver Capital ({{ estado().capital.nome }}) ↗
+          </a>
+          <span
+            class="px-2.5 py-1 text-xs font-black uppercase rounded-xs bg-black text-white select-none"
+            data-testid="badge-esfera-estado"
+          >
+            🏛️ Estado
+          </span>
+        </div>
+
+        <!-- DROPDOWN SELETOR DE ESTADO -->
+        <label for="estado-select" class="sr-only" data-testid="label-seletor-estado"
+          >Selecionar Estado</label
+        >
+        <select
+          id="estado-select"
+          class="select-default"
+          [value]="siglaAtiva()"
+          (change)="aoSelecionarEstado($event)"
+          data-testid="select-estado"
+          title="Trocar estado"
+        >
+          @for (est of estados(); track est.sigla) {
+            <option
+              [value]="est.sigla"
+              [selected]="eEstadoAtivo(est.sigla)"
+              [attr.data-testid]="'opcao-estado-' + est.sigla"
+            >
+              {{ est.nome }} ({{ est.sigla }})
+            </option>
+          }
+        </select>
+      </div>
     </div>
   </div>
 

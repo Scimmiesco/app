@@ -77,6 +77,16 @@ describe('CabecalhoCidadeComponent', () => {
     expect(linkEstado).toBeTruthy();
     expect(linkEstado?.textContent).toContain('Ver Estado de MS');
     expect(linkEstado?.getAttribute('href')).toBe('/estado/MS');
+
+    expect(el.querySelector('[data-testid="kicker-esfera-cidade"]')?.textContent).toContain(
+      'ESFERA MUNICIPAL',
+    );
+    expect(el.querySelector('[data-testid="badge-esfera-cidade"]')?.textContent).toContain(
+      'Município',
+    );
+    expect(el.querySelector('[data-testid="btn-alternar-estado"]')?.getAttribute('href')).toBe(
+      '/estado/MS',
+    );
   });
 
   it('should emit the selected city code', () => {
