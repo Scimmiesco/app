@@ -20,3 +20,9 @@
 @use 'styles/components/pendente';
 @use 'styles/components/modal';
 @use 'styles/components/drawer';
+
+// Extensão de tema Tailwind v4 para os raios
+@theme {
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+}

@@ -135,7 +135,7 @@ $partidos: (
   justify-content: center;
   border: 2px solid tokens.$color-black;
   box-shadow: tokens.$shadow-hard-sm;
-  border-radius: 2px;
+  border-radius: tokens.$radius-sm;
   font-size: 10px;
   line-height: 1.4;
   font-weight: 900;
