@@ -40,6 +40,10 @@ const FORMATADOR_NOTA = new Intl.NumberFormat('pt-BR', {
   minimumFractionDigits: 1,
   maximumFractionDigits: 1,
 });
+const FORMATADOR_DESVIO_DECIMAL = new Intl.NumberFormat('pt-BR', {
+  minimumFractionDigits: 1,
+  maximumFractionDigits: 1,
+});
 const FORMATADOR_DATA = new Intl.DateTimeFormat('pt-BR');
 
 export function formatarNumero(val?: number | null): string {
@@ -55,6 +59,13 @@ export function formatarIndice(val?: number | null): string {
 export function formatarNota(val?: number | null): string {
   if (val === null || val === undefined) return '—';
   return FORMATADOR_NOTA.format(val);
+}
+
+export function formatarDesvio(val?: number | null): string {
+  if (val === null || val === undefined) return '—';
+  const limpo = Object.is(val, -0) || Math.abs(val) < 0.00001 ? 0 : val;
+  const sinal = limpo > 0 ? '+' : '';
+  return sinal + FORMATADOR_DESVIO_DECIMAL.format(limpo);
 }
 
 export function formatarMoeda(val?: number | null): string {
