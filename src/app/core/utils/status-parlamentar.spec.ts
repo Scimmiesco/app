@@ -1,5 +1,5 @@
 import { ParlamentarItem } from '../models/contrato.model';
-import { resolverTagParlamentar } from './status-parlamentar';
+import { resolverTagParlamentar, tentouENaoSeElegeu } from './status-parlamentar';
 
 function criar(over: Partial<ParlamentarItem>): ParlamentarItem {
   return {
@@ -72,5 +72,41 @@ describe('resolverTagParlamentar', () => {
     );
     expect(outro?.situacao).toBe('outro');
     expect(outro?.classe).toBe('tag-neutral');
+  });
+
+  it('should identify candidates who ran and were not elected', () => {
+    expect(tentouENaoSeElegeu(criar({ status_eleicao_2026: 'eleito' }))).toBe(false);
+    expect(tentouENaoSeElegeu(criar({ status_eleicao_2026: 'reeleito' }))).toBe(false);
+    expect(tentouENaoSeElegeu(criar({ status_eleicao_2026: 'em_exercicio' }))).toBe(false);
+    expect(tentouENaoSeElegeu(criar({ status_eleicao_2026: 'nao_reeleito' }))).toBe(true);
+    expect(
+      tentouENaoSeElegeu(criar({ status_eleicao_2026: 'nao_reeleito', situacao: 'SUPLENTE' })),
+    ).toBe(true);
+    expect(
+      tentouENaoSeElegeu(
+        criar({
+          status_eleicao_2026: 'nao_concorreu_ao_cargo',
+          concorreu_2026: true,
+          situacao_2026_outro: 'NÃO ELEITO',
+        }),
+      ),
+    ).toBe(true);
+    expect(
+      tentouENaoSeElegeu(
+        criar({
+          status_eleicao_2026: 'nao_concorreu_ao_cargo',
+          concorreu_2026: true,
+          situacao_2026_outro: 'ELEITO',
+        }),
+      ),
+    ).toBe(false);
+    expect(
+      tentouENaoSeElegeu(
+        criar({
+          status_eleicao_2026: 'nao_concorreu_ao_cargo',
+          concorreu_2026: false,
+        }),
+      ),
+    ).toBe(false);
   });
 });

@@ -50,6 +50,9 @@ describe('CartaoParlamentarComponent', () => {
     expect(tag?.textContent?.trim()).toBe('suplente');
     expect(tag?.classList.contains('tag-suplente')).toBe(true);
     expect(tag?.getAttribute('title')).toContain('ficou como suplente');
+    expect(
+      el.querySelector('.candidato-foto-tag')?.classList.contains('candidato-nao-eleito'),
+    ).toBe(true);
   });
 
   it('should explain when the candidate did not run for the office', () => {

@@ -1,11 +1,12 @@
 <div class="flex items-center gap-2.5 sm:gap-3">
-  <div class="candidato-foto-tag">
+  <div class="candidato-foto-tag" [class.candidato-nao-eleito]="naoEleito()">
     <app-candidato-avatar
       [foto]="parlamentar().foto"
       [nome]="parlamentar().nome_urna"
       [partido]="parlamentar().partido"
       [tamanho]="96"
       [comBorda]="false"
+      [naoEleito]="naoEleito()"
     />
     @if (tag(); as tagStatus) {
       <span

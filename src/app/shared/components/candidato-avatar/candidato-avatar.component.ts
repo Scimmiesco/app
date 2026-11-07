@@ -37,6 +37,7 @@ const TITULOS_IGNORADOS = new Set([
         [height]="tamanho()"
         alt=""
         class="candidato-avatar-img shrink-0 object-cover select-none"
+        [class.candidato-avatar-nao-eleito]="naoEleito()"
         [class.border-2]="comBorda()"
         [class.border-black]="comBorda()"
         [class.rounded-xs]="comBorda()"
@@ -49,6 +50,7 @@ const TITULOS_IGNORADOS = new Set([
     } @else {
       <div
         class="candidato-avatar-fallback shrink-0 font-black text-black flex items-center justify-center select-none"
+        [class.candidato-avatar-nao-eleito]="naoEleito()"
         [class.border-2]="comBorda()"
         [class.border-black]="comBorda()"
         [class.rounded-xs]="comBorda()"
@@ -82,6 +84,10 @@ const TITULOS_IGNORADOS = new Set([
         aspect-ratio: 1 / 1;
         letter-spacing: -0.05em;
       }
+
+      .candidato-avatar-nao-eleito {
+        filter: grayscale(100%) contrast(1.15);
+      }
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -92,6 +98,7 @@ export class CandidatoAvatarComponent {
   readonly partido = input<string>('');
   readonly tamanho = input<32 | 36 | 48 | 64 | 96 | number>(36);
   readonly comBorda = input<boolean>(true);
+  readonly naoEleito = input<boolean>(false);
 
   readonly erroImagem = signal<boolean>(false);
 

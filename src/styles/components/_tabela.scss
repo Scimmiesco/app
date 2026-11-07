@@ -42,6 +42,10 @@
         height: 96px !important;
       }
     }
+
+    .candidato-avatar-nao-eleito {
+      filter: grayscale(100%) contrast(1.15);
+    }
   }
 
   .tag-eleicao {

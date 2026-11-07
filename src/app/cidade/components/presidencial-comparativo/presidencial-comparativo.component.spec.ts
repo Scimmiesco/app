@@ -85,6 +85,22 @@ describe('PresidencialComparativoComponent', () => {
       '1º turno',
     );
     expect(el.querySelector('[data-testid="avatar-outros-candidatos"] svg')).toBeTruthy();
+    expect(
+      el
+        .querySelector('[data-testid="avatar-outros-candidatos"] svg')
+        ?.classList.contains('candidato-avatar-nao-eleito'),
+    ).toBe(true);
+    expect(
+      el
+        .querySelector('tr[data-partido="PL"] [data-testid="candidato-avatar-img"]')
+        ?.classList.contains('candidato-avatar-nao-eleito'),
+    ).toBe(true);
+    expect(
+      el
+        .querySelector('tr[data-partido="PT"] [data-testid="candidato-avatar-img"]')
+        ?.classList.contains('candidato-avatar-nao-eleito'),
+    ).toBe(false);
+    expect(el.querySelector('[data-testid="outros-votos-2t"]')?.textContent?.trim()).toBe('-');
 
     const badgesOutros = el.querySelectorAll('.badge-outros');
     expect(badgesOutros.length).toBe(2);

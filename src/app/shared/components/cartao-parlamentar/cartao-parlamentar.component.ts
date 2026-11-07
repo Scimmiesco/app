@@ -1,6 +1,10 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { ParlamentarItem } from '../../../core/models/contrato.model';
-import { resolverTagParlamentar, TagParlamentar } from '../../../core/utils/status-parlamentar';
+import {
+  resolverTagParlamentar,
+  TagParlamentar,
+  tentouENaoSeElegeu,
+} from '../../../core/utils/status-parlamentar';
 import { CandidatoAvatarComponent } from '../candidato-avatar/candidato-avatar.component';
 import { PartidoBadgeComponent } from '../partido-badge/partido-badge.component';
 import { NumeroCandidatoComponent } from '../numero-candidato/numero-candidato.component';
@@ -21,4 +25,6 @@ export class CartaoParlamentarComponent {
   readonly tag = computed<TagParlamentar | null>(() =>
     resolverTagParlamentar(this.parlamentar(), this.anoPleito()),
   );
+
+  readonly naoEleito = computed<boolean>(() => tentouENaoSeElegeu(this.parlamentar()));
 }

@@ -114,4 +114,15 @@ describe('CandidatoAvatarComponent', () => {
     expect(fallback.style.height).toBe('96px');
     expect(fallback.style.fontSize).toBe('28px');
   });
+
+  it('should apply grayscale and contrast filter class when naoEleito is true', () => {
+    fixture.componentRef.setInput('foto', mockFoto);
+    fixture.componentRef.setInput('nome', 'Dr. Luiz Ovando');
+    fixture.componentRef.setInput('naoEleito', true);
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const img = compiled.querySelector('[data-testid="candidato-avatar-img"]') as HTMLImageElement;
+    expect(img.classList.contains('candidato-avatar-nao-eleito')).toBe(true);
+  });
 });

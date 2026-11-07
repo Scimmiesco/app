@@ -128,13 +128,14 @@
         <tr class="tr-candidato" data-partido="PL">
           <td class="cell-nome">
             <div class="flex items-center gap-2.5 sm:gap-3">
-              <div class="candidato-foto-tag shrink-0">
+              <div class="candidato-foto-tag candidato-nao-eleito shrink-0">
                 <app-candidato-avatar
                   [foto]="fotoFlavio"
                   nome="Flávio Bolsonaro"
                   partido="PL"
                   [tamanho]="96"
                   [comBorda]="false"
+                  [naoEleito]="true"
                 />
                 <span
                   class="tag-eleicao tag-nao-reeleito"
@@ -242,11 +243,11 @@
         <tr class="tr-candidato" data-partido="OUTROS">
           <td class="cell-nome">
             <div class="flex items-center gap-2.5 sm:gap-3">
-              <div class="candidato-foto-tag shrink-0">
+              <div class="candidato-foto-tag candidato-nao-eleito shrink-0">
                 <div class="candidato-avatar-outros" data-testid="avatar-outros-candidatos">
                   <svg
                     viewBox="0 0 96 96"
-                    class="candidato-avatar-outros-svg"
+                    class="candidato-avatar-outros-svg candidato-avatar-nao-eleito"
                     role="img"
                     aria-label="Ilustração representando múltiplos candidatos presidenciais do primeiro turno"
                   >
@@ -415,9 +416,13 @@
               formatarPct(100 - (comp.t1.pct_lula + comp.t1.pct_flavio))
             }}</span>
           </td>
-          <td class="cell-votos">
-            <span class="block font-black text-black">{{ formatarNumero(comp.t2.outros) }}</span>
-            <span class="block text-xs text-meta font-bold">0,00%</span>
+          <td
+            class="cell-votos"
+            data-testid="outros-votos-2t"
+            title="Não se aplica ao 2º turno"
+            aria-label="Não se aplica ao 2º turno"
+          >
+            <span class="block font-black text-meta">-</span>
           </td>
           <td class="cell-votos">
             <span class="block font-black text-black">{{

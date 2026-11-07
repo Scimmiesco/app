@@ -128,3 +128,31 @@ export function resolverTagParlamentar(
 
   return null;
 }
+
+/**
+ * Indica se o parlamentar/candidato tentou eleição no pleito e não se elegeu
+ * (não reeleito, suplente ou concorreu a outro cargo sem se eleger).
+ */
+export function tentouENaoSeElegeu(parlamentar: ParlamentarItem): boolean {
+  const status = parlamentar.status_eleicao_2026;
+  const situacaoNormalizada = (parlamentar.situacao || '').trim().toUpperCase();
+
+  if (status === 'nao_reeleito') {
+    return true;
+  }
+
+  if (
+    situacaoNormalizada === 'SUPLENTE' ||
+    situacaoNormalizada === 'NÃO ELEITO' ||
+    situacaoNormalizada === 'NAO ELEITO'
+  ) {
+    return true;
+  }
+
+  if (status === 'nao_concorreu_ao_cargo' && parlamentar.concorreu_2026 === true) {
+    const sitOutro = (parlamentar.situacao_2026_outro || '').trim().toUpperCase();
+    return !sitOutro.startsWith('ELEITO');
+  }
+
+  return false;
+}
