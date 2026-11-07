@@ -163,3 +163,41 @@ export function getCorPartido(sigla?: string | null): string {
   const s = sigla.trim().toUpperCase();
   return CORES_PARTIDOS[s] || '#000000';
 }
+
+export const NOMES_ESTADOS: Record<string, string> = {
+  AC: 'Acre',
+  AL: 'Alagoas',
+  AP: 'Amapá',
+  AM: 'Amazonas',
+  BA: 'Bahia',
+  CE: 'Ceará',
+  DF: 'Distrito Federal',
+  ES: 'Espírito Santo',
+  GO: 'Goiás',
+  MA: 'Maranhão',
+  MT: 'Mato Grosso',
+  MS: 'Mato Grosso do Sul',
+  MG: 'Minas Gerais',
+  PA: 'Pará',
+  PB: 'Paraíba',
+  PR: 'Paraná',
+  PE: 'Pernambuco',
+  PI: 'Piauí',
+  RJ: 'Rio de Janeiro',
+  RN: 'Rio Grande do Norte',
+  RS: 'Rio Grande do Sul',
+  RO: 'Rondônia',
+  RR: 'Roraima',
+  SC: 'Santa Catarina',
+  SP: 'São Paulo',
+  SE: 'Sergipe',
+  TO: 'Tocantins',
+};
+
+export function formatarEstado(uf?: string | null): string {
+  if (!uf) return '—';
+  const limpo = uf.trim();
+  if (!limpo) return '—';
+  const sigla = limpo.toUpperCase();
+  return NOMES_ESTADOS[sigla] || limpo;
+}

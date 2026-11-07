@@ -70,6 +70,9 @@ describe('CabecalhoCidadeComponent', () => {
     expect(el.querySelector('[data-testid="valor-metrica-populacao"]')?.textContent).toContain(
       '898.100',
     );
+    expect(el.querySelector('[data-testid="valor-metrica-estado"]')?.textContent?.trim()).toBe(
+      'Mato Grosso do Sul',
+    );
     expect(el.querySelector('[data-testid="cabecalho-link-fonte"]')?.getAttribute('href')).toBe(
       fonte.url,
     );

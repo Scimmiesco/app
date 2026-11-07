@@ -7,7 +7,7 @@ import {
   MunicipioMeta,
   SecaoEnvelope,
 } from '../../../core/models/contrato.model';
-import { formatarNumero } from '../../../core/utils/formatadores';
+import { formatarEstado, formatarNumero } from '../../../core/utils/formatadores';
 
 @Component({
   selector: 'app-cabecalho-cidade',
@@ -30,6 +30,7 @@ export class CabecalhoCidadeComponent {
   });
 
   protected readonly formatarNumero = formatarNumero;
+  protected readonly formatarEstado = formatarEstado;
 
   eCidadeAtiva(codigo: string | number): boolean {
     return String(codigo) === this.codigoAtivo();

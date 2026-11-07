@@ -58,12 +58,12 @@ describe('PresidencialTurnoComponent', () => {
     expect(badgeOutros?.textContent?.trim()).toBe('Outros');
   });
 
-  it('should render the 2nd round with turn-specific test ids and no third-party dispute', () => {
+  it('should render the 2nd round with turn-specific test ids and omit the third-party card', () => {
     const el = render(2, dados2t);
     expect(el.querySelector('[data-testid="card-presidencial-2t-flavio"]')).toBeTruthy();
+    expect(el.querySelector('[data-testid="card-presidencial-2t-lula"]')).toBeTruthy();
     expect(el.querySelector('[data-testid="numero-candidato-flavio-2t"]')).toBeTruthy();
     const outros = el.querySelector('[data-testid="card-presidencial-2t-outros"]');
-    expect(outros?.textContent).toContain('Não disputaram o 2º turno');
-    expect(outros?.textContent).toContain('0,00%');
+    expect(outros).toBeNull();
   });
 });

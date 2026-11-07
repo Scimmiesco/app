@@ -1,6 +1,7 @@
 import {
   formatarDataIso,
   formatarDesvio,
+  formatarEstado,
   formatarIndice,
   formatarMoeda,
   formatarNota,
@@ -99,5 +100,14 @@ describe('formatadores', () => {
     expect(getCorPartido('pl')).toBe('#003da5');
     expect(getCorPartido(null)).toBe('#000000');
     expect(getCorPartido('DESCONHECIDO')).toBe('#000000');
+  });
+
+  it('should format Brazilian state acronyms into full official state names', () => {
+    expect(formatarEstado('MS')).toBe('Mato Grosso do Sul');
+    expect(formatarEstado('pi')).toBe('Piauí');
+    expect(formatarEstado('PR')).toBe('Paraná');
+    expect(formatarEstado('SP')).toBe('São Paulo');
+    expect(formatarEstado(null)).toBe('—');
+    expect(formatarEstado('')).toBe('—');
   });
 });

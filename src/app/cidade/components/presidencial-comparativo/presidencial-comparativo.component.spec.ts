@@ -63,10 +63,28 @@ describe('PresidencialComparativoComponent', () => {
       '44.194',
     );
 
+    const headers = el.querySelectorAll('[data-testid="tabela-comparativa-presidencial"] thead th');
+    expect(headers.length).toBe(4);
+    expect(headers[0].textContent?.trim()).toBe('Candidato / Métrica');
+    expect(headers[1].textContent?.trim()).toBe('1º Turno');
+    expect(headers[2].textContent?.trim()).toBe('2º Turno');
+    expect(headers[3].textContent?.trim()).toBe('Variação');
+
     const rows = el.querySelectorAll('[data-testid="tabela-comparativa-presidencial"] tbody tr');
     expect(rows.length).toBe(4);
     expect(el.textContent).toContain('+6,51 p.p.');
     expect(el.textContent).toContain('+2,44 p.p.');
+
+    expect(el.querySelector('[data-testid="tag-status-flavio"]')?.textContent?.trim()).toBe(
+      'não eleito',
+    );
+    expect(el.querySelector('[data-testid="tag-status-lula"]')?.textContent?.trim()).toBe(
+      'reeleito',
+    );
+    expect(el.querySelector('[data-testid="tag-status-outros"]')?.textContent?.trim()).toBe(
+      '1º turno',
+    );
+    expect(el.querySelector('[data-testid="avatar-outros-candidatos"] svg')).toBeTruthy();
 
     const badgesOutros = el.querySelectorAll('.badge-outros');
     expect(badgesOutros.length).toBe(2);

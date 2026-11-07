@@ -168,7 +168,9 @@
           </div>
           <div class="metric-card" data-testid="card-metrica-estado">
             <span class="metric-label" data-testid="label-metrica-estado">Estado</span>
-            <span class="metric-value" data-testid="valor-metrica-estado">{{ dadosCab.uf }}</span>
+            <span class="metric-value" data-testid="valor-metrica-estado">{{
+              formatarEstado(dadosCab.uf)
+            }}</span>
           </div>
           <div class="metric-card" data-testid="card-metrica-populacao">
             <span class="metric-label" data-testid="label-metrica-populacao"

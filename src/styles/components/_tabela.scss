@@ -21,14 +21,16 @@
     width: 96px;
   }
 
-  app-candidato-avatar {
+  app-candidato-avatar,
+  .candidato-avatar-outros {
     display: flex;
     justify-content: center;
     width: 100%;
     background-color: #f1f5f9;
 
     .candidato-avatar-img,
-    .candidato-avatar-fallback {
+    .candidato-avatar-fallback,
+    .candidato-avatar-outros-svg {
       border: 0 !important;
       border-radius: 0 !important;
       box-shadow: none !important;
@@ -88,20 +90,24 @@
   box-shadow: tokens.$shadow-hard;
   background-color: tokens.$color-white;
   max-width: 100%;
+  container-type: inline-size;
   -webkit-overflow-scrolling: touch;
 }
 
 .tabela-brutalista {
-  @apply w-full border-collapse text-left text-xs;
+  @apply w-full border-collapse text-center text-xs;
   background-color: tokens.$color-white;
 
   thead {
     @apply border-b-2 border-black;
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 1;
     background-color: tokens.$color-bg-page;
     color: tokens.$color-black;
 
     th {
-      @apply p-1.5 sm:p-2 font-black uppercase tracking-wider text-black;
+      @apply p-1.5 sm:p-2 font-black uppercase tracking-wider text-black text-center;
 
       &:first-child {
         position: sticky;
@@ -109,6 +115,7 @@
         z-index: 2;
         background-color: tokens.$color-bg-page;
         border-right: 1px solid rgba(0, 0, 0, 0.1);
+        text-align: left;
         max-width: 215px;
         min-width: 200px;
         width: 215px;
@@ -120,12 +127,9 @@
         }
       }
 
-      &.col-center {
-        @apply text-center;
-      }
-
+      &.col-center,
       &.col-right {
-        @apply text-right;
+        @apply text-center;
       }
     }
   }
@@ -148,6 +152,7 @@
         z-index: 1;
         background-color: tokens.$color-white;
         border-right: 1px solid rgba(0, 0, 0, 0.1);
+        text-align: left;
         max-width: 215px;
         min-width: 200px;
         width: 215px;
@@ -167,10 +172,10 @@
       }
 
       td {
-        @apply p-1.5 sm:p-2 text-black;
+        @apply p-1.5 sm:p-2 text-black text-center;
 
         &.cell-nome {
-          @apply font-bold;
+          @apply font-bold text-left;
           padding: 0.5rem 0.375rem;
           max-width: 215px;
           min-width: 200px;
@@ -193,15 +198,15 @@
         }
 
         &.cell-right {
-          @apply text-right tabular-nums;
+          @apply text-center tabular-nums;
         }
 
         &.cell-votos {
-          @apply text-right font-black tabular-nums;
+          @apply text-center font-black tabular-nums;
         }
 
         &.cell-pct {
-          @apply text-right font-bold tabular-nums;
+          @apply text-center font-bold tabular-nums;
           color: rgba(0, 0, 0, 0.85);
         }
 
@@ -210,12 +215,12 @@
         }
 
         &.cell-situacao {
-          @apply font-semibold text-[11px] whitespace-nowrap;
+          @apply text-center font-semibold text-[11px] whitespace-nowrap;
           color: rgba(0, 0, 0, 0.75);
         }
 
         &.cell-votos-mandato {
-          @apply text-right font-bold tabular-nums;
+          @apply text-center font-bold tabular-nums;
         }
       }
     }

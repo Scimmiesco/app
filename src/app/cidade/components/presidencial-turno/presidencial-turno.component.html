@@ -19,7 +19,11 @@
 </div>
 
 <!-- CARDS CANDIDATOS -->
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+<div
+  class="grid grid-cols-1 gap-3 pt-1"
+  [class.sm:grid-cols-3]="turno() === 1"
+  [class.sm:grid-cols-2]="turno() === 2"
+>
   @for (cand of candidatos(); track cand.chave) {
     <div
       class="metric-card bg-white card-candidato"
@@ -72,58 +76,42 @@
     </div>
   }
 
-  <div
-    class="metric-card bg-white card-candidato"
-    data-partido="OUTROS"
-    [attr.data-testid]="'card-presidencial-' + sufixo() + '-outros'"
-  >
-    <div class="flex items-start justify-between gap-2">
-      <div>
-        <span class="nome-candidato text-sm sm:text-base font-bold block" title="Outros Candidatos"
-          >Outros Candidatos</span
-        >
-        @if (turno() === 2) {
-          <span class="text-xs text-meta block mt-0.5 font-bold">Demais</span>
-        } @else {
-          <span class="text-xs text-meta block mt-0.5 font-bold">Diversos</span>
-        }
-      </div>
-      <span class="badge badge-xs badge-outros font-bold uppercase">Outros</span>
-    </div>
-    <div class="flex items-baseline justify-between mt-2">
-      <span class="metric-value">{{ formatarNumero(dados().outros) }}</span>
-      @if (turno() === 2) {
-        <span class="font-bold text-sm">0,00%</span>
-      } @else {
-        <span class="font-black text-base text-slate-700">{{ formatarPct(pctOutros()) }}</span>
-      }
-    </div>
+  @if (turno() === 1) {
     <div
-      class="barra-votos-trilho mt-2"
-      role="progressbar"
-      [attr.aria-valuenow]="pctOutros()"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      [attr.aria-label]="
-        turno() === 2
-          ? 'Percentual de outros candidatos no ' + turno() + 'º turno'
-          : 'Percentual de votos de outros candidatos no ' + turno() + 'º turno'
-      "
+      class="metric-card bg-white card-candidato"
+      data-partido="OUTROS"
+      [attr.data-testid]="'card-presidencial-' + sufixo() + '-outros'"
     >
-      @if (turno() === 2) {
-        <div class="barra-votos-preenchimento" data-partido="OUTROS" style="width: 0%"></div>
-      } @else {
+      <div class="flex items-start justify-between gap-2">
+        <div>
+          <span
+            class="nome-candidato text-sm sm:text-base font-bold block"
+            title="Outros Candidatos"
+            >Outros Candidatos</span
+          >
+          <span class="text-xs text-meta block mt-0.5 font-bold">Diversos</span>
+        </div>
+        <span class="badge badge-xs badge-outros font-bold uppercase">Outros</span>
+      </div>
+      <div class="flex items-baseline justify-between mt-2">
+        <span class="metric-value">{{ formatarNumero(dados().outros) }}</span>
+        <span class="font-black text-base text-slate-700">{{ formatarPct(pctOutros()) }}</span>
+      </div>
+      <div
+        class="barra-votos-trilho mt-2"
+        role="progressbar"
+        [attr.aria-valuenow]="pctOutros()"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        [attr.aria-label]="'Percentual de votos de outros candidatos no ' + turno() + 'º turno'"
+      >
         <div
           class="barra-votos-preenchimento"
           data-partido="OUTROS"
           [style.width.%]="pctOutros()"
         ></div>
-      }
-    </div>
-    @if (turno() === 2) {
-      <span class="text-meta text-xs block mt-1.5">Não disputaram o 2º turno</span>
-    } @else {
+      </div>
       <span class="text-meta text-xs block mt-1.5">Demais votos do 1º turno</span>
-    }
-  </div>
+    </div>
+  }
 </div>
