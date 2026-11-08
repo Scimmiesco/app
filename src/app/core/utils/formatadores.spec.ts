@@ -5,6 +5,7 @@ import {
   formatarEstado,
   formatarIndice,
   formatarMoeda,
+  formatarMultiplicador,
   formatarNota,
   formatarNumero,
   formatarPct,
@@ -65,6 +66,14 @@ describe('formatadores', () => {
     expect(formatarDesvioPct(-0)).toBe('0,0%');
     expect(formatarDesvioPct(null)).toBe('—');
     expect(formatarDesvioPct(undefined)).toBe('—');
+    expect(formatarMultiplicador(77.42)).toBe('77x');
+    expect(formatarMultiplicador(136.79)).toBe('137x');
+    expect(formatarMultiplicador(1250.4)).toBe('1.250x');
+    expect(formatarMultiplicador(2.48)).toBe('2,5x');
+    expect(formatarMultiplicador(0.62)).toBe('0,6x');
+    expect(formatarMultiplicador(1)).toBe('1,0x');
+    expect(formatarMultiplicador(null)).toBe('—');
+    expect(formatarMultiplicador(undefined)).toBe('—');
     expect(formatarVariacaoVotos(23195)).toBe('+23.195');
     expect(formatarVariacaoVotos(-1)).toBe('-1');
     expect(formatarVariacaoPct(2.33)).toBe('+2,33 p.p.');

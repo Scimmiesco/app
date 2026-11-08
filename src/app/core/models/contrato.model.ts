@@ -36,6 +36,7 @@ export interface EducacaoItemBenchmark {
   valor: number;
   desvio_mediana: number;
   desvio_pct_mediana?: number;
+  fator_mediana?: number;
   percentil: number;
   z_robusto?: number;
   faixa: FaixaBenchmark | string;

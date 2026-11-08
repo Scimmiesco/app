@@ -75,6 +75,15 @@ export function formatarDesvioPct(val?: number | null): string {
   return sinal + FORMATADOR_DESVIO_DECIMAL.format(limpo) + '%';
 }
 
+export function formatarMultiplicador(val?: number | null): string {
+  if (val === null || val === undefined) return '—';
+  if (Math.abs(val - 1) < 0.005) return '1,0x';
+  if (val >= 10) {
+    return FORMATADOR_NUMERO.format(Math.round(val)) + 'x';
+  }
+  return FORMATADOR_NOTA.format(val) + 'x';
+}
+
 export function formatarMoeda(val?: number | null): string {
   if (val === null || val === undefined) return '—';
   return FORMATADOR_MOEDA.format(val).replace(/\s/g, '\u00A0');

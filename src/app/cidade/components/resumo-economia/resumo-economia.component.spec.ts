@@ -40,6 +40,7 @@ const secaoComBenchmark: SecaoEnvelope<ResumoEconomiaDados, EconomiaBenchmark> =
         valor: 42269768000,
         desvio_mediana: 41960750000,
         desvio_pct_mediana: 13578.74,
+        fator_mediana: 136.79,
         percentil: 99.4,
         faixa: 'muito_acima',
         faixa_rotulo: 'Muito acima da mediana',
@@ -90,6 +91,7 @@ const secaoFinancasComBenchmark: SecaoEnvelope<ResumoFinancasDados, EconomiaBenc
         valor: 6060081890.75,
         desvio_mediana: 5967717168.64,
         desvio_pct_mediana: 6461.04,
+        fator_mediana: 65.61,
         percentil: 99.66,
         faixa: 'muito_acima',
         faixa_rotulo: 'Muito acima da mediana',
@@ -100,6 +102,7 @@ const secaoFinancasComBenchmark: SecaoEnvelope<ResumoFinancasDados, EconomiaBenc
         valor: 82574279.67,
         desvio_mediana: 0,
         desvio_pct_mediana: 0,
+        fator_mediana: 1.0,
         percentil: 50.0,
         faixa: 'proximo',
         faixa_rotulo: 'Na mediana nacional',
@@ -200,6 +203,13 @@ describe('ResumoEconomiaComponent', () => {
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
 
+    const indPibTotal = el.querySelector('[data-testid="indicador-benchmark-pib-total"]');
+    expect(indPibTotal).toBeTruthy();
+    expect(indPibTotal?.textContent).toContain('▲');
+    expect(indPibTotal?.textContent).toContain('137x');
+    expect(indPibTotal?.classList.contains('indicador-benchmark--verde')).toBe(true);
+    expect(indPibTotal?.getAttribute('title')).toContain('136,8x a mediana nacional');
+
     const indPibPc = el.querySelector('[data-testid="indicador-benchmark-pib-per-capita"]');
     expect(indPibPc).toBeTruthy();
     expect(indPibPc?.textContent).toContain('▲');
@@ -213,14 +223,19 @@ describe('ResumoEconomiaComponent', () => {
     expect(indRendaMediana?.textContent).toContain('-3,6%');
     expect(indRendaMediana?.classList.contains('indicador-benchmark--vermelho')).toBe(true);
 
+    const indReceita = el.querySelector('[data-testid="indicador-benchmark-receita-bruta"]');
+    expect(indReceita).toBeTruthy();
+    expect(indReceita?.textContent).toContain('▲');
+    expect(indReceita?.textContent).toContain('66x');
+
     const indDespesa = el.querySelector('[data-testid="indicador-benchmark-despesa-bruta"]');
     expect(indDespesa).toBeTruthy();
     expect(indDespesa?.textContent).toContain('●');
-    expect(indDespesa?.textContent).toContain('0,0%');
+    expect(indDespesa?.textContent).toContain('1,0x');
     expect(indDespesa?.classList.contains('indicador-benchmark--preto')).toBe(true);
 
     const legenda = el.querySelector('[data-testid="legenda-benchmark-economia"]');
     expect(legenda).toBeTruthy();
-    expect(legenda?.textContent).toContain('Diferença da mediana nacional (%):');
+    expect(legenda?.textContent).toContain('Comparativo com a mediana nacional:');
   });
 });

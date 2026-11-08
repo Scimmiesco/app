@@ -7,7 +7,13 @@ import {
   ResumoFinancasDados,
   SecaoEnvelope,
 } from '../../../core/models/contrato.model';
-import { formatarDesvioPct, formatarMoeda, formatarNumero } from '../../../core/utils/formatadores';
+import {
+  formatarDesvioPct,
+  formatarMoeda,
+  formatarMultiplicador,
+  formatarNota,
+  formatarNumero,
+} from '../../../core/utils/formatadores';
 import { CabecalhoSecaoComponent } from '../../../shared/components/cabecalho-secao/cabecalho-secao.component';
 
 export type ChaveBenchmarkEconomia =
@@ -17,6 +23,12 @@ export type ChaveBenchmarkEconomia =
   | 'renda_mediana_pc'
   | 'receita_bruta'
   | 'despesa_bruta';
+
+const METRICAS_ABSOLUTAS: ReadonlySet<ChaveBenchmarkEconomia> = new Set([
+  'pib_total',
+  'receita_bruta',
+  'despesa_bruta',
+]);
 
 const ROTULOS_METRICAS_ECONOMIA: Record<ChaveBenchmarkEconomia, string> = {
   pib_total: 'PIB Total',
@@ -32,7 +44,9 @@ export interface IndicadorNacionalEconomia {
   desvio: number;
   /** Desvio percentual em relação à mediana nacional */
   desvioPct: number;
-  /** Desvio percentual formatado com sinal (ex.: "+57,4%", "-3,6%", "0,0%") */
+  /** Fator multiplicador em relação à mediana nacional (métricas brutas) */
+  fatorMediana?: number;
+  /** Valor formatado para exibição: "+57,4%" (per capita) ou "137x" (totais brutos) */
   valorFormatado: string;
   cor: 'verde' | 'vermelho' | 'preto';
   simbolo: string;
@@ -74,9 +88,16 @@ export class ResumoEconomiaComponent {
       return null;
     }
 
+    const ehAbsoluta =
+      METRICAS_ABSOLUTAS.has(chave) &&
+      comp.fator_mediana !== undefined &&
+      comp.fator_mediana !== null;
     const desvioPct = comp.desvio_pct_mediana;
     const desvio = comp.desvio_mediana ?? 0;
-    const valorFormatado = formatarDesvioPct(desvioPct);
+    const fatorMediana = comp.fator_mediana;
+    const valorFormatado = ehAbsoluta
+      ? formatarMultiplicador(fatorMediana)
+      : formatarDesvioPct(desvioPct);
 
     let cor: 'verde' | 'vermelho' | 'preto';
     let simbolo: string;
@@ -113,12 +134,17 @@ export class ResumoEconomiaComponent {
     const fonteTexto = comp.fonte_titulo ? ` · ${comp.fonte_titulo}` : '';
 
     const nomeMetrica = ROTULOS_METRICAS_ECONOMIA[chave];
-    const tooltip = `Diferença da mediana nacional: ${valorFormatado} · ${rotulo}${medianaTexto}${fonteTexto}`;
-    const ariaLabel = `${nomeMetrica}: ${formatarMoeda(comp.valor)}. Diferença da mediana nacional: ${valorFormatado}. ${rotulo}.`;
+    const tooltip = ehAbsoluta
+      ? `${formatarNota(fatorMediana)}x a mediana nacional · ${rotulo}${medianaTexto}${fonteTexto}`
+      : `Diferença da mediana nacional: ${valorFormatado} · ${rotulo}${medianaTexto}${fonteTexto}`;
+    const ariaLabel = ehAbsoluta
+      ? `${nomeMetrica}: ${formatarMoeda(comp.valor)}. ${formatarNota(fatorMediana)} vezes a mediana nacional (${valorFormatado}). ${rotulo}.`
+      : `${nomeMetrica}: ${formatarMoeda(comp.valor)}. Diferença da mediana nacional: ${valorFormatado}. ${rotulo}.`;
 
     return {
       desvio,
       desvioPct,
+      fatorMediana,
       valorFormatado,
       cor,
       simbolo,
