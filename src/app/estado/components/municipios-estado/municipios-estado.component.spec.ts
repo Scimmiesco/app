@@ -38,8 +38,11 @@ describe('MunicipiosEstadoComponent', () => {
     expect(el.querySelector('h3')?.textContent).toContain('Campo Grande / MS');
     expect(el.textContent).toContain('898.100');
 
-    const link = el.querySelector('[data-testid="link-municipio-5002704"]');
-    expect(link).toBeTruthy();
-    expect(link?.getAttribute('href')).toBe('/cidade/5002704');
+    const card = el.querySelector('[data-testid="card-municipio-5002704"]') as HTMLAnchorElement;
+    expect(card).toBeTruthy();
+    expect(card.tagName).toBe('A');
+    expect(card.getAttribute('href')).toBe('/cidade/5002704');
+    expect(card.classList.contains('card-clicavel')).toBe(true);
+    expect(el.querySelector('[data-testid="seta-municipio-5002704"]')?.textContent).toContain('↗');
   });
 });

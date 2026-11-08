@@ -20,42 +20,62 @@
       data-testid="grid-municipios-estado"
     >
       @for (mun of municipios; track mun.codigo_ibge) {
-        <div
-          class="metric-card hover:bg-slate-50 transition-colors flex flex-col justify-between"
-          [class.card-clicavel]="mun.disponivel"
-          [attr.data-testid]="'card-municipio-' + mun.codigo_ibge"
-        >
-          <div>
-            <div class="flex items-center justify-between gap-2">
-              <span class="text-meta text-[11px] font-bold">IBGE: {{ mun.codigo_ibge }}</span>
-              @if (mun.disponivel) {
-                <span class="badge badge-sm badge-oficial">Disponível</span>
-              } @else {
-                <span class="badge badge-sm badge-pendente">Em breve</span>
+        @if (mun.disponivel) {
+          <a
+            [routerLink]="['/cidade', mun.codigo_ibge]"
+            class="metric-card card-clicavel flex flex-col justify-between no-underline"
+            title="Acessar página da cidade {{ mun.nome }}"
+            [attr.data-testid]="'card-municipio-' + mun.codigo_ibge"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-1">
+                <span class="text-meta text-[11px] font-bold">IBGE: {{ mun.codigo_ibge }}</span>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <span class="badge badge-sm badge-oficial">Disponível</span>
+                  <span
+                    class="text-[11px] font-bold text-meta shrink-0"
+                    [attr.data-testid]="'seta-municipio-' + mun.codigo_ibge"
+                    aria-hidden="true"
+                    >↗</span
+                  >
+                </div>
+              </div>
+              <h3 class="font-black text-sm text-black mt-1.5">{{ mun.nome }} / {{ siglaUf() }}</h3>
+              @if (mun.populacao) {
+                <p class="text-xs text-meta mt-0.5">
+                  População: <strong>{{ formatarNumero(mun.populacao) }}</strong> hab
+                </p>
               }
             </div>
-            <h3 class="font-black text-sm text-black mt-1">{{ mun.nome }} / {{ siglaUf() }}</h3>
-            @if (mun.populacao) {
-              <p class="text-xs text-meta mt-0.5">
-                População: <strong>{{ formatarNumero(mun.populacao) }}</strong> hab
-              </p>
-            }
-          </div>
 
-          <div class="mt-3 pt-2 border-t border-black/10">
-            @if (mun.disponivel) {
-              <a
-                [routerLink]="['/cidade', mun.codigo_ibge]"
-                class="inline-flex items-center gap-1 font-bold text-xs text-black hover:text-emerald-700 underline"
-                [attr.data-testid]="'link-municipio-' + mun.codigo_ibge"
-              >
-                <span>Acessar Raio-X da Cidade ↗</span>
-              </a>
-            } @else {
+            <div class="mt-3 pt-2 border-t border-black/10 flex items-center justify-between">
+              <span class="text-xs font-bold text-meta">Acessar Raio-X da Cidade</span>
+              <span class="text-xs font-bold text-meta" aria-hidden="true">→</span>
+            </div>
+          </a>
+        } @else {
+          <div
+            class="metric-card flex flex-col justify-between opacity-70"
+            [attr.data-testid]="'card-municipio-' + mun.codigo_ibge"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-1">
+                <span class="text-meta text-[11px] font-bold">IBGE: {{ mun.codigo_ibge }}</span>
+                <span class="badge badge-sm badge-pendente">Em breve</span>
+              </div>
+              <h3 class="font-black text-sm text-black mt-1.5">{{ mun.nome }} / {{ siglaUf() }}</h3>
+              @if (mun.populacao) {
+                <p class="text-xs text-meta mt-0.5">
+                  População: <strong>{{ formatarNumero(mun.populacao) }}</strong> hab
+                </p>
+              }
+            </div>
+
+            <div class="mt-3 pt-2 border-t border-black/10">
               <span class="text-xs text-meta">Snapshot em compilação oficial</span>
-            }
+            </div>
           </div>
-        </div>
+        }
       }
     </div>
   }
