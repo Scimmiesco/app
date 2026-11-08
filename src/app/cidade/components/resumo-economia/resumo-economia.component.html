@@ -40,6 +40,11 @@
                 </span>
               }
             </div>
+            @if (obterIndicador('pib_total')?.rotuloQuartil; as rotQuartil) {
+              <div class="text-[11px] font-semibold text-meta mt-1" data-testid="quartil-pib-total">
+                {{ rotQuartil }}
+              </div>
+            }
           </div>
           <div class="metric-card" data-testid="card-metrica-pib-per-capita">
             <span
@@ -256,10 +261,10 @@
       data-testid="legenda-benchmark-economia"
     >
       <span
-        title="Comparativo com a mediana nacional dos municípios brasileiros: diferença percentual (%) nas métricas per capita e múltiplo (x) nos valores totais brutos"
+        title="Comparativo com os municípios brasileiros: ranking nacional e quartil no PIB Total; diferença percentual (%) nas métricas per capita e múltiplo (x) nas finanças"
       >
-        <strong>Comparativo com a mediana nacional:</strong> diferença em % (per capita) ou múltiplo
-        x (totais brutos) dos municípios brasileiros
+        <strong>Comparativo nacional:</strong> ranking e quartil (PIB Total), diferença em % (per
+        capita) ou múltiplo x (finanças)
       </span>
       <div class="flex items-center gap-3">
         <span

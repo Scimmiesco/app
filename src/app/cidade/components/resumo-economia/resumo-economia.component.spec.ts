@@ -41,6 +41,9 @@ const secaoComBenchmark: SecaoEnvelope<ResumoEconomiaDados, EconomiaBenchmark> =
         desvio_mediana: 41960750000,
         desvio_pct_mediana: 13578.74,
         fator_mediana: 136.79,
+        posicao: 34,
+        posicao_total: 5570,
+        quartil: 4,
         percentil: 99.4,
         faixa: 'muito_acima',
         faixa_rotulo: 'Muito acima da mediana',
@@ -206,9 +209,16 @@ describe('ResumoEconomiaComponent', () => {
     const indPibTotal = el.querySelector('[data-testid="indicador-benchmark-pib-total"]');
     expect(indPibTotal).toBeTruthy();
     expect(indPibTotal?.textContent).toContain('▲');
-    expect(indPibTotal?.textContent).toContain('137x');
+    expect(indPibTotal?.textContent).toContain('34º no Brasil');
     expect(indPibTotal?.classList.contains('indicador-benchmark--verde')).toBe(true);
-    expect(indPibTotal?.getAttribute('title')).toContain('136,8x a mediana nacional');
+    expect(indPibTotal?.getAttribute('title')).toContain(
+      '34º maior PIB entre 5.570 municípios do Brasil',
+    );
+    expect(indPibTotal?.getAttribute('title')).toContain('Top 1%');
+
+    const quartilPib = el.querySelector('[data-testid="quartil-pib-total"]');
+    expect(quartilPib).toBeTruthy();
+    expect(quartilPib?.textContent).toContain('4º quartil nacional (Top 1% — maiores do Brasil)');
 
     const indPibPc = el.querySelector('[data-testid="indicador-benchmark-pib-per-capita"]');
     expect(indPibPc).toBeTruthy();
@@ -236,6 +246,6 @@ describe('ResumoEconomiaComponent', () => {
 
     const legenda = el.querySelector('[data-testid="legenda-benchmark-economia"]');
     expect(legenda).toBeTruthy();
-    expect(legenda?.textContent).toContain('Comparativo com a mediana nacional:');
+    expect(legenda?.textContent).toContain('Comparativo nacional:');
   });
 });
