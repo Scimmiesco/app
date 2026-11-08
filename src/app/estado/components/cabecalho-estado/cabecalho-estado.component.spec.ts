@@ -118,6 +118,17 @@ describe('CabecalhoEstadoComponent', () => {
         .querySelector('[data-testid="toggle-esfera-estado"]')
         ?.classList.contains('container-default'),
     ).toBe(true);
+    const toggleTema = el.querySelector('[data-testid="toggle-tema-estado"]');
+    const toggleEsfera = el.querySelector('[data-testid="toggle-esfera-estado"]');
+    expect(toggleTema).toBeTruthy();
+    expect(toggleEsfera).toBeTruthy();
+    expect(
+      Boolean(
+        toggleTema &&
+        toggleEsfera &&
+        toggleTema.compareDocumentPosition(toggleEsfera) & Node.DOCUMENT_POSITION_FOLLOWING,
+      ),
+    ).toBe(true);
     expect(
       el.querySelector('[data-testid="container-seletor-esfera-estado"]')?.textContent,
     ).toContain('Mudar Estado');

@@ -10,6 +10,14 @@ $color-amarelo: #facc15; // Amarelo duro (Curado, Atenção, Destaque, Foco)
 $color-laranja: #fb923c; // Laranja claro vibrante (Não reeleito, Alerta, Mandato)
 $color-vermelho: #dc2626; // Vermelho duro (Pendente, Não em exercício, Erro)
 
+// 1.1 Variante Quase-Neon de Alto Contraste para Tema Escuro (contraste >= 7:1 com texto preto)
+$color-neon-verde: #00f59b;
+$color-neon-amarelo: #ffee00;
+$color-neon-laranja: #ff7a00;
+$color-neon-vermelho: #ff4769;
+$color-neon-ciano: #00e5ff;
+$color-neon-roxo: #c084fc;
+
 // 2. Mapeamentos Semânticos (apontam estritamente para as 4 cores)
 $color-oficial: $color-verde;
 $color-curado: $color-amarelo;
@@ -68,6 +76,18 @@ $transition-collapse: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
 // Variáveis CSS Custom Properties para componentes e Tailwind
 :root {
+  color-scheme: light dark;
+
+  &:has(> head > meta[name='color-scheme'][content='dark']),
+  &[data-theme='dark'] {
+    color-scheme: dark;
+  }
+
+  &:has(> head > meta[name='color-scheme'][content='light']),
+  &[data-theme='light'] {
+    color-scheme: light;
+  }
+
   --color-verde: #{$color-verde};
   --color-amarelo: #{$color-amarelo};
   --color-laranja: #{$color-laranja};

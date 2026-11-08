@@ -129,6 +129,14 @@ $partidos: (
     )
 );
 
+@each $sigla, $prop in $partidos {
+  [data-partido='#{$sigla}'] {
+    --p-bg: #{map.get($prop, bg)};
+    --p-fg: #{map.get($prop, fg)};
+    --p-stripe: #{map.get($prop, stripe)};
+  }
+}
+
 .badge-partido {
   display: inline-flex;
   align-items: center;
@@ -151,14 +159,12 @@ $partidos: (
   color: #ffffff;
 
   // Aplicação das cores partidárias (borda e shadow na cor principal, lateral na cor secundária sem borda divisória)
-  @each $sigla, $prop in $partidos {
-    &[data-partido='#{$sigla}'] {
-      background-color: map.get($prop, bg);
-      border: 2px solid map.get($prop, bg);
-      border-left: 4px solid map.get($prop, stripe);
-      color: map.get($prop, fg);
-      box-shadow: 2px 2px 0 map.get($prop, bg);
-    }
+  &[data-partido] {
+    background-color: var(--p-bg, #{tokens.$color-black});
+    border: 2px solid var(--p-bg, #{tokens.$color-black});
+    border-left: 4px solid var(--p-stripe, #{tokens.$color-black});
+    color: var(--p-fg, #ffffff);
+    box-shadow: 2px 2px 0 var(--p-bg, #{tokens.$color-black});
   }
 
   // Agrupamento Outros sem partido específico (sem borda, shadow na cor principal #64748b)
@@ -184,11 +190,9 @@ $partidos: (
     color: tokens.$color-black;
     font-weight: 700;
   }
-}
 
-@each $sigla, $prop in $partidos {
-  .numero-candidato[data-partido='#{$sigla}'] .digito-partido {
-    color: map.get($prop, bg);
+  &[data-partido] .digito-partido {
+    color: var(--p-bg, #{tokens.$color-black});
   }
 }
 
@@ -198,12 +202,10 @@ $partidos: (
   position: relative;
   transition: tokens.$transition-fast;
 
-  @each $sigla, $prop in $partidos {
-    &[data-partido='#{$sigla}'] {
-      box-shadow:
-        inset 4px 0 0 map.get($prop, bg),
-        tokens.$shadow-hard-sm;
-    }
+  &[data-partido] {
+    box-shadow:
+      inset 4px 0 0 var(--p-bg, #{tokens.$color-black}),
+      tokens.$shadow-hard-sm;
   }
 
   &[data-partido='OUTROS'] {
@@ -222,10 +224,8 @@ $partidos: (
   @apply h-full transition-all duration-300;
   background-color: tokens.$color-black;
 
-  @each $sigla, $prop in $partidos {
-    &[data-partido='#{$sigla}'] {
-      background-color: map.get($prop, bg);
-    }
+  &[data-partido] {
+    background-color: var(--p-bg, #{tokens.$color-black});
   }
 
   &[data-partido='OUTROS'] {
@@ -235,10 +235,8 @@ $partidos: (
 
 // Utilitários de texto com cor partidária
 .texto-partido {
-  @each $sigla, $prop in $partidos {
-    &[data-partido='#{$sigla}'] {
-      color: map.get($prop, bg);
-    }
+  &[data-partido] {
+    color: var(--p-bg, #{tokens.$color-black});
   }
 
   &[data-partido='OUTROS'] {

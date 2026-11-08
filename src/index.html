@@ -5,6 +5,24 @@
     <title>Eleitor v2 — Transparência Eleitoral e Dados Municipais Oficiais</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        const storedScheme = localStorage.getItem('color-scheme');
+        const metaScheme = document.querySelector('meta[name="color-scheme"]');
+        if (metaScheme) {
+          metaScheme.content =
+            storedScheme === 'light' || storedScheme === 'dark' ? storedScheme : 'light dark';
+        }
+        const resolvedScheme =
+          storedScheme === 'light' || storedScheme === 'dark'
+            ? storedScheme
+            : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        document.documentElement.setAttribute('data-theme', resolvedScheme);
+      } catch {}
+    </script>
     <meta
       name="description"
       content="Raio-X eleitoral e transparência de dados públicos municipais e estaduais com fontes oficiais do TSE, IBGE, INEP e SICONFI."

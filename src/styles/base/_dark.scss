@@ -1,0 +1,603 @@
+// ==========================================================================
+// TEMA ESCURO DE ALTO CONTRASTE + BADGES QUASE-NEON (ADR-010 / WCAG AAA)
+// Suporta preferência do sistema e override manual via <meta name="color-scheme">
+// ==========================================================================
+
+@use 'sass:map';
+@use '../tokens' as tokens;
+
+// Mapa de cores quase-neon para partidos no tema escuro (fundo neon + texto preto >= 7.5:1)
+$partidos-neon-dark: (
+  'PT': (
+    bg: #ff3b5c,
+    stripe: #ffffff,
+    shadow: #be123c,
+  ),
+  'PDT': (
+    bg: #ff4769,
+    stripe: #00e5ff,
+    shadow: #9f1239,
+  ),
+  'PCdoB': (
+    bg: #ff3355,
+    stripe: #ffee00,
+    shadow: #9f1239,
+  ),
+  'PSOL': (
+    bg: #ff2e63,
+    stripe: #ffee00,
+    shadow: #9d174d,
+  ),
+  'CIDADANIA': (
+    bg: #ff5277,
+    stripe: #ff8800,
+    shadow: #be123c,
+  ),
+  'PL': (
+    bg: #00e5ff,
+    stripe: #ffee00,
+    shadow: #0284c7,
+  ),
+  'UNIÃO': (
+    bg: #38bdf8,
+    stripe: #00f59b,
+    shadow: #0369a1,
+  ),
+  'UNIAO': (
+    bg: #38bdf8,
+    stripe: #00f59b,
+    shadow: #0369a1,
+  ),
+  'PP': (
+    bg: #22d3ee,
+    stripe: #ffffff,
+    shadow: #0891b2,
+  ),
+  'PSDB': (
+    bg: #60a5fa,
+    stripe: #ffee00,
+    shadow: #1d4ed8,
+  ),
+  'PSD': (
+    bg: #38bdf8,
+    stripe: #ff7a00,
+    shadow: #0284c7,
+  ),
+  'REPUBLICANOS': (
+    bg: #67e8f9,
+    stripe: #ff3b5c,
+    shadow: #0891b2,
+  ),
+  'PODE': (
+    bg: #2dd4bf,
+    stripe: #ffee00,
+    shadow: #0f766e,
+  ),
+  'DC': (
+    bg: #7dd3fc,
+    stripe: #ffffff,
+    shadow: #0284c7,
+  ),
+  'MDB': (
+    bg: #00f59b,
+    stripe: #ff3b5c,
+    shadow: #059669,
+  ),
+  'PV': (
+    bg: #00f59b,
+    stripe: #ffee00,
+    shadow: #059669,
+  ),
+  'REDE': (
+    bg: #34d399,
+    stripe: #ff7a00,
+    shadow: #059669,
+  ),
+  'AVANTE': (
+    bg: #ff8800,
+    stripe: #00e5ff,
+    shadow: #c2410c,
+  ),
+  'PROS': (
+    bg: #ff8800,
+    stripe: #ffffff,
+    shadow: #c2410c,
+  ),
+  'NOVO': (
+    bg: #ff7a00,
+    stripe: #00e5ff,
+    shadow: #c2410c,
+  ),
+  'SOLIDARIEDADE': (
+    bg: #ff9422,
+    stripe: #38bdf8,
+    shadow: #c2410c,
+  ),
+  'PSB': (
+    bg: #ffee00,
+    stripe: #ff3b5c,
+    shadow: #ca8a04,
+  ),
+);
+
+:root[data-theme='dark'] {
+  --color-verde: #{tokens.$color-neon-verde};
+  --color-amarelo: #{tokens.$color-neon-amarelo};
+  --color-laranja: #{tokens.$color-neon-laranja};
+  --color-vermelho: #{tokens.$color-neon-vermelho};
+
+  --color-oficial: #{tokens.$color-neon-verde};
+  --color-curado: #{tokens.$color-neon-amarelo};
+  --color-pendente: #{tokens.$color-neon-vermelho};
+
+  --color-bg-page: #09090b;
+  --color-bg-amber: #1e1e26;
+  --color-bg-card: #121216;
+  --shadow-hard: 3px 3px 0 #3f3f46;
+  --shadow-hard-sm: 2px 2px 0 #52525b;
+  --shadow-hard-lg: 5px 5px 0 #3f3f46;
+
+  background-color: #09090b;
+  color: #fafafa;
+
+  // 1. Shell, Página e Superfícies Principais
+  body,
+  .app-shell,
+  .bg-page {
+    background-color: #09090b !important;
+    color: #fafafa;
+  }
+
+  .app-header {
+    background-color: rgba(9, 9, 11, 0.95);
+    border-color: #f4f4f5;
+  }
+
+  .app-footer {
+    background-color: #09090b;
+    color: #f4f4f5;
+    border-top-color: #f4f4f5;
+
+    .footer-divider {
+      border-top-color: rgba(255, 255, 255, 0.2);
+      color: #a1a1aa;
+    }
+  }
+
+  // 2. Containers, Cards e Métricas de Alto Contraste
+  .card-brutalista,
+  .card-info {
+    background-color: #121216;
+    border-color: #f4f4f5;
+    box-shadow: 3px 3px 0 #3f3f46;
+    color: #fafafa;
+  }
+
+  .container-default {
+    background-color: #09090b;
+    border-color: #f4f4f5;
+    box-shadow: 3px 3px 0 #3f3f46;
+
+    &[role='tablist'],
+    &[role='group'] {
+      background-color: #09090b !important;
+    }
+  }
+
+  .metric-card,
+  .metric-card-amber {
+    background-color: #18181f !important;
+    border-color: #e4e4e7;
+    box-shadow: 2px 2px 0 #3f3f46;
+    color: #fafafa;
+  }
+
+  .shadow-default,
+  .shadown-default {
+    box-shadow: 3px 3px 0 #3f3f46;
+  }
+
+  .shadow-default-sm {
+    box-shadow: 2px 2px 0 #52525b;
+  }
+
+  .shadow-default-lg {
+    box-shadow: 5px 5px 0 #3f3f46;
+  }
+
+  // 3. Tipografia e Textos em Alto Contraste
+  h1,
+  .heading-1 {
+    color: #ffffff;
+    text-shadow: 3px 3px 0 #0284c7;
+  }
+
+  h2,
+  .heading-2 {
+    color: #ffffff;
+    border-bottom-color: tokens.$color-neon-amarelo;
+  }
+
+  .heading-2--menor {
+    border-bottom-color: tokens.$color-neon-ciano;
+  }
+
+  h3,
+  .heading-3,
+  .nome-candidato,
+  .metric-value,
+  .metric-value-lg,
+  .text-contrast,
+  .text-black,
+  .text-zinc-900 {
+    color: #ffffff !important;
+  }
+
+  .metric-label,
+  .text-meta,
+  .text-slate-700,
+  .text-slate-600 {
+    color: #d4d4d8 !important;
+  }
+
+  .text-meta-subtle {
+    color: #a1a1aa !important;
+  }
+
+  .text-empty {
+    color: #71717a !important;
+  }
+
+  .link-fonte,
+  a.text-black {
+    color: tokens.$color-neon-ciano !important;
+
+    &:hover {
+      color: tokens.$color-neon-amarelo !important;
+      opacity: 1;
+    }
+  }
+
+  .border-black {
+    border-color: #f4f4f5 !important;
+  }
+
+  .border-black\/10,
+  .border-black\/15,
+  .border-black\/20 {
+    border-color: rgba(255, 255, 255, 0.18) !important;
+  }
+
+  .card-header,
+  .card-header-grouped {
+    border-bottom-color: #f4f4f5;
+  }
+
+  // 4. Seletores Segmentados (Tema, Esfera Territorial e Turnos) e Botões
+  [role='group'],
+  [role='tablist'] {
+    .bg-black.text-white {
+      background-color: tokens.$color-neon-amarelo !important;
+      color: #000000 !important;
+      box-shadow: 2px 2px 0 #ca8a04 !important;
+    }
+
+    .bg-transparent.text-black {
+      color: #f4f4f5 !important;
+    }
+  }
+
+  .hover-bg-amber:hover {
+    background-color: #27272a !important;
+    color: tokens.$color-neon-amarelo !important;
+  }
+
+  .input-default,
+  .select-default,
+  .btn-default {
+    background-color: #18181f !important;
+    color: #ffffff !important;
+    border-color: #f4f4f5 !important;
+    box-shadow: 2px 2px 0 #3f3f46;
+  }
+
+  .btn-default:hover {
+    background-color: tokens.$color-neon-amarelo !important;
+    color: #000000 !important;
+    border-color: tokens.$color-neon-amarelo !important;
+  }
+
+  // 5. BADGES QUASE-NEON DE ALTO CONTRASTE (CHAMATIVOS E LEGÍVEIS >= 7:1)
+  .section-kicker,
+  .badge-dark {
+    background-color: tokens.$color-neon-ciano !important;
+    color: #000000 !important;
+    font-weight: 900;
+    box-shadow: 2px 2px 0 #0284c7 !important;
+  }
+
+  .badge-verde,
+  .badge-oficial,
+  .badge-eleito,
+  .badge-reeleito,
+  .badge-exercicio-sim,
+  .badge-success {
+    background-color: tokens.$color-neon-verde !important;
+    color: #000000 !important;
+    font-weight: 900;
+    box-shadow: 2px 2px 0 #059669 !important;
+  }
+
+  .badge-amarelo,
+  .badge-curado,
+  .badge-warning {
+    background-color: tokens.$color-neon-amarelo !important;
+    color: #000000 !important;
+    font-weight: 900;
+    box-shadow: 2px 2px 0 #ca8a04 !important;
+  }
+
+  .badge-laranja,
+  .badge-nao-reeleito,
+  .badge-mandato {
+    background-color: tokens.$color-neon-laranja !important;
+    color: #000000 !important;
+    font-weight: 900;
+    box-shadow: 2px 2px 0 #c2410c !important;
+  }
+
+  .badge-vermelho,
+  .badge-pendente,
+  .badge-exercicio-nao,
+  .badge-danger {
+    background-color: tokens.$color-neon-vermelho !important;
+    color: #000000 !important;
+    font-weight: 900;
+    box-shadow: 2px 2px 0 #be123c !important;
+  }
+
+  .badge-outros {
+    background-color: tokens.$color-neon-roxo !important;
+    color: #000000 !important;
+    font-weight: 900;
+    box-shadow: 2px 2px 0 #7e22ce !important;
+  }
+
+  .badge-white,
+  .badge-nao-concorreu,
+  .badge-neutral {
+    background-color: #f4f4f5 !important;
+    color: #000000 !important;
+    border-color: #000000 !important;
+    box-shadow: 2px 2px 0 #71717a !important;
+  }
+
+  // 6. BADGES DE PARTIDOS QUASE-NEON (Via Custom Properties para bundle enxuto)
+  @each $sigla, $prop in $partidos-neon-dark {
+    [data-partido='#{$sigla}'] {
+      --p-neon-bg: #{map.get($prop, bg)};
+      --p-neon-stripe: #{map.get($prop, stripe)};
+      --p-neon-shadow: #{map.get($prop, shadow)};
+    }
+  }
+
+  [data-partido='OUTROS'] {
+    --p-neon-bg: #{tokens.$color-neon-roxo};
+    --p-neon-stripe: #{tokens.$color-neon-roxo};
+    --p-neon-shadow: #7e22ce;
+  }
+
+  .badge-partido {
+    background-color: var(--p-neon-bg, #{tokens.$color-neon-ciano}) !important;
+    border: 2px solid var(--p-neon-bg, #{tokens.$color-neon-ciano}) !important;
+    border-left: 4px solid var(--p-neon-stripe, #ffffff) !important;
+    color: #000000 !important;
+    font-weight: 900;
+    box-shadow: 2px 2px 0 var(--p-neon-shadow, #0284c7) !important;
+
+    &[data-partido='OUTROS'] {
+      border: none !important;
+    }
+  }
+
+  .numero-candidato {
+    .digito-resto {
+      color: #fafafa !important;
+    }
+
+    &[data-partido] .digito-partido {
+      color: var(--p-neon-bg, #{tokens.$color-neon-ciano}) !important;
+    }
+  }
+
+  .texto-partido[data-partido] {
+    color: var(--p-neon-bg, #{tokens.$color-neon-ciano}) !important;
+  }
+
+  .card-candidato[data-partido] {
+    box-shadow:
+      inset 4px 0 0 var(--p-neon-bg, #{tokens.$color-neon-ciano}),
+      2px 2px 0 #3f3f46 !important;
+  }
+
+  .barra-votos-trilho {
+    background-color: #27272a !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+  }
+
+  .barra-votos-preenchimento[data-partido] {
+    background-color: var(--p-neon-bg, #{tokens.$color-neon-ciano}) !important;
+  }
+
+  // 7. Foto do Candidato + Tag de Eleição Neon Integrada
+  .candidato-foto-tag {
+    border-color: #f4f4f5;
+    box-shadow: 2px 2px 0 #3f3f46;
+    background-color: #18181f;
+
+    app-candidato-avatar,
+    .candidato-avatar-outros {
+      background-color: #27272a;
+    }
+
+    .tag-eleicao {
+      border-top-color: #000000;
+
+      &.tag-reeleito,
+      &.tag-eleito {
+        background-color: tokens.$color-neon-verde !important;
+        color: #000000 !important;
+      }
+
+      &.tag-nao-reeleito {
+        background-color: tokens.$color-neon-laranja !important;
+        color: #000000 !important;
+      }
+
+      &.tag-suplente {
+        background-color: tokens.$color-neon-amarelo !important;
+        color: #000000 !important;
+      }
+
+      &.tag-nao-concorreu,
+      &.tag-em-exercicio,
+      &.tag-neutral {
+        background-color: #f4f4f5 !important;
+        color: #000000 !important;
+      }
+    }
+  }
+
+  // 8. Tabelas Brutalistas no Tema Escuro
+  .tabela-wrapper {
+    background-color: #121216;
+    border-color: #f4f4f5;
+    box-shadow: 3px 3px 0 #3f3f46;
+  }
+
+  .tabela-brutalista {
+    background-color: #121216;
+
+    thead {
+      background-color: #1f1f28;
+      color: #ffffff;
+      border-bottom-color: #f4f4f5;
+
+      th {
+        color: #ffffff;
+
+        &:first-child {
+          background-color: #1f1f28;
+          border-right-color: rgba(255, 255, 255, 0.16);
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom-color: rgba(255, 255, 255, 0.12);
+
+        > td:first-child {
+          background-color: #121216;
+          border-right-color: rgba(255, 255, 255, 0.16);
+        }
+
+        &:hover {
+          background-color: #1e1e28;
+
+          > td:first-child {
+            background-color: #1e1e28;
+          }
+        }
+
+        &.bg-slate-50 {
+          background-color: #1f1f28 !important;
+
+          > td:first-child {
+            background-color: #1f1f28 !important;
+          }
+        }
+
+        &.em-exercicio,
+        &.eleito {
+          > td:first-child {
+            box-shadow: inset 4px 0 0 tokens.$color-neon-verde;
+          }
+        }
+
+        td {
+          color: #fafafa;
+
+          &.cell-pct,
+          &.cell-situacao {
+            color: #d4d4d8;
+          }
+        }
+      }
+    }
+  }
+
+  // 9. Indicadores de Benchmark, Alertas e Superfícies Secundárias
+  .indicador-benchmark--verde,
+  .text-green-700,
+  .text-emerald-800 {
+    color: tokens.$color-neon-verde !important;
+  }
+
+  .indicador-benchmark--vermelho,
+  .text-red-700 {
+    color: tokens.$color-neon-vermelho !important;
+  }
+
+  .indicador-benchmark--preto {
+    color: #ffffff !important;
+  }
+
+  .bloco-pendente {
+    background-color: #1f1218;
+    border-color: tokens.$color-neon-vermelho;
+    border-left-color: tokens.$color-neon-vermelho;
+    color: #ff8fa3;
+
+    strong {
+      color: tokens.$color-neon-vermelho;
+    }
+  }
+
+  .aviso-curado {
+    background-color: #1f1d12;
+    border-color: tokens.$color-neon-amarelo;
+    border-left-color: tokens.$color-neon-amarelo;
+    color: #fef08a;
+  }
+
+  .bg-slate-50,
+  .bg-white {
+    background-color: #18181f !important;
+  }
+
+  .bg-red-100 {
+    background-color: #2a1218 !important;
+  }
+}
+
+// Suporte a Forced Colors Mode (Windows High Contrast) preservando fronteiras de componentes
+@media (forced-colors: active) {
+  .badge,
+  .badge-partido,
+  .section-kicker,
+  .tag-eleicao {
+    border: 1px solid ButtonText !important;
+  }
+
+  [role='group'] .bg-black.text-white,
+  [role='tablist'] .bg-black.text-white {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+
+  .tabela-brutalista tbody tr.eleito > td:first-child,
+  .tabela-brutalista tbody tr.em-exercicio > td:first-child {
+    border-left: 4px solid Highlight;
+  }
+}

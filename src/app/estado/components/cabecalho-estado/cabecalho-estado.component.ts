@@ -8,6 +8,7 @@ import {
   SecaoEnvelope,
 } from '../../../core/models/contrato.model';
 import { DataService } from '../../../core/services/data.service';
+import { EsquemaTema, ThemeService } from '../../../core/services/theme.service';
 import { formatarNumero } from '../../../core/utils/formatadores';
 
 @Component({
@@ -19,6 +20,7 @@ import { formatarNumero } from '../../../core/utils/formatadores';
 })
 export class CabecalhoEstadoComponent {
   private readonly dataService = inject(DataService);
+  private readonly themeService = inject(ThemeService);
 
   readonly estado = input.required<EstadoMeta>();
   readonly secao = input<SecaoEnvelope<EstadoCabecalhoDados>>();
@@ -27,6 +29,8 @@ export class CabecalhoEstadoComponent {
   readonly siglaUf = input<string>('MS');
 
   readonly estadoSelecionado = output<string>();
+
+  readonly temaEscuro = this.themeService.temaEscuro;
 
   readonly siglaAtiva = computed(() => {
     return (this.siglaUf() || this.estado().sigla || 'MS').toUpperCase();
@@ -39,6 +43,10 @@ export class CabecalhoEstadoComponent {
   });
 
   protected readonly formatarNumero = formatarNumero;
+
+  definirTema(esquema: EsquemaTema): void {
+    this.themeService.definirTema(esquema);
+  }
 
   eEstadoAtivo(sigla: string): boolean {
     return sigla.toUpperCase() === this.siglaAtiva();

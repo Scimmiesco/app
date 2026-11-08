@@ -186,9 +186,12 @@
           </td>
           <td class="cell-votos">
             <span class="block font-black text-black">{{ formatarNumero(comp.t2.flavio) }}</span>
-            <span class="block text-xs font-bold" [style.color]="cor('PL')">{{
-              formatarPct(comp.t2.pct_flavio)
-            }}</span>
+            <span
+              class="block text-xs font-bold texto-partido"
+              data-partido="PL"
+              [style.color]="cor('PL')"
+              >{{ formatarPct(comp.t2.pct_flavio) }}</span
+            >
           </td>
           <td class="cell-votos">
             <span
@@ -242,9 +245,12 @@
           </td>
           <td class="cell-votos">
             <span class="block font-black text-black">{{ formatarNumero(comp.t2.lula) }}</span>
-            <span class="block text-xs font-bold" [style.color]="cor('PT')">{{
-              formatarPct(comp.t2.pct_lula)
-            }}</span>
+            <span
+              class="block text-xs font-bold texto-partido"
+              data-partido="PT"
+              [style.color]="cor('PT')"
+              >{{ formatarPct(comp.t2.pct_lula) }}</span
+            >
           </td>
           <td class="cell-votos">
             <span
