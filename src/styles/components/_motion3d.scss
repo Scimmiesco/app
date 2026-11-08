@@ -65,12 +65,12 @@
   }
 }
 
-// 3. Adaptação das Sombras de Hover no Tema Escuro de Alto Contraste (Apenas Clicáveis)
+// 3. Adaptação das Sombras de Hover no Tema Escuro (Sombra Amber de Alto Contraste)
 :root[data-theme='dark'] {
   .card-clicavel:hover,
   .metric-card:has(a[href]):hover {
-    border-color: tokens.$color-neon-ciano !important;
-    box-shadow: 4px 4px 0 tokens.$color-neon-ciano !important;
+    border-color: tokens.$color-bg-amber !important;
+    box-shadow: 4px 4px 0 tokens.$color-bg-amber !important;
   }
 
   .btn-default:hover,
@@ -79,6 +79,6 @@
   [role='group'] a[href]:hover,
   [role='tablist'] button:hover,
   [role='tablist'] [role='tab']:hover {
-    box-shadow: 2px 3px 0 tokens.$color-neon-ciano !important;
+    box-shadow: 2px 3px 0 tokens.$color-bg-amber !important;
   }
 }

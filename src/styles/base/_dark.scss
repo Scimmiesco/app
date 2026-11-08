@@ -1,141 +1,151 @@
 // ==========================================================================
-// TEMA ESCURO DE ALTO CONTRASTE + BADGES QUASE-NEON (ADR-010 / WCAG AAA)
-// Suporta preferência do sistema e override manual via <meta name="color-scheme">
+// TEMA ESCURO DE ALTO CONTRASTE — CORES NORMALIZADAS (ADR-010 / WCAG AAA)
+// Mantém exatamente os mesmos matizes do tema claro, ajustando apenas
+// saturação e brilho para contraste. Badges pretos no claro ficam brancos no escuro.
 // ==========================================================================
 
 @use 'sass:map';
 @use '../tokens' as tokens;
 
-// Mapa de cores quase-neon para partidos no tema escuro (fundo neon + texto preto >= 7.5:1)
-$partidos-neon-dark: (
+// Mesmos matizes partidários de _partidos.scss com brilho e saturação elevados para contraste
+$partidos-dark: (
+  // 1. Vermelhos (mesmo matiz, mais claro/saturado)
   'PT': (
-    bg: #ff3b5c,
-    stripe: #ffffff,
-    shadow: #be123c,
-  ),
+      bg: #ef4444,
+      stripe: #ffffff,
+      shadow: #991b1b,
+    ),
   'PDT': (
-    bg: #ff4769,
-    stripe: #00e5ff,
-    shadow: #9f1239,
+    bg: #f87171,
+    stripe: #3b82f6,
+    shadow: #991b1b,
   ),
   'PCdoB': (
-    bg: #ff3355,
-    stripe: #ffee00,
-    shadow: #9f1239,
+    bg: #ef4444,
+    stripe: #facc15,
+    shadow: #7f1d1d,
   ),
   'PSOL': (
-    bg: #ff2e63,
-    stripe: #ffee00,
-    shadow: #9d174d,
+    bg: #f43f5e,
+    stripe: #facc15,
+    shadow: #881337,
   ),
   'CIDADANIA': (
-    bg: #ff5277,
-    stripe: #ff8800,
-    shadow: #be123c,
+    bg: #f87171,
+    stripe: #fb923c,
+    shadow: #991b1b,
   ),
+
+  // 2. Azuis (mesmo matiz azul partidário com maior luminosidade)
   'PL': (
-    bg: #00e5ff,
-    stripe: #ffee00,
-    shadow: #0284c7,
-  ),
+      bg: #60a5fa,
+      stripe: #facc15,
+      shadow: #1d4ed8,
+    ),
   'UNIÃO': (
-    bg: #38bdf8,
-    stripe: #00f59b,
-    shadow: #0369a1,
+    bg: #60a5fa,
+    stripe: #22c55e,
+    shadow: #1e40af,
   ),
   'UNIAO': (
-    bg: #38bdf8,
-    stripe: #00f59b,
-    shadow: #0369a1,
+    bg: #60a5fa,
+    stripe: #22c55e,
+    shadow: #1e40af,
   ),
   'PP': (
-    bg: #22d3ee,
+    bg: #38bdf8,
     stripe: #ffffff,
-    shadow: #0891b2,
+    shadow: #0369a1,
   ),
   'PSDB': (
     bg: #60a5fa,
-    stripe: #ffee00,
-    shadow: #1d4ed8,
+    stripe: #facc15,
+    shadow: #1e40af,
   ),
   'PSD': (
-    bg: #38bdf8,
-    stripe: #ff7a00,
-    shadow: #0284c7,
+    bg: #60a5fa,
+    stripe: #fb923c,
+    shadow: #1d4ed8,
   ),
   'REPUBLICANOS': (
-    bg: #67e8f9,
-    stripe: #ff3b5c,
-    shadow: #0891b2,
+    bg: #93c5fd,
+    stripe: #ef4444,
+    shadow: #1e3a8a,
   ),
   'PODE': (
-    bg: #2dd4bf,
-    stripe: #ffee00,
-    shadow: #0f766e,
+    bg: #38bdf8,
+    stripe: #10b981,
+    shadow: #075985,
   ),
   'DC': (
-    bg: #7dd3fc,
+    bg: #60a5fa,
     stripe: #ffffff,
-    shadow: #0284c7,
+    shadow: #1e40af,
   ),
+
+  // 3. Verdes (mesmo matiz verde com maior luminosidade)
   'MDB': (
-    bg: #00f59b,
-    stripe: #ff3b5c,
-    shadow: #059669,
-  ),
+      bg: #22c55e,
+      stripe: #ef4444,
+      shadow: #15803d,
+    ),
   'PV': (
-    bg: #00f59b,
-    stripe: #ffee00,
-    shadow: #059669,
+    bg: #22c55e,
+    stripe: #facc15,
+    shadow: #15803d,
   ),
   'REDE': (
-    bg: #34d399,
-    stripe: #ff7a00,
-    shadow: #059669,
+    bg: #2dd4bf,
+    stripe: #fb923c,
+    shadow: #0f766e,
   ),
+
+  // 4. Laranjas (mesmo matiz laranja com maior luminosidade)
   'AVANTE': (
-    bg: #ff8800,
-    stripe: #00e5ff,
-    shadow: #c2410c,
-  ),
+      bg: #fb923c,
+      stripe: #3b82f6,
+      shadow: #9a3412,
+    ),
   'PROS': (
-    bg: #ff8800,
+    bg: #fb923c,
     stripe: #ffffff,
-    shadow: #c2410c,
+    shadow: #9a3412,
   ),
   'NOVO': (
-    bg: #ff7a00,
-    stripe: #00e5ff,
-    shadow: #c2410c,
+    bg: #fb923c,
+    stripe: #1e3a8a,
+    shadow: #9a3412,
   ),
   'SOLIDARIEDADE': (
-    bg: #ff9422,
+    bg: #fb923c,
     stripe: #38bdf8,
-    shadow: #c2410c,
+    shadow: #9a3412,
   ),
+
+  // 5. Amarelo / Âmbar
   'PSB': (
-    bg: #ffee00,
-    stripe: #ff3b5c,
-    shadow: #ca8a04,
-  ),
+      bg: #fbbf24,
+      stripe: #ef4444,
+      shadow: #92400e,
+    )
 );
 
 :root[data-theme='dark'] {
-  --color-verde: #{tokens.$color-neon-verde};
-  --color-amarelo: #{tokens.$color-neon-amarelo};
-  --color-laranja: #{tokens.$color-neon-laranja};
-  --color-vermelho: #{tokens.$color-neon-vermelho};
+  --color-verde: #{tokens.$color-dark-verde};
+  --color-amarelo: #{tokens.$color-dark-amarelo};
+  --color-laranja: #{tokens.$color-dark-laranja};
+  --color-vermelho: #{tokens.$color-dark-vermelho};
 
-  --color-oficial: #{tokens.$color-neon-verde};
-  --color-curado: #{tokens.$color-neon-amarelo};
-  --color-pendente: #{tokens.$color-neon-vermelho};
+  --color-oficial: #{tokens.$color-dark-verde};
+  --color-curado: #{tokens.$color-dark-amarelo};
+  --color-pendente: #{tokens.$color-dark-vermelho};
 
   --color-bg-page: #09090b;
-  --color-bg-amber: #1e1e26;
+  --color-bg-amber: #1e1e24;
   --color-bg-card: #121216;
-  --shadow-hard: 3px 3px 0 #3f3f46;
-  --shadow-hard-sm: 2px 2px 0 #52525b;
-  --shadow-hard-lg: 5px 5px 0 #3f3f46;
+  --shadow-hard: 3px 3px 0 #{tokens.$color-bg-amber};
+  --shadow-hard-sm: 2px 2px 0 #{tokens.$color-bg-amber};
+  --shadow-hard-lg: 5px 5px 0 #{tokens.$color-bg-amber};
 
   background-color: #09090b;
   color: #fafafa;
@@ -150,13 +160,13 @@ $partidos-neon-dark: (
 
   .app-header {
     background-color: rgba(9, 9, 11, 0.95);
-    border-color: #f4f4f5;
+    border-color: tokens.$color-bg-amber;
   }
 
   .app-footer {
     background-color: #09090b;
     color: #f4f4f5;
-    border-top-color: #f4f4f5;
+    border-top-color: tokens.$color-bg-amber;
 
     .footer-divider {
       border-top-color: rgba(255, 255, 255, 0.2);
@@ -164,19 +174,19 @@ $partidos-neon-dark: (
     }
   }
 
-  // 2. Containers, Cards e Métricas de Alto Contraste
+  // 2. Containers, Cards e Métricas (Sombra Amber do Tema Claro no Modo Escuro)
   .card-brutalista,
   .card-info {
     background-color: #121216;
-    border-color: #f4f4f5;
-    box-shadow: 3px 3px 0 #3f3f46;
+    border-color: tokens.$color-bg-amber;
+    box-shadow: 3px 3px 0 tokens.$color-bg-amber;
     color: #fafafa;
   }
 
   .container-default {
     background-color: #09090b;
-    border-color: #f4f4f5;
-    box-shadow: 3px 3px 0 #3f3f46;
+    border-color: tokens.$color-bg-amber;
+    box-shadow: 3px 3px 0 tokens.$color-bg-amber;
 
     &[role='tablist'],
     &[role='group'] {
@@ -187,39 +197,57 @@ $partidos-neon-dark: (
   .metric-card,
   .metric-card-amber {
     background-color: #18181f !important;
-    border-color: #e4e4e7;
-    box-shadow: 2px 2px 0 #3f3f46;
+    border-color: tokens.$color-bg-amber;
+    box-shadow: 2px 2px 0 tokens.$color-bg-amber;
     color: #fafafa;
+  }
+
+  .mapa-frame {
+    background-color: #121216;
+    border-color: tokens.$color-bg-amber;
+    box-shadow: 2px 2px 0 tokens.$color-bg-amber;
+  }
+
+  .modal-container {
+    background-color: #121216;
+    border-color: tokens.$color-bg-amber;
+    box-shadow: 5px 5px 0 tokens.$color-bg-amber;
+  }
+
+  .drawer-panel {
+    background-color: #121216;
+    border-left-color: tokens.$color-bg-amber;
+    box-shadow: -4px 0 0 tokens.$color-bg-amber;
   }
 
   .shadow-default,
   .shadown-default {
-    box-shadow: 3px 3px 0 #3f3f46;
+    box-shadow: 3px 3px 0 tokens.$color-bg-amber;
   }
 
   .shadow-default-sm {
-    box-shadow: 2px 2px 0 #52525b;
+    box-shadow: 2px 2px 0 tokens.$color-bg-amber;
   }
 
   .shadow-default-lg {
-    box-shadow: 5px 5px 0 #3f3f46;
+    box-shadow: 5px 5px 0 tokens.$color-bg-amber;
   }
 
-  // 3. Tipografia e Textos em Alto Contraste
+  // 3. Tipografia Normalizada (Sem Azul)
   h1,
   .heading-1 {
     color: #ffffff;
-    text-shadow: 3px 3px 0 #0284c7;
+    text-shadow: 3px 3px 0 #000000;
   }
 
   h2,
   .heading-2 {
     color: #ffffff;
-    border-bottom-color: tokens.$color-neon-amarelo;
+    border-bottom-color: tokens.$color-dark-amarelo;
   }
 
   .heading-2--menor {
-    border-bottom-color: tokens.$color-neon-ciano;
+    border-bottom-color: #ffffff;
   }
 
   h3,
@@ -248,13 +276,14 @@ $partidos-neon-dark: (
     color: #71717a !important;
   }
 
+  // Links apenas brancos e menos chamativos
   .link-fonte,
   a.text-black {
-    color: tokens.$color-neon-ciano !important;
+    color: #e4e4e7 !important;
 
     &:hover {
-      color: tokens.$color-neon-amarelo !important;
-      opacity: 1;
+      color: #ffffff !important;
+      opacity: 0.75;
     }
   }
 
@@ -273,13 +302,13 @@ $partidos-neon-dark: (
     border-bottom-color: #f4f4f5;
   }
 
-  // 4. Seletores Segmentados (Tema, Esfera Territorial e Turnos) e Botões
+  // 4. Seletores Segmentados e Badges Pretos -> Brancos no Escuro
   [role='group'],
   [role='tablist'] {
     .bg-black.text-white {
-      background-color: tokens.$color-neon-amarelo !important;
+      background-color: #ffffff !important;
       color: #000000 !important;
-      box-shadow: 2px 2px 0 #ca8a04 !important;
+      box-shadow: 2px 2px 0 #71717a !important;
     }
 
     .bg-transparent.text-black {
@@ -289,7 +318,7 @@ $partidos-neon-dark: (
 
   .hover-bg-amber:hover {
     background-color: #27272a !important;
-    color: tokens.$color-neon-amarelo !important;
+    color: #ffffff !important;
   }
 
   .input-default,
@@ -297,23 +326,23 @@ $partidos-neon-dark: (
   .btn-default {
     background-color: #18181f !important;
     color: #ffffff !important;
-    border-color: #f4f4f5 !important;
-    box-shadow: 2px 2px 0 #3f3f46;
+    border-color: tokens.$color-bg-amber !important;
+    box-shadow: 2px 2px 0 tokens.$color-bg-amber;
   }
 
   .btn-default:hover {
-    background-color: tokens.$color-neon-amarelo !important;
+    background-color: tokens.$color-bg-amber !important;
     color: #000000 !important;
-    border-color: tokens.$color-neon-amarelo !important;
+    border-color: tokens.$color-bg-amber !important;
   }
 
-  // 5. BADGES QUASE-NEON DE ALTO CONTRASTE (CHAMATIVOS E LEGÍVEIS >= 7:1)
+  // 5. Badges Pretos no Claro -> Brancos no Escuro; Cores Principais com Brilho/Saturação Normalizados
   .section-kicker,
   .badge-dark {
-    background-color: tokens.$color-neon-ciano !important;
+    background-color: #ffffff !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 #0284c7 !important;
+    box-shadow: 2px 2px 0 #71717a !important;
   }
 
   .badge-verde,
@@ -322,78 +351,78 @@ $partidos-neon-dark: (
   .badge-reeleito,
   .badge-exercicio-sim,
   .badge-success {
-    background-color: tokens.$color-neon-verde !important;
+    background-color: tokens.$color-dark-verde !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 #059669 !important;
+    box-shadow: 2px 2px 0 #047857 !important;
   }
 
   .badge-amarelo,
   .badge-curado,
   .badge-warning {
-    background-color: tokens.$color-neon-amarelo !important;
+    background-color: tokens.$color-dark-amarelo !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 #ca8a04 !important;
+    box-shadow: 2px 2px 0 #b45309 !important;
   }
 
   .badge-laranja,
   .badge-nao-reeleito,
   .badge-mandato {
-    background-color: tokens.$color-neon-laranja !important;
+    background-color: tokens.$color-dark-laranja !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 #c2410c !important;
+    box-shadow: 2px 2px 0 #9a3412 !important;
   }
 
   .badge-vermelho,
   .badge-pendente,
   .badge-exercicio-nao,
   .badge-danger {
-    background-color: tokens.$color-neon-vermelho !important;
+    background-color: tokens.$color-dark-vermelho !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 #be123c !important;
+    box-shadow: 2px 2px 0 #991b1b !important;
   }
 
   .badge-outros {
-    background-color: tokens.$color-neon-roxo !important;
+    background-color: #94a3b8 !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 #7e22ce !important;
+    box-shadow: 2px 2px 0 #475569 !important;
   }
 
   .badge-white,
   .badge-nao-concorreu,
   .badge-neutral {
-    background-color: #f4f4f5 !important;
+    background-color: #e4e4e7 !important;
     color: #000000 !important;
     border-color: #000000 !important;
     box-shadow: 2px 2px 0 #71717a !important;
   }
 
-  // 6. BADGES DE PARTIDOS QUASE-NEON (Via Custom Properties para bundle enxuto)
-  @each $sigla, $prop in $partidos-neon-dark {
+  // 6. Badges de Partidos Normalizados (Mesmos Matizes com Brilho e Saturação Elevados)
+  @each $sigla, $prop in $partidos-dark {
     [data-partido='#{$sigla}'] {
-      --p-neon-bg: #{map.get($prop, bg)};
-      --p-neon-stripe: #{map.get($prop, stripe)};
-      --p-neon-shadow: #{map.get($prop, shadow)};
+      --p-dark-bg: #{map.get($prop, bg)};
+      --p-dark-stripe: #{map.get($prop, stripe)};
+      --p-dark-shadow: #{map.get($prop, shadow)};
     }
   }
 
   [data-partido='OUTROS'] {
-    --p-neon-bg: #{tokens.$color-neon-roxo};
-    --p-neon-stripe: #{tokens.$color-neon-roxo};
-    --p-neon-shadow: #7e22ce;
+    --p-dark-bg: #94a3b8;
+    --p-dark-stripe: #94a3b8;
+    --p-dark-shadow: #475569;
   }
 
   .badge-partido {
-    background-color: var(--p-neon-bg, #{tokens.$color-neon-ciano}) !important;
-    border: 2px solid var(--p-neon-bg, #{tokens.$color-neon-ciano}) !important;
-    border-left: 4px solid var(--p-neon-stripe, #ffffff) !important;
+    background-color: var(--p-dark-bg, #ffffff) !important;
+    border: 2px solid var(--p-dark-bg, #ffffff) !important;
+    border-left: 4px solid var(--p-dark-stripe, #000000) !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 var(--p-neon-shadow, #0284c7) !important;
+    box-shadow: 2px 2px 0 var(--p-dark-shadow, #71717a) !important;
 
     &[data-partido='OUTROS'] {
       border: none !important;
@@ -406,18 +435,18 @@ $partidos-neon-dark: (
     }
 
     &[data-partido] .digito-partido {
-      color: var(--p-neon-bg, #{tokens.$color-neon-ciano}) !important;
+      color: var(--p-dark-bg, #ffffff) !important;
     }
   }
 
   .texto-partido[data-partido] {
-    color: var(--p-neon-bg, #{tokens.$color-neon-ciano}) !important;
+    color: var(--p-dark-bg, #ffffff) !important;
   }
 
   .card-candidato[data-partido] {
     box-shadow:
-      inset 4px 0 0 var(--p-neon-bg, #{tokens.$color-neon-ciano}),
-      2px 2px 0 #3f3f46 !important;
+      inset 4px 0 0 var(--p-dark-bg, #ffffff),
+      2px 2px 0 tokens.$color-bg-amber !important;
   }
 
   .barra-votos-trilho {
@@ -426,13 +455,13 @@ $partidos-neon-dark: (
   }
 
   .barra-votos-preenchimento[data-partido] {
-    background-color: var(--p-neon-bg, #{tokens.$color-neon-ciano}) !important;
+    background-color: var(--p-dark-bg, #ffffff) !important;
   }
 
-  // 7. Foto do Candidato + Tag de Eleição Neon Integrada
+  // 7. Foto do Candidato + Tag de Eleição Integrada
   .candidato-foto-tag {
-    border-color: #f4f4f5;
-    box-shadow: 2px 2px 0 #3f3f46;
+    border-color: tokens.$color-bg-amber;
+    box-shadow: 2px 2px 0 tokens.$color-bg-amber;
     background-color: #18181f;
 
     app-candidato-avatar,
@@ -445,24 +474,24 @@ $partidos-neon-dark: (
 
       &.tag-reeleito,
       &.tag-eleito {
-        background-color: tokens.$color-neon-verde !important;
+        background-color: tokens.$color-dark-verde !important;
         color: #000000 !important;
       }
 
       &.tag-nao-reeleito {
-        background-color: tokens.$color-neon-laranja !important;
+        background-color: tokens.$color-dark-laranja !important;
         color: #000000 !important;
       }
 
       &.tag-suplente {
-        background-color: tokens.$color-neon-amarelo !important;
+        background-color: tokens.$color-dark-amarelo !important;
         color: #000000 !important;
       }
 
       &.tag-nao-concorreu,
       &.tag-em-exercicio,
       &.tag-neutral {
-        background-color: #f4f4f5 !important;
+        background-color: #e4e4e7 !important;
         color: #000000 !important;
       }
     }
@@ -471,15 +500,15 @@ $partidos-neon-dark: (
   // 8. Tabelas Brutalistas no Tema Escuro
   .tabela-wrapper {
     background-color: #121216;
-    border-color: #f4f4f5;
-    box-shadow: 3px 3px 0 #3f3f46;
+    border-color: tokens.$color-bg-amber;
+    box-shadow: 3px 3px 0 tokens.$color-bg-amber;
   }
 
   .tabela-brutalista {
     background-color: #121216;
 
     thead {
-      background-color: #1f1f28;
+      background-color: #1f1f26;
       color: #ffffff;
       border-bottom-color: #f4f4f5;
 
@@ -487,7 +516,7 @@ $partidos-neon-dark: (
         color: #ffffff;
 
         &:first-child {
-          background-color: #1f1f28;
+          background-color: #1f1f26;
           border-right-color: rgba(255, 255, 255, 0.16);
         }
       }
@@ -503,25 +532,25 @@ $partidos-neon-dark: (
         }
 
         &:hover {
-          background-color: #1e1e28;
+          background-color: #1e1e26;
 
           > td:first-child {
-            background-color: #1e1e28;
+            background-color: #1e1e26;
           }
         }
 
         &.bg-slate-50 {
-          background-color: #1f1f28 !important;
+          background-color: #1f1f26 !important;
 
           > td:first-child {
-            background-color: #1f1f28 !important;
+            background-color: #1f1f26 !important;
           }
         }
 
         &.em-exercicio,
         &.eleito {
           > td:first-child {
-            box-shadow: inset 4px 0 0 tokens.$color-neon-verde;
+            box-shadow: inset 4px 0 0 tokens.$color-dark-verde;
           }
         }
 
@@ -541,12 +570,12 @@ $partidos-neon-dark: (
   .indicador-benchmark--verde,
   .text-green-700,
   .text-emerald-800 {
-    color: tokens.$color-neon-verde !important;
+    color: tokens.$color-dark-verde !important;
   }
 
   .indicador-benchmark--vermelho,
   .text-red-700 {
-    color: tokens.$color-neon-vermelho !important;
+    color: tokens.$color-dark-vermelho !important;
   }
 
   .indicador-benchmark--preto {
@@ -554,20 +583,20 @@ $partidos-neon-dark: (
   }
 
   .bloco-pendente {
-    background-color: #1f1218;
-    border-color: tokens.$color-neon-vermelho;
-    border-left-color: tokens.$color-neon-vermelho;
-    color: #ff8fa3;
+    background-color: #1f1215;
+    border-color: tokens.$color-dark-vermelho;
+    border-left-color: tokens.$color-dark-vermelho;
+    color: #fca5a5;
 
     strong {
-      color: tokens.$color-neon-vermelho;
+      color: tokens.$color-dark-vermelho;
     }
   }
 
   .aviso-curado {
     background-color: #1f1d12;
-    border-color: tokens.$color-neon-amarelo;
-    border-left-color: tokens.$color-neon-amarelo;
+    border-color: tokens.$color-dark-amarelo;
+    border-left-color: tokens.$color-dark-amarelo;
     color: #fef08a;
   }
 
@@ -577,11 +606,11 @@ $partidos-neon-dark: (
   }
 
   .bg-red-100 {
-    background-color: #2a1218 !important;
+    background-color: #2a1215 !important;
   }
 }
 
-// Suporte a Forced Colors Mode (Windows High Contrast) preservando fronteiras de componentes
+// Suporte a Forced Colors Mode (Windows High Contrast)
 @media (forced-colors: active) {
   .badge,
   .badge-partido,

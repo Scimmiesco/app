@@ -41,6 +41,10 @@ export class CabecalhoCidadeComponent {
     this.themeService.definirTema(esquema);
   }
 
+  alternarTema(): void {
+    this.themeService.alternarTema();
+  }
+
   eCidadeAtiva(codigo: string | number): boolean {
     return String(codigo) === this.codigoAtivo();
   }

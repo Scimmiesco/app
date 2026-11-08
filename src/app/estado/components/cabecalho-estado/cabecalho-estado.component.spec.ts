@@ -96,6 +96,12 @@ describe('CabecalhoEstadoComponent', () => {
     expect(el.querySelector('[data-testid="valor-metrica-capital-estado"]')?.textContent).toContain(
       'Campo Grande',
     );
+    const cardCapital = el.querySelector(
+      '[data-testid="card-metrica-capital-estado"]',
+    ) as HTMLAnchorElement;
+    expect(cardCapital?.tagName).toBe('A');
+    expect(cardCapital?.getAttribute('href')).toBe('/cidade/5002704');
+    expect(cardCapital?.classList.contains('flex-col')).toBe(true);
     const linkMunicipal = el.querySelector('[data-testid="btn-alternar-cidade"]');
     expect(linkMunicipal).toBeTruthy();
     expect(linkMunicipal?.getAttribute('href')).toBe('/cidade/5002704');

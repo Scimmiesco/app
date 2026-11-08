@@ -97,7 +97,7 @@ describe('CabecalhoCidadeComponent', () => {
         .querySelector('[data-testid="toggle-esfera-cidade"]')
         ?.classList.contains('container-default'),
     ).toBe(true);
-    const toggleTema = el.querySelector('[data-testid="toggle-tema-cidade"]');
+    const toggleTema = el.querySelector('[data-testid="toggle-tema-cidade"]') as HTMLButtonElement;
     const toggleEsfera = el.querySelector('[data-testid="toggle-esfera-cidade"]');
     expect(toggleTema).toBeTruthy();
     expect(toggleEsfera).toBeTruthy();
@@ -109,11 +109,9 @@ describe('CabecalhoCidadeComponent', () => {
       ),
     ).toBe(true);
 
-    const btnEscuro = el.querySelector('[data-testid="btn-tema-escuro"]') as HTMLButtonElement;
-    btnEscuro.click();
+    toggleTema.click();
     expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
-    const btnClaro = el.querySelector('[data-testid="btn-tema-claro"]') as HTMLButtonElement;
-    btnClaro.click();
+    toggleTema.click();
     expect(document.documentElement.getAttribute('data-theme')).toBe('light');
     expect(
       el.querySelector('[data-testid="container-seletor-esfera-cidade"]')?.textContent,

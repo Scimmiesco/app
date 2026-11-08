@@ -34,56 +34,27 @@
       class="flex flex-col gap-2.5 self-start sm:self-center w-full sm:w-auto sm:min-w-[280px] p-3 bg-page border-2 border-black rounded-sm shadow-default"
       data-testid="container-seletor-esfera-cidade"
     >
-      <!-- TOGGLE DE TEMA VISUAL (ACIMA DO SELETOR TERRITORIAL) -->
-      <div
-        class="flex flex-col gap-1 pb-1.5 border-b border-black/10"
-        data-testid="bloco-seletor-tema-cidade"
-      >
-        <span class="text-[10px] font-black uppercase text-meta tracking-wider"> Tema </span>
+      <!-- BOTÃO COMPACTO DE TEMA VISUAL (ACIMA DO SELETOR TERRITORIAL) -->
+      <div class="flex flex-col gap-1">
         <div
-          class="container-default bg-page grid grid-cols-2 gap-1.5 p-1.5"
-          role="group"
-          aria-label="Escolher tema visual"
-          data-testid="toggle-tema-cidade"
+          class="flex items-center justify-between gap-2"
+          data-testid="bloco-seletor-tema-cidade"
         >
+          <span class="text-[10px] font-black uppercase text-meta tracking-wider">
+            Esfera Territorial
+          </span>
           <button
             type="button"
-            class="px-3 py-1.5 rounded-xs text-xs font-black uppercase tracking-wider cursor-pointer transition-all duration-150 text-center select-none flex items-center justify-center whitespace-nowrap"
-            [class.bg-black]="!temaEscuro()"
-            [class.text-white]="!temaEscuro()"
-            [class.shadow-default-sm]="!temaEscuro()"
-            [class.bg-transparent]="temaEscuro()"
-            [class.text-black]="temaEscuro()"
-            [class.hover-bg-amber]="temaEscuro()"
-            [attr.aria-pressed]="!temaEscuro()"
-            (click)="definirTema('light')"
-            data-testid="btn-tema-claro"
-          >
-            Claro
-          </button>
-          <button
-            type="button"
-            class="px-3 py-1.5 rounded-xs text-xs font-black uppercase tracking-wider cursor-pointer transition-all duration-150 text-center select-none flex items-center justify-center whitespace-nowrap"
-            [class.bg-black]="temaEscuro()"
-            [class.text-white]="temaEscuro()"
-            [class.shadow-default-sm]="temaEscuro()"
-            [class.bg-transparent]="!temaEscuro()"
-            [class.text-black]="!temaEscuro()"
-            [class.hover-bg-amber]="!temaEscuro()"
+            class="btn-default px-2 py-0.5 rounded-xs border-2 border-black bg-white text-xs leading-none shadow-default-sm cursor-pointer select-none inline-flex items-center justify-center"
             [attr.aria-pressed]="temaEscuro()"
-            (click)="definirTema('dark')"
-            data-testid="btn-tema-escuro"
+            [attr.aria-label]="temaEscuro() ? 'Ativar tema claro' : 'Ativar tema escuro'"
+            [title]="temaEscuro() ? 'Mudar para tema claro' : 'Mudar para tema escuro'"
+            (click)="alternarTema()"
+            data-testid="toggle-tema-cidade"
           >
-            Escuro
+            <span aria-hidden="true">{{ temaEscuro() ? '☀️' : '🌙' }}</span>
           </button>
         </div>
-      </div>
-
-      <!-- TOGGLE DE ESFERA TERRITORIAL -->
-      <div class="flex flex-col gap-1">
-        <span class="text-[10px] font-black uppercase text-meta tracking-wider">
-          Esfera Territorial
-        </span>
         <div
           class="container-default bg-page grid grid-cols-2 gap-1.5 p-1.5"
           role="group"

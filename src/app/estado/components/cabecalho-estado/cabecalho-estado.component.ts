@@ -48,6 +48,10 @@ export class CabecalhoEstadoComponent {
     this.themeService.definirTema(esquema);
   }
 
+  alternarTema(): void {
+    this.themeService.alternarTema();
+  }
+
   eEstadoAtivo(sigla: string): boolean {
     return sigla.toUpperCase() === this.siglaAtiva();
   }

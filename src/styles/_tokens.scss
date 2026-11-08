@@ -10,13 +10,11 @@ $color-amarelo: #facc15; // Amarelo duro (Curado, Atenção, Destaque, Foco)
 $color-laranja: #fb923c; // Laranja claro vibrante (Não reeleito, Alerta, Mandato)
 $color-vermelho: #dc2626; // Vermelho duro (Pendente, Não em exercício, Erro)
 
-// 1.1 Variante Quase-Neon de Alto Contraste para Tema Escuro (contraste >= 7:1 com texto preto)
-$color-neon-verde: #00f59b;
-$color-neon-amarelo: #ffee00;
-$color-neon-laranja: #ff7a00;
-$color-neon-vermelho: #ff4769;
-$color-neon-ciano: #00e5ff;
-$color-neon-roxo: #c084fc;
+// 1.1 Mesmos 4 Matizes Normalizados para Tema Escuro (apenas brilho e saturação ajustados p/ contraste)
+$color-dark-verde: #10b981;
+$color-dark-amarelo: #facc15;
+$color-dark-laranja: #fb923c;
+$color-dark-vermelho: #f87171;
 
 // 2. Mapeamentos Semânticos (apontam estritamente para as 4 cores)
 $color-oficial: $color-verde;

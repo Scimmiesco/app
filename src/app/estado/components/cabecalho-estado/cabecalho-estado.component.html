@@ -37,56 +37,27 @@
       class="flex flex-col gap-2.5 self-start sm:self-center w-full sm:w-auto sm:min-w-[280px] p-3 bg-page border-2 border-black rounded-sm shadow-default"
       data-testid="container-seletor-esfera-estado"
     >
-      <!-- TOGGLE DE TEMA VISUAL (ACIMA DO SELETOR TERRITORIAL) -->
-      <div
-        class="flex flex-col gap-1 pb-1.5 border-b border-black/10"
-        data-testid="bloco-seletor-tema-estado"
-      >
-        <span class="text-[10px] font-black uppercase text-meta tracking-wider"> Tema </span>
+      <!-- BOTÃO COMPACTO DE TEMA VISUAL (ACIMA DO SELETOR TERRITORIAL) -->
+      <div class="flex flex-col gap-1">
         <div
-          class="container-default bg-page grid grid-cols-2 gap-1.5 p-1.5"
-          role="group"
-          aria-label="Escolher tema visual"
-          data-testid="toggle-tema-estado"
+          class="flex items-center justify-between gap-2"
+          data-testid="bloco-seletor-tema-estado"
         >
+          <span class="text-[10px] font-black uppercase text-meta tracking-wider">
+            Esfera Territorial
+          </span>
           <button
             type="button"
-            class="px-3 py-1.5 rounded-xs text-xs font-black uppercase tracking-wider cursor-pointer transition-all duration-150 text-center select-none flex items-center justify-center whitespace-nowrap"
-            [class.bg-black]="!temaEscuro()"
-            [class.text-white]="!temaEscuro()"
-            [class.shadow-default-sm]="!temaEscuro()"
-            [class.bg-transparent]="temaEscuro()"
-            [class.text-black]="temaEscuro()"
-            [class.hover-bg-amber]="temaEscuro()"
-            [attr.aria-pressed]="!temaEscuro()"
-            (click)="definirTema('light')"
-            data-testid="btn-tema-claro"
-          >
-            Claro
-          </button>
-          <button
-            type="button"
-            class="px-3 py-1.5 rounded-xs text-xs font-black uppercase tracking-wider cursor-pointer transition-all duration-150 text-center select-none flex items-center justify-center whitespace-nowrap"
-            [class.bg-black]="temaEscuro()"
-            [class.text-white]="temaEscuro()"
-            [class.shadow-default-sm]="temaEscuro()"
-            [class.bg-transparent]="!temaEscuro()"
-            [class.text-black]="!temaEscuro()"
-            [class.hover-bg-amber]="!temaEscuro()"
+            class="btn-default px-2 py-0.5 rounded-xs border-2 border-black bg-white text-xs leading-none shadow-default-sm cursor-pointer select-none inline-flex items-center justify-center"
             [attr.aria-pressed]="temaEscuro()"
-            (click)="definirTema('dark')"
-            data-testid="btn-tema-escuro"
+            [attr.aria-label]="temaEscuro() ? 'Ativar tema claro' : 'Ativar tema escuro'"
+            [title]="temaEscuro() ? 'Mudar para tema claro' : 'Mudar para tema escuro'"
+            (click)="alternarTema()"
+            data-testid="toggle-tema-estado"
           >
-            Escuro
+            <span aria-hidden="true">{{ temaEscuro() ? '☀️' : '🌙' }}</span>
           </button>
         </div>
-      </div>
-
-      <!-- TOGGLE DE ESFERA TERRITORIAL (PERMITE ALTERNAR PARA MUNICIPAL) -->
-      <div class="flex flex-col gap-1">
-        <span class="text-[10px] font-black uppercase text-meta tracking-wider">
-          Esfera Territorial
-        </span>
         <div
           class="container-default bg-page grid grid-cols-2 gap-1.5 p-1.5"
           role="group"
@@ -148,84 +119,109 @@
   >
     <!-- POPULAÇÃO -->
     @if (estado().populacao; as pop) {
-      <div class="metric-card" data-testid="card-metrica-populacao-estado">
+      <div
+        class="metric-card flex flex-col justify-between"
+        data-testid="card-metrica-populacao-estado"
+      >
         <span class="metric-label" title="População residente oficial apurada pelo Censo 2022"
           >População (Censo 2022)</span
         >
-        <span class="metric-value mt-1" data-testid="valor-metrica-populacao-estado">
+        <span class="metric-value mt-1 block truncate" data-testid="valor-metrica-populacao-estado">
           {{ formatarNumero(pop) }}
         </span>
-        <span class="text-[11px] text-meta">habitantes</span>
+        <span class="text-[11px] text-meta block truncate">habitantes</span>
       </div>
     }
 
     <!-- ELEITORADO -->
     @if (estado().eleitorado_total; as eleit) {
-      <div class="metric-card" data-testid="card-metrica-eleitorado-estado">
+      <div
+        class="metric-card flex flex-col justify-between"
+        data-testid="card-metrica-eleitorado-estado"
+      >
         <span class="metric-label" title="Total de eleitores aptos no estado"
           >Eleitorado Total</span
         >
-        <span class="metric-value mt-1" data-testid="valor-metrica-eleitorado-estado">
+        <span
+          class="metric-value mt-1 block truncate"
+          data-testid="valor-metrica-eleitorado-estado"
+        >
           {{ formatarNumero(eleit) }}
         </span>
-        <span class="text-[11px] text-meta">eleitores aptos</span>
+        <span class="text-[11px] text-meta block truncate">eleitores aptos</span>
       </div>
     }
 
     <!-- TOTAL DE MUNICÍPIOS -->
     @if (estado().total_municipios; as totMun) {
-      <div class="metric-card" data-testid="card-metrica-municipios-estado">
+      <div
+        class="metric-card flex flex-col justify-between"
+        data-testid="card-metrica-municipios-estado"
+      >
         <span class="metric-label" title="Total de municípios integrantes da unidade federativa"
           >Municípios</span
         >
-        <span class="metric-value mt-1" data-testid="valor-metrica-municipios-estado">
+        <span
+          class="metric-value mt-1 block truncate"
+          data-testid="valor-metrica-municipios-estado"
+        >
           {{ formatarNumero(totMun) }}
         </span>
-        <span class="text-[11px] text-meta">cidades</span>
+        <span class="text-[11px] text-meta block truncate">cidades</span>
       </div>
     }
 
-    <!-- CAPITAL COM LINK DIRETO -->
-    <div class="metric-card card-clicavel" data-testid="card-metrica-capital-estado">
-      <span class="metric-label" title="Sede do governo estadual">Capital</span>
+    <!-- CAPITAL COM LINK DIRETO (O PRÓPRIO CARD É O LINK PARA EVITAR OVERFLOW) -->
+    <a
+      [routerLink]="['/cidade', estado().capital.codigo_ibge]"
+      class="metric-card card-clicavel flex flex-col justify-between no-underline"
+      title="Acessar página da capital {{ estado().capital.nome }}"
+      data-testid="card-metrica-capital-estado"
+    >
+      <div class="flex items-center justify-between gap-1">
+        <span class="metric-label" title="Sede do governo estadual">Capital</span>
+        <span
+          class="text-[11px] font-bold text-meta shrink-0"
+          data-testid="link-capital-cidade"
+          aria-hidden="true"
+          >↗</span
+        >
+      </div>
       <span
-        class="metric-value mt-1 text-base font-black"
+        class="metric-value mt-1 text-base font-black block truncate"
         data-testid="valor-metrica-capital-estado"
       >
         {{ estado().capital.nome }}
       </span>
-      <a
-        [routerLink]="['/cidade', estado().capital.codigo_ibge]"
-        class="inline-flex items-center gap-1 text-[11px] font-bold text-black underline mt-0.5 hover:text-emerald-700"
-        data-testid="link-capital-cidade"
-      >
-        <span>Ver cidade da capital ↗</span>
-      </a>
-    </div>
+      <span class="text-[11px] text-meta block truncate">sede estadual</span>
+    </a>
 
     <!-- ÁREA TERRITORIAL -->
     @if (estado().area_km2; as area) {
-      <div class="metric-card" data-testid="card-metrica-area-estado">
+      <div class="metric-card flex flex-col justify-between" data-testid="card-metrica-area-estado">
         <span class="metric-label" title="Extensão territorial oficial (IBGE)"
           >Área Territorial</span
         >
-        <span class="metric-value mt-1" data-testid="valor-metrica-area-estado">
+        <span class="metric-value mt-1 block truncate" data-testid="valor-metrica-area-estado">
           {{ formatarNumero(area) }} km²
         </span>
-        <span class="text-[11px] text-meta">extensão total</span>
+        <span class="text-[11px] text-meta block truncate">extensão total</span>
       </div>
     }
 
     <!-- DENSIDADE DEMOGRÁFICA -->
     @if (estado().densidade_hab_km2; as dens) {
-      <div class="metric-card" data-testid="card-metrica-densidade-estado">
+      <div
+        class="metric-card flex flex-col justify-between"
+        data-testid="card-metrica-densidade-estado"
+      >
         <span class="metric-label" title="Habitantes por quilômetro quadrado (IBGE)"
           >Densidade</span
         >
-        <span class="metric-value mt-1" data-testid="valor-metrica-densidade-estado">
+        <span class="metric-value mt-1 block truncate" data-testid="valor-metrica-densidade-estado">
           {{ formatarNumero(dens) }}
         </span>
-        <span class="text-[11px] text-meta">hab/km²</span>
+        <span class="text-[11px] text-meta block truncate">hab/km²</span>
       </div>
     }
   </div>
