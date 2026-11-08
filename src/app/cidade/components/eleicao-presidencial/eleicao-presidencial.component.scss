@@ -16,13 +16,14 @@
   align-items: center;
   width: max-content;
   max-width: 100%;
-  overflow: visible;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @keyframes painelAbaFlip3D {
   from {
     opacity: 0;
-    transform: perspective(900px) rotateX(-16deg) translateY(10px) scale(0.97);
+    transform: perspective(900px) rotateX(-6deg) translateY(4px) scale(0.99);
   }
   to {
     opacity: 1;

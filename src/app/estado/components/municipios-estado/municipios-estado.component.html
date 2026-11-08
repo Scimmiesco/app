@@ -22,6 +22,7 @@
       @for (mun of municipios; track mun.codigo_ibge) {
         <div
           class="metric-card hover:bg-slate-50 transition-colors flex flex-col justify-between"
+          [class.card-clicavel]="mun.disponivel"
           [attr.data-testid]="'card-municipio-' + mun.codigo_ibge"
         >
           <div>
