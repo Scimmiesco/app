@@ -492,7 +492,10 @@
    "motivo": null,
    "dados": {
     "receita_bruta": 6060081890.75,
-    "despesa_bruta": 6393130012.43
+    "despesa_bruta": 6393130012.43,
+    "resultado_orcamentario": -333048121.68,
+    "resultado_orcamentario_pct": -5.5,
+    "situacao_orcamentaria": "deficit"
    },
    "categoria": "A CIDADE",
    "benchmark": {
@@ -563,6 +566,32 @@
       "p10": 35792793.1,
       "p90": 383340193.25,
       "mad": 42547826.98
+     },
+     "resultado_orcamentario": {
+      "valor": -333048121.68,
+      "desvio_mediana": -342177567.63,
+      "desvio_pct_mediana": -3748.06,
+      "fator_mediana": -36.48,
+      "posicao": 5437,
+      "posicao_total": 5442,
+      "quartil": 1,
+      "percentil": 0.1,
+      "z_robusto": -49.6606,
+      "faixa": "muito_abaixo",
+      "faixa_rotulo": "Muito abaixo da mediana",
+      "ano": 2025,
+      "fonte": "siconfi_dca_2025",
+      "fonte_titulo": "Resultado Orçamentário 2025 — Tesouro Nacional (DCA Receitas - Despesas)",
+      "n": 5442,
+      "min": -7379341764.74,
+      "max": 984658394.76,
+      "media": 14766296.73,
+      "mediana": 9129445.95,
+      "q1": 5402959.52,
+      "q3": 16473783.59,
+      "p10": 2377183.79,
+      "p90": 33877912.45,
+      "mad": 4647523.52
      }
     }
    }

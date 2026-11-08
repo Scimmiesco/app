@@ -486,7 +486,10 @@
    "motivo": null,
    "dados": {
     "receita_bruta": 5504556312.66,
-    "despesa_bruta": 5119761285.88
+    "despesa_bruta": 5119761285.88,
+    "resultado_orcamentario": 384795026.78,
+    "resultado_orcamentario_pct": 6.99,
+    "situacao_orcamentaria": "superavit"
    },
    "benchmark": {
     "meta": {
@@ -556,6 +559,32 @@
       "p10": 35792793.1,
       "p90": 383340193.25,
       "mad": 42547826.98
+     },
+     "resultado_orcamentario": {
+      "valor": 384795026.78,
+      "desvio_mediana": 375665580.83,
+      "desvio_pct_mediana": 4114.88,
+      "fator_mediana": 42.15,
+      "posicao": 19,
+      "posicao_total": 5442,
+      "quartil": 4,
+      "percentil": 99.66,
+      "z_robusto": 54.5207,
+      "faixa": "muito_acima",
+      "faixa_rotulo": "Muito acima da mediana",
+      "ano": 2025,
+      "fonte": "siconfi_dca_2025",
+      "fonte_titulo": "Resultado Orçamentário 2025 — Tesouro Nacional (DCA Receitas - Despesas)",
+      "n": 5442,
+      "min": -7379341764.74,
+      "max": 984658394.76,
+      "media": 14766296.73,
+      "mediana": 9129445.95,
+      "q1": 5402959.52,
+      "q3": 16473783.59,
+      "p10": 2377183.79,
+      "p90": 33877912.45,
+      "mad": 4647523.52
      }
     }
    }

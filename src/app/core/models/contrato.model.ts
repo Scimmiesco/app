@@ -91,6 +91,7 @@ export interface EconomiaBenchmark {
     renda_mediana_pc?: EducacaoItemBenchmark;
     receita_bruta?: EducacaoItemBenchmark;
     despesa_bruta?: EducacaoItemBenchmark;
+    resultado_orcamentario?: EducacaoItemBenchmark;
     [chave: string]: EducacaoItemBenchmark | undefined;
   };
 }
@@ -161,6 +162,9 @@ export interface ResumoFinancasDados {
   pct_transferencias_sobre_correntes?: number;
   receita_bruta?: number;
   despesa_bruta?: number;
+  resultado_orcamentario?: number;
+  resultado_orcamentario_pct?: number;
+  situacao_orcamentaria?: 'superavit' | 'deficit' | 'equilibrio';
 }
 
 export interface EleicaoPresidencialDados {

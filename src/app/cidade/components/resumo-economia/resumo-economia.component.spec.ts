@@ -29,6 +29,9 @@ const secaoFinancas: SecaoEnvelope<ResumoFinancasDados, EconomiaBenchmark> = {
   dados: {
     receita_bruta: 6060081890.75,
     despesa_bruta: 6393130012.43,
+    resultado_orcamentario: -333048121.68,
+    resultado_orcamentario_pct: -5.5,
+    situacao_orcamentaria: 'deficit',
   },
 };
 
@@ -118,6 +121,20 @@ const secaoFinancasComBenchmark: SecaoEnvelope<ResumoFinancasDados, EconomiaBenc
         n: 5443,
         mediana: 82574279.67,
       },
+      resultado_orcamentario: {
+        valor: -333048121.68,
+        desvio_mediana: -342177567.63,
+        desvio_pct_mediana: -3748.06,
+        fator_mediana: -36.48,
+        posicao: 5437,
+        posicao_total: 5442,
+        quartil: 1,
+        percentil: 0.1,
+        faixa: 'muito_abaixo',
+        faixa_rotulo: 'Muito abaixo da mediana',
+        n: 5442,
+        mediana: 9129445.95,
+      },
     },
   },
 };
@@ -170,6 +187,9 @@ describe('ResumoEconomiaComponent', () => {
     expect(el.querySelector('[data-testid="card-metrica-despesa-bruta"]')?.textContent).toContain(
       '6.393.130.012,43',
     );
+    expect(
+      el.querySelector('[data-testid="card-metrica-resultado-orcamentario"]')?.textContent,
+    ).toContain('333.048.121,68');
   });
 
   it('should render alternative municipal finances breakdown', () => {
@@ -261,5 +281,18 @@ describe('ResumoEconomiaComponent', () => {
     const quartilDespesa = el.querySelector('[data-testid="quartil-despesa-bruta"]');
     expect(quartilDespesa).toBeTruthy();
     expect(quartilDespesa?.textContent).toContain('2º quartil nacional (abaixo da mediana)');
+
+    const indResultado = el.querySelector(
+      '[data-testid="indicador-benchmark-resultado-orcamentario"]',
+    );
+    expect(indResultado).toBeTruthy();
+    expect(indResultado?.textContent).toContain('▼');
+    expect(indResultado?.textContent).toContain('Déficit');
+    expect(indResultado?.textContent).toContain('5,50%');
+    expect(indResultado?.classList.contains('indicador-benchmark--vermelho')).toBe(true);
+
+    const subResultado = el.querySelector('[data-testid="subtitulo-resultado-orcamentario"]');
+    expect(subResultado).toBeTruthy();
+    expect(subResultado?.textContent).toContain('Despesas empenhadas superaram receitas');
   });
 });

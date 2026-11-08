@@ -153,7 +153,7 @@
       } @else if (sFin.dados; as dadosFin) {
         <div class="mt-3">
           @if (dadosFin.receita_bruta !== undefined || dadosFin.despesa_bruta !== undefined) {
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               <div class="metric-card" data-testid="card-metrica-receita-bruta">
                 <span
                   class="metric-label"
@@ -228,6 +228,50 @@
                   </div>
                 }
               </div>
+              @if (
+                dadosFin.resultado_orcamentario !== undefined &&
+                dadosFin.resultado_orcamentario !== null
+              ) {
+                <div class="metric-card" data-testid="card-metrica-resultado-orcamentario">
+                  <span
+                    class="metric-label"
+                    title="Resultado Orçamentário (Receitas Brutas − Despesas Empenhadas) segundo a Declaração de Contas Anuais do Tesouro Nacional"
+                    >Resultado Orçamentário (<abbr
+                      title="Declaração de Contas Anuais — Tesouro Nacional (Siconfi)"
+                      >DCA</abbr
+                    >
+                    {{ sFin.ano }})</span
+                  >
+                  <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mt-1">
+                    <span class="metric-value">
+                      {{ formatarMoeda(dadosFin.resultado_orcamentario) }}
+                    </span>
+                    @if (obterIndicadorResultado(dadosFin); as indRes) {
+                      <span
+                        class="indicador-benchmark"
+                        [class.indicador-benchmark--verde]="indRes.cor === 'verde'"
+                        [class.indicador-benchmark--vermelho]="indRes.cor === 'vermelho'"
+                        [class.indicador-benchmark--preto]="indRes.cor === 'preto'"
+                        [title]="indRes.tooltip"
+                        [attr.aria-label]="indRes.ariaLabel"
+                        data-testid="indicador-benchmark-resultado-orcamentario"
+                        tabindex="0"
+                      >
+                        <span aria-hidden="true">{{ indRes.simbolo }}</span>
+                        <span>{{ indRes.valorFormatado }}</span>
+                      </span>
+                    }
+                  </div>
+                  @if (obterIndicadorResultado(dadosFin)?.rotuloQuartil; as subRes) {
+                    <div
+                      class="text-[11px] font-semibold text-meta mt-1"
+                      data-testid="subtitulo-resultado-orcamentario"
+                    >
+                      {{ subRes }}
+                    </div>
+                  }
+                </div>
+              }
             </div>
           } @else {
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">

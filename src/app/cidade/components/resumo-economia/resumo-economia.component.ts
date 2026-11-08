@@ -13,6 +13,7 @@ import {
   formatarMultiplicador,
   formatarNota,
   formatarNumero,
+  formatarPct,
 } from '../../../core/utils/formatadores';
 import { CabecalhoSecaoComponent } from '../../../shared/components/cabecalho-secao/cabecalho-secao.component';
 
@@ -22,7 +23,8 @@ export type ChaveBenchmarkEconomia =
   | 'renda_media_pc'
   | 'renda_mediana_pc'
   | 'receita_bruta'
-  | 'despesa_bruta';
+  | 'despesa_bruta'
+  | 'resultado_orcamentario';
 
 const METRICAS_ABSOLUTAS: ReadonlySet<ChaveBenchmarkEconomia> = new Set([
   'pib_total',
@@ -37,6 +39,7 @@ const ROTULOS_METRICAS_ECONOMIA: Record<ChaveBenchmarkEconomia, string> = {
   renda_mediana_pc: 'Renda Mediana p/c',
   receita_bruta: 'Receitas Brutas',
   despesa_bruta: 'Despesas Empenhadas',
+  resultado_orcamentario: 'Resultado Orçamentário',
 };
 
 export interface IndicadorNacionalEconomia {
@@ -205,6 +208,81 @@ export class ResumoEconomiaComponent {
       rotuloCurto,
       mediana: comp.mediana,
       n: comp.n,
+      tooltip,
+      ariaLabel,
+    };
+  }
+
+  obterIndicadorResultado(dadosFin: ResumoFinancasDados): IndicadorNacionalEconomia | null {
+    if (dadosFin.resultado_orcamentario === undefined || dadosFin.resultado_orcamentario === null) {
+      return null;
+    }
+
+    const valor = dadosFin.resultado_orcamentario;
+    const pct = dadosFin.resultado_orcamentario_pct ?? 0;
+    const situacao =
+      dadosFin.situacao_orcamentaria ??
+      (valor > 0 ? 'superavit' : valor < 0 ? 'deficit' : 'equilibrio');
+    const comp = this.secaoFinancas()?.benchmark?.comparacoes?.['resultado_orcamentario'];
+
+    const cor: 'verde' | 'vermelho' | 'preto' =
+      situacao === 'superavit' ? 'verde' : situacao === 'deficit' ? 'vermelho' : 'preto';
+    const simbolo = situacao === 'superavit' ? '▲' : situacao === 'deficit' ? '▼' : '●';
+
+    const pctFormatada = formatarPct(Math.abs(pct));
+    const valorFormatado =
+      situacao === 'superavit'
+        ? `Superávit (+${pctFormatada})`
+        : situacao === 'deficit'
+          ? `Déficit (−${pctFormatada})`
+          : 'Equilíbrio (0,0%)';
+
+    const rotuloCurto = situacao;
+    const rotulo =
+      situacao === 'superavit'
+        ? 'Superávit orçamentário'
+        : situacao === 'deficit'
+          ? 'Déficit orçamentário'
+          : 'Equilíbrio fiscal';
+
+    const posicao = comp?.posicao;
+    const posicaoTotal = comp?.posicao_total ?? comp?.n;
+    const quartil = comp?.quartil;
+    let rotuloQuartil: string | undefined;
+
+    if (situacao === 'superavit') {
+      if (posicao && posicao <= 100) {
+        rotuloQuartil = `${posicao}º maior superávit do Brasil (Top 1%)`;
+      } else {
+        rotuloQuartil = 'Receitas superaram despesas no exercício';
+      }
+    } else if (situacao === 'deficit') {
+      rotuloQuartil = 'Despesas empenhadas superaram receitas';
+    } else {
+      rotuloQuartil = 'Receitas e despesas equilibradas';
+    }
+
+    const posTexto =
+      posicao && posicaoTotal
+        ? ` (${formatarNumero(posicao)}º entre ${formatarNumero(posicaoTotal)} municípios)`
+        : '';
+    const tooltip = `Resultado Orçamentário (${formatarMoeda(valor)}): ${rotulo} de ${pctFormatada} sobre as receitas arrecadadas${posTexto} · DCA ${this.secaoFinancas()?.ano ?? 2025} (Tesouro Nacional)`;
+    const ariaLabel = `Resultado Orçamentário: ${formatarMoeda(valor)}. ${rotulo} de ${pctFormatada}.${posTexto}`;
+
+    return {
+      desvio: valor,
+      desvioPct: pct,
+      posicao,
+      posicaoTotal,
+      quartil,
+      rotuloQuartil,
+      valorFormatado,
+      cor,
+      simbolo,
+      rotulo,
+      rotuloCurto,
+      mediana: comp?.mediana,
+      n: comp?.n,
       tooltip,
       ariaLabel,
     };
