@@ -19,7 +19,12 @@
       </thead>
       <tbody>
         @for (ver of vereadores(); track ver.nome) {
-          <tr>
+          <tr
+            [class.em-exercicio]="ver.em_exercicio"
+            [class.eleito]="
+              ver.status_eleicao_2026 === 'eleito' || ver.status_eleicao_2026 === 'reeleito'
+            "
+          >
             <td class="cell-nome">
               <app-cartao-parlamentar [parlamentar]="ver" [anoPleito]="secao().ano" />
             </td>

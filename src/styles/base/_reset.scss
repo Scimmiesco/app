@@ -23,6 +23,9 @@ body {
   font-family: tokens.$font-texto;
   max-width: 100%;
   overflow-x: hidden;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
 }
 
 ::selection {

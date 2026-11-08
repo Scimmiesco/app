@@ -83,8 +83,9 @@ h3,
   font-weight: 500;
   line-height: 1.45;
   color: rgba(0, 0, 0, 0.72);
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
 
   &.truncate {
     display: inline-block;
@@ -99,8 +100,9 @@ h3,
 .text-meta-subtle {
   font-size: 0.72rem;
   color: rgba(0, 0, 0, 0.6);
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
 }
 
 .text-contrast {
@@ -117,8 +119,9 @@ h3,
   text-decoration-thickness: 1px;
   color: tokens.$color-black;
   transition: opacity 0.15s ease;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
 
   &:hover {
     opacity: 0.7;

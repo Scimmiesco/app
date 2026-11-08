@@ -38,6 +38,7 @@ describe('DeputadosEstaduaisComponent', () => {
     expect(el.textContent).toContain('45.678');
     expect(el.textContent).toContain('2,31%');
     expect(el.querySelector('.tag-eleicao')?.textContent?.trim()).toBe('eleito');
+    expect(el.querySelector('tbody tr')?.classList.contains('eleito')).toBe(true);
     expect(el.textContent).toContain('Mandato: 2027-2031');
   });
 });
