@@ -22,7 +22,24 @@
               title="Produto Interno Bruto — valor de todas as riquezas geradas no município"
               ><abbr title="Produto Interno Bruto">PIB</abbr> Total</span
             >
-            <span class="metric-value">{{ formatarMoeda(dadosEco.pib_total) }}</span>
+            <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mt-1">
+              <span class="metric-value">{{ formatarMoeda(dadosEco.pib_total) }}</span>
+              @if (obterIndicador('pib_total'); as ind) {
+                <span
+                  class="indicador-benchmark"
+                  [class.indicador-benchmark--verde]="ind.cor === 'verde'"
+                  [class.indicador-benchmark--vermelho]="ind.cor === 'vermelho'"
+                  [class.indicador-benchmark--preto]="ind.cor === 'preto'"
+                  [title]="ind.tooltip"
+                  [attr.aria-label]="ind.ariaLabel"
+                  data-testid="indicador-benchmark-pib-total"
+                  tabindex="0"
+                >
+                  <span aria-hidden="true">{{ ind.simbolo }}</span>
+                  <span>{{ ind.valorFormatado }}</span>
+                </span>
+              }
+            </div>
           </div>
           <div class="metric-card" data-testid="card-metrica-pib-per-capita">
             <span
@@ -30,7 +47,24 @@
               title="Produto Interno Bruto por habitante — riqueza média dividida pela população"
               ><abbr title="Produto Interno Bruto">PIB</abbr> Per Capita</span
             >
-            <span class="metric-value">{{ formatarMoeda(dadosEco.pib_per_capita) }}</span>
+            <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mt-1">
+              <span class="metric-value">{{ formatarMoeda(dadosEco.pib_per_capita) }}</span>
+              @if (obterIndicador('pib_per_capita'); as ind) {
+                <span
+                  class="indicador-benchmark"
+                  [class.indicador-benchmark--verde]="ind.cor === 'verde'"
+                  [class.indicador-benchmark--vermelho]="ind.cor === 'vermelho'"
+                  [class.indicador-benchmark--preto]="ind.cor === 'preto'"
+                  [title]="ind.tooltip"
+                  [attr.aria-label]="ind.ariaLabel"
+                  data-testid="indicador-benchmark-pib-per-capita"
+                  tabindex="0"
+                >
+                  <span aria-hidden="true">{{ ind.simbolo }}</span>
+                  <span>{{ ind.valorFormatado }}</span>
+                </span>
+              }
+            </div>
           </div>
           @if (rendaMedia() !== null && rendaMedia() !== undefined) {
             <div class="metric-card" data-testid="card-metrica-renda-media">
@@ -39,7 +73,24 @@
                 title="Rendimento médio mensal domiciliar por pessoa (IBGE Censo)"
                 >Renda Média p/c</span
               >
-              <span class="metric-value">{{ formatarMoeda(rendaMedia()) }}</span>
+              <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mt-1">
+                <span class="metric-value">{{ formatarMoeda(rendaMedia()) }}</span>
+                @if (obterIndicador('renda_media_pc'); as ind) {
+                  <span
+                    class="indicador-benchmark"
+                    [class.indicador-benchmark--verde]="ind.cor === 'verde'"
+                    [class.indicador-benchmark--vermelho]="ind.cor === 'vermelho'"
+                    [class.indicador-benchmark--preto]="ind.cor === 'preto'"
+                    [title]="ind.tooltip"
+                    [attr.aria-label]="ind.ariaLabel"
+                    data-testid="indicador-benchmark-renda-media"
+                    tabindex="0"
+                  >
+                    <span aria-hidden="true">{{ ind.simbolo }}</span>
+                    <span>{{ ind.valorFormatado }}</span>
+                  </span>
+                }
+              </div>
             </div>
           }
           @if (rendaMediana() !== null && rendaMediana() !== undefined) {
@@ -49,7 +100,24 @@
                 title="Rendimento mediano domiciliar por pessoa — metade dos moradores ganha até este valor (IBGE Censo)"
                 >Renda Mediana p/c</span
               >
-              <span class="metric-value">{{ formatarMoeda(rendaMediana()) }}</span>
+              <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mt-1">
+                <span class="metric-value">{{ formatarMoeda(rendaMediana()) }}</span>
+                @if (obterIndicador('renda_mediana_pc'); as ind) {
+                  <span
+                    class="indicador-benchmark"
+                    [class.indicador-benchmark--verde]="ind.cor === 'verde'"
+                    [class.indicador-benchmark--vermelho]="ind.cor === 'vermelho'"
+                    [class.indicador-benchmark--preto]="ind.cor === 'preto'"
+                    [title]="ind.tooltip"
+                    [attr.aria-label]="ind.ariaLabel"
+                    data-testid="indicador-benchmark-renda-mediana"
+                    tabindex="0"
+                  >
+                    <span aria-hidden="true">{{ ind.simbolo }}</span>
+                    <span>{{ ind.valorFormatado }}</span>
+                  </span>
+                }
+              </div>
             </div>
           }
         </div>
@@ -91,7 +159,24 @@
                   >
                   {{ sFin.ano }})</span
                 >
-                <span class="metric-value">{{ formatarMoeda(dadosFin.receita_bruta) }}</span>
+                <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mt-1">
+                  <span class="metric-value">{{ formatarMoeda(dadosFin.receita_bruta) }}</span>
+                  @if (obterIndicador('receita_bruta'); as ind) {
+                    <span
+                      class="indicador-benchmark"
+                      [class.indicador-benchmark--verde]="ind.cor === 'verde'"
+                      [class.indicador-benchmark--vermelho]="ind.cor === 'vermelho'"
+                      [class.indicador-benchmark--preto]="ind.cor === 'preto'"
+                      [title]="ind.tooltip"
+                      [attr.aria-label]="ind.ariaLabel"
+                      data-testid="indicador-benchmark-receita-bruta"
+                      tabindex="0"
+                    >
+                      <span aria-hidden="true">{{ ind.simbolo }}</span>
+                      <span>{{ ind.valorFormatado }}</span>
+                    </span>
+                  }
+                </div>
               </div>
               <div class="metric-card" data-testid="card-metrica-despesa-bruta">
                 <span
@@ -103,7 +188,24 @@
                   >
                   {{ sFin.ano }})</span
                 >
-                <span class="metric-value">{{ formatarMoeda(dadosFin.despesa_bruta) }}</span>
+                <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1 mt-1">
+                  <span class="metric-value">{{ formatarMoeda(dadosFin.despesa_bruta) }}</span>
+                  @if (obterIndicador('despesa_bruta'); as ind) {
+                    <span
+                      class="indicador-benchmark"
+                      [class.indicador-benchmark--verde]="ind.cor === 'verde'"
+                      [class.indicador-benchmark--vermelho]="ind.cor === 'vermelho'"
+                      [class.indicador-benchmark--preto]="ind.cor === 'preto'"
+                      [title]="ind.tooltip"
+                      [attr.aria-label]="ind.ariaLabel"
+                      data-testid="indicador-benchmark-despesa-bruta"
+                      tabindex="0"
+                    >
+                      <span aria-hidden="true">{{ ind.simbolo }}</span>
+                      <span>{{ ind.valorFormatado }}</span>
+                    </span>
+                  }
+                </div>
               </div>
             </div>
           } @else {
@@ -145,6 +247,38 @@
           }
         </div>
       }
+    </div>
+  }
+
+  @if (temBenchmark()) {
+    <div
+      class="text-[11px] text-meta pt-2.5 border-t border-black/10 flex flex-wrap items-center justify-between gap-2"
+      data-testid="legenda-benchmark-economia"
+    >
+      <span title="Diferença percentual em relação à mediana nacional dos municípios brasileiros">
+        <strong>Diferença da mediana nacional (%):</strong> comparativo com os municípios
+        brasileiros
+      </span>
+      <div class="flex items-center gap-3">
+        <span
+          class="flex items-center gap-1 font-semibold text-emerald-800"
+          title="Acima da mediana dos municípios"
+        >
+          <span aria-hidden="true">▲</span> acima da mediana
+        </span>
+        <span
+          class="flex items-center gap-1 font-semibold text-zinc-900"
+          title="Na mediana dos municípios (0,0%)"
+        >
+          <span aria-hidden="true">●</span> na mediana (0,0%)
+        </span>
+        <span
+          class="flex items-center gap-1 font-semibold text-red-700"
+          title="Abaixo da mediana dos municípios"
+        >
+          <span aria-hidden="true">▼</span> abaixo da mediana
+        </span>
+      </div>
     </div>
   }
 </div>

@@ -68,6 +68,13 @@ export function formatarDesvio(val?: number | null): string {
   return sinal + FORMATADOR_DESVIO_DECIMAL.format(limpo);
 }
 
+export function formatarDesvioPct(val?: number | null): string {
+  if (val === null || val === undefined) return '—';
+  const limpo = Object.is(val, -0) || Math.abs(val) < 0.00001 ? 0 : val;
+  const sinal = limpo > 0 ? '+' : '';
+  return sinal + FORMATADOR_DESVIO_DECIMAL.format(limpo) + '%';
+}
+
 export function formatarMoeda(val?: number | null): string {
   if (val === null || val === undefined) return '—';
   return FORMATADOR_MOEDA.format(val).replace(/\s/g, '\u00A0');

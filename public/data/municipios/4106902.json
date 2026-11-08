@@ -156,6 +156,113 @@
    "dados": {
     "pib_total": 120065276000.0,
     "pib_per_capita": 67691.3
+   },
+   "benchmark": {
+    "meta": {
+     "indicador": "economia_e_financas_municipais",
+     "universo": "municipios brasileiros com dados oficiais publicados no IBGE e SICONFI",
+     "ponderacao": "nao_ponderada (cada municipio vale 1)",
+     "metodo": {
+      "mediana": "P50 da distribuicao dos municipios",
+      "quartis": "P25/P75 por interpolacao linear",
+      "desvio": "valor - mediana",
+      "desvio_pct_mediana": "(valor - mediana) / mediana * 100",
+      "mad": "mediana(|valor - mediana|)",
+      "z_robusto": "0,6745 * desvio / MAD (quando MAD > 0)",
+      "percentil": "(menores + 0,5 * iguais) / N * 100",
+      "faixas": "muito_abaixo <=10; abaixo <40; proximo 40-60; acima <90; muito_acima >=90"
+     }
+    },
+    "comparacoes": {
+     "pib_total": {
+      "valor": 120065276000.0,
+      "desvio_mediana": 119756258000.0,
+      "desvio_pct_mediana": 38753.81,
+      "percentil": 99.88,
+      "z_robusto": 377.6299,
+      "faixa": "muito_acima",
+      "faixa_rotulo": "Muito acima da mediana",
+      "ano": 2023,
+      "fonte": "ibge_pib_2023",
+      "fonte_titulo": "PIB Municipal 2023 (IBGE SIDRA 5938)",
+      "n": 5570,
+      "min": 25284000.0,
+      "max": 1066825105000.0,
+      "media": 1964693971.27,
+      "mediana": 309018000.0,
+      "q1": 135728750.0,
+      "q3": 836908500.0,
+      "p10": 78003200.0,
+      "p90": 2656240700.0,
+      "mad": 213901500.0
+     },
+     "pib_per_capita": {
+      "valor": 67691.3,
+      "desvio_mediana": 37796.68,
+      "desvio_pct_mediana": 126.43,
+      "percentil": 87.03,
+      "z_robusto": 1.7419,
+      "faixa": "acima",
+      "faixa_rotulo": "Acima da mediana",
+      "ano": 2023,
+      "fonte": "ibge_pib_2023",
+      "fonte_titulo": "PIB Per Capita 2023 (IBGE 47001)",
+      "n": 5570,
+      "min": 7201.7,
+      "max": 722441.52,
+      "media": 40342.48,
+      "mediana": 29894.62,
+      "q1": 16839.84,
+      "q3": 49794.12,
+      "p10": 12813.67,
+      "p90": 75281.79,
+      "mad": 14635.56
+     },
+     "renda_media_pc": {
+      "valor": 3137.92,
+      "desvio_mediana": 1955.38,
+      "desvio_pct_mediana": 165.35,
+      "percentil": 99.7,
+      "z_robusto": 3.4316,
+      "faixa": "muito_acima",
+      "faixa_rotulo": "Muito acima da mediana",
+      "ano": 2022,
+      "fonte": "ibge_censo_2022",
+      "fonte_titulo": "Censo Demográfico 2022 (IBGE SIDRA 10295)",
+      "n": 5570,
+      "min": 288.65,
+      "max": 4299.91,
+      "media": 1211.59,
+      "mediana": 1182.54,
+      "q1": 772.39,
+      "q3": 1520.36,
+      "p10": 659.36,
+      "p90": 1841.87,
+      "mad": 384.34
+     },
+     "renda_mediana_pc": {
+      "valor": 1850.0,
+      "desvio_mediana": 950.0,
+      "desvio_pct_mediana": 105.56,
+      "percentil": 99.47,
+      "z_robusto": 2.1359,
+      "faixa": "muito_acima",
+      "faixa_rotulo": "Muito acima da mediana",
+      "ano": 2022,
+      "fonte": "ibge_censo_2022",
+      "fonte_titulo": "Censo Demográfico 2022 (IBGE SIDRA 10295)",
+      "n": 5570,
+      "min": 160.0,
+      "max": 2500.0,
+      "media": 899.35,
+      "mediana": 900.0,
+      "q1": 600.0,
+      "q3": 1200.0,
+      "p10": 480.0,
+      "p90": 1314.7,
+      "mad": 300.0
+     }
+    }
    }
   },
   "resumo_populacao_estimada": {
@@ -345,6 +452,69 @@
    "dados": {
     "receita_bruta": 14698202927.1,
     "despesa_bruta": 14541135875.9
+   },
+   "benchmark": {
+    "meta": {
+     "indicador": "economia_e_financas_municipais",
+     "universo": "municipios brasileiros com dados oficiais publicados no IBGE e SICONFI",
+     "ponderacao": "nao_ponderada (cada municipio vale 1)",
+     "metodo": {
+      "mediana": "P50 da distribuicao dos municipios",
+      "quartis": "P25/P75 por interpolacao linear",
+      "desvio": "valor - mediana",
+      "desvio_pct_mediana": "(valor - mediana) / mediana * 100",
+      "mad": "mediana(|valor - mediana|)",
+      "z_robusto": "0,6745 * desvio / MAD (quando MAD > 0)",
+      "percentil": "(menores + 0,5 * iguais) / N * 100",
+      "faixas": "muito_abaixo <=10; abaixo <40; proximo 40-60; acima <90; muito_acima >=90"
+     }
+    },
+    "comparacoes": {
+     "receita_bruta": {
+      "valor": 14698202927.1,
+      "desvio_mediana": 14605838204.99,
+      "desvio_pct_mediana": 15813.22,
+      "percentil": 99.94,
+      "z_robusto": 214.6858,
+      "faixa": "muito_acima",
+      "faixa_rotulo": "Muito acima da mediana",
+      "ano": 2025,
+      "fonte": "siconfi_dca_2025",
+      "fonte_titulo": "DCA 2025 — Tesouro Nacional (SICONFI / IBGE 28141)",
+      "n": 5442,
+      "min": 132.01,
+      "max": 116192464926.51,
+      "media": 273138218.22,
+      "mediana": 92364722.11,
+      "q1": 53663714.32,
+      "q3": 182479909.96,
+      "p10": 42238281.15,
+      "p90": 414143584.24,
+      "mad": 45888636.91
+     },
+     "despesa_bruta": {
+      "valor": 14541135875.9,
+      "desvio_mediana": 14458561596.23,
+      "desvio_pct_mediana": 17509.76,
+      "percentil": 99.94,
+      "z_robusto": 229.2079,
+      "faixa": "muito_acima",
+      "faixa_rotulo": "Muito acima da mediana",
+      "ano": 2025,
+      "fonte": "siconfi_dca_2025",
+      "fonte_titulo": "DCA 2025 — Tesouro Nacional (SICONFI / IBGE 29749)",
+      "n": 5443,
+      "min": 3293552.19,
+      "max": 123571806691.25,
+      "media": 258343102.52,
+      "mediana": 82574279.67,
+      "q1": 46636438.48,
+      "q3": 166223478.12,
+      "p10": 35792793.1,
+      "p90": 383340193.25,
+      "mad": 42547826.98
+     }
+    }
    }
   },
   "eleicao_2026_1t": {

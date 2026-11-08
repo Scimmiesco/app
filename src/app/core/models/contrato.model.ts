@@ -35,6 +35,7 @@ export type FaixaBenchmark = 'muito_abaixo' | 'abaixo' | 'proximo' | 'acima' | '
 export interface EducacaoItemBenchmark {
   valor: number;
   desvio_mediana: number;
+  desvio_pct_mediana?: number;
   percentil: number;
   z_robusto?: number;
   faixa: FaixaBenchmark | string;
@@ -49,11 +50,14 @@ export interface EducacaoItemBenchmark {
   p10?: number;
   p90?: number;
   mad?: number;
+  ano?: number;
+  fonte?: string;
+  fonte_titulo?: string;
 }
 
 export interface EducacaoBenchmarkMeta {
   indicador: string;
-  ano: number;
+  ano?: number;
   universo: string;
   ponderacao: string;
   metodo?: Record<string, string>;
@@ -74,9 +78,22 @@ export interface EscolarizacaoBenchmark {
   comparacao?: EducacaoItemBenchmark;
 }
 
+export interface EconomiaBenchmark {
+  meta?: EducacaoBenchmarkMeta;
+  comparacoes?: {
+    pib_total?: EducacaoItemBenchmark;
+    pib_per_capita?: EducacaoItemBenchmark;
+    renda_media_pc?: EducacaoItemBenchmark;
+    renda_mediana_pc?: EducacaoItemBenchmark;
+    receita_bruta?: EducacaoItemBenchmark;
+    despesa_bruta?: EducacaoItemBenchmark;
+    [chave: string]: EducacaoItemBenchmark | undefined;
+  };
+}
+
 export interface SecaoEnvelope<
   T,
-  B = EducacaoBenchmark | EscolarizacaoBenchmark | EducacaoItemBenchmark,
+  B = EducacaoBenchmark | EscolarizacaoBenchmark | EducacaoItemBenchmark | EconomiaBenchmark,
 > {
   titulo: string;
   categoria?: string;
@@ -208,14 +225,14 @@ export interface ParlamentarItem {
 export interface SecoesMunicipio {
   cabecalho?: SecaoEnvelope<CabecalhoDados>;
   resumo_ibge_censo?: SecaoEnvelope<ResumoIbgeDados>;
-  resumo_economia?: SecaoEnvelope<ResumoEconomiaDados>;
+  resumo_economia?: SecaoEnvelope<ResumoEconomiaDados, EconomiaBenchmark>;
   resumo_populacao_estimada?: SecaoEnvelope<ResumoPopulacaoEstimadaDados>;
   resumo_escolarizacao?: SecaoEnvelope<
     ResumoEscolarizacaoDados,
     EducacaoItemBenchmark | EscolarizacaoBenchmark
   >;
   resumo_educacao?: SecaoEnvelope<ResumoEducacaoDados, EducacaoBenchmark>;
-  resumo_financas?: SecaoEnvelope<ResumoFinancasDados>;
+  resumo_financas?: SecaoEnvelope<ResumoFinancasDados, EconomiaBenchmark>;
   eleicao_2026_1t?: SecaoEnvelope<EleicaoPresidencialDados>;
   eleicao_2026_2t?: SecaoEnvelope<EleicaoPresidencialDados>;
   governador?: SecaoEnvelope<ParlamentarItem[]>;

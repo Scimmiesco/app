@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import {
+  EconomiaBenchmark,
   ResumoEconomiaDados,
   ResumoFinancasDados,
   SecaoEnvelope,
 } from '../../../core/models/contrato.model';
 import { ResumoEconomiaComponent } from './resumo-economia.component';
 
-const secao: SecaoEnvelope<ResumoEconomiaDados> = {
+const secao: SecaoEnvelope<ResumoEconomiaDados, EconomiaBenchmark> = {
   titulo: 'Economia',
   categoria: 'A CIDADE',
   status: 'oficial',
@@ -14,10 +15,10 @@ const secao: SecaoEnvelope<ResumoEconomiaDados> = {
   ano: 2023,
   coletado_em: '2026-10-26',
   motivo: null,
-  dados: { pib_total: 34731175000, pib_per_capita: 38671.84 },
+  dados: { pib_total: 42269768000, pib_per_capita: 47065.77 },
 };
 
-const secaoFinancas: SecaoEnvelope<ResumoFinancasDados> = {
+const secaoFinancas: SecaoEnvelope<ResumoFinancasDados, EconomiaBenchmark> = {
   titulo: 'Finanças municipais',
   categoria: 'A CIDADE',
   status: 'oficial',
@@ -31,7 +32,85 @@ const secaoFinancas: SecaoEnvelope<ResumoFinancasDados> = {
   },
 };
 
-const secaoFinancasAlternativa: SecaoEnvelope<ResumoFinancasDados> = {
+const secaoComBenchmark: SecaoEnvelope<ResumoEconomiaDados, EconomiaBenchmark> = {
+  ...secao,
+  benchmark: {
+    comparacoes: {
+      pib_total: {
+        valor: 42269768000,
+        desvio_mediana: 41960750000,
+        desvio_pct_mediana: 13578.74,
+        percentil: 99.4,
+        faixa: 'muito_acima',
+        faixa_rotulo: 'Muito acima da mediana',
+        n: 5570,
+        mediana: 309018000,
+        fonte_titulo: 'PIB Municipal 2023 (IBGE SIDRA 5938)',
+      },
+      pib_per_capita: {
+        valor: 47065.77,
+        desvio_mediana: 17171.15,
+        desvio_pct_mediana: 57.44,
+        percentil: 72.45,
+        faixa: 'acima',
+        faixa_rotulo: 'Acima da mediana',
+        n: 5570,
+        mediana: 29894.62,
+        fonte_titulo: 'PIB Per Capita 2023 (IBGE 47001)',
+      },
+      renda_media_pc: {
+        valor: 2088.31,
+        desvio_mediana: 905.77,
+        desvio_pct_mediana: 76.6,
+        percentil: 94.87,
+        faixa: 'muito_acima',
+        faixa_rotulo: 'Muito acima da mediana',
+        n: 5570,
+        mediana: 1182.54,
+      },
+      renda_mediana_pc: {
+        valor: 868.0,
+        desvio_mediana: -32.0,
+        desvio_pct_mediana: -3.56,
+        percentil: 48.34,
+        faixa: 'proximo',
+        faixa_rotulo: 'Próximo da mediana',
+        n: 5570,
+        mediana: 900.0,
+      },
+    },
+  },
+};
+
+const secaoFinancasComBenchmark: SecaoEnvelope<ResumoFinancasDados, EconomiaBenchmark> = {
+  ...secaoFinancas,
+  benchmark: {
+    comparacoes: {
+      receita_bruta: {
+        valor: 6060081890.75,
+        desvio_mediana: 5967717168.64,
+        desvio_pct_mediana: 6461.04,
+        percentil: 99.66,
+        faixa: 'muito_acima',
+        faixa_rotulo: 'Muito acima da mediana',
+        n: 5442,
+        mediana: 92364722.11,
+      },
+      despesa_bruta: {
+        valor: 82574279.67,
+        desvio_mediana: 0,
+        desvio_pct_mediana: 0,
+        percentil: 50.0,
+        faixa: 'proximo',
+        faixa_rotulo: 'Na mediana nacional',
+        n: 5443,
+        mediana: 82574279.67,
+      },
+    },
+  },
+};
+
+const secaoFinancasAlternativa: SecaoEnvelope<ResumoFinancasDados, EconomiaBenchmark> = {
   titulo: 'Finanças municipais',
   categoria: 'A CIDADE',
   status: 'oficial',
@@ -58,8 +137,9 @@ describe('ResumoEconomiaComponent', () => {
     );
     expect(el.querySelector('[data-testid="card-metrica-pib-total"]')?.textContent).toContain('R$');
     expect(el.querySelector('[data-testid="card-metrica-pib-per-capita"]')?.textContent).toContain(
-      '38.671,84',
+      '47.065,77',
     );
+    expect(el.querySelector('[data-testid="legenda-benchmark-economia"]')).toBeNull();
   });
 
   it('should render municipal finances when secaoFinancas is provided', () => {
@@ -109,5 +189,38 @@ describe('ResumoEconomiaComponent', () => {
     const rendaMedianaEl = el.querySelector('[data-testid="card-metrica-renda-mediana"]');
     expect(rendaMedianaEl).toBeTruthy();
     expect(rendaMedianaEl?.textContent).toContain('1.237,33');
+  });
+
+  it('should render national benchmark percentage indicators for economy and municipal finances', () => {
+    const fixture = TestBed.createComponent(ResumoEconomiaComponent);
+    fixture.componentRef.setInput('secao', secaoComBenchmark);
+    fixture.componentRef.setInput('secaoFinancas', secaoFinancasComBenchmark);
+    fixture.componentRef.setInput('rendaMedia', 2088.31);
+    fixture.componentRef.setInput('rendaMediana', 868.0);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+
+    const indPibPc = el.querySelector('[data-testid="indicador-benchmark-pib-per-capita"]');
+    expect(indPibPc).toBeTruthy();
+    expect(indPibPc?.textContent).toContain('▲');
+    expect(indPibPc?.textContent).toContain('+57,4%');
+    expect(indPibPc?.classList.contains('indicador-benchmark--verde')).toBe(true);
+    expect(indPibPc?.getAttribute('title')).toContain('29.894,62');
+
+    const indRendaMediana = el.querySelector('[data-testid="indicador-benchmark-renda-mediana"]');
+    expect(indRendaMediana).toBeTruthy();
+    expect(indRendaMediana?.textContent).toContain('▼');
+    expect(indRendaMediana?.textContent).toContain('-3,6%');
+    expect(indRendaMediana?.classList.contains('indicador-benchmark--vermelho')).toBe(true);
+
+    const indDespesa = el.querySelector('[data-testid="indicador-benchmark-despesa-bruta"]');
+    expect(indDespesa).toBeTruthy();
+    expect(indDespesa?.textContent).toContain('●');
+    expect(indDespesa?.textContent).toContain('0,0%');
+    expect(indDespesa?.classList.contains('indicador-benchmark--preto')).toBe(true);
+
+    const legenda = el.querySelector('[data-testid="legenda-benchmark-economia"]');
+    expect(legenda).toBeTruthy();
+    expect(legenda?.textContent).toContain('Diferença da mediana nacional (%):');
   });
 });

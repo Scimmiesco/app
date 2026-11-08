@@ -1,6 +1,7 @@
 import {
   formatarDataIso,
   formatarDesvio,
+  formatarDesvioPct,
   formatarEstado,
   formatarIndice,
   formatarMoeda,
@@ -58,6 +59,12 @@ describe('formatadores', () => {
     expect(formatarDesvio(-0)).toBe('0,0');
     expect(formatarDesvio(null)).toBe('—');
     expect(formatarDesvio(undefined)).toBe('—');
+    expect(formatarDesvioPct(64.2)).toBe('+64,2%');
+    expect(formatarDesvioPct(-12.4)).toBe('-12,4%');
+    expect(formatarDesvioPct(0)).toBe('0,0%');
+    expect(formatarDesvioPct(-0)).toBe('0,0%');
+    expect(formatarDesvioPct(null)).toBe('—');
+    expect(formatarDesvioPct(undefined)).toBe('—');
     expect(formatarVariacaoVotos(23195)).toBe('+23.195');
     expect(formatarVariacaoVotos(-1)).toBe('-1');
     expect(formatarVariacaoPct(2.33)).toBe('+2,33 p.p.');
