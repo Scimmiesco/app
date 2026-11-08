@@ -1,0 +1,175 @@
+// ==========================================================================
+// COMPONENTES: ANIMAÇÕES 3D TÁTEIS DE HOVER E CLIQUE (NEO-BRUTALISMO 3D)
+// ==========================================================================
+
+@use '../tokens' as tokens;
+
+// 1. Botões, Seletores de Tema/Esfera e Abas de Turno (Efeito Tecla Mecânica 3D)
+.btn-default,
+.select-default,
+.input-default,
+[role='group'] button,
+[role='group'] a,
+[role='group'] > span,
+[role='tablist'] button,
+[role='tablist'] [role='tab'] {
+  position: relative;
+  transform: perspective(600px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+    scale(1);
+  transition:
+    transform 0.34s var(--spring-easing),
+    box-shadow 0.2s ease,
+    background-color 0.15s ease,
+    color 0.15s ease !important;
+
+  &:hover {
+    transform: perspective(600px) translate3d(-3px, -4px, 14px) rotateX(8deg) rotateY(-6deg)
+      rotateZ(-1deg) scale(1.05) !important;
+    box-shadow: 5px 6px 0 tokens.$color-black !important;
+    z-index: 4;
+  }
+
+  &:active {
+    transform: perspective(600px) translate3d(3px, 3px, 0) rotateX(-4deg) rotateY(2deg)
+      rotateZ(0deg) scale(0.94) !important;
+    box-shadow: 0 0 0 transparent !important;
+    transition-duration: 0.07s !important;
+  }
+}
+
+// 2. Cards de Métricas e Cards de Candidatos (Tilt 3D Real + Paralaxe em Camadas)
+.metric-card,
+.metric-card-amber {
+  position: relative;
+  transform: perspective(750px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+    scale(1);
+  cursor: pointer;
+  transition:
+    transform 0.38s var(--spring-easing),
+    box-shadow 0.22s ease,
+    border-color 0.2s ease !important;
+
+  &:hover {
+    transform: perspective(750px) translate3d(-4px, -6px, 20px) rotateX(6deg) rotateY(-6deg)
+      rotateZ(-0.5deg) scale(1.03) !important;
+    box-shadow: 7px 8px 0 tokens.$color-black !important;
+    z-index: 5;
+  }
+
+  &:active {
+    transform: perspective(750px) translate3d(3px, 3px, 0) rotateX(-3deg) rotateY(2deg)
+      rotateZ(0deg) scale(0.97) !important;
+    box-shadow: 1px 1px 0 tokens.$color-black !important;
+    transition-duration: 0.08s !important;
+  }
+}
+
+.card-candidato {
+  .nome-candidato,
+  .metric-value,
+  app-partido-badge,
+  .badge {
+    transform: translate3d(0, 0, 0) scale(1);
+    transition: transform 0.34s var(--spring-easing) !important;
+  }
+
+  &:hover {
+    transform: perspective(750px) translate3d(-5px, -7px, 24px) rotateX(7deg) rotateY(-8deg)
+      rotateZ(-0.8deg) scale(1.035) !important;
+    box-shadow:
+      inset 4px 0 0 var(--p-bg, #{tokens.$color-black}),
+      8px 9px 0 tokens.$color-black !important;
+    z-index: 6;
+
+    .nome-candidato,
+    .metric-value,
+    app-partido-badge,
+    .badge {
+      transform: translate3d(-2px, -2px, 12px) scale(1.03);
+    }
+  }
+
+  &:active {
+    transform: perspective(750px) translate3d(3px, 3px, 0) rotateX(-3deg) rotateY(2deg)
+      rotateZ(0deg) scale(0.965) !important;
+    box-shadow:
+      inset 4px 0 0 var(--p-bg, #{tokens.$color-black}),
+      1px 1px 0 tokens.$color-black !important;
+    transition-duration: 0.08s !important;
+  }
+}
+
+// 3. Moldura de Foto + Selo de Eleição e Badges (Pop 3D no Hover e Clique)
+.candidato-foto-tag,
+.badge,
+.badge-partido,
+.section-kicker {
+  position: relative;
+  transform: perspective(600px) translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+    scale(1);
+  cursor: pointer;
+  transition:
+    transform 0.34s var(--spring-easing),
+    box-shadow 0.2s ease !important;
+}
+
+.candidato-foto-tag:hover,
+.tabela-brutalista tbody tr:hover .candidato-foto-tag {
+  transform: perspective(600px) translate3d(-4px, -5px, 20px) rotateX(8deg) rotateY(-9deg)
+    rotateZ(-2deg) scale(1.07) !important;
+  box-shadow: 7px 8px 0 tokens.$color-black !important;
+  z-index: 6;
+}
+
+.candidato-foto-tag:active,
+.tabela-brutalista tbody tr:active .candidato-foto-tag {
+  transform: perspective(600px) translate3d(2px, 2px, 0) rotateX(-3deg) rotateY(2deg) rotateZ(0deg)
+    scale(0.94) !important;
+  box-shadow: 1px 1px 0 tokens.$color-black !important;
+  transition-duration: 0.07s !important;
+}
+
+.badge:hover,
+.badge-partido:hover,
+.section-kicker:hover {
+  transform: perspective(500px) translate3d(-2px, -3px, 12px) rotateX(8deg) rotateY(-8deg)
+    rotateZ(-2.5deg) scale(1.1) !important;
+  z-index: 4;
+}
+
+.badge:active,
+.badge-partido:active,
+.section-kicker:active {
+  transform: perspective(500px) translate3d(2px, 2px, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+    scale(0.92) !important;
+  transition-duration: 0.07s !important;
+}
+
+// 4. Sombras 3D de Hover no Tema Escuro
+:root[data-theme='dark'] {
+  .btn-default:hover,
+  .select-default:hover,
+  [role='group'] button:hover,
+  [role='group'] a:hover,
+  [role='tablist'] button:hover {
+    box-shadow: 5px 6px 0 tokens.$color-neon-ciano !important;
+  }
+
+  .metric-card:hover,
+  .metric-card-amber:hover {
+    border-color: tokens.$color-neon-ciano !important;
+    box-shadow: 7px 8px 0 tokens.$color-neon-ciano !important;
+  }
+
+  .card-candidato[data-partido]:hover {
+    box-shadow:
+      inset 4px 0 0 var(--p-neon-bg, #{tokens.$color-neon-ciano}),
+      8px 9px 0 var(--p-neon-bg, #{tokens.$color-neon-ciano}) !important;
+  }
+
+  .candidato-foto-tag:hover,
+  .tabela-brutalista tbody tr:hover .candidato-foto-tag {
+    border-color: tokens.$color-neon-amarelo;
+    box-shadow: 7px 8px 0 tokens.$color-neon-ciano !important;
+  }
+}

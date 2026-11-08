@@ -26,14 +26,9 @@
   @apply outline-none ring-2 ring-black;
 }
 
-// Respeito global ao prefers-reduced-motion (FR-13, NFR-02)
+// Respeito ao prefers-reduced-motion sem zerar globalmente transições de hover/clique (FR-13, NFR-02)
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
+  html {
+    scroll-behavior: auto;
   }
 }

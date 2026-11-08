@@ -2,9 +2,10 @@
   display: block;
 }
 
-/* Transição suave e integrada para alternância de abas da eleição presidencial */
+/* Transição 3D tipo placar para alternância de abas da eleição presidencial */
 .painel-aba-presidencial {
-  animation: painelAbaFadeIn 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top center;
+  animation: painelAbaFlip3D 340ms var(--spring-easing, cubic-bezier(0.16, 1, 0.3, 1)) forwards;
 }
 
 /* Garante integridade do tablist container-default contra colapso flex/viewport */
@@ -15,24 +16,16 @@
   align-items: center;
   width: max-content;
   max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow: visible;
 }
 
-@keyframes painelAbaFadeIn {
+@keyframes painelAbaFlip3D {
   from {
     opacity: 0;
-    transform: translateY(3px);
+    transform: perspective(900px) rotateX(-16deg) translateY(10px) scale(0.97);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .painel-aba-presidencial {
-    transition: none !important;
-    animation: none !important;
+    transform: perspective(900px) rotateX(0deg) translateY(0) scale(1);
   }
 }
