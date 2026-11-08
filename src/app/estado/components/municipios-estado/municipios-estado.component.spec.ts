@@ -44,5 +44,11 @@ describe('MunicipiosEstadoComponent', () => {
     expect(card.getAttribute('href')).toBe('/cidade/5002704');
     expect(card.classList.contains('card-clicavel')).toBe(true);
     expect(el.querySelector('[data-testid="seta-municipio-5002704"]')?.textContent).toContain('↗');
+    expect(el.querySelector('[data-testid="descricao-municipios-estado"]')?.textContent).toContain(
+      'Cidades integrantes do estado com dados e indicadores oficiais disponíveis:',
+    );
+    expect(el.textContent).toContain('Acessar página da cidade');
+    expect(el.textContent?.toLowerCase()).not.toContain('raio-x');
+    expect(el.textContent?.toLowerCase()).not.toContain('raio da cidade');
   });
 });
