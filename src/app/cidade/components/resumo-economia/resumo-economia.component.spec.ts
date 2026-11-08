@@ -95,6 +95,9 @@ const secaoFinancasComBenchmark: SecaoEnvelope<ResumoFinancasDados, EconomiaBenc
         desvio_mediana: 5967717168.64,
         desvio_pct_mediana: 6461.04,
         fator_mediana: 65.61,
+        posicao: 19,
+        posicao_total: 5442,
+        quartil: 4,
         percentil: 99.66,
         faixa: 'muito_acima',
         faixa_rotulo: 'Muito acima da mediana',
@@ -106,6 +109,9 @@ const secaoFinancasComBenchmark: SecaoEnvelope<ResumoFinancasDados, EconomiaBenc
         desvio_mediana: 0,
         desvio_pct_mediana: 0,
         fator_mediana: 1.0,
+        posicao: 2722,
+        posicao_total: 5443,
+        quartil: 2,
         percentil: 50.0,
         faixa: 'proximo',
         faixa_rotulo: 'Na mediana nacional',
@@ -236,13 +242,26 @@ describe('ResumoEconomiaComponent', () => {
     const indReceita = el.querySelector('[data-testid="indicador-benchmark-receita-bruta"]');
     expect(indReceita).toBeTruthy();
     expect(indReceita?.textContent).toContain('▲');
-    expect(indReceita?.textContent).toContain('66x');
+    expect(indReceita?.textContent).toContain('19º no Brasil');
+    expect(indReceita?.getAttribute('title')).toContain(
+      '19º maior orçamento de receitas entre 5.442 municípios',
+    );
+
+    const quartilReceita = el.querySelector('[data-testid="quartil-receita-bruta"]');
+    expect(quartilReceita).toBeTruthy();
+    expect(quartilReceita?.textContent).toContain(
+      '4º quartil nacional (Top 1% — maiores do Brasil)',
+    );
 
     const indDespesa = el.querySelector('[data-testid="indicador-benchmark-despesa-bruta"]');
     expect(indDespesa).toBeTruthy();
     expect(indDespesa?.textContent).toContain('●');
-    expect(indDespesa?.textContent).toContain('1,0x');
+    expect(indDespesa?.textContent).toContain('2.722º no Brasil');
     expect(indDespesa?.classList.contains('indicador-benchmark--preto')).toBe(true);
+
+    const quartilDespesa = el.querySelector('[data-testid="quartil-despesa-bruta"]');
+    expect(quartilDespesa).toBeTruthy();
+    expect(quartilDespesa?.textContent).toContain('2º quartil nacional (abaixo da mediana)');
 
     const legenda = el.querySelector('[data-testid="legenda-benchmark-economia"]');
     expect(legenda).toBeTruthy();

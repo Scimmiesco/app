@@ -51,7 +51,7 @@ export interface IndicadorNacionalEconomia {
   posicaoTotal?: number;
   quartil?: number;
   rotuloQuartil?: string;
-  /** Valor formatado para exibição: "34º no Brasil" (PIB total), "137x" (finanças) ou "+57,4%" (per capita) */
+  /** Valor formatado para exibição: "Xº no Brasil" (totais brutos/finanças) ou "+57,4%" (per capita) */
   valorFormatado: string;
   cor: 'verde' | 'vermelho' | 'preto';
   simbolo: string;
@@ -97,7 +97,8 @@ export class ResumoEconomiaComponent {
       METRICAS_ABSOLUTAS.has(chave) &&
       comp.fator_mediana !== undefined &&
       comp.fator_mediana !== null;
-    const ehPibTotal = chave === 'pib_total' && comp.posicao !== undefined && comp.posicao !== null;
+    const temRanking =
+      METRICAS_ABSOLUTAS.has(chave) && comp.posicao !== undefined && comp.posicao !== null;
     const desvioPct = comp.desvio_pct_mediana;
     const desvio = comp.desvio_mediana ?? 0;
     const fatorMediana = comp.fator_mediana;
@@ -111,18 +112,18 @@ export class ResumoEconomiaComponent {
         rotuloQuartil =
           comp.percentil >= 99
             ? '4º quartil nacional (Top 1% — maiores do Brasil)'
-            : '4º quartil nacional (25% maiores economias)';
+            : '4º quartil nacional (25% maiores do país)';
       } else if (quartil === 3) {
         rotuloQuartil = '3º quartil nacional (acima da mediana)';
       } else if (quartil === 2) {
         rotuloQuartil = '2º quartil nacional (abaixo da mediana)';
       } else {
-        rotuloQuartil = '1º quartil nacional (25% menores economias)';
+        rotuloQuartil = '1º quartil nacional (25% menores do país)';
       }
     }
 
     let valorFormatado: string;
-    if (ehPibTotal && posicao) {
+    if (temRanking && posicao) {
       valorFormatado = `${formatarNumero(posicao)}º no Brasil`;
     } else if (ehAbsoluta) {
       valorFormatado = formatarMultiplicador(fatorMediana);
@@ -168,17 +169,24 @@ export class ResumoEconomiaComponent {
     let tooltip: string;
     let ariaLabel: string;
 
-    if (ehPibTotal && posicao) {
+    if (temRanking && posicao) {
       const qTexto = rotuloQuartil ? ` · ${rotuloQuartil}` : '';
       const fatTexto = fatorMediana ? ` · ${formatarNota(fatorMediana)}x a mediana municipal` : '';
-      tooltip = `${formatarNumero(posicao)}º maior PIB entre ${formatarNumero(posicaoTotal)} municípios do Brasil${qTexto}${fatTexto}${medianaTexto}${fonteTexto}`;
-      ariaLabel = `${nomeMetrica}: ${formatarMoeda(comp.valor)}. ${formatarNumero(posicao)}º maior PIB do país entre ${formatarNumero(posicaoTotal)} cidades (${rotuloQuartil || rotulo}).`;
+      const tipoNome =
+        chave === 'pib_total'
+          ? 'maior PIB'
+          : chave === 'receita_bruta'
+            ? 'maior orçamento de receitas'
+            : 'maior volume de despesas';
+      tooltip = `${formatarNumero(posicao)}º ${tipoNome} entre ${formatarNumero(posicaoTotal)} municípios do Brasil${qTexto}${fatTexto}${medianaTexto}${fonteTexto}`;
+      ariaLabel = `${nomeMetrica}: ${formatarMoeda(comp.valor)}. ${formatarNumero(posicao)}º no país entre ${formatarNumero(posicaoTotal)} cidades (${rotuloQuartil || rotulo}).`;
     } else if (ehAbsoluta) {
       const posTexto = posicao ? ` (${formatarNumero(posicao)}º no país)` : '';
       tooltip = `${formatarNota(fatorMediana)}x a mediana nacional${posTexto} · ${rotulo}${medianaTexto}${fonteTexto}`;
       ariaLabel = `${nomeMetrica}: ${formatarMoeda(comp.valor)}. ${formatarNota(fatorMediana)} vezes a mediana nacional (${valorFormatado}). ${rotulo}.`;
     } else {
-      tooltip = `Diferença da mediana nacional: ${valorFormatado} · ${rotulo}${medianaTexto}${fonteTexto}`;
+      const posTexto = posicao ? ` (${formatarNumero(posicao)}º no país)` : '';
+      tooltip = `Diferença da mediana nacional: ${valorFormatado}${posTexto} · ${rotulo}${medianaTexto}${fonteTexto}`;
       ariaLabel = `${nomeMetrica}: ${formatarMoeda(comp.valor)}. Diferença da mediana nacional: ${valorFormatado}. ${rotulo}.`;
     }
 
