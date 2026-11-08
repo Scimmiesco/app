@@ -109,6 +109,16 @@ describe('CabecalhoEstadoComponent', () => {
       'Estadual',
     );
     expect(
+      el
+        .querySelector('[data-testid="badge-esfera-estado"]')
+        ?.classList.contains('shadow-default-sm'),
+    ).toBe(true);
+    expect(
+      el
+        .querySelector('[data-testid="toggle-esfera-estado"]')
+        ?.classList.contains('container-default'),
+    ).toBe(true);
+    expect(
       el.querySelector('[data-testid="container-seletor-esfera-estado"]')?.textContent,
     ).toContain('Mudar Estado');
   });

@@ -88,6 +88,16 @@ describe('CabecalhoCidadeComponent', () => {
       'Municipal',
     );
     expect(
+      el
+        .querySelector('[data-testid="badge-esfera-cidade"]')
+        ?.classList.contains('shadow-default-sm'),
+    ).toBe(true);
+    expect(
+      el
+        .querySelector('[data-testid="toggle-esfera-cidade"]')
+        ?.classList.contains('container-default'),
+    ).toBe(true);
+    expect(
       el.querySelector('[data-testid="container-seletor-esfera-cidade"]')?.textContent,
     ).toContain('Mudar Município');
   });

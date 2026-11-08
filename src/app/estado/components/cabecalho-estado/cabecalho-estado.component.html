@@ -34,7 +34,7 @@
 
     <!-- SELETOR UNIFICADO COM TOGGLE DE ESFERA (SEM REDUNDÂNCIA) -->
     <div
-      class="flex flex-col gap-2.5 self-start sm:self-center w-full sm:w-auto sm:min-w-[280px] p-3 bg-slate-50 border-2 border-black rounded-sm shadow-default-xs"
+      class="flex flex-col gap-2.5 self-start sm:self-center w-full sm:w-auto sm:min-w-[280px] p-3 bg-page border-2 border-black rounded-sm shadow-default"
       data-testid="container-seletor-esfera-estado"
     >
       <!-- TOGGLE DE ESFERA TERRITORIAL (PERMITE ALTERNAR PARA MUNICIPAL) -->
@@ -43,21 +43,21 @@
           Esfera Territorial
         </span>
         <div
-          class="grid grid-cols-2 p-0.5 bg-white border-2 border-black rounded-xs shadow-default-xs"
+          class="container-default bg-page grid grid-cols-2 gap-1.5 p-1.5"
           role="group"
           aria-label="Escolher esfera territorial"
           data-testid="toggle-esfera-estado"
         >
           <a
             [routerLink]="['/cidade', codigoRetornoMunicipal()]"
-            class="px-2.5 py-1 text-xs font-black uppercase rounded-xs bg-white text-black hover:bg-slate-100 transition-colors text-center select-none flex items-center justify-center"
+            class="px-3 py-1.5 rounded-xs text-xs font-black uppercase tracking-wider bg-transparent text-black hover-bg-amber transition-all duration-150 text-center select-none flex items-center justify-center whitespace-nowrap"
             title="Alternar para a esfera municipal"
             data-testid="btn-alternar-cidade"
           >
             Municipal
           </a>
           <span
-            class="px-2.5 py-1 text-xs font-black uppercase rounded-xs bg-black text-white text-center select-none flex items-center justify-center"
+            class="px-3 py-1.5 rounded-xs text-xs font-black uppercase tracking-wider bg-black text-white shadow-default-sm text-center select-none flex items-center justify-center whitespace-nowrap"
             data-testid="badge-esfera-estado"
           >
             Estadual

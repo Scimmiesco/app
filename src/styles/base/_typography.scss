@@ -72,6 +72,9 @@ h3,
   letter-spacing: 0.16em;
   color: tokens.$color-white;
   background-color: tokens.$color-black;
+  border: none;
+  border-radius: tokens.$radius-sm;
+  box-shadow: 2px 2px 0 tokens.$color-black;
   line-height: 1.25;
   padding: 2px 6px;
   margin-bottom: 6px;
