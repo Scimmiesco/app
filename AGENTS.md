@@ -32,8 +32,9 @@ Este arquivo define as diretrizes obrigatórias para o **Antigravity (engenheiro
      - Containers e cards no modo escuro usam o branco amber do modo claro (`$color-bg-amber: rgb(245, 245, 240)`) nas bordas e sombras duras.
      - Badges pretos no claro (`.section-kicker`, `.badge-dark`, `.bg-black.text-white`) ficam brancos (`#ffffff`) com texto preto (`#000000`) no escuro.
      - Toda badge (semântica, neutra ou `.badge-partido`) deve ter a cor do seu `box-shadow` (`2px 2px 0`) igual à sua própria cor primária (`background-color`).
-   - **Animações 3D Contidas e Tipografia (ADR-027)**:
+   - **Animações 3D Contidas, Borda Verde de Mandato e Tipografia (ADR-027)**:
      - Animações 3D (`src/styles/components/_motion3d.scss`) aplicam-se apenas a cards e controles clicáveis (`.card-clicavel`, `.metric-card:has(a[href])`, botões e selects) com `scale <= 1` para jamais crescer além do container.
+     - A borda verde esquerda nas linhas de tabela (`tr.em-exercicio`) aplica-se **apenas** a quem está em mandato ativo no momento via `estaEmMandatoNoMomento()` / `estaEmMandatoIntervalo()` (`src/app/core/utils/status-parlamentar.ts`), com memoização `WeakMap` O(1) e agendamento pelas datas futuras conhecidas (`DATAS_TRANSICAO_MANDATO`), sem polling.
      - Proibida a quebra de palavras em letras (`word-break: normal; overflow-wrap: normal; hyphens: none;`); a quebra ocorre apenas entre palavras.
    - Badges de partido usam as classes e tokens semânticos específicos com contraste medido (≥7:1).
    - Componentes devem obedecer semântica HTML (`aria-label`, `role="tablist"`, `scope="col"`, `loading="lazy"`, etc.).

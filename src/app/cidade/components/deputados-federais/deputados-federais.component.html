@@ -34,10 +34,7 @@
         <tbody>
           @for (dep of deputadosFederais(); track dep.nome) {
             <tr
-              [class.em-exercicio]="dep.em_exercicio"
-              [class.eleito]="
-                dep.status_eleicao_2026 === 'eleito' || dep.status_eleicao_2026 === 'reeleito'
-              "
+              [class.em-exercicio]="estaEmMandatoNoMomento(dep)"
               [attr.data-testid]="testIdLinha(dep)"
             >
               <td class="cell-nome">

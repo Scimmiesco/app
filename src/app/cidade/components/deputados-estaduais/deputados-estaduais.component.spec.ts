@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { ParlamentarItem, SecaoEnvelope } from '../../../core/models/contrato.model';
+import { definirDataReferenciaMandato } from '../../../core/utils/status-parlamentar';
 import { DeputadosEstaduaisComponent } from './deputados-estaduais.component';
 
 const secao: SecaoEnvelope<ParlamentarItem[]> = {
@@ -21,6 +22,7 @@ const secao: SecaoEnvelope<ParlamentarItem[]> = {
       pct: 2.31,
       situacao: 'ELEITO',
       em_exercicio: false,
+      mandato_inicio: '2027-02-01',
       mandato_fim: '2031-01-31',
       status_eleicao_2026: 'eleito',
     },
@@ -28,7 +30,12 @@ const secao: SecaoEnvelope<ParlamentarItem[]> = {
 };
 
 describe('DeputadosEstaduaisComponent', () => {
-  it('should render state deputies with votes, percentage and elected tag', () => {
+  afterEach(() => {
+    definirDataReferenciaMandato(null);
+  });
+
+  it('should render state deputies with votes, percentage and dynamic mandate border', () => {
+    definirDataReferenciaMandato('2026-11-08');
     const fixture = TestBed.createComponent(DeputadosEstaduaisComponent);
     fixture.componentRef.setInput('secao', secao);
     fixture.detectChanges();
@@ -38,7 +45,11 @@ describe('DeputadosEstaduaisComponent', () => {
     expect(el.textContent).toContain('45.678');
     expect(el.textContent).toContain('2,31%');
     expect(el.querySelector('.tag-eleicao')?.textContent?.trim()).toBe('eleito');
-    expect(el.querySelector('tbody tr')?.classList.contains('eleito')).toBe(true);
+    expect(el.querySelector('tbody tr')?.classList.contains('em-exercicio')).toBe(false);
+
+    definirDataReferenciaMandato('2027-02-01');
+    fixture.detectChanges();
+    expect(el.querySelector('tbody tr')?.classList.contains('em-exercicio')).toBe(true);
     expect(el.textContent).toContain('Mandato: 2027-2031');
   });
 });

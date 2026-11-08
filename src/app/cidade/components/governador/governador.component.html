@@ -37,12 +37,7 @@
         </thead>
         <tbody>
           @for (gov of governador(); track gov.nome) {
-            <tr
-              [class.em-exercicio]="gov.em_exercicio"
-              [class.eleito]="
-                gov.status_eleicao_2026 === 'eleito' || gov.status_eleicao_2026 === 'reeleito'
-              "
-            >
+            <tr [class.em-exercicio]="estaEmMandatoNoMomento(gov)">
               <td class="cell-nome">
                 <app-cartao-parlamentar [parlamentar]="gov" [anoPleito]="secao().ano" />
               </td>

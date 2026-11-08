@@ -21,10 +21,7 @@
       <tbody>
         @for (sen of senadores(); track sen.nome) {
           <tr
-            [class.em-exercicio]="sen.em_exercicio"
-            [class.eleito]="
-              sen.status_eleicao_2026 === 'eleito' || sen.status_eleicao_2026 === 'reeleito'
-            "
+            [class.em-exercicio]="estaEmMandatoNoMomento(sen)"
             [attr.data-testid]="'linha-senador-' + sen.nome_urna.toLowerCase()"
           >
             <td class="cell-nome">

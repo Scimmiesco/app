@@ -523,8 +523,7 @@ $partidos-dark: (
           }
         }
 
-        &.em-exercicio,
-        &.eleito {
+        &.em-exercicio {
           > td:first-child {
             box-shadow: inset 4px 0 0 tokens.$color-dark-verde;
           }
@@ -601,7 +600,6 @@ $partidos-dark: (
     outline-offset: -2px;
   }
 
-  .tabela-brutalista tbody tr.eleito > td:first-child,
   .tabela-brutalista tbody tr.em-exercicio > td:first-child {
     border-left: 4px solid Highlight;
   }

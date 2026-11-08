@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { FonteMeta, ParlamentarItem, SecaoEnvelope } from '../../../core/models/contrato.model';
 import { formatarDataIso, formatarNumero, formatarPct } from '../../../core/utils/formatadores';
+import { estaEmMandatoNoMomento } from '../../../core/utils/status-parlamentar';
 import { CabecalhoSecaoComponent } from '../../../shared/components/cabecalho-secao/cabecalho-secao.component';
 import { CartaoParlamentarComponent } from '../../../shared/components/cartao-parlamentar/cartao-parlamentar.component';
 
@@ -40,4 +41,5 @@ export class GovernadorComponent {
   protected readonly formatarNumero = formatarNumero;
   protected readonly formatarPct = formatarPct;
   protected readonly formatarDataIso = formatarDataIso;
+  protected readonly estaEmMandatoNoMomento = estaEmMandatoNoMomento;
 }

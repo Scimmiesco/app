@@ -109,9 +109,15 @@ describe('PresidencialComparativoComponent', () => {
         .querySelector('tr[data-partido="PT"] [data-testid="candidato-avatar-img"]')
         ?.classList.contains('candidato-avatar-nao-eleito'),
     ).toBe(false);
-    expect(el.querySelector('tr[data-partido="PT"]')?.classList.contains('eleito')).toBe(true);
-    expect(el.querySelector('tr[data-partido="PL"]')?.classList.contains('eleito')).toBe(false);
-    expect(el.querySelector('tr[data-partido="OUTROS"]')?.classList.contains('eleito')).toBe(false);
+    expect(el.querySelector('tr[data-partido="PT"]')?.classList.contains('em-exercicio')).toBe(
+      true,
+    );
+    expect(el.querySelector('tr[data-partido="PL"]')?.classList.contains('em-exercicio')).toBe(
+      false,
+    );
+    expect(el.querySelector('tr[data-partido="OUTROS"]')?.classList.contains('em-exercicio')).toBe(
+      false,
+    );
     expect(el.querySelector('[data-testid="outros-votos-2t"]')?.textContent?.trim()).toBe('-');
 
     const badgesOutros = el.querySelectorAll('.badge-outros');

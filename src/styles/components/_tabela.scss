@@ -174,8 +174,7 @@
         }
       }
 
-      &.em-exercicio,
-      &.eleito {
+      &.em-exercicio {
         > td:first-child {
           box-shadow: inset 4px 0 0 tokens.$color-verde;
         }

@@ -12,6 +12,7 @@ import {
   getCorPartido,
 } from '../../../core/utils/formatadores';
 import { calcularComparativoPresidencial } from '../../../core/utils/comparativo-presidencial';
+import { estaEmMandatoIntervalo } from '../../../core/utils/status-parlamentar';
 import { CandidatoAvatarComponent } from '../../../shared/components/candidato-avatar/candidato-avatar.component';
 import { NumeroCandidatoComponent } from '../../../shared/components/numero-candidato/numero-candidato.component';
 import { PartidoBadgeComponent } from '../../../shared/components/partido-badge/partido-badge.component';
@@ -30,6 +31,9 @@ export class PresidencialComparativoComponent {
   readonly comparativo = computed(() =>
     calcularComparativoPresidencial(this.secao1t(), this.secao2t()),
   );
+
+  // Lula: em mandato 2023-2026 e reeleito para 2027-2030
+  readonly lulaEmMandato = computed(() => estaEmMandatoIntervalo('2023-01-01', '2030-12-31'));
 
   readonly fotoFlavio: FotoCandidato = {
     arquivo: 'fotos/tse2026_280002551544.jpg',

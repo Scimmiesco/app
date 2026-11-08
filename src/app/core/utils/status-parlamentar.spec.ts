@@ -1,5 +1,11 @@
 import { ParlamentarItem } from '../models/contrato.model';
-import { resolverTagParlamentar, tentouENaoSeElegeu } from './status-parlamentar';
+import {
+  definirDataReferenciaMandato,
+  estaEmMandatoNoMomento,
+  proximaDataTransicaoMandato,
+  resolverTagParlamentar,
+  tentouENaoSeElegeu,
+} from './status-parlamentar';
 
 function criar(over: Partial<ParlamentarItem>): ParlamentarItem {
   return {
@@ -120,5 +126,60 @@ describe('resolverTagParlamentar', () => {
         }),
       ),
     ).toBe(false);
+  });
+
+  it('should dynamically evaluate whether a parlamentar is in mandate at the moment and know the next transition date', () => {
+    const novoEleitoLegislativo = criar({
+      em_exercicio: false,
+      status_eleicao_2026: 'eleito',
+      mandato_inicio: '2027-02-01',
+      mandato_fim: '2031-01-31',
+    });
+    const reeleitoLegislativo = criar({
+      em_exercicio: true,
+      status_eleicao_2026: 'reeleito',
+      mandato_inicio: '2027-02-01',
+      mandato_fim: '2031-01-31',
+    });
+    const atualSaindo = criar({
+      em_exercicio: true,
+      status_eleicao_2026: 'nao_reeleito',
+      mandato_inicio: '2023-02-01',
+      mandato_fim: '2027-01-31',
+    });
+    const novoGovernador = criar({
+      em_exercicio: false,
+      status_eleicao_2026: 'eleito',
+      mandato_inicio: '2027-01-01',
+      mandato_fim: '2030-12-31',
+    });
+    const atualGovernadorSaindo = criar({
+      em_exercicio: true,
+      status_eleicao_2026: 'em_exercicio',
+      mandato_inicio: '2023-01-01',
+      mandato_fim: '2026-12-31',
+    });
+
+    // Em 2026-11-08: próxima transição conhecida é 2027-01-01 (posse Executivo)
+    expect(proximaDataTransicaoMandato('2026-11-08')).toBe('2027-01-01');
+    expect(estaEmMandatoNoMomento(novoEleitoLegislativo, '2026-11-08')).toBe(false);
+    expect(estaEmMandatoNoMomento(reeleitoLegislativo, '2026-11-08')).toBe(true);
+    expect(estaEmMandatoNoMomento(atualSaindo, '2026-11-08')).toBe(true);
+    expect(estaEmMandatoNoMomento(novoGovernador, '2026-11-08')).toBe(false);
+    expect(estaEmMandatoNoMomento(atualGovernadorSaindo, '2026-11-08')).toBe(true);
+
+    // Em 2027-01-01: Governador eleito assume e o anterior encerra; próxima transição é 2027-02-01
+    expect(proximaDataTransicaoMandato('2027-01-01')).toBe('2027-02-01');
+    expect(estaEmMandatoNoMomento(novoGovernador, '2027-01-01')).toBe(true);
+    expect(estaEmMandatoNoMomento(atualGovernadorSaindo, '2027-01-01')).toBe(false);
+    expect(estaEmMandatoNoMomento(novoEleitoLegislativo, '2027-01-01')).toBe(false);
+    expect(estaEmMandatoNoMomento(atualSaindo, '2027-01-01')).toBe(true);
+
+    // Em 2027-02-01: Legislativo eleito assume e quem não se reelegeu encerra
+    definirDataReferenciaMandato('2027-02-01');
+    expect(estaEmMandatoNoMomento(novoEleitoLegislativo)).toBe(true);
+    expect(estaEmMandatoNoMomento(reeleitoLegislativo)).toBe(true);
+    expect(estaEmMandatoNoMomento(atualSaindo)).toBe(false);
+    definirDataReferenciaMandato(null);
   });
 });

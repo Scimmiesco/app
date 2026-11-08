@@ -19,12 +19,7 @@
       </thead>
       <tbody>
         @for (est of deputadosEstaduais(); track est.nome) {
-          <tr
-            [class.em-exercicio]="est.em_exercicio"
-            [class.eleito]="
-              est.status_eleicao_2026 === 'eleito' || est.status_eleicao_2026 === 'reeleito'
-            "
-          >
+          <tr [class.em-exercicio]="estaEmMandatoNoMomento(est)">
             <td class="cell-nome">
               <app-cartao-parlamentar [parlamentar]="est" [anoPleito]="secao().ano" />
             </td>
