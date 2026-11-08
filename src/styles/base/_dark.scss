@@ -13,120 +13,98 @@ $partidos-dark: (
   'PT': (
       bg: #ef4444,
       stripe: #ffffff,
-      shadow: #991b1b,
     ),
   'PDT': (
     bg: #f87171,
     stripe: #3b82f6,
-    shadow: #991b1b,
   ),
   'PCdoB': (
     bg: #ef4444,
     stripe: #facc15,
-    shadow: #7f1d1d,
   ),
   'PSOL': (
     bg: #f43f5e,
     stripe: #facc15,
-    shadow: #881337,
   ),
   'CIDADANIA': (
     bg: #f87171,
     stripe: #fb923c,
-    shadow: #991b1b,
   ),
 
   // 2. Azuis (mesmo matiz azul partidário com maior luminosidade)
   'PL': (
       bg: #60a5fa,
       stripe: #facc15,
-      shadow: #1d4ed8,
     ),
   'UNIÃO': (
     bg: #60a5fa,
     stripe: #22c55e,
-    shadow: #1e40af,
   ),
   'UNIAO': (
     bg: #60a5fa,
     stripe: #22c55e,
-    shadow: #1e40af,
   ),
   'PP': (
     bg: #38bdf8,
     stripe: #ffffff,
-    shadow: #0369a1,
   ),
   'PSDB': (
     bg: #60a5fa,
     stripe: #facc15,
-    shadow: #1e40af,
   ),
   'PSD': (
     bg: #60a5fa,
     stripe: #fb923c,
-    shadow: #1d4ed8,
   ),
   'REPUBLICANOS': (
     bg: #93c5fd,
     stripe: #ef4444,
-    shadow: #1e3a8a,
   ),
   'PODE': (
     bg: #38bdf8,
     stripe: #10b981,
-    shadow: #075985,
   ),
   'DC': (
     bg: #60a5fa,
     stripe: #ffffff,
-    shadow: #1e40af,
   ),
 
   // 3. Verdes (mesmo matiz verde com maior luminosidade)
   'MDB': (
       bg: #22c55e,
       stripe: #ef4444,
-      shadow: #15803d,
     ),
   'PV': (
     bg: #22c55e,
     stripe: #facc15,
-    shadow: #15803d,
   ),
   'REDE': (
     bg: #2dd4bf,
     stripe: #fb923c,
-    shadow: #0f766e,
   ),
 
   // 4. Laranjas (mesmo matiz laranja com maior luminosidade)
   'AVANTE': (
       bg: #fb923c,
       stripe: #3b82f6,
-      shadow: #9a3412,
     ),
   'PROS': (
     bg: #fb923c,
     stripe: #ffffff,
-    shadow: #9a3412,
   ),
   'NOVO': (
     bg: #fb923c,
     stripe: #1e3a8a,
-    shadow: #9a3412,
   ),
   'SOLIDARIEDADE': (
     bg: #fb923c,
     stripe: #38bdf8,
-    shadow: #9a3412,
   ),
 
   // 5. Amarelo / Âmbar
   'PSB': (
       bg: #fbbf24,
       stripe: #ef4444,
-      shadow: #92400e,
     )
 );
 
@@ -302,13 +280,13 @@ $partidos-dark: (
     border-bottom-color: #f4f4f5;
   }
 
-  // 4. Seletores Segmentados e Badges Pretos -> Brancos no Escuro
+  // 4. Seletores Segmentados e Badges Pretos -> Brancos no Escuro (shadow igual à cor primária)
   [role='group'],
   [role='tablist'] {
     .bg-black.text-white {
       background-color: #ffffff !important;
       color: #000000 !important;
-      box-shadow: 2px 2px 0 #71717a !important;
+      box-shadow: 2px 2px 0 #ffffff !important;
     }
 
     .bg-transparent.text-black {
@@ -336,13 +314,13 @@ $partidos-dark: (
     border-color: tokens.$color-bg-amber !important;
   }
 
-  // 5. Badges Pretos no Claro -> Brancos no Escuro; Cores Principais com Brilho/Saturação Normalizados
+  // 5. Badges com Shadow Igual à Cor Primária (Padrão do Tema Claro)
   .section-kicker,
   .badge-dark {
     background-color: #ffffff !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 #71717a !important;
+    box-shadow: 2px 2px 0 #ffffff !important;
   }
 
   .badge-verde,
@@ -354,7 +332,7 @@ $partidos-dark: (
     background-color: tokens.$color-dark-verde !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 #047857 !important;
+    box-shadow: 2px 2px 0 tokens.$color-dark-verde !important;
   }
 
   .badge-amarelo,
@@ -363,7 +341,7 @@ $partidos-dark: (
     background-color: tokens.$color-dark-amarelo !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 #b45309 !important;
+    box-shadow: 2px 2px 0 tokens.$color-dark-amarelo !important;
   }
 
   .badge-laranja,
@@ -372,7 +350,7 @@ $partidos-dark: (
     background-color: tokens.$color-dark-laranja !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 #9a3412 !important;
+    box-shadow: 2px 2px 0 tokens.$color-dark-laranja !important;
   }
 
   .badge-vermelho,
@@ -382,14 +360,14 @@ $partidos-dark: (
     background-color: tokens.$color-dark-vermelho !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 #991b1b !important;
+    box-shadow: 2px 2px 0 tokens.$color-dark-vermelho !important;
   }
 
   .badge-outros {
     background-color: #94a3b8 !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 #475569 !important;
+    box-shadow: 2px 2px 0 #94a3b8 !important;
   }
 
   .badge-white,
@@ -397,23 +375,21 @@ $partidos-dark: (
   .badge-neutral {
     background-color: #e4e4e7 !important;
     color: #000000 !important;
-    border-color: #000000 !important;
-    box-shadow: 2px 2px 0 #71717a !important;
+    border-color: #e4e4e7 !important;
+    box-shadow: 2px 2px 0 #e4e4e7 !important;
   }
 
-  // 6. Badges de Partidos Normalizados (Mesmos Matizes com Brilho e Saturação Elevados)
+  // 6. Badges de Partidos Normalizados (Shadow Igual à Cor Primária --p-dark-bg)
   @each $sigla, $prop in $partidos-dark {
     [data-partido='#{$sigla}'] {
       --p-dark-bg: #{map.get($prop, bg)};
       --p-dark-stripe: #{map.get($prop, stripe)};
-      --p-dark-shadow: #{map.get($prop, shadow)};
     }
   }
 
   [data-partido='OUTROS'] {
     --p-dark-bg: #94a3b8;
     --p-dark-stripe: #94a3b8;
-    --p-dark-shadow: #475569;
   }
 
   .badge-partido {
@@ -422,7 +398,7 @@ $partidos-dark: (
     border-left: 4px solid var(--p-dark-stripe, #000000) !important;
     color: #000000 !important;
     font-weight: 900;
-    box-shadow: 2px 2px 0 var(--p-dark-shadow, #71717a) !important;
+    box-shadow: 2px 2px 0 var(--p-dark-bg, #ffffff) !important;
 
     &[data-partido='OUTROS'] {
       border: none !important;
