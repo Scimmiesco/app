@@ -151,7 +151,6 @@ describe('ResumoEconomiaComponent', () => {
     expect(el.querySelector('[data-testid="card-metrica-pib-per-capita"]')?.textContent).toContain(
       '47.065,77',
     );
-    expect(el.querySelector('[data-testid="legenda-benchmark-economia"]')).toBeNull();
   });
 
   it('should render municipal finances when secaoFinancas is provided', () => {
@@ -262,9 +261,5 @@ describe('ResumoEconomiaComponent', () => {
     const quartilDespesa = el.querySelector('[data-testid="quartil-despesa-bruta"]');
     expect(quartilDespesa).toBeTruthy();
     expect(quartilDespesa?.textContent).toContain('2º quartil nacional (abaixo da mediana)');
-
-    const legenda = el.querySelector('[data-testid="legenda-benchmark-economia"]');
-    expect(legenda).toBeTruthy();
-    expect(legenda?.textContent).toContain('Comparativo nacional:');
   });
 });

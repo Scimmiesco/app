@@ -270,38 +270,4 @@
       }
     </div>
   }
-
-  @if (temBenchmark()) {
-    <div
-      class="text-[11px] text-meta pt-2.5 border-t border-black/10 flex flex-wrap items-center justify-between gap-2"
-      data-testid="legenda-benchmark-economia"
-    >
-      <span
-        title="Comparativo com os municípios brasileiros: ranking nacional e quartil nos totais municipais (PIB, Receitas e Despesas); diferença percentual (%) nas métricas per capita"
-      >
-        <strong>Comparativo nacional:</strong> ranking e quartil (totais municipais), diferença em %
-        (per capita) dos municípios brasileiros
-      </span>
-      <div class="flex items-center gap-3">
-        <span
-          class="flex items-center gap-1 font-semibold text-emerald-800"
-          title="Acima da mediana dos municípios"
-        >
-          <span aria-hidden="true">▲</span> acima da mediana
-        </span>
-        <span
-          class="flex items-center gap-1 font-semibold text-zinc-900"
-          title="Na mediana dos municípios (0,0% ou 1,0x)"
-        >
-          <span aria-hidden="true">●</span> na mediana
-        </span>
-        <span
-          class="flex items-center gap-1 font-semibold text-red-700"
-          title="Abaixo da mediana dos municípios"
-        >
-          <span aria-hidden="true">▼</span> abaixo da mediana
-        </span>
-      </div>
-    </div>
-  }
 </div>

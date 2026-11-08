@@ -209,13 +209,4 @@ export class ResumoEconomiaComponent {
       ariaLabel,
     };
   }
-
-  temBenchmark(): boolean {
-    const compEco = this.secao()?.benchmark?.comparacoes;
-    const compFin = this.secaoFinancas()?.benchmark?.comparacoes;
-    return (
-      (!!compEco && Object.keys(compEco).length > 0) ||
-      (!!compFin && Object.keys(compFin).length > 0)
-    );
-  }
 }
