@@ -69,7 +69,7 @@ describe('DeputadosFederaisComponent', () => {
 
     const vander = el.querySelector('[data-testid="linha-deputado-vander loubet"]');
     const tagVander = vander?.querySelector('.tag-eleicao');
-    expect(tagVander?.textContent?.trim()).toBe('não concorreu');
+    expect(tagVander?.textContent?.trim()).toBe('outro cargo');
     expect(tagVander?.getAttribute('title')).toContain('Senador');
     expect(vander?.querySelector('.cell-situacao')).toBeNull();
     expect(vander?.textContent).toContain('Último:');

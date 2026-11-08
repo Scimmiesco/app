@@ -1261,11 +1261,11 @@ describe('CidadeComponent', () => {
 
   it('should handle non-reelected and did-not-run-for-office candidates with votes and unified badge (US-16)', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    // Vander Loubet: não disputou o cargo; a informação vive no selo sob a foto
+    // Vander Loubet: disputou outro cargo (Senador); a informação vive no selo sob a foto
     const linhaVander = compiled.querySelector('[data-testid="linha-deputado-vander loubet"]');
     expect(linhaVander).toBeTruthy();
     const tagVander = linhaVander?.querySelector('.tag-eleicao');
-    expect(tagVander?.textContent?.trim()).toBe('não concorreu');
+    expect(tagVander?.textContent?.trim()).toBe('outro cargo');
     expect(tagVander?.getAttribute('title')).toContain('Senador');
     expect(linhaVander?.querySelector('.cell-situacao')).toBeNull();
     expect(linhaVander?.textContent).not.toContain('Senado: 361.920');

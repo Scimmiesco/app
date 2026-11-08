@@ -43,44 +43,57 @@
       data-testid="card-comp-flavio"
     >
       <div class="flex items-start justify-between gap-2">
-        <div>
-          <span class="metric-label font-black text-black">Flávio Bolsonaro (Variação)</span>
+        <div class="min-w-0 flex-1">
+          <span
+            class="nome-candidato text-sm sm:text-base font-bold block truncate"
+            title="Flávio Bolsonaro (Variação)"
+            >Flávio Bolsonaro (Variação)</span
+          >
           <span class="numero-candidato" data-partido="PL">
             <span class="digito-partido" [style.color]="cor('PL')">22</span>
           </span>
         </div>
-        <app-partido-badge sigla="PL" />
+        <app-partido-badge sigla="PL" class="shrink-0" />
       </div>
-      <div class="flex items-baseline justify-between mt-2">
-        <span class="metric-value">{{ formatarVariacaoVotos(comp.difFlavioVotos) }}</span>
-        <span class="font-black text-base" [class.text-green-700]="comp.difFlavioVotos > 0">{{
-          formatarVariacaoPct(comp.difFlavioPct)
-        }}</span>
+      <div class="mt-auto pt-2">
+        <div class="flex items-baseline justify-between">
+          <span class="metric-value">{{ formatarVariacaoVotos(comp.difFlavioVotos) }}</span>
+          <span class="font-black text-base" [class.text-green-700]="comp.difFlavioVotos > 0">{{
+            formatarVariacaoPct(comp.difFlavioPct)
+          }}</span>
+        </div>
+        <span class="text-meta text-xs block mt-1"
+          >1T: {{ formatarPct(comp.t1.pct_flavio) }} → 2T:
+          {{ formatarPct(comp.t2.pct_flavio) }}</span
+        >
       </div>
-      <span class="text-meta text-xs block mt-1"
-        >1T: {{ formatarPct(comp.t1.pct_flavio) }} → 2T: {{ formatarPct(comp.t2.pct_flavio) }}</span
-      >
     </div>
 
     <div class="metric-card bg-white card-candidato" data-partido="PT" data-testid="card-comp-lula">
       <div class="flex items-start justify-between gap-2">
-        <div>
-          <span class="metric-label font-black text-black">Lula (Variação)</span>
+        <div class="min-w-0 flex-1">
+          <span
+            class="nome-candidato text-sm sm:text-base font-bold block truncate"
+            title="Lula (Variação)"
+            >Lula (Variação)</span
+          >
           <span class="numero-candidato" data-partido="PT">
             <span class="digito-partido" [style.color]="cor('PT')">13</span>
           </span>
         </div>
-        <app-partido-badge sigla="PT" />
+        <app-partido-badge sigla="PT" class="shrink-0" />
       </div>
-      <div class="flex items-baseline justify-between mt-2">
-        <span class="metric-value">{{ formatarVariacaoVotos(comp.difLulaVotos) }}</span>
-        <span class="font-black text-base" [class.text-green-700]="comp.difLulaVotos > 0">{{
-          formatarVariacaoPct(comp.difLulaPct)
-        }}</span>
+      <div class="mt-auto pt-2">
+        <div class="flex items-baseline justify-between">
+          <span class="metric-value">{{ formatarVariacaoVotos(comp.difLulaVotos) }}</span>
+          <span class="font-black text-base" [class.text-green-700]="comp.difLulaVotos > 0">{{
+            formatarVariacaoPct(comp.difLulaPct)
+          }}</span>
+        </div>
+        <span class="text-meta text-xs block mt-1"
+          >1T: {{ formatarPct(comp.t1.pct_lula) }} → 2T: {{ formatarPct(comp.t2.pct_lula) }}</span
+        >
       </div>
-      <span class="text-meta text-xs block mt-1"
-        >1T: {{ formatarPct(comp.t1.pct_lula) }} → 2T: {{ formatarPct(comp.t2.pct_lula) }}</span
-      >
     </div>
 
     <div
@@ -89,21 +102,27 @@
       data-testid="card-comp-comparecimento"
     >
       <div class="flex items-start justify-between gap-2">
-        <div>
-          <span class="metric-label font-black text-black">Migração de Terceiros</span>
-          <span class="text-xs text-meta block mt-0.5 font-bold">1º → 2º turno</span>
+        <div class="min-w-0 flex-1">
+          <span
+            class="nome-candidato text-sm sm:text-base font-bold block truncate"
+            title="Migração de Terceiros"
+            >Migração de Terceiros</span
+          >
+          <span class="numero-candidato text-meta" data-partido="OUTROS">1º → 2º turno</span>
         </div>
-        <span class="badge badge-xs badge-outros font-bold uppercase">Outros</span>
+        <span class="badge badge-xs badge-outros font-bold uppercase shrink-0">Outros</span>
       </div>
-      <div class="flex items-baseline justify-between mt-2">
-        <span class="metric-value">{{ formatarVariacaoVotos(comp.difOutrosVotos) }}</span>
-        <span class="font-bold text-sm text-meta">{{
-          formatarVariacaoPct(comp.difOutrosPct)
-        }}</span>
+      <div class="mt-auto pt-2">
+        <div class="flex items-baseline justify-between">
+          <span class="metric-value">{{ formatarVariacaoVotos(comp.difOutrosVotos) }}</span>
+          <span class="font-bold text-sm text-meta">{{
+            formatarVariacaoPct(comp.difOutrosPct)
+          }}</span>
+        </div>
+        <span class="text-meta text-xs block mt-1"
+          >1T: {{ formatarNumero(comp.t1.outros) }} votos redistribuídos</span
+        >
       </div>
-      <span class="text-meta text-xs block mt-1"
-        >1T: {{ formatarNumero(comp.t1.outros) }} votos redistribuídos</span
-      >
     </div>
   </div>
 

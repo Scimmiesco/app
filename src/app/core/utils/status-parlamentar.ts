@@ -2,7 +2,14 @@ import { ParlamentarItem } from '../models/contrato.model';
 import { formatarDataIso } from './formatadores';
 
 export type SituacaoParlamentar =
-  'eleito' | 'reeleito' | 'nao_reeleito' | 'suplente' | 'nao_concorreu' | 'em_exercicio' | 'outro';
+  | 'eleito'
+  | 'reeleito'
+  | 'nao_reeleito'
+  | 'suplente'
+  | 'outro_cargo'
+  | 'nao_concorreu'
+  | 'em_exercicio'
+  | 'outro';
 
 export interface TagParlamentar {
   situacao: SituacaoParlamentar;
@@ -87,14 +94,34 @@ export function resolverTagParlamentar(
   }
 
   if (status === 'nao_concorreu_ao_cargo') {
-    const cargo2026 = parlamentar.cargo_2026
-      ? '; concorreu a ' + parlamentar.cargo_2026 + ' (não eleito)'
-      : '';
+    const disputouOutroCargo =
+      Boolean(parlamentar.cargo_2026) || parlamentar.concorreu_2026 === true;
+    if (disputouOutroCargo) {
+      const sitOutro = (parlamentar.situacao_2026_outro || '').trim().toUpperCase();
+      const resultadoOutro = sitOutro.startsWith('ELEITO')
+        ? ' (eleito · TSE: ' + parlamentar.situacao_2026_outro + ')'
+        : ' (não eleito)';
+      const nomeOutroCargo = parlamentar.cargo_2026 || 'outro cargo';
+      return criarTag(
+        'outro_cargo',
+        'outro cargo',
+        'tag-nao-concorreu',
+        'Concorreu a ' +
+          nomeOutroCargo +
+          ' no pleito de ' +
+          anoPleito +
+          resultadoOutro +
+          '.' +
+          detalheMandato,
+        'badge-nao-concorreu',
+      );
+    }
+
     return criarTag(
       'nao_concorreu',
       'não concorreu',
       'tag-nao-concorreu',
-      'Não disputou este cargo no pleito de ' + anoPleito + cargo2026 + '.' + detalheMandato,
+      'Não disputou este cargo no pleito de ' + anoPleito + '.' + detalheMandato,
       'badge-nao-concorreu',
     );
   }

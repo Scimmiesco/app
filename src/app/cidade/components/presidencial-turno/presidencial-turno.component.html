@@ -31,10 +31,12 @@
       [attr.data-testid]="'card-presidencial-' + sufixo() + '-' + cand.chave"
     >
       <div class="flex items-start justify-between gap-2">
-        <div>
-          <span class="nome-candidato text-sm sm:text-base font-bold block" [title]="cand.nome">{{
-            cand.nome
-          }}</span>
+        <div class="min-w-0 flex-1">
+          <span
+            class="nome-candidato text-sm sm:text-base font-bold block truncate"
+            [title]="cand.nome"
+            >{{ cand.nome }}</span
+          >
           <span
             class="numero-candidato"
             [attr.data-partido]="cand.partido"
@@ -43,36 +45,38 @@
             <span class="digito-partido" [style.color]="cor(cand.partido)">{{ cand.numero }}</span>
           </span>
         </div>
-        <app-partido-badge [sigla]="cand.partido" />
+        <app-partido-badge [sigla]="cand.partido" class="shrink-0" />
       </div>
-      <div class="flex items-baseline justify-between mt-2">
-        <span class="metric-value">{{ formatarNumero(cand.votos) }}</span>
-        <span
-          class="font-black text-base texto-partido"
-          [attr.data-partido]="cand.partido"
-          [style.color]="cor(cand.partido)"
-        >
-          {{ formatarPct(cand.pct) }}
-        </span>
-      </div>
-      <div
-        class="barra-votos-trilho mt-2"
-        role="progressbar"
-        [attr.aria-valuenow]="cand.pct"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        [attr.aria-label]="'Percentual de votos de ' + cand.nome + ' no ' + turno() + 'º turno'"
-      >
+      <div class="mt-auto pt-2">
+        <div class="flex items-baseline justify-between">
+          <span class="metric-value">{{ formatarNumero(cand.votos) }}</span>
+          <span
+            class="font-black text-base texto-partido"
+            [attr.data-partido]="cand.partido"
+            [style.color]="cor(cand.partido)"
+          >
+            {{ formatarPct(cand.pct) }}
+          </span>
+        </div>
         <div
-          class="barra-votos-preenchimento"
-          [attr.data-partido]="cand.partido"
-          [style.width.%]="cand.pct"
-          [style.background-color]="cor(cand.partido)"
-        ></div>
+          class="barra-votos-trilho mt-2"
+          role="progressbar"
+          [attr.aria-valuenow]="cand.pct"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          [attr.aria-label]="'Percentual de votos de ' + cand.nome + ' no ' + turno() + 'º turno'"
+        >
+          <div
+            class="barra-votos-preenchimento"
+            [attr.data-partido]="cand.partido"
+            [style.width.%]="cand.pct"
+            [style.background-color]="cor(cand.partido)"
+          ></div>
+        </div>
+        <span class="text-meta text-xs block mt-1.5"
+          >{{ formatarPct(cand.pct) }} dos votos válidos</span
+        >
       </div>
-      <span class="text-meta text-xs block mt-1.5"
-        >{{ formatarPct(cand.pct) }} dos votos válidos</span
-      >
     </div>
   }
 
@@ -83,35 +87,37 @@
       [attr.data-testid]="'card-presidencial-' + sufixo() + '-outros'"
     >
       <div class="flex items-start justify-between gap-2">
-        <div>
+        <div class="min-w-0 flex-1">
           <span
-            class="nome-candidato text-sm sm:text-base font-bold block"
+            class="nome-candidato text-sm sm:text-base font-bold block truncate"
             title="Outros Candidatos"
             >Outros Candidatos</span
           >
-          <span class="text-xs text-meta block mt-0.5 font-bold">Diversos</span>
+          <span class="numero-candidato text-meta" data-partido="OUTROS">Diversos</span>
         </div>
-        <span class="badge badge-xs badge-outros font-bold uppercase">Outros</span>
+        <span class="badge badge-xs badge-outros font-bold uppercase shrink-0">Outros</span>
       </div>
-      <div class="flex items-baseline justify-between mt-2">
-        <span class="metric-value">{{ formatarNumero(dados().outros) }}</span>
-        <span class="font-black text-base text-slate-700">{{ formatarPct(pctOutros()) }}</span>
-      </div>
-      <div
-        class="barra-votos-trilho mt-2"
-        role="progressbar"
-        [attr.aria-valuenow]="pctOutros()"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        [attr.aria-label]="'Percentual de votos de outros candidatos no ' + turno() + 'º turno'"
-      >
+      <div class="mt-auto pt-2">
+        <div class="flex items-baseline justify-between">
+          <span class="metric-value">{{ formatarNumero(dados().outros) }}</span>
+          <span class="font-black text-base text-slate-700">{{ formatarPct(pctOutros()) }}</span>
+        </div>
         <div
-          class="barra-votos-preenchimento"
-          data-partido="OUTROS"
-          [style.width.%]="pctOutros()"
-        ></div>
+          class="barra-votos-trilho mt-2"
+          role="progressbar"
+          [attr.aria-valuenow]="pctOutros()"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          [attr.aria-label]="'Percentual de votos de outros candidatos no ' + turno() + 'º turno'"
+        >
+          <div
+            class="barra-votos-preenchimento"
+            data-partido="OUTROS"
+            [style.width.%]="pctOutros()"
+          ></div>
+        </div>
+        <span class="text-meta text-xs block mt-1.5">Demais votos do 1º turno</span>
       </div>
-      <span class="text-meta text-xs block mt-1.5">Demais votos do 1º turno</span>
     </div>
   }
 </div>

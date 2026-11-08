@@ -63,6 +63,15 @@ describe('PresidencialComparativoComponent', () => {
       '44.194',
     );
 
+    const resumoCards = el.querySelectorAll(
+      '[data-testid="comparativo-cards-resumo"] .card-candidato',
+    );
+    expect(resumoCards.length).toBe(3);
+    resumoCards.forEach((card) => {
+      expect(card.querySelector('.nome-candidato.truncate')).toBeTruthy();
+      expect(card.querySelector('.numero-candidato')).toBeTruthy();
+    });
+
     const headers = el.querySelectorAll('[data-testid="tabela-comparativa-presidencial"] thead th');
     expect(headers.length).toBe(4);
     expect(headers[0].textContent?.trim()).toBe('Candidato / Métrica');

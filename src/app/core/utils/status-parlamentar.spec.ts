@@ -34,18 +34,30 @@ describe('resolverTagParlamentar', () => {
     expect(suplente?.descricao).toContain('ficou como suplente');
   });
 
-  it('should explain when the candidate did not run for the office', () => {
-    const tag = resolverTagParlamentar(
+  it('should explain when the candidate ran for another office vs did not run', () => {
+    const outroCargo = resolverTagParlamentar(
       criar({
         status_eleicao_2026: 'nao_concorreu_ao_cargo',
         cargo_2026: 'Senador',
+        concorreu_2026: true,
         situacao: null,
       }),
     );
-    expect(tag?.situacao).toBe('nao_concorreu');
-    expect(tag?.texto).toBe('não concorreu');
-    expect(tag?.testId).toBe('badge-nao-concorreu');
-    expect(tag?.descricao).toContain('Senador');
+    expect(outroCargo?.situacao).toBe('outro_cargo');
+    expect(outroCargo?.texto).toBe('outro cargo');
+    expect(outroCargo?.testId).toBe('badge-nao-concorreu');
+    expect(outroCargo?.descricao).toContain('Senador');
+
+    const naoConcorreu = resolverTagParlamentar(
+      criar({
+        status_eleicao_2026: 'nao_concorreu_ao_cargo',
+        concorreu_2026: false,
+        situacao: null,
+      }),
+    );
+    expect(naoConcorreu?.situacao).toBe('nao_concorreu');
+    expect(naoConcorreu?.texto).toBe('não concorreu');
+    expect(naoConcorreu?.testId).toBe('badge-nao-concorreu');
   });
 
   it('should map current mandate without election as em exercício', () => {

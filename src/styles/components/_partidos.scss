@@ -194,6 +194,7 @@ $partidos: (
 
 // Cards de candidatos com destaque de cor partidária (Neo-Brutalismo / ADR-010)
 .card-candidato {
+  @apply flex flex-col justify-between h-full;
   position: relative;
   transition: tokens.$transition-fast;
 

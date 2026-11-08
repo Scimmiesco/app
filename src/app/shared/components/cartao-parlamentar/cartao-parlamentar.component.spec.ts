@@ -55,19 +55,30 @@ describe('CartaoParlamentarComponent', () => {
     ).toBe(true);
   });
 
-  it('should explain when the candidate did not run for the office', () => {
-    const el = render({
+  it('should explain when the candidate ran for a different office vs did not run', () => {
+    const elOutro = render({
       ...base,
       numero: null,
       status_eleicao_2026: 'nao_concorreu_ao_cargo',
       cargo_2026: 'Senador',
+      concorreu_2026: true,
       situacao: null,
     });
-    const tag = el.querySelector('.tag-eleicao');
-    expect(tag?.textContent?.trim()).toBe('não concorreu');
-    expect(tag?.classList.contains('tag-nao-concorreu')).toBe(true);
-    expect(tag?.getAttribute('data-testid')).toBe('badge-nao-concorreu');
-    expect(tag?.getAttribute('title')).toContain('Senador');
+    const tagOutro = elOutro.querySelector('.tag-eleicao');
+    expect(tagOutro?.textContent?.trim()).toBe('outro cargo');
+    expect(tagOutro?.classList.contains('tag-nao-concorreu')).toBe(true);
+    expect(tagOutro?.getAttribute('data-testid')).toBe('badge-nao-concorreu');
+    expect(tagOutro?.getAttribute('title')).toContain('Senador');
+
+    const elNaoConcorreu = render({
+      ...base,
+      numero: null,
+      status_eleicao_2026: 'nao_concorreu_ao_cargo',
+      concorreu_2026: false,
+      situacao: null,
+    });
+    const tagNaoConcorreu = elNaoConcorreu.querySelector('.tag-eleicao');
+    expect(tagNaoConcorreu?.textContent?.trim()).toBe('não concorreu');
   });
 
   it('should render em exercício for a current mandate', () => {
